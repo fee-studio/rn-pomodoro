@@ -1,3 +1,21 @@
+# custom ignore files ######################################
+# tmp file
+.tmp/
+
+# idea IDE config file
+ios/.idea/
+android/.idea/
+.idea/
+
+# build file
+ios/build
+android/build
+android/app/build/
+
+# ios pod file
+ios/Pods/
+# ##########################################################
+
 # Logs
 logs
 *.log

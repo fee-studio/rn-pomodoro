@@ -1,7 +1,18 @@
-## ===== App =====
-##### Q: 使用WebStorm直接 Debug react-native 项目的配制方法
+## ===== react-native =====
+##### Q: 使用WebStorm直接Debug react-native项目的配置方法
 A: [参考这里](https://blog.jetbrains.com/webstorm/2016/12/developing-mobile-apps-with-react-native-in-webstorm/)
 
+##### Q:
+A:
+
+##### Q:
+A:
+
+##### Q:
+A:
+
+##### Q:
+A:
 
 
 ## ===== iOS =====

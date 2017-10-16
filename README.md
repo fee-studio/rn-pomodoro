@@ -4,6 +4,7 @@ pomodoro app powered by react-native
 #### 项目技术栈
 
 - iOS/Android - Objective-C/Swift/Java/Kotlin
+    - 基础
 
 - JavaScript - ES2016/ES6
     - [ECMAScript6入门教程](http://es6.ruanyifeng.com/#docs/object)
@@ -24,3 +25,11 @@ pomodoro app powered by react-native
 
 - Node/NPM - 项目、包管理
     - [暂无]()
+
+
+- 其他
+    - [React Native专题文章](http://www.hangge.com/blog/cache/category_76_1.html)
+    - [React Native - Text组件使用详解（样式、属性、方法）](http://www.hangge.com/blog/cache/detail_1486.html)
+    - [图标优先从这里选](http://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=2706)
+
+

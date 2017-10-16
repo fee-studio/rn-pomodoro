@@ -19,10 +19,16 @@
   NSURL *jsCodeLocation;
 
   [[RCTBundleURLProvider sharedSettings] setDefaults];
-  
+
+  // 真机运行 -> first: npm start
 #ifdef DEBUG
-    // 真机运行 -> first: npm start
-    [[RCTBundleURLProvider sharedSettings] setJsLocation:@"172.16.20.133"];
+    if (TARGET_IPHONE_SIMULATOR) {
+        // 如果是模拟器
+        [[RCTBundleURLProvider sharedSettings] setJsLocation:@"127.0.0.1"];
+    } else {
+        // 如果是在 公司&真机
+        [[RCTBundleURLProvider sharedSettings] setJsLocation:@"172.16.20.133"];
+    }
 #endif
   
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];

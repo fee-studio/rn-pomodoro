@@ -21,8 +21,10 @@ class PomodoroApp extends Component {
     constructor(props) {
         super(props);
 
-        // myDataTest();
         console.log("feng");
+        // myDataTest();
+        console.log("yiyi");
+        console.log("yiyi");
     }
 
     render() {

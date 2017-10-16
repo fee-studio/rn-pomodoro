@@ -2,18 +2,18 @@
 # tmp file
 .tmp/
 
-# idea IDE config file
-ios/.idea/
-android/.idea/
-android/.gradle/
+# IDE config file
 .idea/
 
-# build file
-ios/build
+# android file
+android/.idea/
 android/build
 android/app/build/
+android/.gradle/
 
-# ios pod file
+# ios file
+ios/.idea/
+ios/build
 ios/Pods/
 # ##########################################################
 

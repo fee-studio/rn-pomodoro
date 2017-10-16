@@ -5,6 +5,7 @@
 # idea IDE config file
 ios/.idea/
 android/.idea/
+android/.gradle/
 .idea/
 
 # build file

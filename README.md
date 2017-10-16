@@ -30,6 +30,9 @@ pomodoro app powered by react-native
 - 其他
     - [React Native专题文章](http://www.hangge.com/blog/cache/category_76_1.html)
     - [React Native - Text组件使用详解（样式、属性、方法）](http://www.hangge.com/blog/cache/detail_1486.html)
+    - [React Native布局详细指南](http://blog.csdn.net/quanqinyang/article/details/52215641)
+
+- 开发素材
     - [图标优先从这里选](http://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=2706)
 
 

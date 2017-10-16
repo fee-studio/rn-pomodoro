@@ -21,8 +21,8 @@ A:
 A: React库不要用Pod去管理，会有一些文件找不到，用子项目的方式来添加到Libraries下面，记得把.a文件加到Build Phases -> Link Binary With Libraries下面。
    当然，也可以自动去Link， [参考这里](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content)
 
-##### Q:
-A:
+##### Q: React Native absolute positioning horizontal centre
+A: [方案](https://stackoverflow.com/questions/37317568/react-native-absolute-positioning-horizontal-centre)
 
 ##### Q:
 A:
@@ -39,8 +39,8 @@ A:
 ##### Q: (报错) Failed to establish session
 A: [参考这里](https://github.com/facebook/react-native/issues/6499)
 
-##### Q:
-A:
+##### Q: (报错) Error type 3. Activity class {com.awesome_project/ com.awesome_project.MainActivity} does not exist in react native (Android device)
+A: [答案](https://stackoverflow.com/questions/35131769/error-type-3-activity-class-com-awesome-project-com-awesome-project-mainactiv)
 
 ##### Q:
 A:

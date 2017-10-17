@@ -4,18 +4,68 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Dimensions, Image} from "react-native";
+import {StyleSheet, Text, View, Dimensions, Image, TouchableWithoutFeedback, TouchableHighlight} from "react-native";
 import * as Progress from 'react-native-progress';
+
+const status = {
+    play: 1,
+    pause: 2,
+};
 
 
 class ProgressChildView extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            myStatus: this.props.playStatus || status.pause,
+        };
+
+    }
+
+    componentDidMount() {
+        this.setState({
+            myStatus: this.props.playStatus,
+        })
+    }
+
+
+    /* VIP
+        react native this.setState will not re-render child component
+        参考：https://stackoverflow.com/questions/30679927/react-native-this-setstate-will-not-re-render-child-component
+    */
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            myStatus: nextProps.playStatus
+        })
+    }
+
+    c_stateView() {
+        if (this.state.myStatus === status.play) {
+            return (
+                <View style={styles.progressChildView}>
+                    <Image style={styles.play}
+                           source={require('../resources/pause.png')}/>
+                </View>
+            );
+        } else if (this.state.myStatus === status.pause) {
+            return (
+                <View style={styles.progressChildView}>
+                    <Image style={styles.play}
+                           source={require('../resources/play.png')}/>
+                </View>
+            );
+        } else {
+            return null;
+        }
+    }
+
+
     render() {
         return (
-            <View style={styles.progressChildView}>
-                <Image style={styles.play}
-                       source={require('../resources/play.png')}/>
-            </View>
-        );
+            this.c_stateView()
+        )
     }
 }
 
@@ -26,7 +76,7 @@ export class PomodoroScreen extends Component {
 
         this.state = {
             progressValue: 0,
-            isPlaying: false,
+            switcher: status.play,
         };
 
         // 进度
@@ -40,15 +90,61 @@ export class PomodoroScreen extends Component {
 
                 <View style={styles.progressContainer}>
                     <Text style={styles.progressText}>PomodoroScreen2</Text>
-                    <Progress.Circle size={200}
-                                     children={<ProgressChildView/>}
-                                     progress={this.state.progressValue}
-                                     style={styles.progressView}>
+                    {/*<TouchableWithoutFeedback onPress={() => this.actionToggle()}>*/}
+                    <TouchableWithoutFeedback onPress={this.actionToggle}>
+                        {/*<View>*/}
+                        {/*<Text>fffff</Text>*/}
+                        {/*</View>*/}
+                        <Progress.Circle size={200}
+                                         progress={this.state.progressValue}
+                                         style={styles.progressView}
 
-                    </Progress.Circle>
+                        >
+                            <ProgressChildView playStatus={this.state.switcher}/>
+                        </Progress.Circle>
+
+                    </TouchableWithoutFeedback>
                 </View>
             </View>
         );
+    }
+
+    /* VIP
+        onPress 必须的这么写 onPress={()=>this.actionToggle()} ，this.state.switcher 才是定义过的，
+     */
+    /*
+    actionToggle() {
+        console.log('actionPlay' + this.state.switcher);
+
+        if (this.state.switcher === status.play) {
+            this.setState({
+                switcher: status.pause,
+            })
+        } else {
+            this.setState({
+                switcher: status.play,
+            })
+        }
+    }
+    */
+
+    /* VIP
+        如果这么写onPress={this.actionToggle} ，就要用以下方式定义方法。
+     */
+    actionToggle = () => {
+        console.log('actionPlay' + this.state.switcher);
+
+        if (this.state.switcher === status.play) {
+            this.setState({
+                switcher: status.pause,
+            })
+        } else {
+            this.setState({
+                switcher: status.play,
+            })
+        }
+
+        // this.forceUpdate();
     }
 
     progress() {
@@ -105,12 +201,17 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        // alignSelf: 'center',
         resizeMode: "stretch",
         backgroundColor: "transparent",
-        // marginTop:-170,
     },
-    pause: {}
+    pause: {
+        width: 50,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        resizeMode: "stretch",
+        backgroundColor: "transparent",
+    }
 
 });
 

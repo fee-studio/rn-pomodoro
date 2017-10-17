@@ -2,14 +2,14 @@
 ##### Q: 使用WebStorm直接Debug react-native项目的配置方法
 A: [参考这里](https://blog.jetbrains.com/webstorm/2016/12/developing-mobile-apps-with-react-native-in-webstorm/)
 
-##### Q:
-A:
+##### Q: 有一个 react-native-debugger 调试器
+A: [传送门](https://github.com/jhen0409/react-native-debugger)
 
-##### Q:
-A:
+##### Q: (报错)Unhandled JS Exception: Missing Realm constructor. Did you run "react-native link realm"? Please see https://realm.io/docs/react-native/latest/#missing-realm-constructor for troubleshooting
+A: 不要用WebStorm自己的调试器(与Realm冲突)，要用 Chrome 或者 react-native-debugger
 
-##### Q:
-A:
+##### Q: react native this.setState will not re-render child component
+A: [参考](https://stackoverflow.com/questions/30679927/react-native-this-setstate-will-not-re-render-child-component)
 
 ##### Q:
 A:

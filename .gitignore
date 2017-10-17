@@ -7,13 +7,13 @@
 
 # android file
 android/.idea/
-android/build
+android/build/
 android/app/build/
 android/.gradle/
 
 # ios file
 ios/.idea/
-ios/build
+ios/build/
 ios/Pods/
 # ##########################################################
 

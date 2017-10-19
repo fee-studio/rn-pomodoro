@@ -1,5 +1,5 @@
 # rn-pomodoro
-pomodoro app powered by react-native
+Pomodoro app powered by react-native.
 
 #### 项目技术栈
 
@@ -36,3 +36,18 @@ pomodoro app powered by react-native
     - [图标优先从这里选](http://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=2706)
 
 
+- 使用的第三方库的链接
+    - [realm](https://github.com/realm/realm-js)
+    - [react-navigation](https://github.com/react-community/react-navigation)
+    - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
+    - [react-native-storage](https://github.com/sunnylqm/react-native-storage)
+    - [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
+    - [react-native-image-progress](https://github.com/oblador/react-native-image-progress)
+    - [react-native-circular-progress](https://github.com/bgryszko/react-native-circular-progress)
+    - [react-native-progress](https://github.com/oblador/react-native-progress)
+    - [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
+    - [react-native-picker](https://github.com/beefe/react-native-picker)
+    - [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast)
+    - [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
+    - [NativeBase](https://github.com/GeekyAnts/NativeBase)
+    - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)

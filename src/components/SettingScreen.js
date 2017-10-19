@@ -148,24 +148,19 @@ const styles = StyleSheet.create({
     itemContentView: {
         marginRight: 10,
         justifyContent: 'center',
-        backgroundColor: '#0ff',
     },
     itemTitleView: {
         marginLeft: 10,
         justifyContent: 'center',
-        backgroundColor: '#ff0',
     },
     itemTitle: {
         marginLeft: 10,
-        backgroundColor: '#f00',
     },
     itemArrowRightView: {
         marginRight: 10,
         justifyContent: 'center',
-        backgroundColor: '#09f',
     },
     itemArrowRight: {
-        backgroundColor: '#193',
         width: 20,
         height: 20,
     },
@@ -175,12 +170,10 @@ const styles = StyleSheet.create({
     },
     itemOnOff: {
         marginRight: 10,
-        backgroundColor: '#f0f',
     },
     itemContent: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#0f0',
         marginRight: 10,
         color: '#666'
     },

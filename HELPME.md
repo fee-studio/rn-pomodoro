@@ -11,6 +11,27 @@ A: 不要用WebStorm自己的调试器(与Realm冲突)，要用 Chrome 或者 re
 ##### Q: react native this.setState will not re-render child component
 A: [参考](https://stackoverflow.com/questions/30679927/react-native-this-setstate-will-not-re-render-child-component)
 
+##### Q: (报错)
+```
+Warning: PropTypes has been moved to a separate package. Accessing React.PropTypes is no longer supported and will be removed completely in React 16. Use the prop-types package on npm instead.
+Warning: checkPropTypes has been moved to a separate package. Accessing React.checkPropTypes is no longer supported and will be removed completely in React 16. Use the prop-types package on npm instead.
+Warning: React.createClass is no longer supported. Use a plain JavaScript class instead. If you're not yet ready to migrate, create-react-class is available on npm as a drop-in replacement.
+```
+
+A: [答案](https://stackoverflow.com/a/46380918/8799673)
+
+##### Q: (技巧) navigation bar 上面右边按钮的调用实例方法 / Best pattern for a 'Save' button in the header
+A: [答案](https://github.com/react-community/react-navigation/issues/145#issuecomment-337826964)
+
+##### Q:
+A:
+
+##### Q:
+A:
+
+##### Q:
+A:
+
 ##### Q:
 A:
 

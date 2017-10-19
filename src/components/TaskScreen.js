@@ -4,11 +4,12 @@
  */
 
 import React, {PureComponent} from 'react';
-import {SectionList, Text, View} from "react-native";
+import {Button, SectionList, Text, View} from "react-native";
 import {Header, TabNavigator} from "react-navigation";
 
 
 class TaskListItem extends PureComponent {
+
     constructor(props) {
         super(props);
 
@@ -76,78 +77,78 @@ class TaskList extends PureComponent {
             },
             {
                 data: [
-                    {title: 'data-title-21', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-22', },
-                    {title: 'data-title-23', },
+                    {title: 'data-title-21',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-22',},
+                    {title: 'data-title-23',},
                 ],
                 sectionTitle: "section-title-22222",
             },
             {
                 data: [
-                    {title: 'data-title-31', },
-                    {title: 'data-title-32', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
-                    {title: 'data-title-33', },
+                    {title: 'data-title-31',},
+                    {title: 'data-title-32',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
+                    {title: 'data-title-33',},
                 ],
                 sectionTitle: "section-title-33333",
             },
@@ -197,7 +198,7 @@ class TaskList extends PureComponent {
 
                 {/* 如果你想要不同的组返回不同样式的子组件那就按照这个的结构返回不同的renderItem即可*/}
                 {/*<SectionList sections={this.items2}*/}
-                             {/*renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}*/}
+                {/*renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}*/}
                 {/*/>*/}
             </View>
         );
@@ -205,6 +206,11 @@ class TaskList extends PureComponent {
 }
 
 export default class TaskScreen extends PureComponent {
+
+    static navigationOptions = ({navigation, screenProps}) => ({
+        title: "任务清单",
+        headerRight: <Button title="添加" onPress={() => navigation.navigate('CreateTask')}/>,
+    });
 
     render() {
         return (

@@ -9,6 +9,7 @@ import * as Progress from 'react-native-progress';
 import CountdownCircle from '../libs/CountDown'
 
 const status = {
+    init: 0,
     play: 1,
     pause: 2,
 };
@@ -17,6 +18,7 @@ const tomatoDuration = 5; // 5秒
 // const tomatoDuration = 25 * 60;
 
 class ProgressChildView extends Component {
+
 
     constructor(props) {
         super(props);
@@ -44,7 +46,14 @@ class ProgressChildView extends Component {
     }
 
     c_stateView() {
-        if (this.state.myStatus === status.play) {
+        if (this.state.myStatus === status.init) {
+            return (
+                <View style={styles.progressChildView}>
+                    <Image style={styles.play}
+                           source={require('../resources/play.png')}/>
+                </View>
+            );
+        } else if (this.state.myStatus === status.play) {
             return (
                 <View style={styles.progressChildView}>
                     <Image style={styles.play}
@@ -73,6 +82,11 @@ class ProgressChildView extends Component {
 
 
 export class PomodoroScreen extends Component {
+
+    static navigationOptions = ({navigation, screenProps}) => ({
+        header:null,
+    });
+
     constructor(props) {
         super(props);
 
@@ -91,23 +105,26 @@ export class PomodoroScreen extends Component {
                 <View style={styles.progressContainer}>
                     <Text style={styles.tomatoTime}>PomodoroScreen2</Text>
 
-                    <TouchableWithoutFeedback onPress={this.actionToggle}
-
-                    >
+                    <TouchableWithoutFeedback onPress={this.actionToggle}>
                         <View style={styles.circleProgressView}>
                             <CountdownCircle
                                 seconds={tomatoDuration}
                                 radius={100}
                                 borderWidth={8}
-                                color="#ff003f"
-                                bgColor="#fff"
-                                textStyle={{fontSize: 20}}
-                                onTimeElapsed={() => console.log('Elapsed!')}
+                                animation={this.state.switcher}
+                                updateText={() => {
+                                }}
+                                onTimeElapsed={() => {
+                                    this.setState({
+                                        switcher: status.init,
+                                    });
+                                }}
                             >
                                 <ProgressChildView playStatus={this.state.switcher}/>
                             </CountdownCircle>
                         </View>
                     </TouchableWithoutFeedback>
+
                     <Text style={styles.tomatoTask}>PomodoroScreen22222222</Text>
                 </View>
 
@@ -145,34 +162,34 @@ export class PomodoroScreen extends Component {
             this.setState({
                 switcher: status.pause,
             });
-            this.actionPause();
+            // this.actionPause();
         } else {
             this.setState({
                 switcher: status.play,
             });
-            this.actionPlay();
+            // this.actionPlay();
         }
     };
 
     actionPlay() {
-        const millisecond = 1000.0;
-        const interval = 100.0;
-        this.timerProgress = setInterval(() => {
-            this.setState({
-                progressValue: this.state.progressValue + 1.0 / (tomatoDuration * (millisecond / interval))
-            });
-
-            if (this.state.progressValue >= 1) {
-                clearInterval(this.timerProgress)
-            }
-        }, interval)
+        // const millisecond = 1000.0;
+        // const interval = 100.0;
+        // this.timerProgress = setInterval(() => {
+        //     this.setState({
+        //         progressValue: this.state.progressValue + 1.0 / (tomatoDuration * (millisecond / interval))
+        //     });
+        //
+        //     if (this.state.progressValue >= 1) {
+        //         clearInterval(this.timerProgress)
+        //     }
+        // }, interval)
     }
 
     actionPause() {
         // this.setState({
         //     progressValue: this.state.progressValue + 1.0 / (tomatoDuration * (millisecond / interval))
         // })
-        clearInterval(this.timerProgress);
+        // clearInterval(this.timerProgress);
     }
 
 }

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         left: 0,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
-        backgroundColor: '#f00',
+        backgroundColor: '#f0f',
     },
 })
 
@@ -90,6 +90,7 @@ export default class PercentageCircle extends React.PureComponent {
         shadowColor: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
         bgColor: PropTypes.string,
         borderWidth: PropTypes.number,
+        animation: PropTypes.number,
         containerStyle: ViewPropTypesStyle,
         textStyle: Text.propTypes.style,
         updateText: PropTypes.func,
@@ -97,11 +98,12 @@ export default class PercentageCircle extends React.PureComponent {
     };
 
     static defaultProps = {
-        color: '#f00',
-        shadowColor: '#999',
+        color: '#ccc',
+        shadowColor: '#d66',
         bgColor: '#e9e9ef',
         borderWidth: 2,
         seconds: 10,
+        animation: false,
         children: null,
         containerStyle: null,
         textStyle: null,
@@ -114,7 +116,7 @@ export default class PercentageCircle extends React.PureComponent {
         super(props)
 
         this.state = getInitialState(props)
-        this.restartAnimation()
+        // this.startAnimation()
     }
 
     componentWillReceiveProps(nextProps) {
@@ -123,18 +125,34 @@ export default class PercentageCircle extends React.PureComponent {
                 field => nextProps[field] !== this.props[field],
             )
         ) {
-            this.state.circleProgress.stopAnimation()
-            this.setState(getInitialState(nextProps), this.restartAnimation)
+            // this.stopAnimation()
+            // this.setState(getInitialState(nextProps))
+            // this.setState(getInitialState(nextProps), this.startAnimation)
+
+            // nextProps.animation ? this.startAnimation() : this.stopAnimation();
+            this.setupAnimation(nextProps.animation)
         }
     }
 
+    setupAnimation(animation) {
+        if (animation === 0) {
+            this.resetAnimation()
+        } else if (animation === 1) {
+            this.startAnimation()
+        } else if (animation === 2) {
+            this.stopAnimation()
+            // this.resetAnimation()
+        }
+    }e
+
     onCircleAnimated = ({finished}) => {
         // if animation was interrupted by stopAnimation don't restart it.
+        /*
         if (!finished) return
 
         const secondsElapsed = this.state.secondsElapsed + 1
-        const callback = secondsElapsed < this.props.seconds
-            ? this.restartAnimation
+        const callback = secondsElapsed < 1
+            ? this.startAnimation
             : this.props.onTimeElapsed
         const updatedText = this.props.updateText(
             secondsElapsed,
@@ -148,16 +166,43 @@ export default class PercentageCircle extends React.PureComponent {
             },
             callback,
         )
+        */
+        if (!finished) return
+
+        const callback = this.props.onTimeElapsed
+        const updatedText = this.props.updateText(
+            this.props.seconds,
+        );
+        this.setState(
+            {
+                ...getInitialState(this.props),
+                text: updatedText,
+            },
+            callback,
+        )
+
     };
 
-    restartAnimation = () => {
-        this.state.circleProgress.stopAnimation()
+    startAnimation = () => {
+        this.stopAnimation();
         Animated.timing(this.state.circleProgress, {
             toValue: 100,
-            duration: 5 * 1000,
+            duration: this.props.seconds * 1000,
             easing: Easing.linear,
+        // }).start()
         }).start(this.onCircleAnimated)
     };
+
+    stopAnimation = () => {
+        this.state.circleProgress.stopAnimation()
+    }
+
+    resetAnimation = () => {
+        // this.circleProgress = new Animated.Value(0)
+        this.state.circleProgress.resetAnimation()
+    }
+
+
 
     renderHalfCircle({rotate, backgroundColor}) {
         const {radius} = this.props

@@ -44,7 +44,6 @@ export class RealmDemo extends Component {
         //     ? 'Number of dogs in this Realm: ' + this.state.realm.objects('Dog').length
         //     : 'Loading...';
 
-
         let list = this.state.realm
             ? this.state.realm.objects('Dog')
             : 'no dog';

@@ -23,6 +23,9 @@ A: [答案](https://stackoverflow.com/a/46380918/8799673)
 ##### Q: (技巧) navigation bar 上面右边按钮的调用实例方法 / Best pattern for a 'Save' button in the header
 A: [答案](https://github.com/react-community/react-navigation/issues/145#issuecomment-337826964)
 
+##### Q: React Native absolute positioning horizontal centre
+A: [方案](https://stackoverflow.com/questions/37317568/react-native-absolute-positioning-horizontal-centre)
+
 ##### Q:
 A:
 
@@ -42,9 +45,6 @@ A:
 A: React库不要用Pod去管理，会有一些文件找不到，用子项目的方式来添加到Libraries下面，记得把.a文件加到Build Phases -> Link Binary With Libraries下面。
    当然，也可以自动去Link， [参考这里](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content)
 
-##### Q: React Native absolute positioning horizontal centre
-A: [方案](https://stackoverflow.com/questions/37317568/react-native-absolute-positioning-horizontal-centre)
-
 ##### Q:
 A:
 
@@ -57,7 +57,7 @@ A:
 
 ## ===== Android =====
 
-##### Q: (报错) Failed to establish session
+##### Q: (报错)小米手机会这样：Failed to establish session
 A: [参考这里](https://github.com/facebook/react-native/issues/6499)
 
 ##### Q: (报错) Error type 3. Activity class {com.awesome_project/ com.awesome_project.MainActivity} does not exist in react native (Android device)

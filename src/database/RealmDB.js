@@ -9,6 +9,7 @@ import Realm from 'realm'
 class Tomato extends Realm.Object {}
 Tomato.schema = {
     name: "Tomato",
+    primaryKey: 'tomatoId',
     properties: {
         tomatoId: {type: 'string'},
         startTime: {type: 'date'},
@@ -24,6 +25,7 @@ Tomato.schema = {
 class Task extends Realm.Object {}
 Task.schema = {
     name: 'Task',
+    primaryKey: 'taskId',
     properties: {
         taskId: {type: 'string'},
         taskName: {type: 'string'},

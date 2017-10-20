@@ -6,7 +6,7 @@
 import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View} from "react-native";
 import {Header, TabNavigator} from "react-navigation";
-
+import realm from '../database/RealmDB'
 
 class TaskListItem extends PureComponent {
 
@@ -45,58 +45,35 @@ class TaskList extends PureComponent {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            tasks: [],
+            taskItems: []
+        };
+
+
+        // this.state.tasks = realm.objects('Task');
+        // this.tasks.addListener((name, changes) => {
+        //     this.setState({
+        //         taskItems: name,
+        //     });
+        // });
+
+        // this.taskItems = realm.objects('Task');
+        // this.taskItems.addListener((name, changes) => {
+        //     console.log(name + " changed: " + JSON.stringify(changes));
+        // });
+
         this.items = [
             {
-                data: [
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                    {title: 'data-title-11',},
-                    {title: 'data-title-12',},
-                    {title: 'data-title-13',},
-                ],
+                data: [],
                 sectionTitle: "section-title-11111",
             },
             {
                 data: [
                     {title: 'data-title-21',},
                     {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-22',},
-                    {title: 'data-title-23',},
+
                 ],
                 sectionTitle: "section-title-22222",
             },
@@ -107,48 +84,7 @@ class TaskList extends PureComponent {
                     {title: 'data-title-33',},
                     {title: 'data-title-33',},
                     {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
+
                 ],
                 sectionTitle: "section-title-33333",
             },
@@ -184,15 +120,37 @@ class TaskList extends PureComponent {
         ]
     }
 
+    componentDidMount() {
+        const _tasks = realm.objects('Task');
+        this.setupListData(_tasks)
+
+        // 监听数据变化
+        _tasks.addListener((tasks, changes) => {
+            this.setupListData(tasks)
+        });
+    }
+
+    setupListData(tasks) {
+        this.setState({
+            tasks: tasks,
+            taskItems: [
+                {
+                    data: tasks,
+                    sectionTitle: "section-title-11111",
+                }
+            ],
+        });
+    }
+
     _keyExtractor = (item, index) => index;
 
     render() {
         return (
             <View style={{flex: 1}}>
                 {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
-                <SectionList renderItem={({item}) => <TaskListItem title={item.title}/>}
+                <SectionList renderItem={({item}) => <TaskListItem title={item.taskName}/>}
                              renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
-                             sections={this.items}
+                             sections={this.state.taskItems}
                              keyExtractor={this._keyExtractor}
                 />
 

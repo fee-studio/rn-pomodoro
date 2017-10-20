@@ -40,6 +40,7 @@ export default class CreateTaskScreen extends React.PureComponent {
 
         realm.write(() => {
             realm.create('Task', {
+                taskId: "" + (realm.objects('Task').length + 1),
                 taskName: this.state.taskName,
                 isRemind: this.state.isRemind,
                 createTime: new Date(),
@@ -47,7 +48,7 @@ export default class CreateTaskScreen extends React.PureComponent {
                 actionTime: new Date(),
                 remindTime: this.state.isRemind ? new Date() : null,
                 status: this.state.status,
-                tomatoes: null,
+                tomatoes: [],
             });
         });
     }

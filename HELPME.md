@@ -6,7 +6,7 @@ A: [参考这里](https://blog.jetbrains.com/webstorm/2016/12/developing-mobile-
 A: [传送门](https://github.com/jhen0409/react-native-debugger)
 
 ##### Q: (报错)Unhandled JS Exception: Missing Realm constructor. Did you run "react-native link realm"? Please see https://realm.io/docs/react-native/latest/#missing-realm-constructor for troubleshooting
-A: 不要用WebStorm自己的调试器(与Realm冲突)，要用 Chrome 或者 react-native-debugger
+A: 暂无解，不要用WebStorm自己的调试器(与Realm冲突)，要用 Chrome 或者 react-native-debugger
 
 ##### Q: react native this.setState will not re-render child component
 A: [参考](https://stackoverflow.com/questions/30679927/react-native-this-setstate-will-not-re-render-child-component)
@@ -26,11 +26,11 @@ A: [答案](https://github.com/react-community/react-navigation/issues/145#issue
 ##### Q: React Native absolute positioning horizontal centre
 A: [方案](https://stackoverflow.com/questions/37317568/react-native-absolute-positioning-horizontal-centre)
 
-##### Q:
-A:
+##### Q: 当 "Debug JS Remotely" 并且用 "iOS simulator" 时，realm添加数据后，listener不会实时返回新数据。真机不会有问题。而且，不调试时也没有问题。
+A: 暂无解
 
-##### Q:
-A:
+##### Q: (报错) Native module cannot be null.
+A: 有可能你写了这样的import语句: import * as Alert from "react-native";
 
 ##### Q:
 A:

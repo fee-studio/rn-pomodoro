@@ -27,6 +27,15 @@ class StatisticsItem extends PureComponent {
 
 
 export default class StatisticsScreen extends PureComponent {
+
+    static navigationOptions = ({navigation, screenProps}) => ({
+        title: "统计",
+        // headerRight: <Button title="添加" onPress={() => {
+        //     console.log('add :' + JSON.stringify(navigation));
+        //     navigation.navigate('CreateTask')
+        // }}/>,
+    });
+
     constructor(props) {
         super(props);
 

@@ -4,9 +4,22 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Dimensions, Image, TouchableWithoutFeedback, TouchableHighlight} from "react-native";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Dimensions,
+    Image,
+    TouchableWithoutFeedback,
+    TouchableHighlight,
+    Alert
+} from "react-native";
 import * as Progress from 'react-native-progress';
 import CountdownCircle from '../libs/CountDown'
+import {Tomato} from "../database/RealmDB";
+import {DefaultTomatoConfig, TomatoState} from "../config/GlobalData";
+import Initialization from "../config/Initialization";
+import GlobalData from "../config/GlobalData";
 
 const status = {
     init: 0,
@@ -18,7 +31,6 @@ const tomatoDuration = 5; // 5秒
 // const tomatoDuration = 25 * 60;
 
 class ProgressChildView extends Component {
-
 
     constructor(props) {
         super(props);
@@ -84,7 +96,7 @@ class ProgressChildView extends Component {
 export class PomodoroScreen extends Component {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        header:null,
+        header: null,
     });
 
     constructor(props) {
@@ -99,9 +111,16 @@ export class PomodoroScreen extends Component {
         // this.progress()
     }
 
+
+    componentDidMount() {
+        console.log('DefaultTomatoConfig = ' + DefaultTomatoConfig);
+        console.log('DefaultTomatoConfig = ' + JSON.stringify(DefaultTomatoConfig));
+
+    }
+
     render() {
         return (
-            <View style={styles.container}>
+            <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
                     <Text style={styles.tomatoTime}>PomodoroScreen2</Text>
 
@@ -158,18 +177,60 @@ export class PomodoroScreen extends Component {
     actionToggle = () => {
         console.log('actionPlay' + this.state.switcher);
 
+        /*
         if (this.state.switcher === status.play) {
             this.setState({
                 switcher: status.pause,
             });
             // this.actionPause();
         } else {
+
+            Alert.alert(
+                'Alert Title',
+                'My Alert Msg',
+                [
+                    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+                    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ],
+                { cancelable: false }
+            )
+
+
+
             this.setState({
                 switcher: status.play,
             });
             // this.actionPlay();
         }
+        */
+
+        let tomato = new Tomato();
+        if (tomato.state === TomatoState.TomatoStateStart) {
+            Alert.alert(
+                '要终止这个番茄钟吗？',
+                '',
+                [
+                    {text: '不要', onPress: () => console.log('Ask me later pressed')},
+                    {text: '终止', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                ],
+                {cancelable: false}
+            )
+        } else if (tomato.state === TomatoState.TomatoStateUnknown || tomato.state === TomatoState.TomatoStateCancel) {
+            Alert.alert(
+                '是否要先选择任务？',
+                '',
+                [
+                    {text: '暂不', onPress: () => console.log('Ask me later pressed')},
+                    {text: '选任务', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                ],
+                {cancelable: false}
+            )
+        }
+
+
     };
+
 
     actionPlay() {
         // const millisecond = 1000.0;
@@ -198,7 +259,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#00f',
         flex: 1,
-
     },
     text1: {
         backgroundColor: '#ff0',

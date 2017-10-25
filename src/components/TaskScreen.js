@@ -4,200 +4,76 @@
  */
 
 import React, {PureComponent} from 'react';
-import {Button, SectionList, Text, View} from "react-native";
-import {Header, TabNavigator} from "react-navigation";
+import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
-
-class TaskListItem extends PureComponent {
-
-    constructor(props) {
-        super(props);
-
-        this.title = props.title || "default-title";
-    }
-
-    render() {
-        return (
-            <View style={{flex: 1}}>
-                <Text>{this.title} + 000</Text>
-            </View>
-        );
-    }
-}
-
-class TaskListItemHeader extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.title = props.title || "default-title";
-    }
-
-    render() {
-        return (
-            <View style={{flex: 1, backgroundColor: '#f00'}}>
-                <Text>header: {this.title}</Text>
-            </View>
-        );
-    }
-}
-
-class TaskList extends PureComponent {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            tasks: [],
-            taskItems: []
-        };
+import {StackRouter, TabNavigator} from "react-navigation";
+import {TaskListView} from "./TaskListView";
+import {TaskState, TaskStateTitle} from "../config/GlobalData";
 
 
-        // this.state.tasks = realm.objects('Task');
-        // this.tasks.addListener((name, changes) => {
-        //     this.setState({
-        //         taskItems: name,
-        //     });
-        // });
-
-        // this.taskItems = realm.objects('Task');
-        // this.taskItems.addListener((name, changes) => {
-        //     console.log(name + " changed: " + JSON.stringify(changes));
-        // });
-
-        this.items = [
-            {
-                data: [],
-                sectionTitle: "section-title-11111",
-            },
-            {
-                data: [
-                    {title: 'data-title-21',},
-                    {title: 'data-title-22',},
-
-                ],
-                sectionTitle: "section-title-22222",
-            },
-            {
-                data: [
-                    {title: 'data-title-31',},
-                    {title: 'data-title-32',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-                    {title: 'data-title-33',},
-
-                ],
-                sectionTitle: "section-title-33333",
-            },
-        ];
-        this.items2 = [
-            {
-                data: [
-                    {title: 'data-title-31', key: 'data-key-31',},
-                    {title: 'data-title-32', key: 'data-key-32',},
-                    {title: 'data-title-33', key: 'data-key-33',},
-                ],
-                sectionTitle: "section-title-33333",
-                renderItem: ({item}) => <TaskListItem title={item.title}/>,
-            },
-            {
-                data: [
-                    {title: 'data-title-21', key: 'data-key-21',},
-                    {title: 'data-title-22', key: 'data-key-22',},
-                    {title: 'data-title-23', key: 'data-key-23',},
-                ],
-                sectionTitle: "section-title-22222",
-                renderItem: ({item}) => <TaskListItem title={item.title}/>,
-            },
-            {
-                data: [
-                    {title: 'data-title-11', key: 'data-key-11',},
-                    {title: 'data-title-12', key: 'data-key-12',},
-                    {title: 'data-title-13', key: 'data-key-13',},
-                ],
-                sectionTitle: "section-title-11111",
-                renderItem: ({item}) => <TaskListItem title={item.title}/>,
-            },
-        ]
-    }
-
-    componentDidMount() {
-        const _tasks = realm.objects('Task');
-        this.setupListData(_tasks)
-
-        // 监听数据变化
-        _tasks.addListener((tasks, changes) => {
-            this.setupListData(tasks)
-        });
-    }
-
-    setupListData(tasks) {
-        this.setState({
-            tasks: tasks,
-            taskItems: [
-                {
-                    data: tasks,
-                    sectionTitle: "section-title-11111",
-                }
-            ],
-        });
-    }
-
-    _keyExtractor = (item, index) => index;
-
-    render() {
-        return (
-            <View style={{flex: 1}}>
-                {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
-                <SectionList renderItem={({item}) => <TaskListItem title={item.taskName}/>}
-                             renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
-                             sections={this.state.taskItems}
-                             keyExtractor={this._keyExtractor}
-                />
-
-                {/* 如果你想要不同的组返回不同样式的子组件那就按照这个的结构返回不同的renderItem即可*/}
-                {/*<SectionList sections={this.items2}*/}
-                {/*renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}*/}
-                {/*/>*/}
-            </View>
-        );
-    }
-}
-
-export default class TaskScreen extends PureComponent {
-
-    static navigationOptions = ({navigation, screenProps}) => ({
-        title: "任务清单",
-        headerRight: <Button title="添加" onPress={() => navigation.navigate('CreateTask')}/>,
-    });
-
-    render() {
-        return (
-            <TasksTab/>
-        );
-    }
-}
-
-
-const TasksTab = TabNavigator(
+export const TasksTabs = TabNavigator(
     {
         todayTask: {
-            screen: TaskList,
+            screen: TaskListView,
+            navigationOptions: {
+                _type: TaskState.TaskStateTodo,
+                title: TaskStateTitle.TaskStateTitleTodo,
+                // tabBarLabel: TaskStateTitle.TaskStateTitleTodo, // VIP 这个会改变下面的主tabbar的名字，不用这个
+            },
         },
         willTask: {
-            screen: TaskList,
+            screen: TaskListView,
+            navigationOptions: {
+                _type: TaskState.TaskStatePlan,
+                title: TaskStateTitle.TaskStateTitlePlan,
+            },
         },
         didTask: {
-            screen: TaskList,
+            screen: TaskListView,
+            navigationOptions: {
+                _type: TaskState.TaskStateComplete,
+                title: TaskStateTitle.TaskStateTitleComplete,
+            },
         },
         unDoneTask: {
-            screen: TaskList,
+            screen: TaskListView,
+            navigationOptions: {
+                _type: TaskState.TaskStateOverdue,
+                title: TaskStateTitle.TaskStateTitleOverdue,
+            },
         },
     },
     {
         tabBarPosition: 'top',
         animationEnabled: true,
         swipeEnabled: true,
+        tabBarOptions: {
+            showIcon: false,
+            style: {height: 40},
+            labelStyle: {fontSize: 12, justifyContent: 'center', alignItems: 'center', marginTop: 5}
+        }
     }
 );
+
+export default class TaskScreen extends PureComponent {
+
+    static navigationOptions = ({navigation, screenProps}) => ({
+        title: "任务清单",
+        headerRight: <Button title="添加" onPress={() => {
+            navigation.navigate('CreateTask')
+        }}/>,
+    });
+
+    render() {
+        return (
+            <View style={{flex: 1}}>
+                <TasksTabs navigation={this.props.navigation}/>
+            </View>
+        );
+    }
+}
+
+// VIP https://reactnavigation.org/docs/intro/nesting
+TaskScreen.router = TasksTabs.router;
 
 

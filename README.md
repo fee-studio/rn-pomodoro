@@ -6,7 +6,7 @@ Pomodoro app powered by react-native.
 - iOS/Android - Objective-C/Swift/Java/Kotlin
     - 基础
 
-- JavaScript - ES2016/ES6
+- JavaScript - ES2015/ES6
     - [ECMAScript6入门教程](http://es6.ruanyifeng.com/#docs/object)
     - [JavaScript教程](http://www.runoob.com/js/js-tutorial.html)
     - [React/React Native的ES5 ES6写法对照表](http://bbs.reactnative.cn/topic/15/react-react-native-的es5-es6写法对照表)
@@ -19,6 +19,7 @@ Pomodoro app powered by react-native.
 - ReactNative - React
     - [ReactNative中文文档](http://reactnative.cn/docs/0.48/getting-started.html)
     - [ReactNative官方文档](http://facebook.github.io/react-native/docs/getting-started.html)
+    - [react-native-guide](https://github.com/reactnativecn/react-native-guide)
 
 - 【进阶】Redux - 组件之间的通信
     - [Redux入门教程](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html)
@@ -52,3 +53,4 @@ Pomodoro app powered by react-native.
     - [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
     - [NativeBase](https://github.com/GeekyAnts/NativeBase)
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+    - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)

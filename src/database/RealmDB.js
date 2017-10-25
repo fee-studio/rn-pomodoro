@@ -5,8 +5,22 @@
 'use strict';
 
 import Realm from 'realm'
+import {TomatoState} from '../config/GlobalData'
 
-class Tomato extends Realm.Object {}
+export class Tomato extends Realm.Object {
+    constructor(props) {
+        super(props)
+
+        let tomatoId = "";
+        let startTime = new Date();
+        let endTime = new Date();
+        let isInterrupt = false;
+        let state = TomatoState.unknown;
+        let workDuring = 3;
+        let curTask = {};
+    }
+}
+
 Tomato.schema = {
     name: "Tomato",
     primaryKey: 'tomatoId',
@@ -22,7 +36,9 @@ Tomato.schema = {
 };
 
 
-class Task extends Realm.Object {}
+export class Task extends Realm.Object {
+}
+
 Task.schema = {
     name: 'Task',
     primaryKey: 'taskId',
@@ -40,7 +56,24 @@ Task.schema = {
 };
 
 
-class TomatoConfig extends Realm.Object {}
+export class TomatoConfig extends Realm.Object {
+
+    static getInstance() {
+        if (!TomatoConfig.instance) {
+            TomatoConfig.instance = new TomatoConfig();
+        }
+        return TomatoConfig.instance;
+    }
+
+    constructor() {
+        super()
+
+
+    }
+
+
+}
+
 TomatoConfig.schema = {
     name: "TomatoConfig",
     properties: {
@@ -59,7 +92,9 @@ TomatoConfig.schema = {
 };
 
 
-class Car extends Realm.Object {}
+class Car extends Realm.Object {
+}
+
 Car.schema = {
     name: 'Car',
     properties: {

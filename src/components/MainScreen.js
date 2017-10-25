@@ -3,17 +3,18 @@
  *  功能：
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation'
 import {PomodoroScreen} from './PomodoroScreen'
-import TaskScreen from './TaskScreen'
+import TaskScreen, {TaskList, TaskListItem} from './TaskScreen'
 import StatisticsScreen from './StatisticsScreen'
 import SettingScreen from './SettingScreen'
 import {RealmDemo} from "../database/RealmDemo";
 import CreateTaskScreen from "./CreateTaskScreen";
+import {TaskStateTitle} from "../config/GlobalData";
 
 
-const TabNav = TabNavigator(
+const RootTabs = TabNavigator(
     {
         PomodoroTab: {
             screen: PomodoroScreen,
@@ -41,15 +42,15 @@ const TabNav = TabNavigator(
         SettingTab: {
             screen: SettingScreen,
         },
-        RealmTest: {
-            screen: RealmDemo,
-        },
+        // RealmTest: {
+        //     screen: RealmDemo,
+        // },
     },
     {
         tabBarPosition: 'bottom',
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName:'TaskTab', // todo...
+        initialRouteName: 'TaskTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },
@@ -59,8 +60,13 @@ const TabNav = TabNavigator(
 
 export const StacksOverTabs = StackNavigator(
     {
-        Root: {screen: TabNav},
-        CreateTask:{screen:CreateTaskScreen},
-    },
+        RootTabs: {screen: RootTabs},
+        // TasksTabs: {screen: TasksTabs},
 
+        CreateTask: {screen: CreateTaskScreen},
+
+        // Task: {screen: TaskScreen},
+        // TaskList: {screen: TaskList},
+        // TaskListItem: {screen: TaskListItem},
+    },
 );

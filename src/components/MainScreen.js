@@ -50,7 +50,7 @@ const RootTabs = TabNavigator(
         tabBarPosition: 'bottom',
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TaskTab', // todo...
+        initialRouteName: 'PomodoroTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },

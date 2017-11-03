@@ -75,7 +75,7 @@ class SettingListItemHeader extends Component {
 export default class SettingScreen extends Component {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        title: "设置",
+        // title: "设置",
         // headerRight: <Button title="添加" onPress={() => {
         //     console.log('add :' + JSON.stringify(navigation));
         //     navigation.navigate('CreateTask')

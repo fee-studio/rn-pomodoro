@@ -3,29 +3,49 @@
  */
 
 
+/**
+ *  功能：
+ */
+
 'use strict';
 
-import Realm from 'realm'
+import {TomatoState, TomatoType} from '../config/GlobalData'
+import GlobalData from "../config/GlobalData";
 
-export class Tomato extends Realm.Object {
+export class TomatoModel {
+    // 数据库使用
+    tomatoId = ""
+    startTime = new Date()
+    endTime = new Date()
+    isInterrupt = false
+    state = TomatoState.TomatoStateUnknown
+    workDuring = 3
+    curTask = {}
+
+    // 本地使用
+    tomatoType = TomatoType.TomatoTypeInit
+
+
+    constructor(props) {
+
+    }
+
+    start(tomatoType = TomatoType.TomatoTypeWorking, curTask = {}) {
+        this.tomatoType = tomatoType;
+        this.startTime = new Date();
+        this.workDuring = GlobalData.DefaultTomatoConfig.workDuring;
+        this.curTask = curTask;
+        this.isInterrupt = false;
+        this.state = TomatoState.TomatoStateStart;
+
+        return this;
+    }
+
+
 }
 
-Tomato.schema = {
-    name: "Tomato",
-    primaryKey: 'tomatoId',
-    properties: {
-        tomatoId: {type: 'string'},
-        startTime: {type: 'date'},
-        endTime: {type: 'date'},
-        isInterrupt: {type: 'bool'},
-        state: {type: 'int'},
-        workDuring: {type: 'int'},
-        curTask: {type: 'Task'},
-    }
-};
-
-
-export class Task extends Realm.Object {
+/*
+export class TaskModel {
 }
 
 Task.schema = {
@@ -45,7 +65,7 @@ Task.schema = {
 };
 
 
-export class TomatoConfig extends Realm.Object {
+export class TomatoConfigModel {
 
     static getInstance() {
         if (!TomatoConfig.instance) {
@@ -97,3 +117,5 @@ Car.schema = {
 const realm = new Realm({schema: [Car, Task, Tomato, TomatoConfig]});
 
 export default realm;
+
+*/

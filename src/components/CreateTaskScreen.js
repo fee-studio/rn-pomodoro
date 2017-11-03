@@ -7,8 +7,9 @@ import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight} f
 import realm from '../database/RealmDB'
 import {TaskState} from "../config/GlobalData";
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import {connect} from "react-redux";
 
-export default class CreateTaskScreen extends React.PureComponent {
+class CreateTaskScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation}) => {
         const {params = {}} = navigation.state;
@@ -37,11 +38,10 @@ export default class CreateTaskScreen extends React.PureComponent {
     constructor(props) {
         super(props);
 
-        // console.log('realm = ' + realm.objects('Task').length);
-        // console.log('realm2 = ' + realm.objects('Task'));
+        // this.isCreateTask = this.props.navigation.state.params === undefined
+        //     || this.props.navigation.state.params.task === undefined;
 
-        this.isCreateTask = this.props.navigation.state.params === undefined
-            || this.props.navigation.state.params.task === undefined;
+        this.isCreateTask = this.props.item === undefined;
 
         console.log('isCreateTask = ' + this.isCreateTask);
 
@@ -60,7 +60,7 @@ export default class CreateTaskScreen extends React.PureComponent {
                 isDateTimePickerVisible: false,
             };
         } else {
-            this.task = this.props.navigation.state.params.task;
+            this.task = this.props.item;
             this.state = {
                 taskId: this.task.taskId,
                 taskName: this.task.taskName,
@@ -228,6 +228,14 @@ export default class CreateTaskScreen extends React.PureComponent {
         }
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        item: state.nav.item
+    };
+};
+
+export default connect(mapStateToProps)(CreateTaskScreen);
 
 
 const styles = StyleSheet.create({

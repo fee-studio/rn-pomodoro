@@ -17,9 +17,9 @@ import {
 import * as Progress from 'react-native-progress';
 import CountdownCircle from '../libs/CountDown'
 import {Tomato} from "../database/RealmDB";
-import {DefaultTomatoConfig, TomatoState} from "../config/GlobalData";
+import {TomatoState} from "../config/GlobalData";
 import Initialization from "../config/Initialization";
-import GlobalData from "../config/GlobalData";
+import {TomatoModel} from "../models/Models";
 
 const status = {
     init: 0,
@@ -95,9 +95,9 @@ class ProgressChildView extends Component {
 
 export class PomodoroScreen extends Component {
 
-    static navigationOptions = ({navigation, screenProps}) => ({
-        header: null,
-    });
+    // static navigationOptions = ({navigation, screenProps}) => ({
+    //     header: null,
+    // });
 
     constructor(props) {
         super(props);
@@ -109,12 +109,15 @@ export class PomodoroScreen extends Component {
 
         // 进度
         // this.progress()
+
+        // 初始化数据
+        new Initialization();
     }
 
 
     componentDidMount() {
-        console.log('DefaultTomatoConfig = ' + DefaultTomatoConfig);
-        console.log('DefaultTomatoConfig = ' + JSON.stringify(DefaultTomatoConfig));
+        // console.log('DefaultTomatoConfig = ' + GlobalData.defaultTomatoConfig());
+        // console.log('DefaultTomatoConfig = ' + JSON.stringify(DefaultTomatoConfig));
 
     }
 
@@ -205,7 +208,7 @@ export class PomodoroScreen extends Component {
         }
         */
 
-        let tomato = new Tomato();
+        let tomato = new TomatoModel();
         if (tomato.state === TomatoState.TomatoStateStart) {
             Alert.alert(
                 '要终止这个番茄钟吗？',
@@ -221,14 +224,25 @@ export class PomodoroScreen extends Component {
                 '是否要先选择任务？',
                 '',
                 [
-                    {text: '暂不', onPress: () => console.log('Ask me later pressed')},
-                    {text: '选任务', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                    {
+                        text: '暂不',
+                        onPress: () => {
+                            this.setState({
+                                switcher: status.play,
+                            });
+                            tomato.start();
+                        }
+                    },
+                    {
+                        text: '选任务',
+                        onPress: () => {
+                            this.props.navigation.navigate('TaskTab', {})
+                        }, style: 'cancel'
+                    },
                 ],
                 {cancelable: false}
             )
         }
-
-
     };
 
 

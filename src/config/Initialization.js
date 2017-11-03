@@ -6,8 +6,14 @@ import realm, {TomatoConfig} from '../database/RealmDB'
 
 export default class Initialization {
 
+    constructor() {
+        Initialization.initTomatoConfig();
+
+    }
 
     static initTomatoConfig() {
+        console.log("default realm database path = " + realm.path)
+
         let defaultTomatoConfig = null;
         let configs = realm.objects('TomatoConfig').filtered('index = 1');
         if (configs.length >= 1) {

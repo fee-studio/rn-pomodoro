@@ -29,6 +29,18 @@ export const TomatoState = {
     TomatoStateFinished: 4,
 }
 
+export const TomatoType = {
+    TomatoTypeInit: 0,
+    TomatoTypeWorking: 1,
+    TomatoTypeResting: 2,
+};
+
+export const TaskScreenType = {
+    TaskScreenTypeList: 0,
+    TaskScreenTypeSelect: 1,
+};
+
+
 // export  //
 
 export default class GlobalData {

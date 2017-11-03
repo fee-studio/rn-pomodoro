@@ -28,6 +28,9 @@ Pomodoro app powered by react-native.
 - Node/NPM - 项目、包管理
     - [暂无]()
 
+- 热更新
+    - [CodePush](http://microsoft.github.io/code-push/index.html#getting_started)
+    - []()
 
 - 其他
     - [React Native专题文章](http://www.hangge.com/blog/cache/category_76_1.html)

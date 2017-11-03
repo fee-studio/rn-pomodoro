@@ -32,6 +32,15 @@ A: 暂无解
 ##### Q: (报错) Native module cannot be null.
 A: 有可能你写了这样的import语句: import * as Alert from "react-native";
 
+##### Q: Cannot read property undefined of undefined
+A: [答案](https://github.com/react-community/react-navigation/issues/1919)
+
+##### Q:
+A:
+
+##### Q:
+A:
+
 ##### Q:
 A:
 

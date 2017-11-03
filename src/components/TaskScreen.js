@@ -8,7 +8,10 @@ import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "r
 import realm from '../database/RealmDB'
 import {StackRouter, TabNavigator} from "react-navigation";
 import {TaskListView} from "./TaskListView";
-import {TaskState, TaskStateTitle} from "../config/GlobalData";
+import {TaskScreenType, TaskState, TaskStateTitle} from "../config/GlobalData";
+import {NAV_TO_CREATE_TASK} from "../navigators/actionTypes";
+import {NavigationActions} from 'react-navigation';
+import {toCreateTask} from "../navigators/actions";
 
 
 export const TasksTabs = TabNavigator(
@@ -58,9 +61,10 @@ export const TasksTabs = TabNavigator(
 export default class TaskScreen extends PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        title: "任务清单",
         headerRight: <Button title="添加" onPress={() => {
-            navigation.navigate('CreateTask')
+            // navigation.navigate('CreateTask')
+            navigation.dispatch(toCreateTask())
+            // navigation.dispatch(NavigationActions.navigate({routeName: 'CreateTask'}))
         }}/>,
     });
 
@@ -68,12 +72,13 @@ export default class TaskScreen extends PureComponent {
         return (
             <View style={{flex: 1}}>
                 <TasksTabs navigation={this.props.navigation}/>
+                {/*<TasksTabs navigation={this.props.navigation} type={false}/>*/}
             </View>
         );
     }
 }
 
-// VIP https://reactnavigation.org/docs/intro/nesting
+/// VIP https://reactnavigation.org/docs/intro/nesting
 TaskScreen.router = TasksTabs.router;
 
 

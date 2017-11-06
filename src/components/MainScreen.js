@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation'
-import {PomodoroScreen} from './PomodoroScreen'
+import PomodoroScreen from './PomodoroScreen'
 import TaskScreen, {TaskList, TaskListItem} from './TaskScreen'
 import StatisticsScreen from './StatisticsScreen'
 import SettingScreen from './SettingScreen'

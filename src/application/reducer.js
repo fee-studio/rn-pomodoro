@@ -7,7 +7,7 @@ import {
 } from 'redux';
 
 
-import navigatorReducer from './navigators/reducer'
+import navigatorReducer from '../navigators/reducer'
 
 const appReducer = combineReducers({
     nav: navigatorReducer,

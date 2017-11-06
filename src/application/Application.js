@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store'
-import AppNavigator from './navigators/AppNavigator'
+import AppNavigator from '../navigators/AppNavigator'
 
 class PomodoroApp extends React.Component {
 

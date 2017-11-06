@@ -29,11 +29,12 @@ export const tabTomato = StackNavigator(
 export const tabTask = StackNavigator(
     {
         TaskScreen: {screen: TaskScreen},
-        // CreateTask: {screen: CreateTaskScreen},
     },
     {
+        headerMode: 'none',
         navigationOptions: {
             title: "任务清单",
+            headerMode: 'none'
         }
     }
 );
@@ -43,6 +44,7 @@ export const tabStatistics = StackNavigator(
         StatisticsScreen: {screen: StatisticsScreen},
     },
     {
+        headerMode: 'none',
         navigationOptions: {
             title: "统计",
         }
@@ -54,8 +56,10 @@ export const tabSetting = StackNavigator(
         SettingScreen: {screen: SettingScreen},
     },
     {
+        headerMode: 'none',
         navigationOptions: {
             title: "设置",
+            headerMode: 'none'
         }
     }
 );
@@ -75,9 +79,6 @@ export const RootTabs = TabNavigator(
         SettingTab: {
             screen: tabSetting,
         },
-        // RealmTest: {
-        //     screen: RealmDemo,
-        // },
     },
     {
         tabBarPosition: 'bottom',
@@ -87,7 +88,6 @@ export const RootTabs = TabNavigator(
         initialRouteName: 'TomatoTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
-            header: null,
         },
         tabBarOptions: {
             // activeTintColor: COLOR.theme,
@@ -100,7 +100,6 @@ export const RootTabs = TabNavigator(
             tabStyle: {paddingTop: 2, paddingBottom: 0},
             labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5}
         },
-        // headerMode: 'none'
     }
 );
 
@@ -117,7 +116,9 @@ export const RootStack = StackNavigator(
         // TaskListItem: {screen: TaskListItem},
     },
     {
-        navigationOptions: {}
+        navigationOptions: {
+            // header: null,
+        }
     }
 );
 

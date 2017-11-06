@@ -6,7 +6,8 @@ import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
 import {TaskState} from "../config/GlobalData";
-import {toCreateTask} from "../navigators/actions";
+import {toCreateTask, toTaskScreen} from "../navigators/actions";
+import {connect} from "react-redux";
 
 export class TaskListItem extends PureComponent {
 
@@ -72,7 +73,7 @@ export class TaskListItemHeader extends PureComponent {
     }
 }
 
-export class TaskListView extends PureComponent {
+class TaskListView extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -161,10 +162,14 @@ export class TaskListView extends PureComponent {
                 <SectionList
                     stickySectionHeadersEnabled={true}
                     renderItem={({item}) => <TaskListItem task={item}
-                                                          onPress={() => {
-                                                              // this.props.navigation.navigate('CreateTask', {task: item})
-                                                              this.props.navigation.dispatch(toCreateTask(item))
-                                                          }}/>}
+                                                          onPress={
+                                                              () => this.props.toCreateTaskScreen(item)
+                                                          }/>}
+                    // renderItem={({item}) => <TaskListItem task={item}
+                    //                                       onPress={() => {
+                    //                                           // this.props.navigation.navigate('CreateTask', {task: item})
+                    //                                           this.props.navigation.dispatch(toCreateTask(item))
+                    //                                       }}/>}
                     renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
                     sections={this.state.taskItems}
                     ItemSeparatorComponent={() => <View style={{height: 0.5, backgroundColor: '#ccc'}}/>}
@@ -179,6 +184,21 @@ export class TaskListView extends PureComponent {
         );
     }
 }
+
+
+// const mapStateToProps = (state) => {
+//     return {
+//         item: state.nav.item
+//     };
+// };
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        toCreateTaskScreen: (item) => dispatch(toCreateTask(item)),
+    }
+};
+
+export default connect(null, mapDispatchToProps)(TaskListView)
 
 // export class TaskListView4Todo extends TaskListView {
 //     componentDidMount() {

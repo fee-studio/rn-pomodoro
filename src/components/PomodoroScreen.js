@@ -17,9 +17,11 @@ import {
 import * as Progress from 'react-native-progress';
 import CountdownCircle from '../libs/CountDown'
 import {Tomato} from "../database/RealmDB";
-import {TomatoState} from "../config/GlobalData";
+import {TaskScreenType, TomatoState} from "../config/GlobalData";
 import Initialization from "../config/Initialization";
 import {TomatoModel} from "../models/Models";
+import {connect} from "react-redux";
+import {toTaskScreen} from "../navigators/actions";
 
 const status = {
     init: 0,
@@ -93,7 +95,7 @@ class ProgressChildView extends Component {
 }
 
 
-export class PomodoroScreen extends Component {
+class PomodoroScreen extends Component {
 
     // static navigationOptions = ({navigation, screenProps}) => ({
     //     header: null,
@@ -236,7 +238,8 @@ export class PomodoroScreen extends Component {
                     {
                         text: '选任务',
                         onPress: () => {
-                            this.props.navigation.navigate('TaskTab', {})
+                            this.props.navigation.navigate('TaskTab', {feng: 'fengyiyiiiii'})
+                            // this.props.navigation.dispatch(toTaskScreen(TaskScreenType.TaskScreenTypeSelect));
                         }, style: 'cancel'
                     },
                 ],
@@ -268,6 +271,10 @@ export class PomodoroScreen extends Component {
     }
 
 }
+
+
+export default connect()(PomodoroScreen)
+
 
 const styles = StyleSheet.create({
     container: {

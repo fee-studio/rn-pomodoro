@@ -7,11 +7,12 @@ import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
 import {StackRouter, TabNavigator} from "react-navigation";
-import {TaskListView} from "./TaskListView";
+import TaskListView from "./TaskListView";
 import {TaskScreenType, TaskState, TaskStateTitle} from "../config/GlobalData";
 import {NAV_TO_CREATE_TASK} from "../navigators/actionTypes";
 import {NavigationActions} from 'react-navigation';
 import {toCreateTask} from "../navigators/actions";
+import {connect} from "react-redux";
 
 
 export const TasksTabs = TabNavigator(
@@ -58,7 +59,7 @@ export const TasksTabs = TabNavigator(
     }
 );
 
-export default class TaskScreen extends PureComponent {
+class TaskScreen extends PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
         headerRight: <Button title="添加" onPress={() => {
@@ -68,15 +69,33 @@ export default class TaskScreen extends PureComponent {
         }}/>,
     });
 
+    constructor(props) {
+        super(props)
+
+        console.log("this.props = " + this.props)
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
-                <TasksTabs navigation={this.props.navigation}/>
+                <TasksTabs/>
+                {/*<TasksTabs navigation={this.props.navigation}/>*/}
                 {/*<TasksTabs navigation={this.props.navigation} type={false}/>*/}
             </View>
         );
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        taskScreenType: state.nav.taskScreenType
+    };
+};
+
+
+export default connect(mapStateToProps)(TaskScreen)
+
 
 /// VIP https://reactnavigation.org/docs/intro/nesting
 TaskScreen.router = TasksTabs.router;

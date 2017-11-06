@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
-import {PomodoroScreen} from '../components/PomodoroScreen'
+import PomodoroScreen from '../components/PomodoroScreen'
 import TaskScreen from '../components/TaskScreen'
 import StatisticsScreen from '../components/StatisticsScreen'
 import SettingScreen from '../components/SettingScreen'
@@ -14,9 +14,9 @@ import {connect} from 'react-redux';
 import {COLOR} from "../config/Config";
 
 
-const tabTomato = StackNavigator(
+export const tabTomato = StackNavigator(
     {
-        Tomato: {screen: PomodoroScreen},
+        TomatoScreen: {screen: PomodoroScreen},
     },
     {
         navigationOptions: {
@@ -26,9 +26,9 @@ const tabTomato = StackNavigator(
     }
 );
 
-const tabTask = StackNavigator(
+export const tabTask = StackNavigator(
     {
-        Task: {screen: TaskScreen},
+        TaskScreen: {screen: TaskScreen},
         // CreateTask: {screen: CreateTaskScreen},
     },
     {
@@ -38,9 +38,9 @@ const tabTask = StackNavigator(
     }
 );
 
-const tabStatistics = StackNavigator(
+export const tabStatistics = StackNavigator(
     {
-        Statistics: {screen: StatisticsScreen},
+        StatisticsScreen: {screen: StatisticsScreen},
     },
     {
         navigationOptions: {
@@ -49,9 +49,9 @@ const tabStatistics = StackNavigator(
     }
 );
 
-const tabSetting = StackNavigator(
+export const tabSetting = StackNavigator(
     {
-        Setting: {screen: SettingScreen},
+        SettingScreen: {screen: SettingScreen},
     },
     {
         navigationOptions: {
@@ -61,7 +61,7 @@ const tabSetting = StackNavigator(
 );
 
 
-const RootTabs = TabNavigator(
+export const RootTabs = TabNavigator(
     {
         TomatoTab: {
             screen: tabTomato,

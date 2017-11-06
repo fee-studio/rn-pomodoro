@@ -4,8 +4,8 @@
 
 import {combineReducers} from 'redux';
 import {NavigationActions} from 'react-navigation';
-import {RootStack} from './AppNavigator';
-import {NAV_TO_CREATE_TASK} from "./actionTypes";
+import {RootStack, RootTabs, tabTask} from './AppNavigator';
+import {NAV_TO_CREATE_TASK, NAV_TO_TASK_SCREEN} from "./actionTypes";
 
 
 // Start with two routes: The Main screen, with the Login screen on top.
@@ -108,9 +108,15 @@ const navigatorReducer = (state = initialNavState, action) => {
             nextState = RootStack.router.getStateForAction(NavigationActions.navigate({routeName: 'CreateTask'}), state);
             // nextState = RootStack.router.getStateForAction(action, state);
             // NavigationActions.navigate({routeName: 'CreateTask'})
-
             nextState = {...nextState, item: action.item}
-
+            break;
+        case NAV_TO_TASK_SCREEN:
+            nextState = RootTabs.router.getStateForAction(NavigationActions.navigate({routeName: 'TaskTab'}), state);
+            // nextState = tabTask.router.getStateForAction(NavigationActions.navigate({routeName: 'TaskScreen'}), state);
+            // nextState = RootStack.router.getStateForAction(NavigationActions.navigate({routeName: 'TaskScreen'}), state);
+            // nextState = RootStack.router.getStateForAction(action, state);
+            // NavigationActions.navigate({routeName: 'CreateTask'})
+            nextState = {...nextState, taskScreenType: action.taskScreenType}
             break;
         default:
             nextState = RootStack.router.getStateForAction(action, state);

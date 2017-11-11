@@ -2,7 +2,7 @@
  *  功能：
  */
 
-import React from 'react';
+import React from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
 import PomodoroScreen from '../components/PomodoroScreen'
 import TaskScreen from '../components/TaskScreen'

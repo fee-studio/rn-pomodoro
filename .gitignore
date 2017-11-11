@@ -1,17 +1,21 @@
-# ##########################################################
-
+# 公共的
+.idea
+*.iml
+build
 .tmp
-ios/Pods/
-
-# ##########################################################
-
-# OSX
-#
 .DS_Store
 
-# Xcode
+
+# Android/IntelliJ
+*.apk
+.gradle
+local.properties
+
+
+# iOS/Xcode
 #
-build/
+Pods/
+
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -29,16 +33,8 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IntelliJ
-#
-android/build/
-.idea
-.gradle
-local.properties
-*.iml
 
 # node.js
-#
 node_modules/
 npm-debug.log
 yarn-error.log

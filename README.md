@@ -57,3 +57,11 @@ Pomodoro app powered by react-native.
     - [NativeBase](https://github.com/GeekyAnts/NativeBase)
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
     - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
+
+
+
+- iOS deploy tutorial
+
+   KEY
+   1. add index.jsbundle(/.meta) -> Create groups
+   2. add assets folder -> Create folder references

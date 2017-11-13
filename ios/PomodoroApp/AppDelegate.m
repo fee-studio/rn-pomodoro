@@ -17,7 +17,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
+  
+//  // 真机运行 -> first: npm start
+//#ifdef DEBUG
+//  [[RCTBundleURLProvider sharedSettings] setDefaults];
+//  if (TARGET_IPHONE_SIMULATOR) {
+//    // 如果是 模拟器
+//    [[RCTBundleURLProvider sharedSettings] setJsLocation:@"127.0.0.1"];
+//  } else {
+//    // 如果是 真机 && 公司
+//    [[RCTBundleURLProvider sharedSettings] setJsLocation:@"172.16.20.133"];
+//  }
+//#else
+//  // 离线打包
+////  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"jsbundle"];
+//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+//#endif
+  
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation

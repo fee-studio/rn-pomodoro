@@ -59,9 +59,21 @@ Pomodoro app powered by react-native.
     - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
 
 
-
 - iOS deploy tutorial
 
-   KEY
-   1. add index.jsbundle(/.meta) -> Create groups
-   2. add assets folder -> Create folder references
+   ***KEY POINT***
+   1. add index.jsbundle(/.meta) files -> option **Create groups**
+   2. add assets folder -> option **Create folder references**
+   3. modify info.plist -> delete **localhost** key item
+   ```
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>localhost</key>
+        <dict>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+        </dict>
+    </dict>
+   ```
+   4. **edit scheme**, modify **Run** TAB's **Build Configuration** to **Release**
+

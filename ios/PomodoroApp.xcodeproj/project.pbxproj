@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -27,6 +28,47 @@
 		522194DC1F96F4D70019E9BD /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 522194D21F96F0860019E9BD /* libRCTBEEPickerManager.a */; };
 		528AE60D1FB359A7001C73B6 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 528AE60C1FB359A7001C73B6 /* assets */; };
 		529B58661F8CC6A9001CE830 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529B58631F8CC652001CE830 /* libART.a */; };
+		52AEC8FE1FB84E8600149126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		52AEC8FF1FB84E8600149126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		52AEC9011FB84E8600149126 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529B58631F8CC652001CE830 /* libART.a */; };
+		52AEC9021FB84E8600149126 /* libPods-PomodoroApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */; };
+		52AEC9031FB84E8600149126 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		52AEC9051FB84E8600149126 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		52AEC9061FB84E8600149126 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
+		52AEC9071FB84E8600149126 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
+		52AEC9081FB84E8600149126 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
+		52AEC9091FB84E8600149126 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
+		52AEC90A1FB84E8600149126 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
+		52AEC90B1FB84E8600149126 /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
+		52AEC90C1FB84E8600149126 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		52AEC90D1FB84E8600149126 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
+		52AEC90E1FB84E8600149126 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
+		52AEC90F1FB84E8600149126 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9B594061C64319B6402179 /* libRNDeviceInfo.a */; };
+		52AEC9101FB84E8600149126 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97899177E4C848F6887D8622 /* libSplashScreen.a */; };
+		52AEC9111FB84E8600149126 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 522194D21F96F0860019E9BD /* libRCTBEEPickerManager.a */; };
+		52AEC9121FB84E8600149126 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB57392F5F914CCEA397F1AA /* libRNVectorIcons.a */; };
+		52AEC9131FB84E8600149126 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AD78490F164C55991E1873 /* libRealmReact.a */; };
+		52AEC9141FB84E8600149126 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E686E8F616748BBA4AAC07B /* libc++.tbd */; };
+		52AEC9151FB84E8600149126 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 176CBE88C20F40BD9C2A7701 /* libz.tbd */; };
+		52AEC9171FB84E8600149126 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		52AEC9181FB84E8600149126 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
+		52AEC9191FB84E8600149126 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C9DE5F457DD4045BF8DEE45 /* Entypo.ttf */; };
+		52AEC91A1FB84E8600149126 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D900780B37F40EFAA35BEAD /* EvilIcons.ttf */; };
+		52AEC91B1FB84E8600149126 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE0103EC4A7F4F8A8D2C4E8D /* Feather.ttf */; };
+		52AEC91C1FB84E8600149126 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDFAB5362A3B443FB269659A /* FontAwesome.ttf */; };
+		52AEC91D1FB84E8600149126 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 332D57E78C984C789A0D4FDB /* Foundation.ttf */; };
+		52AEC91E1FB84E8600149126 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E749C9224F5A4FD1B7E909DC /* Ionicons.ttf */; };
+		52AEC91F1FB84E8600149126 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 528AE60C1FB359A7001C73B6 /* assets */; };
+		52AEC9201FB84E8600149126 /* index.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */; };
+		52AEC9211FB84E8600149126 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCFB847FD7334F93B5330515 /* MaterialCommunityIcons.ttf */; };
+		52AEC9221FB84E8600149126 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
+		52AEC9231FB84E8600149126 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354CDD15E5CD4072899210B5 /* MaterialIcons.ttf */; };
+		52AEC9241FB84E8600149126 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8A496BF7BE94800B3B47DE8 /* Octicons.ttf */; };
+		52AEC9251FB84E8600149126 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC100F29D7D4ADC975526FA /* SimpleLineIcons.ttf */; };
+		52AEC9261FB84E8600149126 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF0C0F065F245CD9EC55DA8 /* Zocial.ttf */; };
+		52AEC95B1FB84FCA00149126 /* PomodoroAppRelease-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */; };
+		52AEC95C1FB84FEB00149126 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */; };
 		52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
 		5AC36993F76741B7B2630300 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9B594061C64319B6402179 /* libRNDeviceInfo.a */; };
@@ -389,6 +431,9 @@
 		528AE60C1FB359A7001C73B6 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		529B585C1F8CC594001CE830 /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B585D1F8CC652001CE830 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
+		52AEC92D1FB84E8600149126 /* PomodoroAppRelease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroAppRelease.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52AEC92E1FB84E8600149126 /* PomodoroApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PomodoroApp copy-Info.plist"; path = "/Users/efeng/workspace/Pomodoro/code/rn-pomodoro/ios/PomodoroApp copy-Info.plist"; sourceTree = "<absolute>"; };
+		52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PomodoroAppRelease-Info.plist"; path = "PomodoroApp/PomodoroAppRelease-Info.plist"; sourceTree = "<group>"; };
 		52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle.meta; sourceTree = "<group>"; };
 		52D2BA6C1FB5AF190016B950 /* index.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle; sourceTree = "<group>"; };
 		5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PomodoroApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -453,6 +498,35 @@
 				FC0466F6B0104287900680CA /* libRealmReact.a in Frameworks */,
 				D8B573DBD8E64CB1A26AB19D /* libc++.tbd in Frameworks */,
 				BA68BF63756E4CFF96DA5E61 /* libz.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52AEC9001FB84E8600149126 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AEC9011FB84E8600149126 /* libART.a in Frameworks */,
+				52AEC9021FB84E8600149126 /* libPods-PomodoroApp.a in Frameworks */,
+				52AEC9031FB84E8600149126 /* libRCTBlob.a in Frameworks */,
+				52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */,
+				52AEC9051FB84E8600149126 /* libReact.a in Frameworks */,
+				52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */,
+				52AEC9061FB84E8600149126 /* libRCTActionSheet.a in Frameworks */,
+				52AEC9071FB84E8600149126 /* libRCTGeolocation.a in Frameworks */,
+				52AEC9081FB84E8600149126 /* libRCTImage.a in Frameworks */,
+				52AEC9091FB84E8600149126 /* libRCTLinking.a in Frameworks */,
+				52AEC90A1FB84E8600149126 /* libRCTNetwork.a in Frameworks */,
+				52AEC90B1FB84E8600149126 /* libRCTSettings.a in Frameworks */,
+				52AEC90C1FB84E8600149126 /* libRCTText.a in Frameworks */,
+				52AEC90D1FB84E8600149126 /* libRCTVibration.a in Frameworks */,
+				52AEC90E1FB84E8600149126 /* libRCTWebSocket.a in Frameworks */,
+				52AEC90F1FB84E8600149126 /* libRNDeviceInfo.a in Frameworks */,
+				52AEC9101FB84E8600149126 /* libSplashScreen.a in Frameworks */,
+				52AEC9111FB84E8600149126 /* libRCTBEEPickerManager.a in Frameworks */,
+				52AEC9121FB84E8600149126 /* libRNVectorIcons.a in Frameworks */,
+				52AEC9131FB84E8600149126 /* libRealmReact.a in Frameworks */,
+				52AEC9141FB84E8600149126 /* libc++.tbd in Frameworks */,
+				52AEC9151FB84E8600149126 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +627,7 @@
 		13B07FAE1A68108700A75B9A /* PomodoroApp */ = {
 			isa = PBXGroup;
 			children = (
+				52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -713,6 +788,7 @@
 				13480B8ED6AF75C04394B398 /* Frameworks */,
 				529B58741F8DBE79001CE830 /* Recovered References */,
 				FBE8E5C83A8B4DB2BE03B119 /* Resources */,
+				52AEC92E1FB84E8600149126 /* PomodoroApp copy-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -724,6 +800,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* PomodoroApp.app */,
 				00E356EE1AD99517003FC87E /* PomodoroAppTests.xctest */,
+				52AEC92D1FB84E8600149126 /* PomodoroAppRelease.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -806,6 +883,27 @@
 			productReference = 13B07F961A680F5B00A75B9A /* PomodoroApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		52AEC8FB1FB84E8600149126 /* PomodoroAppRelease */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52AEC92A1FB84E8600149126 /* Build configuration list for PBXNativeTarget "PomodoroAppRelease" */;
+			buildPhases = (
+				52AEC8FC1FB84E8600149126 /* [CP] Check Pods Manifest.lock */,
+				52AEC8FD1FB84E8600149126 /* Sources */,
+				52AEC9001FB84E8600149126 /* Frameworks */,
+				52AEC9161FB84E8600149126 /* Resources */,
+				52AEC9271FB84E8600149126 /* Bundle React Native code and images */,
+				52AEC9281FB84E8600149126 /* [CP] Embed Pods Frameworks */,
+				52AEC9291FB84E8600149126 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PomodoroAppRelease;
+			productName = "Hello World";
+			productReference = 52AEC92D1FB84E8600149126 /* PomodoroAppRelease.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -821,6 +919,10 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 9LA84498JK;
+						ProvisioningStyle = Manual;
+					};
+					52AEC8FB1FB84E8600149126 = {
 						DevelopmentTeam = 9LA84498JK;
 						ProvisioningStyle = Manual;
 					};
@@ -915,6 +1017,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* PomodoroApp */,
 				00E356ED1AD99517003FC87E /* PomodoroAppTests */,
+				52AEC8FB1FB84E8600149126 /* PomodoroAppRelease */,
 			);
 		};
 /* End PBXProject section */
@@ -1245,12 +1348,37 @@
 				FF2E98DAF6C342A7B1974404 /* Ionicons.ttf in Resources */,
 				528AE60D1FB359A7001C73B6 /* assets in Resources */,
 				52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */,
+				52AEC95C1FB84FEB00149126 /* Info.plist in Resources */,
 				5E8C85FFD50340F39A5BBEA8 /* MaterialCommunityIcons.ttf in Resources */,
 				52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */,
 				CCF89799708E49458BE6DF4D /* MaterialIcons.ttf in Resources */,
 				107547209B004F7C950C60AA /* Octicons.ttf in Resources */,
 				12F4EF2C11174691840D987D /* SimpleLineIcons.ttf in Resources */,
 				6AF99836980E42ABB7C959B6 /* Zocial.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52AEC9161FB84E8600149126 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AEC9171FB84E8600149126 /* Images.xcassets in Resources */,
+				52AEC9181FB84E8600149126 /* LaunchScreen.xib in Resources */,
+				52AEC9191FB84E8600149126 /* Entypo.ttf in Resources */,
+				52AEC91A1FB84E8600149126 /* EvilIcons.ttf in Resources */,
+				52AEC91B1FB84E8600149126 /* Feather.ttf in Resources */,
+				52AEC95B1FB84FCA00149126 /* PomodoroAppRelease-Info.plist in Resources */,
+				52AEC91C1FB84E8600149126 /* FontAwesome.ttf in Resources */,
+				52AEC91D1FB84E8600149126 /* Foundation.ttf in Resources */,
+				52AEC91E1FB84E8600149126 /* Ionicons.ttf in Resources */,
+				52AEC91F1FB84E8600149126 /* assets in Resources */,
+				52AEC9201FB84E8600149126 /* index.jsbundle.meta in Resources */,
+				52AEC9211FB84E8600149126 /* MaterialCommunityIcons.ttf in Resources */,
+				52AEC9221FB84E8600149126 /* index.jsbundle in Resources */,
+				52AEC9231FB84E8600149126 /* MaterialIcons.ttf in Resources */,
+				52AEC9241FB84E8600149126 /* Octicons.ttf in Resources */,
+				52AEC9251FB84E8600149126 /* SimpleLineIcons.ttf in Resources */,
+				52AEC9261FB84E8600149126 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1270,6 +1398,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		52AEC8FC1FB84E8600149126 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PomodoroApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52AEC9271FB84E8600149126 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		52AEC9281FB84E8600149126 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52AEC9291FB84E8600149126 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		B7929757EC0A2F61DC5199BC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1336,6 +1526,15 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52AEC8FD1FB84E8600149126 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52AEC8FE1FB84E8600149126 /* AppDelegate.m in Sources */,
+				52AEC8FF1FB84E8600149126 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,6 +1688,70 @@
 			};
 			name = Release;
 		};
+		52AEC92B1FB84E8600149126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E28F9AD84A8D94F124023D /* Pods-PomodoroApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 9LA84498JK;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
+				INFOPLIST_FILE = "PomodoroAppRelease-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e83c843f-4ea0-442e-8759-b8c7e0835fe1";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_dev_profile_20171107";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		52AEC92C1FB84E8600149126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DDB83E6232CA13F9C6B6D0D /* Pods-PomodoroApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9LA84498JK;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+				);
+				INFOPLIST_FILE = "PomodoroAppRelease-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8244a8b8-af95-4c1c-8f86-42ef31c0aea7";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_appstore_profile_20171107";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1582,6 +1845,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52AEC92A1FB84E8600149126 /* Build configuration list for PBXNativeTarget "PomodoroAppRelease" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52AEC92B1FB84E8600149126 /* Debug */,
+				52AEC92C1FB84E8600149126 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

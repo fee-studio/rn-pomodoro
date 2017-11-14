@@ -12,7 +12,8 @@ import CreateTaskScreen from "../components/CreateTaskScreen";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {COLOR} from "../config/Config";
-
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+// import Icon from 'react-native-vector-icons/Entypo';
 
 export const tabTomato = StackNavigator(
     {
@@ -22,6 +23,9 @@ export const tabTomato = StackNavigator(
         navigationOptions: {
             title: "番茄钟",
             header: null,
+            tabBarIcon: ({focused, tintColor}) => (
+                <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 30}}/>
+            ),
         }
     }
 );
@@ -34,7 +38,12 @@ export const tabTask = StackNavigator(
         headerMode: 'none',
         navigationOptions: {
             title: "任务清单",
-            headerMode: 'none'
+            headerMode: 'none',
+            tabBarIcon: ({focused, tintColor}) => (
+                <Icon name="list" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                // <Icon name="tasks" size={20} color={tintColor} style={{marginBottom:30}} />
+            ),
+
         }
     }
 );
@@ -47,6 +56,10 @@ export const tabStatistics = StackNavigator(
         headerMode: 'none',
         navigationOptions: {
             title: "统计",
+            tabBarIcon: ({focused, tintColor}) => (
+                <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 30}}/>
+            ),
+
         }
     }
 );
@@ -59,7 +72,11 @@ export const tabSetting = StackNavigator(
         headerMode: 'none',
         navigationOptions: {
             title: "设置",
-            headerMode: 'none'
+            headerMode: 'none',
+            tabBarIcon: ({focused, tintColor}) => (
+                <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 30}}/>
+            ),
+
         }
     }
 );

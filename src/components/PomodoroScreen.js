@@ -22,6 +22,9 @@ import Initialization from "../config/Initialization";
 import {TomatoModel} from "../models/Models";
 import {connect} from "react-redux";
 import {toTaskScreen} from "../navigators/actions";
+import Icon from 'react-native-vector-icons/Entypo';
+// import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import {COLOR} from "../config/Config";
 
 const status = {
     init: 0,
@@ -63,22 +66,25 @@ class ProgressChildView extends Component {
         if (this.state.myStatus === status.init) {
             return (
                 <View style={styles.progressChildView}>
-                    <Image style={styles.play}
-                           source={require('../resources/play.png')}/>
+                    <Icon name="controller-play" size={80} color={COLOR.primary}/>
+                    {/*<Image style={styles.play}*/}
+                    {/*source={require('../resources/play.png')}/>*/}
                 </View>
             );
         } else if (this.state.myStatus === status.play) {
             return (
                 <View style={styles.progressChildView}>
-                    <Image style={styles.play}
-                           source={require('../resources/pause.png')}/>
+                    <Icon name="controller-paus" size={60} color={COLOR.primary}/>
+                    {/*<Image style={styles.play}*/}
+                    {/*source={require('../resources/pause.png')}/>*/}
                 </View>
             );
         } else if (this.state.myStatus === status.pause) {
             return (
                 <View style={styles.progressChildView}>
-                    <Image style={styles.play}
-                           source={require('../resources/play.png')}/>
+                    <Icon name="controller-play" size={80} color={COLOR.primary}/>
+                    {/*<Image style={styles.play}*/}
+                    {/*source={require('../resources/play.png')}/>*/}
                 </View>
             );
         } else {
@@ -118,8 +124,8 @@ class PomodoroScreen extends Component {
 
 
     componentDidMount() {
-        // console.log('DefaultTomatoConfig = ' + GlobalData.defaultTomatoConfig());
-        // console.log('DefaultTomatoConfig = ' + JSON.stringify(DefaultTomatoConfig));
+        // console.log('defaultTomatoConfig = ' + GlobalData.defaultTomatoConfig());
+        // console.log('defaultTomatoConfig = ' + JSON.stringify(defaultTomatoConfig));
 
     }
 
@@ -306,6 +312,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "transparent",
+        marginLeft: 5,
     },
     circleProgressView: {
         margin: 50,

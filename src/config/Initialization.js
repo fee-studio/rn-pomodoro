@@ -3,11 +3,12 @@
  */
 
 import realm, {TomatoConfig} from '../database/RealmDB'
+import GlobalData from "./GlobalData";
 
 export default class Initialization {
 
     constructor() {
-        Initialization.initTomatoConfig();
+        GlobalData.defaultTomatoConfig = Initialization.initTomatoConfig();
 
     }
 

@@ -34,5 +34,7 @@ export const COLOR = {
     backgroundNotice: '#FFFB00',
     linePrompt: '#EBEBEB',
     lineNormal: '#A9A9A9',
-    lineEmpha: '#929292'
+    lineEmpha: '#929292',
+    primary: '#d66',
+    secondary: '#3aa',
 }

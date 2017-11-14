@@ -33,7 +33,7 @@ export class TomatoModel {
     start(tomatoType = TomatoType.TomatoTypeWorking, curTask = {}) {
         this.tomatoType = tomatoType;
         this.startTime = new Date();
-        this.workDuring = GlobalData.DefaultTomatoConfig.workDuring;
+        this.workDuring = GlobalData.defaultTomatoConfig.workDuring;
         this.curTask = curTask;
         this.isInterrupt = false;
         this.state = TomatoState.TomatoStateStart;

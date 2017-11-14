@@ -45,34 +45,9 @@ export const TaskScreenType = {
 
 export default class GlobalData {
 
-    static DefaultTomatoConfig = null;
+    static defaultTomatoConfig = null;
 
     constructor() {
-        // let DefaultTomatoConfig = Initialization.initTomatoConfig()
+
     }
-
-    static defaultTomatoConfig() {
-        if (GlobalData.DefaultTomatoConfig === null) {
-            console.warn("init tomato config data");
-            GlobalData.DefaultTomatoConfig = Initialization.initTomatoConfig();
-            return GlobalData.DefaultTomatoConfig;
-        } else {
-            console.warn("get tomato config data from static pool");
-            return GlobalData.DefaultTomatoConfig;
-        }
-
-        // if (this.DefaultTomatoConfig === null) {
-        //     this.DefaultTomatoConfig = Initialization.initTomatoConfig();
-        //     return this.DefaultTomatoConfig;
-        // } else {
-        //     return this.DefaultTomatoConfig;
-        // }
-
-        // return Initialization.initTomatoConfig()
-    }
-
-
-    // const DefaultTomatoConfig = Initialization.initTomatoConfig();
-
-
 }

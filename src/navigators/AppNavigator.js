@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {COLOR} from "../config/Config";
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import TaskListScreen from "../components/TaskListScreen";
 // import Icon from 'react-native-vector-icons/Entypo';
 
 export const tabTomato = StackNavigator(
@@ -24,7 +25,8 @@ export const tabTomato = StackNavigator(
             title: "番茄钟",
             header: null,
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                <Icon name="clock" size={20} color={tintColor}/>
+                // <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 30}}/> // iPhone X
             ),
         }
     }
@@ -32,7 +34,8 @@ export const tabTomato = StackNavigator(
 
 export const tabTask = StackNavigator(
     {
-        TaskScreen: {screen: TaskScreen},
+        TaskScreen: {screen: TaskListScreen},
+        // TaskScreen: {screen: TaskScreen},
     },
     {
         headerMode: 'none',
@@ -40,10 +43,15 @@ export const tabTask = StackNavigator(
             title: "任务清单",
             headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="list" size={20} color={tintColor} style={{marginBottom: 30}}/>
-                // <Icon name="tasks" size={20} color={tintColor} style={{marginBottom:30}} />
+                /*
+                <Icon
+                    name='add-box'
+                    style={{color: tintColor, fontSize: 20}}
+                />
+                */
+                <Icon name="list" style={{color: tintColor, fontSize: 20, marginBottom: 25}}/>
+                // <Icon name="list" size={20} color={tintColor} style={{marginBottom: 30}}/>
             ),
-
         }
     }
 );
@@ -57,9 +65,9 @@ export const tabStatistics = StackNavigator(
         navigationOptions: {
             title: "统计",
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                <Icon name="chart" size={20} color={tintColor}/>
+                // <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 30}}/>
             ),
-
         }
     }
 );
@@ -74,7 +82,8 @@ export const tabSetting = StackNavigator(
             title: "设置",
             headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                <Icon name="settings" size={20} color={tintColor}/>
+                // <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 30}}/>
             ),
 
         }
@@ -102,7 +111,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TomatoTab', // todo...
+        initialRouteName: 'TaskTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },

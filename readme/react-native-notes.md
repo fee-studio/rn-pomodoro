@@ -52,3 +52,6 @@ Q: Cannot read property undefined of undefined
 
 A: [答案](https://github.com/react-community/react-navigation/issues/1919)
 
+11. [debugger-ui 出错](http://bbs.reactnative.cn/topic/4038/debugger-ui-%E5%87%BA%E9%94%99/2)
+
+12.

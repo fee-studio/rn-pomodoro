@@ -19,12 +19,17 @@ import CountdownCircle from '../libs/CountDown'
 import {Tomato} from "../database/RealmDB";
 import {TaskScreenType, TomatoState} from "../config/GlobalData";
 import Initialization from "../config/Initialization";
-import {TomatoModel} from "../models/Models";
+import {TomatoModel} from "../models/TomatoModel";
 import {connect} from "react-redux";
 import {toTaskScreen} from "../navigators/actions";
 import Icon from 'react-native-vector-icons/Entypo';
 // import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import {COLOR} from "../config/Config";
+import Circle from "react-native-progress/Circle";
+import {AnimatedCircularProgress} from "react-native-circular-progress";
+// import {Circle} from "react-progressbar";
+import GlobalData from "../config/GlobalData";
+import moment from 'moment';
 
 const status = {
     init: 0,
@@ -111,9 +116,11 @@ class PomodoroScreen extends Component {
         super(props);
 
         this.state = {
-            progressValue: 0,
+            progress: 0,
             switcher: status.pause,
+            animated: true,
         };
+
 
         // 进度
         // this.progress()
@@ -126,39 +133,88 @@ class PomodoroScreen extends Component {
     componentDidMount() {
         // console.log('defaultTomatoConfig = ' + GlobalData.defaultTomatoConfig());
         // console.log('defaultTomatoConfig = ' + JSON.stringify(defaultTomatoConfig));
-
+        // let progress = 0
+        // setInterval(() => {
+        //     progress += 0.01;
+        //     if (progress > 1) {
+        //         progress = 1;
+        //     }
+        //     this.setState({progress: progress});
+        // }, 100);
     }
 
     render() {
+        /*
+        var options = {
+            strokeWidth: 2
+        };
+
+        // For demo purposes so the container has some dimensions.
+        // Otherwise progress bar won't be shown
+        var containerStyle = {
+            width: '200px',
+            height: '200px'
+        };
+
+        return (
+            <Progress.Circle
+                progress={this.state.progress}
+                color="#f00"
+                unfilledColor="#0f0"
+                borderWidth={0}
+                size={200}
+                thickness={10}
+                showsText={true}
+                strokeCap="round"
+            />
+        );
+        */
+
+
         return (
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
-                    <Text style={styles.tomatoTime}>PomodoroScreen2</Text>
+                    <Text style={styles.tomatoTime}>
+                        {moment(GlobalData.defaultTomatoConfig.workDuring * 1000 * (1 - this.state.progress)).format("mm:ss")}
+                    </Text>
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>
                         <View style={styles.circleProgressView}>
-                            <CountdownCircle
-                                seconds={tomatoDuration}
-                                radius={100}
-                                borderWidth={8}
-                                animation={this.state.switcher}
-                                updateText={() => {
-                                }}
-                                onTimeElapsed={() => {
-                                    this.setState({
-                                        switcher: status.init,
-                                    });
-                                }}
+
+                            {/*<CountdownCircle*/}
+                            {/*seconds={tomatoDuration}*/}
+                            {/*radius={100}*/}
+                            {/*borderWidth={8}*/}
+                            {/*animation={this.state.switcher}*/}
+                            {/*updateText={() => {*/}
+                            {/*}}*/}
+                            {/*onTimeElapsed={() => {*/}
+                            {/*this.setState({*/}
+                            {/*switcher: status.init,*/}
+                            {/*});*/}
+                            {/*}}*/}
+                            {/*>*/}
+                            {/*<ProgressChildView playStatus={this.state.switcher}/>*/}
+                            {/*</CountdownCircle>*/}
+
+                            <Progress.Circle
+                                progress={this.state.progress}
+                                color={COLOR.primary}
+                                unfilledColor={COLOR.backgroundNormal}
+                                borderWidth={0}
+                                animated={this.state.animated}
+                                size={200}
+                                thickness={10}
+                                showsText={false}
+                                strokeCap="round"
                             >
                                 <ProgressChildView playStatus={this.state.switcher}/>
-                            </CountdownCircle>
+                            </Progress.Circle>
                         </View>
                     </TouchableWithoutFeedback>
 
                     <Text style={styles.tomatoTask}>PomodoroScreen22222222</Text>
                 </View>
-
-
             </View>
         );
     }
@@ -216,18 +272,36 @@ class PomodoroScreen extends Component {
         }
         */
 
-        let tomato = new TomatoModel();
-        if (tomato.state === TomatoState.TomatoStateStart) {
+
+        if (this.tomato === undefined) {
+            this.tomato = new TomatoModel();
+        }
+
+        if (this.tomato.state === TomatoState.TomatoStateStart) {
             Alert.alert(
                 '要终止这个番茄钟吗？',
                 '',
                 [
-                    {text: '不要', onPress: () => console.log('Ask me later pressed')},
-                    {text: '终止', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                    {
+                        text: '不要',
+                        onPress: () => console.log('goon')
+                    },
+                    {
+                        text: '终止',
+                        onPress: () => {
+                            this.tomato.stop()
+                            this.setState({
+                                switcher: status.init,
+                                progress: 0,
+                                animated: false,
+                            });
+                            clearInterval(this.timer)
+                        }
+                    },
                 ],
                 {cancelable: false}
             )
-        } else if (tomato.state === TomatoState.TomatoStateUnknown || tomato.state === TomatoState.TomatoStateCancel) {
+        } else if (this.tomato.state === TomatoState.TomatoStateUnknown || this.tomato.state === TomatoState.TomatoStateCancel) {
             Alert.alert(
                 '是否要先选择任务？',
                 '',
@@ -235,10 +309,19 @@ class PomodoroScreen extends Component {
                     {
                         text: '暂不',
                         onPress: () => {
-                            this.setState({
-                                switcher: status.play,
-                            });
-                            tomato.start();
+                            this.tomato.start();
+                            this.setState({switcher: status.play});
+                            let progress = 0
+                            this.timer = setInterval(() => {
+                                progress += 1.0 / this.tomato.workDuring;
+                                this.setState({progress: progress});
+
+                                if (progress >= 1) {
+                                    progress = 0
+                                    this.setState({animated: false, switcher: status.init, progress})
+                                    clearInterval(this.timer)
+                                }
+                            }, 1000); // todo ...
                         }
                     },
                     {
@@ -246,7 +329,7 @@ class PomodoroScreen extends Component {
                         onPress: () => {
                             this.props.navigation.navigate('TaskTab', {feng: 'fengyiyiiiii'})
                             // this.props.navigation.dispatch(toTaskScreen(TaskScreenType.TaskScreenTypeSelect));
-                        }, style: 'cancel'
+                        }
                     },
                 ],
                 {cancelable: false}
@@ -260,10 +343,10 @@ class PomodoroScreen extends Component {
         // const interval = 100.0;
         // this.timerProgress = setInterval(() => {
         //     this.setState({
-        //         progressValue: this.state.progressValue + 1.0 / (tomatoDuration * (millisecond / interval))
+        //         progress: this.state.progress + 1.0 / (tomatoDuration * (millisecond / interval))
         //     });
         //
-        //     if (this.state.progressValue >= 1) {
+        //     if (this.state.progress >= 1) {
         //         clearInterval(this.timerProgress)
         //     }
         // }, interval)
@@ -271,7 +354,7 @@ class PomodoroScreen extends Component {
 
     actionPause() {
         // this.setState({
-        //     progressValue: this.state.progressValue + 1.0 / (tomatoDuration * (millisecond / interval))
+        //     progress: this.state.progress + 1.0 / (tomatoDuration * (millisecond / interval))
         // })
         // clearInterval(this.timerProgress);
     }
@@ -312,7 +395,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "transparent",
-        marginLeft: 5,
+        // marginLeft: 5,
     },
     circleProgressView: {
         margin: 50,
@@ -335,8 +418,15 @@ const styles = StyleSheet.create({
         resizeMode: "stretch",
         backgroundColor: "transparent",
     },
-    tomatoTime: {},
-    tomatoTask: {}
+    tomatoTime: {
+        fontSize: 35,
+        color: COLOR.textNormal,
+
+    },
+    tomatoTask: {
+        color: COLOR.textNormal,
+        fontSize: 16,
+    }
 
 });
 

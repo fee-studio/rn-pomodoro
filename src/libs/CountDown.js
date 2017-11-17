@@ -43,8 +43,10 @@ const styles = StyleSheet.create({
 
 function calcInterpolationValuesForHalfCircle1(animatedValue, {shadowColor}) {
     const rotate = animatedValue.interpolate({
-        inputRange: [0, 50, 50, 100],
-        outputRange: ['0deg', '180deg', '180deg', '180deg'],
+        inputRange: [0, 25, 50, 75, 100],
+        outputRange: ['0deg', '90deg', '180deg', '270deg', '360deg'],
+        // inputRange: [0, 50, 50, 100],
+        // outputRange: ['0deg', '180deg', '180deg', '180deg'],
     })
 
     const backgroundColor = shadowColor
@@ -55,7 +57,7 @@ function calcInterpolationValuesForHalfCircle2(animatedValue,
                                                {color, shadowColor},) {
     const rotate = animatedValue.interpolate({
         inputRange: [0, 50, 50, 100],
-        outputRange: ['0deg', '0deg', '180deg', '360deg'],
+        outputRange: ['0deg', '180deg', '180deg', '360deg'],
     })
 
     const backgroundColor = animatedValue.interpolate({
@@ -64,6 +66,9 @@ function calcInterpolationValuesForHalfCircle2(animatedValue,
     })
     return {rotate, backgroundColor}
 }
+
+// calcInterpolationValues4Circle(animat)
+
 
 function getInitialState(props) {
     const circleProgress = new Animated.Value(0)
@@ -98,9 +103,9 @@ export default class PercentageCircle extends React.PureComponent {
     };
 
     static defaultProps = {
-        color: '#ccc',
-        shadowColor: '#d66',
-        bgColor: '#e9e9ef',
+        color: '#f00',
+        shadowColor: '#0f0',
+        bgColor: '#00f',
         borderWidth: 2,
         seconds: 10,
         animation: false,
@@ -116,20 +121,10 @@ export default class PercentageCircle extends React.PureComponent {
         super(props)
 
         this.state = getInitialState(props)
-        // this.startAnimation()
     }
 
     componentWillReceiveProps(nextProps) {
-        if (
-            Object.keys(nextProps).some(
-                field => nextProps[field] !== this.props[field],
-            )
-        ) {
-            // this.stopAnimation()
-            // this.setState(getInitialState(nextProps))
-            // this.setState(getInitialState(nextProps), this.startAnimation)
-
-            // nextProps.animation ? this.startAnimation() : this.stopAnimation();
+        if (Object.keys(nextProps).some(field => nextProps[field] !== this.props[field])) {
             this.setupAnimation(nextProps.animation)
         }
     }
@@ -141,9 +136,8 @@ export default class PercentageCircle extends React.PureComponent {
             this.startAnimation()
         } else if (animation === 2) {
             this.stopAnimation()
-            // this.resetAnimation()
         }
-    }e
+    }
 
     onCircleAnimated = ({finished}) => {
         // if animation was interrupted by stopAnimation don't restart it.
@@ -167,7 +161,9 @@ export default class PercentageCircle extends React.PureComponent {
             callback,
         )
         */
-        if (!finished) return
+        if (!finished) {
+            return
+        }
 
         const callback = this.props.onTimeElapsed
         const updatedText = this.props.updateText(
@@ -189,7 +185,6 @@ export default class PercentageCircle extends React.PureComponent {
             toValue: 100,
             duration: this.props.seconds * 1000,
             easing: Easing.linear,
-        // }).start()
         }).start(this.onCircleAnimated)
     };
 
@@ -198,11 +193,16 @@ export default class PercentageCircle extends React.PureComponent {
     }
 
     resetAnimation = () => {
-        // this.circleProgress = new Animated.Value(0)
-        this.state.circleProgress.resetAnimation()
+        this.state.circleProgress.stopAnimation()
+
+        this.setState({
+            ...getInitialState(this.props)
+        })
+
+        this.circleProgress = new Animated.Value(0)
+        // this.state.circleProgress._startingValue = 0;
+        // this.state.circleProgress.resetAnimation()
     }
-
-
 
     renderHalfCircle({rotate, backgroundColor}) {
         const {radius} = this.props
@@ -214,6 +214,7 @@ export default class PercentageCircle extends React.PureComponent {
                     {
                         width: radius,
                         height: radius * 2,
+                        backgroundColor: "#ff0"
                     },
                 ]}
             >
@@ -277,7 +278,7 @@ export default class PercentageCircle extends React.PureComponent {
                 ]}
             >
                 {this.renderHalfCircle(interpolationValuesHalfCircle1)}
-                {this.renderHalfCircle(interpolationValuesHalfCircle2)}
+                {/*{this.renderHalfCircle(interpolationValuesHalfCircle2)}*/}
                 {this.renderInnerCircle()}
                 {this.props.children}
             </View>

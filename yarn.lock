@@ -190,7 +190,7 @@ arrify@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/arrify/download/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
-art@^0.10.0:
+art@^0.10.0, art@^0.10.1:
   version "0.10.1"
   resolved "http://registry.npm.taobao.org/art/download/art-0.10.1.tgz#38541883e399225c5e193ff246e8f157cf7b2146"
 
@@ -760,7 +760,6 @@ babel-preset-react-native@4.0.0, babel-preset-react-native@^4.0.0:
     babel-template "^6.24.1"
     react-transform-hmr "^1.0.4"
 
-babel-register@^6.24.1, babel-register@^6.26.0:
 babel-register@^6.24.1, babel-register@^6.26.0:
   version "6.26.0"
   resolved "http://registry.npm.taobao.org/babel-register/download/babel-register-6.26.0.tgz#6ed021173e2fcb486d7acb45c6009a856f647071"
@@ -3855,6 +3854,12 @@ react-native-animatable@^1.2.3:
   dependencies:
     prop-types "^15.5.10"
 
+"react-native-circular-progress@https://github.com/bgryszko/react-native-circular-progress.git#master":
+  version "0.0.8"
+  resolved "https://github.com/bgryszko/react-native-circular-progress.git#91f15f5a5320c04d645352a629f2478873344f6d"
+  dependencies:
+    art "^0.10.0"
+
 react-native-device-info@^0.12.0:
   version "0.12.1"
   resolved "http://registry.npm.taobao.org/react-native-device-info/download/react-native-device-info-0.12.1.tgz#659ed145caa5a86a4815904381b25e9ebe0c24f6"
@@ -3879,6 +3884,13 @@ react-native-easy-toast@^1.0.8:
   version "1.0.9"
   resolved "http://registry.npm.taobao.org/react-native-easy-toast/download/react-native-easy-toast-1.0.9.tgz#85b28ccd8f6dfb67495320a47c275d3fe163e660"
   dependencies:
+    prop-types "^15.5.10"
+
+react-native-gesture-handler@^1.0.0-alpha.31:
+  version "1.0.0-alpha.31"
+  resolved "http://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.0.0-alpha.31.tgz#681b5da1c518e2b1a76c0132fcfdb13ee30ad2fa"
+  dependencies:
+    invariant "^2.2.2"
     prop-types "^15.5.10"
 
 react-native-modal-datetime-picker@^4.13.0:
@@ -3993,7 +4005,7 @@ react-native@^0.50.1:
     xmldoc "^0.4.0"
     yargs "^9.0.0"
 
-react-navigation@^1.0.0-beta.13:
+react-navigation@^1.0.0-beta.19:
   version "1.0.0-beta.19"
   resolved "http://registry.npm.taobao.org/react-navigation/download/react-navigation-1.0.0-beta.19.tgz#96e159c4b6760f51fc92d5c1c3690790cff4dbcf"
   dependencies:
@@ -4048,9 +4060,9 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react@^16.0.0-beta.5:
-  version "16.0.0"
-  resolved "http://registry.npm.taobao.org/react/download/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
+react@^16.0.0:
+  version "16.1.1"
+  resolved "http://registry.npm.taobao.org/react/download/react-16.1.1.tgz#d5c4ef795507e3012282dd51261ff9c0e824fe1f"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

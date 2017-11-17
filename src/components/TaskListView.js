@@ -87,13 +87,23 @@ class TaskListView extends PureComponent {
     componentDidMount() {
         let tasks = realm.objects('Task');
 
-        if (this.props.navigation.state.key === 'todayTask') {
+        // if (this.props.navigation.state.key === 'todayTask') {
+        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo} `).sorted('actionTime')
+        // } else if (this.props.navigation.state.key === 'willTask') {
+        //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
+        // } else if (this.props.navigation.state.key === 'didTask') {
+        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
+        // } else if (this.props.navigation.state.key === 'unDoneTask') {
+        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
+        // }
+
+        if (this.props.taskState === TaskState.TaskStateTodo) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo} `).sorted('actionTime')
-        } else if (this.props.navigation.state.key === 'willTask') {
+        } else if (this.props.taskState === TaskState.TaskStatePlan) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
-        } else if (this.props.navigation.state.key === 'didTask') {
+        } else if (this.props.taskState === TaskState.TaskStateComplete) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
-        } else if (this.props.navigation.state.key === 'unDoneTask') {
+        } else if (this.props.taskState === TaskState.TaskStateOverdue) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
         }
 

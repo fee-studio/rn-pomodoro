@@ -60,7 +60,6 @@ export const TasksTabs = TabNavigator(
 );
 
 class TaskScreen extends PureComponent {
-
     static navigationOptions = ({navigation, screenProps}) => ({
         headerRight: <Button title="添加" onPress={() => {
             // navigation.navigate('CreateTask')

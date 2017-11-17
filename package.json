@@ -1,4 +1,5 @@
 {
+  "//": "react-native-progress ^3.4.0先不用",
   "name": "PomodoroApp",
   "version": "0.0.1",
   "private": true,
@@ -23,18 +24,22 @@
     "test": "jest"
   },
   "dependencies": {
+    "art": "^0.10.1",
     "react": "^16.0.0",
     "react-native": "^0.50.1",
+    "react-native-circular-progress": "https://github.com/bgryszko/react-native-circular-progress.git#master",
     "react-native-device-info": "^0.12.0",
     "react-native-easy-toast": "^1.0.8",
+    "react-native-gesture-handler": "^1.0.0-alpha.31",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-picker": "^4.2.0",
     "react-native-progress": "^3.4.0",
     "react-native-splash-screen": "^3.0.1",
     "react-native-storage": "^0.2.2",
     "react-native-swipeout": "^2.2.2",
+    "react-native-tab-view": "^0.0.70",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "^1.0.0-beta.13",
+    "react-navigation": "^1.0.0-beta.19",
     "react-redux": "^5.0.6",
     "realm": "^2.0.2",
     "redux": "^3.7.2"

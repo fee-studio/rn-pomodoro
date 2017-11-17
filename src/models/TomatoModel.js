@@ -31,6 +31,10 @@ export class TomatoModel {
     }
 
     start(tomatoType = TomatoType.TomatoTypeWorking, curTask = {}) {
+        if (this === undefined) {
+            return;
+        }
+
         this.tomatoType = tomatoType;
         this.startTime = new Date();
         this.workDuring = GlobalData.defaultTomatoConfig.workDuring;
@@ -38,6 +42,15 @@ export class TomatoModel {
         this.isInterrupt = false;
         this.state = TomatoState.TomatoStateStart;
 
+        return this;
+    }
+
+    stop() {
+        if (this === undefined) {
+            return;
+        }
+
+        this.state = TomatoState.TomatoStateCancel;
         return this;
     }
 

@@ -54,4 +54,8 @@ A: [答案](https://github.com/react-community/react-navigation/issues/1919)
 
 11. [debugger-ui 出错](http://bbs.reactnative.cn/topic/4038/debugger-ui-%E5%87%BA%E9%94%99/2)
 
-12.
+12. (未解决)realm监听的问题，添加完数据，监听到是上一条的数据。真机上没有问题。issue看[realm github issue](https://github.com/realm/realm-js/issues/927)
+
+13.
+
+

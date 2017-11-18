@@ -25,8 +25,8 @@ export const tabTomato = StackNavigator(
             title: "番茄钟",
             header: null,
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="clock" size={20} color={tintColor}/>
-                // <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 30}}/> // iPhone X
+                //   <Icon name="clock" size={20} color={tintColor}/>
+                <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 25}}/> // iPhone X
             ),
         }
     }
@@ -65,8 +65,8 @@ export const tabStatistics = StackNavigator(
         navigationOptions: {
             title: "统计",
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="chart" size={20} color={tintColor}/>
-                // <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                //  <Icon name="chart" size={20} color={tintColor}/>
+                <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 25}}/>
             ),
         }
     }
@@ -82,8 +82,8 @@ export const tabSetting = StackNavigator(
             title: "设置",
             headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
-                <Icon name="settings" size={20} color={tintColor}/>
-                // <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 30}}/>
+                // <Icon name="settings" size={20} color={tintColor}/>
+                <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 25}}/>
             ),
 
         }

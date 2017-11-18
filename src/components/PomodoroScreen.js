@@ -121,56 +121,16 @@ class PomodoroScreen extends Component {
             animated: true,
         };
 
-
-        // 进度
-        // this.progress()
-
         // 初始化数据
-        new Initialization();
+        // new Initialization();
     }
 
 
     componentDidMount() {
-        // console.log('defaultTomatoConfig = ' + GlobalData.defaultTomatoConfig());
-        // console.log('defaultTomatoConfig = ' + JSON.stringify(defaultTomatoConfig));
-        // let progress = 0
-        // setInterval(() => {
-        //     progress += 0.01;
-        //     if (progress > 1) {
-        //         progress = 1;
-        //     }
-        //     this.setState({progress: progress});
-        // }, 100);
+
     }
 
     render() {
-        /*
-        var options = {
-            strokeWidth: 2
-        };
-
-        // For demo purposes so the container has some dimensions.
-        // Otherwise progress bar won't be shown
-        var containerStyle = {
-            width: '200px',
-            height: '200px'
-        };
-
-        return (
-            <Progress.Circle
-                progress={this.state.progress}
-                color="#f00"
-                unfilledColor="#0f0"
-                borderWidth={0}
-                size={200}
-                thickness={10}
-                showsText={true}
-                strokeCap="round"
-            />
-        );
-        */
-
-
         return (
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
@@ -242,37 +202,6 @@ class PomodoroScreen extends Component {
         如果这么写onPress={this.actionToggle} ，就要用以下方式定义方法。
      */
     actionToggle = () => {
-        console.log('actionPlay' + this.state.switcher);
-
-        /*
-        if (this.state.switcher === status.play) {
-            this.setState({
-                switcher: status.pause,
-            });
-            // this.actionPause();
-        } else {
-
-            Alert.alert(
-                'Alert Title',
-                'My Alert Msg',
-                [
-                    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-                    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                    {text: 'OK', onPress: () => console.log('OK Pressed')},
-                ],
-                { cancelable: false }
-            )
-
-
-
-            this.setState({
-                switcher: status.play,
-            });
-            // this.actionPlay();
-        }
-        */
-
-
         if (this.tomato === undefined) {
             this.tomato = new TomatoModel();
         }
@@ -360,7 +289,6 @@ class PomodoroScreen extends Component {
     }
 
 }
-
 
 export default connect()(PomodoroScreen)
 

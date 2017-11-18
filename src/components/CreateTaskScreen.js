@@ -8,6 +8,7 @@ import realm from '../database/RealmDB'
 import {TaskState} from "../config/GlobalData";
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {connect} from "react-redux";
+import {COLOR} from "../config/Config";
 
 class CreateTaskScreen extends React.PureComponent {
 
@@ -97,7 +98,6 @@ class CreateTaskScreen extends React.PureComponent {
         });
 
         this.props.navigation.goBack();
-
     };
 
     render() {
@@ -247,14 +247,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         backgroundColor: '#fff',
         padding: 10,
-        marginTop: 10,
+        marginTop: 1,
     },
     category: {
         backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 10,
+        marginTop: 1,
         alignItems: 'center',
         height: 44,
     },
@@ -267,24 +267,24 @@ const styles = StyleSheet.create({
     },
     buttonNormal: {
         borderWidth: 1,
-        borderColor: '#f90',
+        borderColor: COLOR.primary,
         borderRadius: 4,
         backgroundColor: '#0000',
-        width: 80,
+        width: 60,
         height: 30,
         justifyContent: 'center',
         alignItems: 'center',
     },
     textNormal: {
-        color: '#f90',
+        color: COLOR.primary,
         fontSize: 12
     },
     buttonSelected: {
         borderWidth: 1,
-        borderColor: '#f90',
+        borderColor: COLOR.primary,
         borderRadius: 4,
-        backgroundColor: '#f90',
-        width: 80,
+        backgroundColor: COLOR.primary,
+        width: 60,
         height: 30,
         justifyContent: 'center',
         alignItems: 'center',
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 10,
+        marginTop: 1,
         alignItems: 'center',
         height: 44,
     },

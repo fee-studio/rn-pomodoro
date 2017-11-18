@@ -4,11 +4,10 @@
 
 import {Dimensions} from 'react-native'
 
+export const VERSION = '0.0.1'
 
 export const DEBUG = __DEV__ // eslint-disable-line no-undef
 export const IN_DEBUGGER = DEBUG && !!window.navigator.userAgent
-
-export const VERSION = '0.0.1'
 
 let {width, height} = Dimensions.get('window')
 export const SCREEN_WIDTH = width
@@ -23,7 +22,7 @@ export const COLOR = {
     favored: '#C71A22',
     textPrompt: '#929292',
     textNormal: '#5E5E5E',
-    textEmpha: '#212121',
+    textEmphasis: '#212121',
     textLightPrompt: '#EBEBEB',
     textLightNormal: '#FFFFFF',
     backgroundDarker: '#D6D6D6',

@@ -2,6 +2,8 @@
  *  功能：
  */
 
+import Initialization from "./Initialization";
+
 export const TaskState = {
     TaskStateUnknown: 0,       // 未知的
     TaskStateTodo: 1,          // 今日待办
@@ -42,7 +44,8 @@ export const TaskScreenType = {
 
 export default class GlobalData {
 
-    static defaultTomatoConfig = null;
+    // static defaultTomatoConfig = null;
+    static defaultTomatoConfig = Initialization.initTomatoConfig();
 
     constructor() {
 

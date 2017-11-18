@@ -8,6 +8,7 @@ import realm from '../database/RealmDB'
 import {TaskState} from "../config/GlobalData";
 import {toCreateTask, toTaskScreen} from "../navigators/actions";
 import {connect} from "react-redux";
+import {COLOR} from "../config/Config";
 
 export class TaskListItem extends PureComponent {
 
@@ -67,7 +68,7 @@ export class TaskListItemHeader extends PureComponent {
                 paddingBottom: 3,
                 paddingRight: 10
             }}>
-                <Text style={{fontSize: 12, color: '#333'}}>{this.title}</Text>
+                <Text style={{fontSize: 12, color: COLOR.textNormal}}>{this.title}</Text>
             </View>
         );
     }
@@ -98,7 +99,7 @@ class TaskListView extends PureComponent {
         // }
 
         if (this.props.taskState === TaskState.TaskStateTodo) {
-            tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo} `).sorted('actionTime')
+            tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
         } else if (this.props.taskState === TaskState.TaskStatePlan) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
         } else if (this.props.taskState === TaskState.TaskStateComplete) {
@@ -110,6 +111,11 @@ class TaskListView extends PureComponent {
         // 初始化
         this.setupListData(tasks)
 
+        /*
+        // VIP
+        When using addListener(objects, changes) on React Native iOS it always returns empty on the first notification and the second notification returns what should have been in the first one.
+        https://github.com/realm/realm-js/issues/927
+        */
         // 监听数据变化
         tasks.addListener((tasks, changes) => {
             this.setupListData(tasks)

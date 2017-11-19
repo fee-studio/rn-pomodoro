@@ -14,6 +14,7 @@ import {connect} from 'react-redux';
 import {COLOR} from "../config/Config";
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TaskListScreen from "../components/TaskListScreen";
+import {toTaskScreen} from "./actions";
 // import Icon from 'react-native-vector-icons/Entypo';
 
 export const tabTomato = StackNavigator(
@@ -28,13 +29,18 @@ export const tabTomato = StackNavigator(
                 //   <Icon name="clock" size={20} color={tintColor}/>
                 <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 25}}/> // iPhone X
             ),
+            // tabBarOnPress: ({route, index}, jumpToIndex) => {
+            //     console.log(route)
+            //     console.log(index)
+            //     jumpToIndex(index)
+            // },
         }
     }
 );
 
 export const tabTask = StackNavigator(
     {
-        TaskScreen: {screen: TaskListScreen},
+        TaskListScreen: {screen: TaskListScreen},
         // TaskScreen: {screen: TaskScreen},
     },
     {
@@ -49,9 +55,13 @@ export const tabTask = StackNavigator(
                     style={{color: tintColor, fontSize: 20}}
                 />
                 */
-                <Icon name="list" style={{color: tintColor, fontSize: 20, marginBottom: 25}}/>
+                <Icon name="list" style={{color: tintColor, fontSize: 20, marginBottom: 20}}/>
                 // <Icon name="list" size={20} color={tintColor} style={{marginBottom: 30}}/>
             ),
+            // tabBarOnPress: ({route, index}, jumpToIndex) => {
+            //     // console.log(this.props)
+            //     // this.props.toTaskListScreen()
+            // },
         }
     }
 );
@@ -66,7 +76,7 @@ export const tabStatistics = StackNavigator(
             title: "统计",
             tabBarIcon: ({focused, tintColor}) => (
                 //  <Icon name="chart" size={20} color={tintColor}/>
-                <Icon name="chart" size={20} color={tintColor} style={{marginBottom: 25}}/>
+                <Icon name="chart" size={20} color={tintColor} style={{margin: 10}}/>
             ),
         }
     }
@@ -83,7 +93,7 @@ export const tabSetting = StackNavigator(
             headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
                 // <Icon name="settings" size={20} color={tintColor}/>
-                <Icon name="settings" size={20} color={tintColor} style={{marginBottom: 25}}/>
+                <Icon name="settings" size={20} color={tintColor}/>
             ),
 
         }
@@ -111,7 +121,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TaskTab', // todo...
+        initialRouteName: 'TomatoTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },
@@ -123,8 +133,8 @@ export const RootTabs = TabNavigator(
             showIcon: true,
             showLabel: true,
             // style: {backgroundColor: COLOR.backgroundDarker},
-            tabStyle: {paddingTop: 2, paddingBottom: 0},
-            labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5}
+            // tabStyle: {paddingTop: 2, paddingBottom: 0},
+            labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5},
         },
     }
 );
@@ -136,6 +146,7 @@ export const RootStack = StackNavigator(
         // TasksTabs: {screen: TasksTabs},
 
         CreateTask: {screen: CreateTaskScreen},
+        TaskListScreen4Select: {screen: TaskListScreen},
 
         // Task: {screen: TaskScreen},
         // TaskList: {screen: TaskList},
@@ -160,13 +171,18 @@ class AppNavigator extends React.Component {
     }
 }
 
-// Application.propTypes = {
-//     dispatch: PropTypes.func.isRequired,
-//     nav: PropTypes.object.isRequired,
-// };
-
 const mapStateToProps = (state) => ({
-    nav: state.nav,
+    nav: state.reducerNavigator,
 });
+
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        toTaskListScreen: () => {
+            dispatch(toTaskScreen())
+        },
+    }
+};
+
 
 export default connect(mapStateToProps)(AppNavigator);

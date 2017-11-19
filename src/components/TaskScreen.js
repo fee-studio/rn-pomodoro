@@ -88,7 +88,7 @@ class TaskScreen extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        taskScreenType: state.nav.taskScreenType
+        taskScreenType: state.reducerNavigator.taskScreenType
     };
 };
 

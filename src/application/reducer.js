@@ -10,8 +10,9 @@ import {
 import navigatorReducer from '../navigators/reducer'
 
 const appReducer = combineReducers({
-    nav: navigatorReducer,
+    reducerNavigator: navigatorReducer,
 
+    // nav: navigatorReducer,
     // todos: todoReducer,
     // filter: filterReducer
 });

@@ -21,7 +21,7 @@ import {TaskScreenType, TomatoState} from "../config/GlobalData";
 import Initialization from "../config/Initialization";
 import {TomatoModel} from "../models/TomatoModel";
 import {connect} from "react-redux";
-import {toTaskScreen} from "../navigators/actions";
+import {toTaskScreen, toTaskScreenSelectTask} from "../navigators/actions";
 import Icon from 'react-native-vector-icons/Entypo';
 // import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import {COLOR} from "../config/Config";
@@ -110,7 +110,15 @@ class PomodoroScreen extends Component {
 
     // static navigationOptions = ({navigation, screenProps}) => ({
     //     header: null,
+    //     tabBarOnPress: ({route, index}, jumpToIndex) => {
+    //         console.log(route)
+    //         console.log(index)
+    //         // jumpToIndex(index)
+    //
+    //         // navigation.dispatch(toTaskScreen());
+    //     },
     // });
+
 
     constructor(props) {
         super(props);
@@ -173,7 +181,8 @@ class PomodoroScreen extends Component {
                         </View>
                     </TouchableWithoutFeedback>
 
-                    <Text style={styles.tomatoTask}>PomodoroScreen22222222</Text>
+                    <Text
+                        style={styles.tomatoTask}>{this.props.taskItem ? this.props.taskItem.taskName : "番茄钟完成后，记得选择您的任务哦！"}</Text>
                 </View>
             </View>
         );
@@ -255,9 +264,17 @@ class PomodoroScreen extends Component {
                     },
                     {
                         text: '选任务',
+                        // onPress: () => {
+                        //     this.props.toTaskScreen(TaskScreenType.TaskScreenTypeSelect)
+                        // }
                         onPress: () => {
-                            this.props.navigation.navigate('TaskTab', {feng: 'fengyiyiiiii'})
+                            // this.props.navigation.navigate('TaskTab')
+
                             // this.props.navigation.dispatch(toTaskScreen(TaskScreenType.TaskScreenTypeSelect));
+
+                            // this.props.toTaskScreen(TaskScreenType.TaskScreenTypeSelect)
+                            this.props.toTaskScreenSelect()
+                            // this.props.toCreateTaskScreen(item)
                         }
                     },
                 ],
@@ -290,7 +307,25 @@ class PomodoroScreen extends Component {
 
 }
 
-export default connect()(PomodoroScreen)
+const mapStateToProps = (state) => {
+    return {
+        taskItem: state.reducerNavigator.task
+    };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        toTaskScreen: () => {
+            dispatch(toTaskScreen())
+        },
+        toTaskScreenSelect: () => {
+            dispatch(toTaskScreenSelectTask())
+        },
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PomodoroScreen)
 
 
 const styles = StyleSheet.create({

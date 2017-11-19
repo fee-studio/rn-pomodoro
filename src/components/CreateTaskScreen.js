@@ -231,7 +231,7 @@ class CreateTaskScreen extends React.PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        item: state.nav.item
+        item: state.reducerNavigator.item
     };
 };
 

@@ -6,7 +6,7 @@ import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
 import {TaskState} from "../config/GlobalData";
-import {toCreateTask, toTaskScreen} from "../navigators/actions";
+import {toCreateTask, toTaskScreen, toTomatoScreenWithTask} from "../navigators/actions";
 import {connect} from "react-redux";
 import {COLOR} from "../config/Config";
 
@@ -84,6 +84,15 @@ class TaskListView extends PureComponent {
             taskItems: []
         };
     }
+
+    componentWillMount() {
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+    }
+
 
     componentDidMount() {
         let tasks = realm.objects('Task');
@@ -173,14 +182,18 @@ class TaskListView extends PureComponent {
     render() {
         return (
             <View style={{flex: 1}}>
-                {/*<Text>{this.props.taskScreenType}</Text>*/}
+                <Text>task list view type : {this.props.taskScreenType}</Text>
                 {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
                 <SectionList
                     stickySectionHeadersEnabled={true}
                     renderItem={({item}) => <TaskListItem task={item}
-                                                          onPress={
-                                                              () => this.props.toCreateTaskScreen(item)
-                                                          }/>}
+                                                          onPress={() => {
+                                                              if (this.props.taskScreenType === 0) {
+                                                                  this.props.toCreateTaskScreen(item)
+                                                              } else {
+                                                                  this.props.toTomatoScreenWithTask(item)
+                                                              }
+                                                          }}/>}
                     // renderItem={({item}) => <TaskListItem task={item}
                     //                                       onPress={() => {
                     //                                           // this.props.navigation.navigate('CreateTask', {task: item})
@@ -211,6 +224,7 @@ class TaskListView extends PureComponent {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         toCreateTaskScreen: (item) => dispatch(toCreateTask(item)),
+        toTomatoScreenWithTask: (taskItem) => dispatch(toTomatoScreenWithTask(taskItem))
     }
 };
 

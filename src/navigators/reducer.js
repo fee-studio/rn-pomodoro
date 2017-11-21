@@ -7,7 +7,7 @@ import {NavigationActions} from 'react-navigation';
 import {RootStack, RootTabs, tabTask} from './AppNavigator';
 import {
     NAV_TO_CREATE_TASK, NAV_TO_TASK_SCREEN, NAV_TO_TASK_SCREEN_SELECT_TASK,
-    NAV_TO_TOMATO_SCREEN_WITH_TASK
+    NAV_TO_TOMATO_SCREEN_WITH_TASK, NAV_TO_TUCAO_WEB_VIEW, NAV_TO_WEB_VIEW
 } from "./actionTypes";
 
 
@@ -42,6 +42,14 @@ const navigatorReducer = (state = initialNavState, action) => {
         case NAV_TO_TOMATO_SCREEN_WITH_TASK:
             nextState = RootStack.router.getStateForAction(NavigationActions.back(), state);
             nextState = {...nextState, task: action.task}
+            break;
+        case NAV_TO_WEB_VIEW:
+            nextState = RootStack.router.getStateForAction(NavigationActions.navigate({routeName: 'WebViewComponent'}), state);
+            nextState = {...nextState, url: action.url}
+            break;
+        case NAV_TO_TUCAO_WEB_VIEW:
+            nextState = RootStack.router.getStateForAction(NavigationActions.navigate({routeName: 'TuCaoWebView'}), state);
+            nextState = {...nextState, url: action.url}
             break;
         default:
             // VIP 很关键的一步，虽然感觉这样写是狗屎。

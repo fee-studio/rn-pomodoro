@@ -100,7 +100,6 @@ class TaskListScreen extends React.PureComponent {
     render() {
         return (
             <View style={styles.container}>
-                <Text>task list screen type : {this.props.taskScreenType}</Text>
                 <TabViewAnimated
                     style={styles.container}
                     navigationState={this.state}

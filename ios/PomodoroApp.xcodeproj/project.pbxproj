@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -431,7 +432,6 @@
 		529B585C1F8CC594001CE830 /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B585D1F8CC652001CE830 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		52AEC92D1FB84E8600149126 /* PomodoroAppRelease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroAppRelease.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52AEC92E1FB84E8600149126 /* PomodoroApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PomodoroApp copy-Info.plist"; path = "/Users/efeng/workspace/Pomodoro/code/rn-pomodoro/ios/PomodoroApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PomodoroAppRelease-Info.plist"; path = "PomodoroApp/PomodoroAppRelease-Info.plist"; sourceTree = "<group>"; };
 		52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle.meta; sourceTree = "<group>"; };
 		52D2BA6C1FB5AF190016B950 /* index.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle; sourceTree = "<group>"; };
@@ -787,7 +787,6 @@
 				13480B8ED6AF75C04394B398 /* Frameworks */,
 				529B58741F8DBE79001CE830 /* Recovered References */,
 				FBE8E5C83A8B4DB2BE03B119 /* Resources */,
-				52AEC92E1FB84E8600149126 /* PomodoroApp copy-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";

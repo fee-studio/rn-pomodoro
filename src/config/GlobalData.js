@@ -3,6 +3,9 @@
  */
 
 import Initialization from "./Initialization";
+import {devDbData, formalDbData, TomatoConfigModel} from "../models/TomatoConfigModel";
+import realm, {TomatoConfig} from '../database/RealmDB'
+import {DEBUG} from "./Config";
 
 export const TaskState = {
     TaskStateUnknown: 0,       // 未知的
@@ -45,9 +48,16 @@ export const TaskScreenType = {
 export default class GlobalData {
 
     // static defaultTomatoConfig = null;
-    static defaultTomatoConfig = Initialization.initTomatoConfig();
+    // static defaultTomatoConfig = Initialization.initTomatoConfig();
+    static defaultTomatoConfig = GlobalData.getTomatoConfig();
 
     constructor() {
 
+    }
+
+    static getTomatoConfig() {
+        let [devConfig, formalConfig] = TomatoConfigModel.setupTomatoConfigData()
+        let config = DEBUG ? devConfig : formalConfig;
+        return config;
     }
 }

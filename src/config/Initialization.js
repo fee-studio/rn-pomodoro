@@ -11,7 +11,6 @@ export default class Initialization {
     constructor() {
         // GlobalData.defaultTomatoConfig = Initialization.initTomatoConfig();
 
-
     }
 
     static initTomatoConfig() {

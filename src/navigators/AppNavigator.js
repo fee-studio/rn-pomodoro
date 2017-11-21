@@ -14,6 +14,8 @@ import {connect} from 'react-redux';
 import {COLOR} from "../config/Config";
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TaskListScreen from "../components/TaskListScreen";
+import TuCaoWebView from "../components/TuCaoWebView";
+import WebViewComponent from "../components/common/WebViewComponent";
 import {toTaskScreen} from "./actions";
 // import Icon from 'react-native-vector-icons/Entypo';
 
@@ -121,7 +123,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TomatoTab', // todo...
+        initialRouteName: 'SettingTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },
@@ -147,6 +149,8 @@ export const RootStack = StackNavigator(
 
         CreateTask: {screen: CreateTaskScreen},
         TaskListScreen4Select: {screen: TaskListScreen},
+        WebViewComponent: {screen: WebViewComponent},
+        TuCaoWebView: {screen: TuCaoWebView},
 
         // Task: {screen: TaskScreen},
         // TaskList: {screen: TaskList},
@@ -174,7 +178,6 @@ class AppNavigator extends React.Component {
 const mapStateToProps = (state) => ({
     nav: state.reducerNavigator,
 });
-
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {

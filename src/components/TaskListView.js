@@ -182,7 +182,6 @@ class TaskListView extends PureComponent {
     render() {
         return (
             <View style={{flex: 1}}>
-                <Text>task list view type : {this.props.taskScreenType}</Text>
                 {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
                 <SectionList
                     stickySectionHeadersEnabled={true}
@@ -213,7 +212,6 @@ class TaskListView extends PureComponent {
         );
     }
 }
-
 
 // const mapStateToProps = (state) => {
 //     return {

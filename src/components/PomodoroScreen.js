@@ -130,7 +130,7 @@ class PomodoroScreen extends Component {
         };
 
         // 初始化数据
-        // new Initialization();
+        new Initialization();
     }
 
 

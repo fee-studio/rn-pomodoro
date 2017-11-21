@@ -11,7 +11,8 @@ import {COLOR} from "../config/Config";
 import GlobalData from "../config/GlobalData";
 import {toTuCaoWebView, toWebViewComponent} from "../navigators/actions";
 import {connect} from "react-redux";
-
+// import * as PushNotification from "react-native-push-notification";
+var PushNotification = require('react-native-push-notification');
 
 class SettingListItem4Content extends Component {
     constructor(props) {
@@ -220,7 +221,24 @@ class SettingScreen extends Component {
 
     _actionAdditional(item) {
         if (item.key === 'key-evaluation') {
-            this.props.toWebView("https://support.qq.com/products/17202")
+            // this.props.toWebView("https://support.qq.com/products/17202")
+
+
+            PushNotification.localNotificationSchedule({
+                message: "My Notification Message2222", // (required)
+                date: new Date(Date.now() + (5 * 1000)) // in 60 secs
+            });
+
+            // PushNotification.localNotification({
+            //     title: "My Notification Title", // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
+            //     message: "My Notification Message", // (required)
+            //     playSound: false, // (optional) default: true
+            //     soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+            //     number: 10, // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
+            //     repeatType: 'day', // (Android only) Repeating interval. Could be one of `week`, `day`, `hour`, `minute, `time`. If specified as time, it should be accompanied by one more parameter 'repeatTime` which should the number of milliseconds between each interval
+            //     actions: '["Yes", "No"]',  // (Android only) See the doc for notification actions to know more
+            // });
+
         } else if (item.key === 'key-feedback') {
             this.props.toTuCaoWebView("https://support.qq.com/products/17202")
         }
@@ -252,6 +270,7 @@ class SettingScreen extends Component {
                 {/* 如果你想要不同的组返回不同样式的子组件那就按照这个的结构返回不同的renderItem即可*/}
                 <SectionList sections={this.state.listItems}
                              renderSectionHeader={({section}) => <SettingListItemHeader title={section.sectionTitle}/>}
+                             ListFooterComponent={<View style={{height: 40, backgroundColor: '#0000'}}/>}
                              stickySectionHeadersEnabled={false}
                 />
             </View>
@@ -277,7 +296,7 @@ const styles = StyleSheet.create({
     },
     listHeader: {
         backgroundColor: '#0000',
-        height: 44,
+        height: 40,
         justifyContent: 'center',
     },
     listHeaderTitle: {

@@ -2,7 +2,7 @@
  *  功能：
  */
 
-import Initialization from "./Initialization";
+// import Initialization from "./Initialization";
 import {devDbData, formalDbData, TomatoConfigModel} from "../models/TomatoConfigModel";
 import realm, {TomatoConfig} from '../database/RealmDB'
 import {DEBUG} from "./Config";

@@ -34,6 +34,7 @@
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-picker": "^4.3.0",
     "react-native-progress": "^3.4.0",
+    "react-native-push-notification": "^3.0.1",
     "react-native-splash-screen": "^3.0.1",
     "react-native-storage": "^0.2.2",
     "react-native-swipeout": "^2.2.2",

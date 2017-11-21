@@ -5,80 +5,51 @@
 import realm, {TomatoConfig} from '../database/RealmDB'
 import GlobalData from "./GlobalData";
 import {DEBUG} from "./Config";
+// import PushNotification from "react-native-push-notification";
+
+const PushNotification = require('react-native-push-notification');
 
 export default class Initialization {
 
     constructor() {
         // GlobalData.defaultTomatoConfig = Initialization.initTomatoConfig();
 
+        this.initNotification();
+
     }
 
-    static initTomatoConfig() {
-        console.log("default realm database path = " + realm.path)
+    initNotification() {
+        PushNotification.configure({
+            // (optional) Called when Token is generated (iOS and Android)
+            onRegister: function (token) {
+                console.log('TOKEN:', token);
+            },
 
-        if (DEBUG) {
-            let index = 1;
-            let shortRestDuring = 5 * 60;
-            let longRestDuring = 15 * 60;
-            let workDuring = 3; // todo
-            let longRestInterval = 4;
-            let dailyTargetCount = 8;
-            let isRingHint = true;
-            let isShakeHint = true;
-            let isStartSelectTask = true;
-            let showToDoCount = true;
-            let notice4MorningEvening = true;
+            // (required) Called when a remote or local notification is opened or received
+            onNotification: function (notification) {
+                console.log('NOTIFICATION:', notification);
+            },
 
-            return {
-                index,
-                shortRestDuring,
-                longRestDuring,
-                workDuring,
-                longRestInterval,
-                dailyTargetCount,
-                isRingHint,
-                isShakeHint,
-                isStartSelectTask,
-                showToDoCount,
-                notice4MorningEvening,
-            }
-        }
+            // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
+            senderID: "YOUR GCM SENDER ID",
 
-        let defaultTomatoConfig = null;
-        let configs = realm.objects('TomatoConfig').filtered('index = 1');
-        if (configs.length >= 1) {
-            defaultTomatoConfig = configs[0];
-            return defaultTomatoConfig;
-        } else {
-            let index = 1;
-            let shortRestDuring = 5 * 60;
-            let longRestDuring = 15 * 60;
-            let workDuring = 25 * 60;
-            let longRestInterval = 4;
-            let dailyTargetCount = 8;
-            let isRingHint = true;
-            let isShakeHint = true;
-            let isStartSelectTask = true;
-            let showToDoCount = true;
-            let notice4MorningEvening = true;
+            // IOS ONLY (optional): default: all - Permissions to register.
+            permissions: {
+                alert: true,
+                badge: true,
+                sound: true
+            },
 
-            realm.write(() => {
-                return defaultTomatoConfig = realm.create('TomatoConfig', {
-                    index,
-                    shortRestDuring,
-                    longRestDuring,
-                    workDuring,
-                    longRestInterval,
-                    dailyTargetCount,
-                    isRingHint,
-                    isShakeHint,
-                    isStartSelectTask,
-                    showToDoCount,
-                    notice4MorningEvening,
-                })
-            })
-        }
+            // Should the initial notification be popped automatically
+            // default: true
+            popInitialNotification: true,
+
+            /**
+             * (optional) default: true
+             * - Specified if permissions (ios) and token (android and ios) will requested or not,
+             * - if not, you must call PushNotificationsHandler.requestPermissions() later
+             */
+            requestPermissions: true,
+        });
     }
-
-
 }

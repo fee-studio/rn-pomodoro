@@ -3918,6 +3918,10 @@ react-native-progress@^3.4.0:
   dependencies:
     prop-types "^15.5.8"
 
+react-native-push-notification@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/react-native-push-notification/download/react-native-push-notification-3.0.1.tgz#0e23db302d03bb4a3f28dc072dcaf2a9a1178ed8"
+
 react-native-splash-screen@^3.0.1:
   version "3.0.6"
   resolved "http://registry.npm.taobao.org/react-native-splash-screen/download/react-native-splash-screen-3.0.6.tgz#c0bbf2c8ae40a313c4c7044f55e569414ff68332"

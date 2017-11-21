@@ -193,11 +193,6 @@ class TaskListView extends PureComponent {
                                                                   this.props.toTomatoScreenWithTask(item)
                                                               }
                                                           }}/>}
-                    // renderItem={({item}) => <TaskListItem task={item}
-                    //                                       onPress={() => {
-                    //                                           // this.props.navigation.navigate('CreateTask', {task: item})
-                    //                                           this.props.navigation.dispatch(toCreateTask(item))
-                    //                                       }}/>}
                     renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
                     sections={this.state.taskItems}
                     ItemSeparatorComponent={() => <View style={{height: 0.5, backgroundColor: '#ccc'}}/>}

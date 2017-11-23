@@ -70,6 +70,7 @@
 		52AEC9261FB84E8600149126 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF0C0F065F245CD9EC55DA8 /* Zocial.ttf */; };
 		52AEC95B1FB84FCA00149126 /* PomodoroAppRelease-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */; };
 		52AEC95C1FB84FEB00149126 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
+		52C911711FC58E06006B54A7 /* RNDocumentPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C911701FC58E06006B54A7 /* RNDocumentPicker.m */; };
 		52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */; };
 		52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
 		5AC36993F76741B7B2630300 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9B594061C64319B6402179 /* libRNDeviceInfo.a */; };
@@ -458,6 +459,8 @@
 		529F54721FC43CA100C1D493 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		52AEC92D1FB84E8600149126 /* PomodoroAppRelease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroAppRelease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PomodoroAppRelease-Info.plist"; path = "PomodoroApp/PomodoroAppRelease-Info.plist"; sourceTree = "<group>"; };
+		52C9116F1FC58E05006B54A7 /* RNDocumentPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNDocumentPicker.h; sourceTree = "<group>"; };
+		52C911701FC58E06006B54A7 /* RNDocumentPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDocumentPicker.m; sourceTree = "<group>"; };
 		52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle.meta; sourceTree = "<group>"; };
 		52D2BA6C1FB5AF190016B950 /* index.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle; sourceTree = "<group>"; };
 		5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PomodoroApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -655,6 +658,8 @@
 		13B07FAE1A68108700A75B9A /* PomodoroApp */ = {
 			isa = PBXGroup;
 			children = (
+				52C9116F1FC58E05006B54A7 /* RNDocumentPicker.h */,
+				52C911701FC58E06006B54A7 /* RNDocumentPicker.m */,
 				528713AD1FC43F510007EEF8 /* PomodoroApp.entitlements */,
 				52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -974,6 +979,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -1611,6 +1619,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				52C911711FC58E06006B54A7 /* RNDocumentPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1741,8 +1750,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = PomodoroApp;
-				PROVISIONING_PROFILE = "e83c843f-4ea0-442e-8759-b8c7e0835fe1";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_dev_profile_20171107";
+				PROVISIONING_PROFILE = "98008b05-d94f-4ae4-98e4-93cfac4d2be9";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_dev_20171122";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1775,8 +1784,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = PomodoroApp;
-				PROVISIONING_PROFILE = "8244a8b8-af95-4c1c-8f86-42ef31c0aea7";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_appstore_profile_20171107";
+				PROVISIONING_PROFILE = "efc0cef5-4ab0-4c50-8a20-5cdf88ad54b2";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_appstore_20171122";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1812,8 +1821,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e83c843f-4ea0-442e-8759-b8c7e0835fe1";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_dev_profile_20171107";
+				PROVISIONING_PROFILE = "98008b05-d94f-4ae4-98e4-93cfac4d2be9";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_dev_20171122";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1849,8 +1858,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8244a8b8-af95-4c1c-8f86-42ef31c0aea7";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_appstore_profile_20171107";
+				PROVISIONING_PROFILE = "efc0cef5-4ab0-4c50-8a20-5cdf88ad54b2";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_appstore_20171122";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

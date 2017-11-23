@@ -17,6 +17,7 @@ import TaskListScreen from "../components/TaskListScreen";
 import TuCaoWebView from "../components/TuCaoWebView";
 import WebViewComponent from "../components/common/WebViewComponent";
 import {toTaskScreen} from "./actions";
+import DemoScreen from "../components/DemoScreen";
 // import Icon from 'react-native-vector-icons/Entypo';
 
 export const tabTomato = StackNavigator(
@@ -116,6 +117,9 @@ export const RootTabs = TabNavigator(
         },
         SettingTab: {
             screen: tabSetting,
+        },
+        DemoTab: {
+            screen: DemoScreen,
         },
     },
     {

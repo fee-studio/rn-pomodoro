@@ -5,7 +5,7 @@
 
 import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation'
-import PomodoroScreen from './PomodoroScreen'
+import TomatoScreen from './TomatoScreen'
 import TaskScreen, {TaskList, TaskListItem} from './TaskScreen'
 import StatisticsScreen from './StatisticsScreen'
 import SettingScreen from './SettingScreen'
@@ -16,8 +16,8 @@ import {TaskStateTitle} from "../config/GlobalData";
 
 const RootTabs = TabNavigator(
     {
-        PomodoroTab: {
-            screen: PomodoroScreen,
+        TomatoTab: {
+            screen: TomatoScreen,
             /*
             path: '/',
             navigationOptions: {
@@ -50,7 +50,7 @@ const RootTabs = TabNavigator(
         tabBarPosition: 'bottom',
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'PomodoroTab', // todo...
+        initialRouteName: 'TomatoTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },

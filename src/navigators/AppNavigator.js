@@ -4,7 +4,7 @@
 
 import React from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
-import PomodoroScreen from '../components/PomodoroScreen'
+import TomatoScreen from '../components/TomatoScreen'
 import TaskScreen from '../components/TaskScreen'
 import StatisticsScreen from '../components/StatisticsScreen'
 import SettingScreen from '../components/SettingScreen'
@@ -22,7 +22,7 @@ import DemoScreen from "../components/DemoScreen";
 
 export const tabTomato = StackNavigator(
     {
-        TomatoScreen: {screen: PomodoroScreen},
+        TomatoScreen: {screen: TomatoScreen},
     },
     {
         navigationOptions: {
@@ -99,7 +99,6 @@ export const tabSetting = StackNavigator(
                 // <Icon name="settings" size={20} color={tintColor}/>
                 <Icon name="settings" size={20} color={tintColor}/>
             ),
-
         }
     }
 );
@@ -128,7 +127,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'StatisticsTab', // todo...
+        initialRouteName: 'TomatoTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },

@@ -30,8 +30,9 @@ export const tabTomato = StackNavigator(
             header: null,
             tabBarIcon: ({focused, tintColor}) => (
                 //   <Icon name="clock" size={20} color={tintColor}/>
-                <Icon name="clock" size={20} color={tintColor} style={{marginBottom: 25}}/> // iPhone X
+                <Icon name="clock" size={20} color={tintColor} /*style={{marginBottom: 25}}*//> // iPhone X
             ),
+
             // tabBarOnPress: ({route, index}, jumpToIndex) => {
             //     console.log(route)
             //     console.log(index)
@@ -58,7 +59,8 @@ export const tabTask = StackNavigator(
                     style={{color: tintColor, fontSize: 20}}
                 />
                 */
-                <Icon name="list" style={{color: tintColor, fontSize: 20, marginBottom: 20}}/>
+
+                <Icon name="list" style={{color: tintColor, fontSize: 20, /*marginBottom: 20*/}}/>
                 // <Icon name="list" size={20} color={tintColor} style={{marginBottom: 30}}/>
             ),
             // tabBarOnPress: ({route, index}, jumpToIndex) => {
@@ -78,8 +80,7 @@ export const tabStatistics = StackNavigator(
         navigationOptions: {
             title: "统计",
             tabBarIcon: ({focused, tintColor}) => (
-                //  <Icon name="chart" size={20} color={tintColor}/>
-                <Icon name="chart" size={20} color={tintColor} style={{margin: 10}}/>
+                <Icon name="chart" size={20} color={tintColor} /*style={{margin: 10}}*//>
             ),
         }
     }
@@ -127,7 +128,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'SettingTab', // todo...
+        initialRouteName: 'StatisticsTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },
@@ -140,7 +141,7 @@ export const RootTabs = TabNavigator(
             showLabel: true,
             // style: {backgroundColor: COLOR.backgroundDarker},
             // tabStyle: {paddingTop: 2, paddingBottom: 0},
-            labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5},
+            // labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5}, // VIP 这个会导致 字上面的图标靠下
         },
     }
 );

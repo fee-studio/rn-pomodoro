@@ -4,7 +4,8 @@
  */
 
 import React, {Component, PureComponent} from 'react';
-import {Text, View, StyleSheet, FlatList} from "react-native";
+import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback} from "react-native";
+import {COLOR} from "../config/Config";
 
 
 class StatisticsItem extends PureComponent {
@@ -70,39 +71,39 @@ export default class StatisticsScreen extends PureComponent {
             },
         };
         this.everydayStatisticsData = {
-            title: '今日完成统计',
+            title: '每日完成的番茄数',
             items: [
-                {title: "item1"},
-                {title: "item2"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
-                {title: "item3"},
+                {id: '0', title: "item2", tomatoCount: 2,},
+                {id: '1', title: "item3", tomatoCount: 3,},
+                {id: '2', title: "item3", tomatoCount: 4,},
+                {id: '3', title: "item3", tomatoCount: 5,},
+                {id: '4', title: "item3", tomatoCount: 6,},
+                {id: '5', title: "item3", tomatoCount: 7,},
+                {id: '6', title: "item3", tomatoCount: 8,},
+                {id: '7', title: "item3", tomatoCount: 9,},
+                {id: '8', title: "item3", tomatoCount: 10,},
+                {id: '9', title: "item3", tomatoCount: 9,},
+                {id: '10', title: "item3", tomatoCount: 8,},
+                {id: '11', title: "item3", tomatoCount: 7,},
+                {id: '12', title: "item1", tomatoCount: 1,},
+                {id: '13', title: "item3", tomatoCount: 6,},
+                {id: '14', title: "item3", tomatoCount: 5,},
+                {id: '15', title: "item3", tomatoCount: 4,},
+                {id: '16', title: "item3", tomatoCount: 3,},
+                {id: '17', title: "item3", tomatoCount: 2,},
+                {id: '18', title: "item3", tomatoCount: 1,},
+                {id: '19', title: "item3", tomatoCount: 0,},
+                {id: '20', title: "item3", tomatoCount: 1,},
+                {id: '21', title: "item3", tomatoCount: 2,},
+                {id: '22', title: "item3", tomatoCount: 3,},
+                {id: '23', title: "item3", tomatoCount: 4,},
+                {id: '24', title: "item3", tomatoCount: 5,},
+                {id: '25', title: "item3", tomatoCount: 6,},
+                {id: '26', title: "item3", tomatoCount: 7,},
+                {id: '27', title: "item3", tomatoCount: 8,},
+                {id: '28', title: "item3", tomatoCount: 9,},
+                {id: '29', title: "item3", tomatoCount: 10,},
+                {id: '30', title: "item3", tomatoCount: 0,},
             ],
         };
 
@@ -152,6 +153,7 @@ export default class StatisticsScreen extends PureComponent {
                                         value={this.totalStatisticsData.taskCount.value}/>
                     </View>
                 </View>
+
                 <View style={styles.moduleContainer}>
                     <Text style={styles.moduleTitle}>{this.todayStatisticsData.title}</Text>
                     <View style={styles.itemContainerView}>
@@ -163,55 +165,72 @@ export default class StatisticsScreen extends PureComponent {
                                         value={this.todayStatisticsData.taskCount.value}/>
                     </View>
                 </View>
-                <View style={styles.moduleContainer}>
-                    <MyList data={this.everydayStatisticsData.items}/>
+
+                <View style={[styles.moduleContainer]}>
+                    <Text style={styles.moduleTitle}>{this.everydayStatisticsData.title}</Text>
+                    <Text style={styles.moduleTitle}>{}</Text>
+                    <DailyTomatoCountList data={this.everydayStatisticsData.items}/>
                 </View>
             </View>
         );
     }
 }
 
-class MyListItem extends React.PureComponent {
-    _onPress = () => {
-        this.props.onPressItem(this.props.id);
-    };
+class DailyTomatoCountListItem extends React.PureComponent {
 
     render() {
         return (
-            /*
-            <Text
-                {...this.props}
-                onPress={this._onPress}
-            >{this.props.title}</Text>
-            */
-
-
-            <View style={styles.listItem}/>
+            <TouchableWithoutFeedback onPress={this.props.onPress}>
+                <View style={{
+                    flexDirection: 'column',
+                    width: 30,
+                    height: 200,
+                    marginLeft: 1,
+                    marginRight: 1,
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                }}>
+                    <View style={{
+                        backgroundColor: this.props.selected ? COLOR.primary : COLOR.secondary,
+                        borderRadius: 5,
+                        width: 10,
+                        height: 10 + 150 * this.props.value / 10
+                    }}/>
+                    <Text style={{
+                        width: 30,
+                        fontSize: 10,
+                        marginTop: 5,
+                        marginBottom: 10,
+                        textAlign: 'center'
+                    }}>12-10</Text>
+                    {/*<Text style={{backgroundColor: '#f00', width: 30, height: 40}}>{this.props.title}</Text>*/}
+                </View>
+            </TouchableWithoutFeedback>
         )
     }
 }
 
-class MyList extends React.PureComponent {
-    state = {selected: (new Map(): Map<string, boolean>)};
+class DailyTomatoCountList extends React.PureComponent {
+    state = {selected: {}};
 
     _keyExtractor = (item, index) => index;
 
     _onPressItem = (id: string) => {
-        // updater functions are preferred for transactional updates
         this.setState((state) => {
-            // copy the map rather than modifying state.
-            const selected = new Map(state.selected);
-            selected.set(id, !selected.get(id)); // toggle
+            // let selected = {...state.selected};
+            let selected = {};
+            selected[id] = !selected[id];
             return {selected};
         });
     };
 
     _renderItem = ({item}) => (
-        <MyListItem
+        <DailyTomatoCountListItem
             id={item.id}
-            onPressItem={this._onPressItem}
-            selected={!!this.state.selected.get(item.id)}
+            onPress={() => this._onPressItem(item.id)}
+            selected={!!this.state.selected[item.id]}
             title={item.title}
+            value={item.tomatoCount}
         />
     );
 
@@ -242,6 +261,7 @@ const styles = StyleSheet.create({
     },
     moduleTitle: {
         marginTop: 5,
+        color: COLOR.textEmphasis,
     },
     itemContainerView: {
         flexDirection: 'row',
@@ -253,59 +273,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     itemValue: {
-        color: '#f66',
-        fontSize: 30,
+        color: COLOR.primary,
+        fontSize: 32,
     },
     itemTitle: {
-        color: '#666',
+        color: COLOR.textPrompt,
+        fontSize: 12,
     },
     listItem: {
-        backgroundColor: '#f00',
-        width: 20,
-        height: 100,
-        marginLeft: 5,
-        marginRight: 5,
+        backgroundColor: COLOR.primary,
+        width: 12,
+        height: 200,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 50,
+        borderRadius: 6,
     },
     listSeparator: {
         // width:10,
         // height:10,
     }
-
-
-    // itemContentView: {
-    //     marginRight: 10,
-    //     justifyContent: 'center',
-    //     backgroundColor: '#0ff',
-    // },
-    // itemTitleView: {
-    //     marginLeft: 10,
-    //     justifyContent: 'center',
-    //     backgroundColor: '#ff0',
-    // },
-    // itemArrowRightView: {
-    //     marginRight: 10,
-    //     justifyContent: 'center',
-    //     backgroundColor: '#09f',
-    // },
-    // itemArrowRight: {
-    //     backgroundColor: '#193',
-    //     width: 20,
-    //     height: 20,
-    // },
-    // itemContentRight: {
-    //     flexDirection: 'row',
-    //     marginRight: 10,
-    // },
-    // itemOnOff: {
-    //     marginRight: 10,
-    //     backgroundColor: '#f0f',
-    // },
-    // itemContent: {
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor: '#0f0',
-    //     marginRight: 10,
-    //     color: '#666'
-    // },
 
 });

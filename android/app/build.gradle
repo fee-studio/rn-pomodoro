@@ -73,7 +73,6 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-//project.react = [
         bundleAssetName: "index.bundle",
         entryFile      : "index.js",
         bundleInDebug  : false,
@@ -162,7 +161,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-document-picker')
     compile project(':react-native-push-notification')
     compile ('com.google.android.gms:play-services-gcm:8.1.0') {
         force = true;

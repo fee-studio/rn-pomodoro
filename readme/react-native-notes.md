@@ -56,6 +56,6 @@ A: [答案](https://github.com/react-community/react-navigation/issues/1919)
 
 12. (未解决)realm监听的问题，添加完数据，监听到是上一条的数据。真机上没有问题。issue看[realm github issue](https://github.com/realm/realm-js/issues/927)
 
-13.
+13. [How to set canOverrideExistingModule=true](https://stackoverflow.com/questions/41846452/how-to-set-canoverrideexistingmodule-true)
 
-
+14.

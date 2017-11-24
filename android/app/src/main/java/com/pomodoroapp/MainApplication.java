@@ -3,7 +3,7 @@ package com.pomodoroapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
+//import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 
@@ -46,6 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
             );
         }
 
+        //* 离线打包需要的
         @Override
         protected String getJSMainModuleName() {
             return "index";

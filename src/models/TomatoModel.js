@@ -18,32 +18,42 @@ export class TomatoModel {
     startTime = new Date()
     endTime = new Date()
     isInterrupt = false
-    state = TomatoState.TomatoStateUnknown
     workDuring = 3
     curTask = {}
+    state = TomatoState.TomatoStateInit
 
     // 本地使用
-    tomatoType = TomatoType.TomatoTypeInit
+    type = TomatoType.TomatoTypeInit
 
 
     constructor(props) {
 
     }
 
-    start(tomatoType = TomatoType.TomatoTypeWorking, curTask = {}) {
+    start() {
         if (this === undefined) {
             return;
         }
 
-        this.tomatoType = tomatoType;
-        this.startTime = new Date();
-        this.workDuring = GlobalData.defaultTomatoConfig.workDuring;
-        this.curTask = curTask;
-        this.isInterrupt = false;
         this.state = TomatoState.TomatoStateStart;
-
         return this;
     }
+
+    // start(tomatoType = TomatoType.TomatoTypeWorking, curTask = {}) {
+    //     if (this === undefined) {
+    //         return;
+    //     }
+    //
+    //     this.startTime = new Date();
+    //     this.workDuring = GlobalData.defaultTomatoConfig.workDuring;
+    //     this.curTask = curTask;
+    //     this.isInterrupt = false;
+    //
+    //     this.type = tomatoType;
+    //     this.state = TomatoState.TomatoStateStart;
+    //
+    //     return this;
+    // }
 
     stop() {
         if (this === undefined) {
@@ -51,6 +61,15 @@ export class TomatoModel {
         }
 
         this.state = TomatoState.TomatoStateCancel;
+        return this;
+    }
+
+    finish() {
+        if (this === undefined) {
+            return;
+        }
+
+        this.state = TomatoState.TomatoStateFinished;
         return this;
     }
 

@@ -24,7 +24,7 @@ export const TaskStateTitle = {
 }
 
 export const TomatoState = {
-    TomatoStateUnknown: 0,
+    TomatoStateInit: 0,
     TomatoStateStart: 1,
     TomatoStatePause: 2,
     TomatoStateCancel: 3,

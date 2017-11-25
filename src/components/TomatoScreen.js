@@ -535,9 +535,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#00f',
         flex: 1,
     },
-    text1: {
-        backgroundColor: '#ff0',
-    },
     progressContainer: {
         flex: 1,
         justifyContent: 'center',

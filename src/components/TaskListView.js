@@ -97,16 +97,6 @@ class TaskListView extends PureComponent {
     componentDidMount() {
         let tasks = realm.objects('Task');
 
-        // if (this.props.navigation.state.key === 'todayTask') {
-        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo} `).sorted('actionTime')
-        // } else if (this.props.navigation.state.key === 'willTask') {
-        //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
-        // } else if (this.props.navigation.state.key === 'didTask') {
-        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
-        // } else if (this.props.navigation.state.key === 'unDoneTask') {
-        //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
-        // }
-
         if (this.props.taskState === TaskState.TaskStateTodo) {
             tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
         } else if (this.props.taskState === TaskState.TaskStatePlan) {
@@ -120,32 +110,62 @@ class TaskListView extends PureComponent {
         // 初始化
         this.setupListData(tasks)
 
-        /*
-        // VIP
+        // Realm Notifications
+        realm.addListener('change', (sender, event) => {
+        })
+
+        /* VIP
         When using addListener(objects, changes) on React Native iOS it always returns empty on the first notification and the second notification returns what should have been in the first one.
         https://github.com/realm/realm-js/issues/927
         */
-        // 监听数据变化
+        // Collection Notifications 监听数据变化
         tasks.addListener((tasks, changes) => {
-            this.setupListData(tasks)
+            console.log('=======================================');
+            console.log(`${this.props.taskState} task data changed!!!`);
+            // if (this.props.taskState === TaskState.TaskStateTodo) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
+            // } else if (this.props.taskState === TaskState.TaskStatePlan) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
+            // } else if (this.props.taskState === TaskState.TaskStateComplete) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
+            // } else if (this.props.taskState === TaskState.TaskStateOverdue) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
+            // }
+            // console.log("tasks.length = " + tasks.length)
+            // let  tasks = realm.objects('Task');
+            // if (this.props.taskState === TaskState.TaskStateTodo) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
+            // } else if (this.props.taskState === TaskState.TaskStatePlan) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
+            // } else if (this.props.taskState === TaskState.TaskStateComplete) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
+            // } else if (this.props.taskState === TaskState.TaskStateOverdue) {
+            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
+            // }
+            console.log("tasks.length = " + tasks.length)
+
+            // this.setupListData(tasks)
 
             // Update UI in response to inserted objects
             changes.insertions.forEach((index) => {
                 let insertedDog = tasks[index]
-                console.log('insertedDog = ' + insertedDog);
+                console.log('insertedDog = ' + JSON.stringify(insertedDog));
             });
 
             // Update UI in response to modified objects
             changes.modifications.forEach((index) => {
                 let modifiedDog = tasks[index]
-                console.log('modifiedDog = ' + modifiedDog);
+                console.log('modifiedDog = ' + JSON.stringify(modifiedDog));
             });
 
             // Update UI in response to deleted objects
             changes.deletions.forEach((index) => {
+                let deletedDog = tasks[index]
+                console.log('deletedDog = ' + JSON.stringify(deletedDog));
                 // Deleted objects cannot be accessed directly
                 // Support for accessing deleted objects coming soon...
             });
+            // console.log('=======================================');
         });
     }
 

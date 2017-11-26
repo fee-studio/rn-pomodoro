@@ -43,7 +43,6 @@ class ProgressChildView extends Component {
         this.state = {
             myStatus: this.props.playStatus,
         };
-
     }
 
     // componentDidMount() {
@@ -123,8 +122,7 @@ class TomatoScreen extends Component {
             tomatoType: TomatoType.TomatoTypeInit,
         };
 
-        // 初始化数据
-        new Initialization();
+
     }
 
 

@@ -1,5 +1,5 @@
 {
-  "//": "react-native-progress ^3.4.0先不用",
+  "//": "react-native-progress ^3.4.0先不用 | react-native-document-picker |",
   "name": "PomodoroApp",
   "version": "0.0.1",
   "private": true,
@@ -8,6 +8,7 @@
     "start-webserver": "react-native start",
     "env-info": "react-native info",
     "link": "react-native link",
+    "clean-build": "rm -rf .tmp android/build android/app/build ios/build",
     "ios-run-dev": "react-native run-ios",
     "ios-run-dev-device": "react-native run-ios --device \"xiaojia's iphone\"",
     "ios-bundle": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/index.jsbundle --assets-dest ios/assets",
@@ -26,12 +27,11 @@
   "dependencies": {
     "art": "^0.10.1",
     "react": "^16.0.0",
-    "react-native": "^0.50.1",
-    "react-native-circular-progress": "https://github.com/bgryszko/react-native-circular-progress.git#master",
+    "react-native": "^0.50.4",
+    "react-native-circular-progress": "git+https://github.com/bgryszko/react-native-circular-progress.git#master",
     "react-native-device-info": "^0.12.0",
-    "react-native-document-picker": "^2.1.0",
     "react-native-easy-toast": "^1.0.8",
-    "react-native-gesture-handler": "^1.0.0-alpha.31",
+    "react-native-gesture-handler": "^1.0.0-alpha.33",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-picker": "^4.3.0",
     "react-native-progress": "^3.4.0",
@@ -41,8 +41,9 @@
     "react-native-swipeout": "^2.2.2",
     "react-native-tab-view": "^0.0.70",
     "react-native-vector-icons": "^4.4.2",
-    "react-navigation": "^1.0.0-beta.19",
+    "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
+    "react-test-renderer": "^16.1.1",
     "realm": "^2.0.2",
     "redux": "^3.7.2"
   },
@@ -50,7 +51,7 @@
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "21.2.1",
-    "react-devtools": "^2.5.2",
+    "react-devtools": "^3.0.0",
     "react-test-renderer": "^16.0.0"
   },
   "jest": {

@@ -3,6 +3,7 @@ package com.pomodoroapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 //import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -35,6 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new ReactNativeDocumentPicker(),
             new ReactNativeDocumentPicker(),
             new ReactNativePushNotificationPackage(),
             new RNGestureHandlerPackage(),

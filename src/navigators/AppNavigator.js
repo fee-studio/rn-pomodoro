@@ -127,7 +127,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TomatoTab', // todo...
+        initialRouteName: 'TaskTab', // todo...
         navigationOptions: {
             headerTintColor: '#333',
         },

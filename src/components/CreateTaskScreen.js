@@ -219,7 +219,10 @@ class CreateTaskScreen extends React.PureComponent {
             return (
                 <TouchableHighlight style={styles.deleteButton}
                                     onPress={() => {
-                                        alert('will delete')
+                                        realm.write(() => {
+                                            realm.delete(this.task);
+                                            // realm.delete(realm.objectForPrimaryKey('Task', this.task.taskId));
+                                        });
                                     }}
                 >
                     <Text style={styles.deleteButtonText}>删除任务</Text>

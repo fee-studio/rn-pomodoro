@@ -58,4 +58,58 @@ A: [答案](https://github.com/react-community/react-navigation/issues/1919)
 
 13. [How to set canOverrideExistingModule=true](https://stackoverflow.com/questions/41846452/how-to-set-canoverrideexistingmodule-true)
 
-14.
+14. realm-sync-cocoa文件在第一次运行时，下载不下来的问题 http 403，报错如下：
+    ```C
+    PhaseScriptExecution Download\ Core /Users/efeng/Library/Developer/Xcode/DerivedData/PomodoroApp-dmbwahuxokardrepbybbetfebqhf/Build/Intermediates.noindex/RealmJS.build/Debug-iphonesimulator/RealmJS.build/Script-F63FF2C51C12462600B3B8E0.sh
+        cd /Users/efeng/workspace/Pomodoro/code/rn-pomodoro/node_modules/realm/src
+        /bin/sh -c /Users/efeng/Library/Developer/Xcode/DerivedData/PomodoroApp-dmbwahuxokardrepbybbetfebqhf/Build/Intermediates.noindex/RealmJS.build/Debug-iphonesimulator/RealmJS.build/Script-F63FF2C51C12462600B3B8E0.sh
+
+    Resolved requirements: { SYNC_SERVER_FOLDER: 'sync',
+      SYNC_ARCHIVE: 'realm-sync-cocoa-2.1.7.tar.xz',
+      SYNC_ARCHIVE_ROOT: 'core' }
+    Target directory has a differing lockfile, overwriting.
+    Error: Error downloading https://static.realm.io/downloads/sync/realm-sync-cocoa-2.1.7.tar.xz - received status 403 Forbidden
+        at fetch.then (/Users/efeng/workspace/Pomodoro/code/rn-pomodoro/node_modules/realm/scripts/download-realm.js:67:19)
+        at <anonymous>
+        at process._tickCallback (internal/process/next_tick.js:188:7)
+    Command /bin/sh failed with exit code 1
+    ```
+    因为这个错误里面有403的问题，应该是国内被墙的原因。后来在客户端、Terminal端都配置了VPN还是下载不下来，
+    故此放弃了直接下载的方法。
+
+node ../scripts/download-realm.js ios --sync
+
+    解决办法：
+    ```
+    1. 在上面的出错的信息中找到不能下载的链接：https://static.realm.io/downloads/sync/realm-sync-cocoa-2.1.7.tar.xz
+    2. 用safari下载下来。
+    3. cd ~/Downloads   // 默认safari下载的文件在Download目录
+    4. xz -d realm-sync-cocoa-2.1.7.tar.xz  // 解压
+
+    5. tar zxvf realm-sync-cocoa-2.1.7.tar // 解压
+    6. 把core下面的所有文件都放在项目下的/node_modules/realm/vendor/realm-ios下面。注意版本号要一致。
+    OR
+    5. mv realm-sync-cocoa-2.1.7.tar ${TMPDIR}/_realm-sync-cocoa-2.1.7.tar  //  移动到这里来
+    6. tar zxvf _realm-sync-cocoa-2.1.7.tar -C realm-sync-cocoa-2.1.7.tar // 解压到realm-sync-cocoa-2.1.7.tar这个目录，很重要！！！要带着tar后缀名
+    6.1. 在上面的出错的信息中找到抛异常的位置，注释掉,成功后再还原回来。
+        // if (response.status !== 200) {
+        //     throw new Error(`Error downloading ${url} - received status ${response.status} ${response.statusText}`);
+        // }
+
+    7. 打开xCode -> clean -> run
+    8. Good Luck
+
+    灵感来源于：
+    https://github.com/realm/realm-js/issues/1223
+    https://github.com/realm/realm-cocoa/issues/2713
+    ```
+
+
+
+
+
+
+
+
+
+

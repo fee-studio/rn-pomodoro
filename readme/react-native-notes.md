@@ -8,6 +8,8 @@ Q: 有一个 react-native-debugger 调试器
 
 A: [传送门](https://github.com/jhen0409/react-native-debugger)
 
+    REACT_DEBUGGER=open -g 'rndebugger://set-debugger-loc?port=8001'
+
 3.
 Q: (报错)Unhandled JS Exception: Missing Realm constructor. Did you run "react-native link realm"? Please see https://realm.io/docs/react-native/latest/#missing-realm-constructor for troubleshooting
 
@@ -77,7 +79,7 @@ A: [答案](https://github.com/react-community/react-navigation/issues/1919)
     因为这个错误里面有403的问题，应该是国内被墙的原因。后来在客户端、Terminal端都配置了VPN还是下载不下来，
     故此放弃了直接下载的方法。
 
-node ../scripts/download-realm.js ios --sync
+    node ../scripts/download-realm.js ios --sync
 
     解决办法：
     ```

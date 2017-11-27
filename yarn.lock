@@ -1043,8 +1043,8 @@ chalk@^2.0.0, chalk@^2.0.1:
     supports-color "^4.0.0"
 
 chardet@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/chardet/download/chardet-0.4.0.tgz#0bbe1355ac44d7a3ed4a925707c4ef70f8190f6c"
+  version "0.4.2"
+  resolved "http://registry.npm.taobao.org/chardet/download/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
 ci-info@^1.0.0:
   version "1.1.2"
@@ -3059,8 +3059,8 @@ lru-cache@^4.0.1:
     yallist "^2.1.2"
 
 lzma-native@^3.0.1:
-  version "3.0.2"
-  resolved "http://registry.npm.taobao.org/lzma-native/download/lzma-native-3.0.2.tgz#a3a7542664f246f2461c102f55ff89a639feb98b"
+  version "3.0.3"
+  resolved "http://registry.npm.taobao.org/lzma-native/download/lzma-native-3.0.3.tgz#7e1a49d350130512e0da67c7fa1f8e89fb09cc3d"
   dependencies:
     nan "2.5.1"
     node-pre-gyp "^0.6.39"
@@ -3962,7 +3962,7 @@ react-native-vector-icons@^4.4.2:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
-react-native@^0.50.4:
+react-native@^0.50.0:
   version "0.50.4"
   resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.50.4.tgz#194f5da4939087b3acee712a503475f4942dca7e"
   dependencies:
@@ -4049,7 +4049,7 @@ react-redux@^5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
-react-test-renderer@^16.1.1:
+react-test-renderer@^16.0.0:
   version "16.1.1"
   resolved "http://registry.npm.taobao.org/react-test-renderer/download/react-test-renderer-16.1.1.tgz#a05184688d564be799f212449262525d1e350537"
   dependencies:
@@ -4135,9 +4135,9 @@ readable-stream@~1.1.8, readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-realm@^2.0.2:
-  version "2.0.11"
-  resolved "http://registry.npm.taobao.org/realm/download/realm-2.0.11.tgz#bee967171ff55892443e189cfe154a0c3afc6dc7"
+realm@2.0.6:
+  version "2.0.6"
+  resolved "http://registry.npm.taobao.org/realm/download/realm-2.0.6.tgz#6e7a140fdc38aa04f973323aa50d7b82983c3adf"
   dependencies:
     command-line-args "^4.0.6"
     decompress "^4.2.0"

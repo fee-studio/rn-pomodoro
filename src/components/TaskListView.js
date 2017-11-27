@@ -95,31 +95,32 @@ class TaskListView extends PureComponent {
 
 
     componentDidMount() {
-        let tasks = realm.objects('Task');
+        let aTasks = realm.objects('Task');
 
         if (this.props.taskState === TaskState.TaskStateTodo) {
-            tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
+            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
         } else if (this.props.taskState === TaskState.TaskStatePlan) {
-            tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
+            aTasks = aTasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
         } else if (this.props.taskState === TaskState.TaskStateComplete) {
-            tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
+            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
         } else if (this.props.taskState === TaskState.TaskStateOverdue) {
-            tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
+            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
         }
 
         // 初始化
-        this.setupListData(tasks)
+        this.setupListData(aTasks)
 
         // Realm Notifications
-        realm.addListener('change', (sender, event) => {
-        })
+        // realm.addListener('change', (sender, event) => {
+        //
+        // })
 
         /* VIP
         When using addListener(objects, changes) on React Native iOS it always returns empty on the first notification and the second notification returns what should have been in the first one.
         https://github.com/realm/realm-js/issues/927
         */
         // Collection Notifications 监听数据变化
-        tasks.addListener((tasks, changes) => {
+        aTasks.addListener((tasks, changes) => {
             console.log('=======================================');
             console.log(`${this.props.taskState} task data changed!!!`);
             // if (this.props.taskState === TaskState.TaskStateTodo) {

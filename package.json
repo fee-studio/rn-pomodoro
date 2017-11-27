@@ -1,5 +1,5 @@
 {
-  "//": "react-native-progress ^3.4.0先不用 | react-native-document-picker |",
+  "//": "react-native-progress ^3.4.0先不用 | 参考react-native-document-picker自己写 | realm2.0.7-2.0.11在debug的时候都有问题 | ",
   "name": "PomodoroApp",
   "version": "0.0.1",
   "private": true,
@@ -27,7 +27,7 @@
   "dependencies": {
     "art": "^0.10.1",
     "react": "^16.0.0",
-    "react-native": "^0.50.4",
+    "react-native": "^0.50.0",
     "react-native-circular-progress": "git+https://github.com/bgryszko/react-native-circular-progress.git#master",
     "react-native-device-info": "^0.12.0",
     "react-native-easy-toast": "^1.0.8",
@@ -43,8 +43,8 @@
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
-    "react-test-renderer": "^16.1.1",
-    "realm": "^2.0.2",
+    "react-test-renderer": "^16.0.0",
+    "realm": "2.0.6",
     "redux": "^3.7.2"
   },
   "devDependencies": {

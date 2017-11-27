@@ -82,7 +82,9 @@ class TaskListScreen extends React.PureComponent {
     }
 
     _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.secondary}}
-                                     labelStyle={{fontSize: 12, margin: 3}}/>;
+                                     labelStyle={{fontSize: 12, margin: 3}}
+        // indicatorStyle={{backgroundColor: COLOR.primary}}
+    />;
 
     // _renderScene = SceneMap({
     //     today: this.state.todayTask,

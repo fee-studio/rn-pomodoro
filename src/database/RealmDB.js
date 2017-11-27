@@ -7,7 +7,7 @@
 
 import Realm from 'realm'
 
-export class Tomato extends Realm.Object {
+class Tomato extends Realm.Object {
     static schema = {
         name: 'Tomato',
         primaryKey: 'tomatoId',
@@ -26,7 +26,7 @@ export class Tomato extends Realm.Object {
 }
 
 
-export class Task extends Realm.Object {
+class Task extends Realm.Object {
     static schema = {
         name: 'Task',
         primaryKey: 'taskId',
@@ -45,7 +45,7 @@ export class Task extends Realm.Object {
 }
 
 
-export class TomatoConfig extends Realm.Object {
+class TomatoConfig extends Realm.Object {
     static schema = {
         name: 'TomatoConfig',
         primaryKey: 'index',
@@ -112,7 +112,8 @@ export class Car extends Realm.Object {
     }
 }
 
-const schemas = [Car, Task, Tomato, TomatoConfig];
+const schemas = [Task, Tomato, TomatoConfig];
+// const schemas = [Car, Task, Tomato, TomatoConfig];
 
 const realm = new Realm({schema: schemas});
 

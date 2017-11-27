@@ -1,5 +1,5 @@
 {
-  "//": "react-native-progress ^3.4.0先不用 | 参考react-native-document-picker自己写 | realm2.0.7-2.0.11在debug的时候都有问题 | ",
+  "//": "react-native-progress ^3.4.0先不用 | 参考react-native-document-picker自己写 | realm2.0.7-2.0.11在debug的时候都有问题 |",
   "name": "PomodoroApp",
   "version": "0.0.1",
   "private": true,

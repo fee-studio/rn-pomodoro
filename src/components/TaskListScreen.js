@@ -11,6 +11,8 @@ import {TaskScreenType, TaskState, TaskStateTitle} from "../config/GlobalData";
 import {COLOR} from "../config/Config";
 import {toCreateTask} from "../navigators/actions";
 import {connect} from "react-redux";
+// import {Button} from 'antd-mobile';
+// import Button from 'antd-mobile/lib/button';
 
 const initialLayout = {
     height: 0,
@@ -45,7 +47,6 @@ class TaskListScreen extends React.PureComponent {
         // planTask: () => <TaskListView taskState={TaskState.TaskStatePlan}/>,
         // didTask: () => <TaskListView taskState={TaskState.TaskStateComplete}/>,
         // undoneTask: () => <TaskListView taskState={TaskState.TaskStateOverdue}/>,
-
     };
 
     todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>

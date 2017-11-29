@@ -58,6 +58,7 @@ Pomodoro app powered by react-native.
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
     - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
     - [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
+    - [Ant Design Mobile of React](https://mobile.ant.design/index-cn)
 
 
 - iOS deploy tutorial

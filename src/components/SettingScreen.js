@@ -11,7 +11,6 @@ import {COLOR} from "../config/Config";
 import GlobalData from "../config/GlobalData";
 import {toTuCaoWebView, toWebViewComponent} from "../navigators/actions";
 import {connect} from "react-redux";
-// import * as PushNotification from "react-native-push-notification";
 var PushNotification = require('react-native-push-notification');
 
 class SettingListItem4Content extends Component {

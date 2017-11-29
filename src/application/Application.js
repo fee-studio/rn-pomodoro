@@ -2,11 +2,6 @@
  *  功能：
  */
 
-/**
- *  作者：冯夷夷
- *  功能：
- */
-
 import React from 'react';
 import {
     AppRegistry,

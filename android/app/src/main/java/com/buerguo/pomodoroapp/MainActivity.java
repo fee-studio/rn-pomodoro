@@ -1,4 +1,4 @@
-package com.pomodoroapp;
+package com.buerguo.pomodoroapp;
 
 import com.facebook.react.ReactActivity;
 

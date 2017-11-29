@@ -31,7 +31,6 @@
 		52AEC8FE1FB84E8600149126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		52AEC8FF1FB84E8600149126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		52AEC9011FB84E8600149126 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529B58631F8CC652001CE830 /* libART.a */; };
-		52AEC9021FB84E8600149126 /* libPods-PomodoroApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */; };
 		52AEC9031FB84E8600149126 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		52AEC9051FB84E8600149126 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
@@ -87,6 +86,7 @@
 		CE1415A187B54FCAA0A8FE9F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDFAB5362A3B443FB269659A /* FontAwesome.ttf */; };
 		D440CA3843374F71AF329956 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97899177E4C848F6887D8622 /* libSplashScreen.a */; };
 		D8B573DBD8E64CB1A26AB19D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E686E8F616748BBA4AAC07B /* libc++.tbd */; };
+		E959CC042881CB632B45B972 /* libPods-PomodoroApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */; };
 		EA3ACB7D14E843C79B8829E9 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB57392F5F914CCEA397F1AA /* libRNVectorIcons.a */; };
 		FC0466F6B0104287900680CA /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AD78490F164C55991E1873 /* libRealmReact.a */; };
 		FCE93B81309E434AB2041D7D /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FA9F67D1C944419D9CC6BB /* libRNGestureHandler.a */; };
@@ -472,16 +472,16 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9654FA7ACFDB4DC299C09CE2 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		97899177E4C848F6887D8622 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
-		9DDB83E6232CA13F9C6B6D0D /* Pods-PomodoroApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.release.xcconfig"; sourceTree = "<group>"; };
+		9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.release.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AE0103EC4A7F4F8A8D2C4E8D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		B73D9294FDEC402498F44228 /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
 		BCFB847FD7334F93B5330515 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		C3E28F9AD84A8D94F124023D /* Pods-PomodoroApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CDFAB5362A3B443FB269659A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		CEC62EA9289D4611A33930E2 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		D0AD78490F164C55991E1873 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		D6EC386AFC3A413A98448EA0 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		D78BE8F7D9FE9E1DD2219AD2 /* Pods-PomodoroApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DB57392F5F914CCEA397F1AA /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		E0A04F5781EF4B2FA42B6742 /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
 		E749C9224F5A4FD1B7E909DC /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -528,6 +528,7 @@
 				BA68BF63756E4CFF96DA5E61 /* libz.tbd in Frameworks */,
 				FCE93B81309E434AB2041D7D /* libRNGestureHandler.a in Frameworks */,
 				528713801FC43CDC0007EEF8 /* libRCTPushNotification.a in Frameworks */,
+				E959CC042881CB632B45B972 /* libPods-PomodoroApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +537,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52AEC9011FB84E8600149126 /* libART.a in Frameworks */,
-				52AEC9021FB84E8600149126 /* libPods-PomodoroApp.a in Frameworks */,
 				52AEC9031FB84E8600149126 /* libRCTBlob.a in Frameworks */,
 				52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */,
 				52AEC9051FB84E8600149126 /* libReact.a in Frameworks */,
@@ -860,8 +860,8 @@
 		92F5408E24676A113BF2B926 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C3E28F9AD84A8D94F124023D /* Pods-PomodoroApp.debug.xcconfig */,
-				9DDB83E6232CA13F9C6B6D0D /* Pods-PomodoroApp.release.xcconfig */,
+				D78BE8F7D9FE9E1DD2219AD2 /* Pods-PomodoroApp.debug.xcconfig */,
+				9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -939,13 +939,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52AEC92A1FB84E8600149126 /* Build configuration list for PBXNativeTarget "PomodoroAppRelease" */;
 			buildPhases = (
-				52AEC8FC1FB84E8600149126 /* [CP] Check Pods Manifest.lock */,
 				52AEC8FD1FB84E8600149126 /* Sources */,
 				52AEC9001FB84E8600149126 /* Frameworks */,
 				52AEC9161FB84E8600149126 /* Resources */,
 				52AEC9271FB84E8600149126 /* Bundle React Native code and images */,
-				52AEC9281FB84E8600149126 /* [CP] Embed Pods Frameworks */,
-				52AEC9291FB84E8600149126 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1491,24 +1488,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		52AEC8FC1FB84E8600149126 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PomodoroApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		52AEC9271FB84E8600149126 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1522,36 +1501,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		52AEC9281FB84E8600149126 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52AEC9291FB84E8600149126 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		B7929757EC0A2F61DC5199BC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1723,12 +1672,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E28F9AD84A8D94F124023D /* Pods-PomodoroApp.debug.xcconfig */;
+			baseConfigurationReference = D78BE8F7D9FE9E1DD2219AD2 /* Pods-PomodoroApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				HEADER_SEARCH_PATHS = (
@@ -1757,13 +1706,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DDB83E6232CA13F9C6B6D0D /* Pods-PomodoroApp.release.xcconfig */;
+			baseConfigurationReference = 9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1791,11 +1740,10 @@
 		};
 		52AEC92B1FB84E8600149126 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E28F9AD84A8D94F124023D /* Pods-PomodoroApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				HEADER_SEARCH_PATHS = (
@@ -1828,12 +1776,11 @@
 		};
 		52AEC92C1FB84E8600149126 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DDB83E6232CA13F9C6B6D0D /* Pods-PomodoroApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

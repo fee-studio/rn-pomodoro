@@ -8,12 +8,14 @@ build
 
 # Android/IntelliJ
 *.apk
-.gradle
+.gradle/
 local.properties
 
 
 # iOS/Xcode
 Pods/
+ios/assets/
+ios/*jsbundle*
 
 *.pbxuser
 !default.pbxuser
@@ -30,7 +32,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
+*.dSYM.zip
+*.xcworkspace/
 
 
 # node.js
@@ -43,12 +46,15 @@ buck-out/
 \.buckd/
 *.keystore
 
-# fastlane
+# fastlane123
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane123 to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
 # https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+
+ios/fastlane/
+android/fastlane/
 
 fastlane/report.xml
 fastlane/Preview.html

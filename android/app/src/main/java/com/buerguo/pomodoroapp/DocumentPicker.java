@@ -1,4 +1,4 @@
-package com.pomodoroapp;
+package com.buerguo.pomodoroapp;
 
 import android.app.Activity;
 import android.content.ContentResolver;

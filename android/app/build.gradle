@@ -101,7 +101,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.pomodoroapp"
+        applicationId "com.buerguo.pomodoroapp"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -161,7 +161,7 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-document-picker')
+//    compile project(':react-native-document-picker')
     compile project(':react-native-push-notification')
     compile ('com.google.android.gms:play-services-gcm:8.1.0') {
         force = true;

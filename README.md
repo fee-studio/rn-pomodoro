@@ -64,18 +64,28 @@ Pomodoro app powered by react-native.
 - iOS deploy tutorial
 
    ***KEY POINT***
+   
+   0. js打包```--bundle-output ios/index.jsbundle``` 这里千万不要写默认的```main.jsbundle```, iOS打包的时候打不进去.
    1. add index.jsbundle(/.meta) files -> option **Create groups**
    2. add assets folder -> option **Create folder references**
    3. modify info.plist -> delete **localhost** key item
-   ```
-    <key>NSExceptionDomains</key>
-    <dict>
-        <key>localhost</key>
+        ```
+        <key>NSExceptionDomains</key>
         <dict>
-            <key>NSExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
+            <key>localhost</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
         </dict>
-    </dict>
-   ```
+        ```
    4. **edit scheme**, modify **Run** TAB's **Build Configuration** to **Release**
+    
+- Android deploy tutorial
 
+    ***KEY POINT***
+    
+    1. Open Android project use Android Studio, Build->Generate Signed Apk, config sign~
+    2. 
+        
+        

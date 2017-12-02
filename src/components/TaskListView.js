@@ -108,7 +108,7 @@ class TaskListView extends PureComponent {
         }
 
         // 初始化
-        this.setupListData(aTasks)
+        this.setupListData(aTasks);
 
         // Realm Notifications
         // realm.addListener('change', (sender, event) => {
@@ -143,25 +143,25 @@ class TaskListView extends PureComponent {
             // } else if (this.props.taskState === TaskState.TaskStateOverdue) {
             //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
             // }
-            console.log("tasks.length = " + tasks.length)
+            console.log("tasks.length = " + tasks.length);
 
-            // this.setupListData(tasks)
+            this.setupListData(tasks);
 
             // Update UI in response to inserted objects
             changes.insertions.forEach((index) => {
-                let insertedDog = tasks[index]
+                let insertedDog = tasks[index];
                 console.log('insertedDog = ' + JSON.stringify(insertedDog));
             });
 
             // Update UI in response to modified objects
             changes.modifications.forEach((index) => {
-                let modifiedDog = tasks[index]
+                let modifiedDog = tasks[index];
                 console.log('modifiedDog = ' + JSON.stringify(modifiedDog));
             });
 
             // Update UI in response to deleted objects
             changes.deletions.forEach((index) => {
-                let deletedDog = tasks[index]
+                let deletedDog = tasks[index];
                 console.log('deletedDog = ' + JSON.stringify(deletedDog));
                 // Deleted objects cannot be accessed directly
                 // Support for accessing deleted objects coming soon...
@@ -171,24 +171,27 @@ class TaskListView extends PureComponent {
     }
 
     setupListData(tasks) {
-        let dayItems = null
-        let dayGroup = []
+        // const tasks = [...aTasks];
+        let dayItems = null;
+        let dayGroup = [];
 
         for (let i = 0; i < tasks.length; i++) {
             let task = tasks[i];
 
-            if (dayItems === null) {
-                dayItems = []
-                dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()})
-                dayItems.push(task)
-            } else {
-                if (task.actionTime === null && dayItems[dayItems.length - 1].actionTime === null
-                    || task.actionTime.toDateString() === dayItems[dayItems.length - 1].actionTime.toDateString()) {
+            if (task.isValid()) {
+                if (dayItems === null) {
+                    dayItems = [];
+                    dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
                     dayItems.push(task)
                 } else {
-                    dayItems = []
-                    dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()})
-                    dayItems.push(task)
+                    if (task.actionTime === null && dayItems[dayItems.length - 1].actionTime === null
+                        || task.actionTime.toDateString() === dayItems[dayItems.length - 1].actionTime.toDateString()) {
+                        dayItems.push(task)
+                    } else {
+                        dayItems = [];
+                        dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
+                        dayItems.push(task)
+                    }
                 }
             }
         }

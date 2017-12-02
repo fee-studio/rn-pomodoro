@@ -406,10 +406,18 @@ export default class Initialization {
             realm.delete(allTasks);
 
             // create data
-            for (let data of mockData) {
-                realm.create('Task', data);
-            }
+            // for (let data of mockData) {
+            //     realm.create('Task', data);
+            // }
         });
+
+        // create data
+        for (let data of mockData) {
+            realm.write(() => {
+                realm.create('Task', data);  // todo 为什么这里添加的数据 delete 就会出错? 怪怪
+            });
+        }
+
 
     }
 }

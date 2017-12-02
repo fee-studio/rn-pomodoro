@@ -18,7 +18,6 @@ class PomodoroApp extends React.Component {
 
         // 初始化数据
         new Initialization()
-
     }
 
 

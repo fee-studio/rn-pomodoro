@@ -47,6 +47,7 @@ class CreateTaskScreen extends React.PureComponent {
         console.log('isCreateTask = ' + this.isCreateTask);
 
         if (this.isCreateTask) {
+            // todo 再精简
             this.state = {
                 taskId: '' + (realm.objects('Task').length + 1),
                 taskName: '',
@@ -62,6 +63,7 @@ class CreateTaskScreen extends React.PureComponent {
             };
         } else {
             this.task = this.props.item;
+            // todo 再精简
             this.state = {
                 taskId: this.task.taskId,
                 taskName: this.task.taskName,
@@ -82,6 +84,7 @@ class CreateTaskScreen extends React.PureComponent {
         this.props.navigation.setParams({handleSave: this.saveTask});
     }
 
+    // todo 优化到 RealmDB 中
     saveTask = () => {
         realm.write(() => {
             realm.create('Task', {

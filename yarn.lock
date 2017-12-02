@@ -3169,8 +3169,8 @@ lru-cache@^4.0.1:
     yallist "^2.1.2"
 
 lzma-native@^3.0.1:
-  version "3.0.3"
-  resolved "http://registry.npm.taobao.org/lzma-native/download/lzma-native-3.0.3.tgz#7e1a49d350130512e0da67c7fa1f8e89fb09cc3d"
+  version "3.0.4"
+  resolved "http://registry.npm.taobao.org/lzma-native/download/lzma-native-3.0.4.tgz#1fe863dbbbaa58f8132dfcf7df261ec9af6f2b72"
   dependencies:
     nan "2.5.1"
     node-pre-gyp "^0.6.39"

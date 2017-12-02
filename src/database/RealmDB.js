@@ -117,6 +117,9 @@ const schemas = [Task, Tomato, TomatoConfig];
 
 const realm = new Realm({schema: schemas});
 
+console.log("realm default path = " + Realm.defaultPath);
+console.log("realm path = " + realm.path);
+
 /*
 // this is kinda hacky
 // this will basically inject static methods for common realm methods

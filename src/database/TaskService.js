@@ -1,4 +1,4 @@
-import realm, {Task} from "./RealmDB";
+import {Task} from "./RealmDB";
 import {TaskState} from "../config/GlobalData";
 import RealmDBService from "./RealmDBService";
 
@@ -18,7 +18,7 @@ export default class TaskService extends RealmDBService {
 
         // 分开写是为了处理各种情况下不同的逻辑.
         if (taskState === TaskState.TaskStateTodo) {
-            tasks = tasks.sorted('actionTime') // todo: filter deleted field
+            tasks = tasks.sorted('actionTime')
         } else if (taskState === TaskState.TaskStatePlan) {
             tasks = tasks.sorted('actionTime')
         } else if (taskState === TaskState.TaskStateComplete) {
@@ -27,16 +27,6 @@ export default class TaskService extends RealmDBService {
             tasks = tasks.sorted('actionTime', true)
         }
 
-        // if (taskState === TaskState.TaskStateTodo) {
-        //     tasks = tasks.filtered(`status = ${taskState} AND deleted = true`).sorted('actionTime') // todo: filter deleted field
-        // } else if (taskState === TaskState.TaskStatePlan) {
-        //     tasks = tasks.filtered(`status = ${taskState} AND deleted = true`).sorted('actionTime')
-        // } else if (taskState === TaskState.TaskStateComplete) {
-        //     tasks = tasks.filtered(`status = ${taskState} AND deleted = true`).sorted('actionTime', true)
-        // } else if (taskState === TaskState.TaskStateOverdue) {
-        //     tasks = tasks.filtered(`status = ${taskState} AND deleted = true`).sorted('actionTime', true)
-        // }
-        //
         return tasks;
     }
 

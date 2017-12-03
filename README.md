@@ -54,12 +54,12 @@ Pomodoro app powered by react-native.
     - [react-native-picker](https://github.com/beefe/react-native-picker)
     - [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast)
     - [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
-    - [NativeBase](https://github.com/GeekyAnts/NativeBase)
+    - [react-native-push-notification](https://github.com/zo0r/react-native-push-notification)
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
     - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
     - [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
+    - [NativeBase](https://github.com/GeekyAnts/NativeBase)
     - [Ant Design Mobile of React](https://mobile.ant.design/index-cn)
-
 
 - iOS deploy tutorial
 

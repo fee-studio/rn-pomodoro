@@ -22,7 +22,7 @@ import CountdownCircle from '../libs/CountDown'
 import {Tomato} from "../database/RealmDB";
 import {TaskScreenType, TomatoState, TomatoType} from "../config/GlobalData";
 import Initialization from "../config/Initialization";
-import {TomatoModel} from "../models/TomatoModel";
+import TomatoModel from "../models/TomatoModel";
 import {connect} from "react-redux";
 import {toTaskScreen, toTaskScreenSelectTask} from "../navigators/actions";
 import Icon from 'react-native-vector-icons/Entypo';
@@ -45,13 +45,8 @@ class ProgressChildView extends Component {
         };
     }
 
-    // componentDidMount() {
-    //     this.setState({
-    //         myStatus: this.props.playStatus,
-    //     })
-    // }
-
-    /* VIP
+    /*
+        VIP
         react native this.setState will not re-render child component
         参考：https://stackoverflow.com/questions/30679927/react-native-this-setstate-will-not-re-render-child-component
     */
@@ -114,12 +109,14 @@ class TomatoScreen extends Component {
     constructor(props) {
         super(props);
 
+        this.tomatoStatus = TomatoState.TomatoStateInit;
+        this.tomatoType = TomatoType.TomatoTypeInit;
+
         this.state = {
             progress: 0,
             animated: true,
             animateProgress: new Animated.Value(0),
-            tomatoStatus: TomatoState.TomatoStateInit,
-            tomatoType: TomatoType.TomatoTypeInit,
+            tomato: null,
         };
 
 
@@ -141,15 +138,22 @@ class TomatoScreen extends Component {
         }
     }
 
-    componentWillUnmount() {
-        // 请注意Un"m"ount的m是小写
-
+    componentWillUnmount() {// 请注意Un"m"ount的m是小写
         // 如果存在this.timer，则使用clearTimeout清空。
         // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
         this.timer && clearTimeout(this.timer);
     }
 
     render() {
+        let type = this.tomatoType;
+        let state = this.tomatoStatus;
+        if (this.state.tomato) {
+            type = this.state.tomato.type;
+            state = this.state.tomato.state;
+        }
+        let color = type === TomatoType.TomatoTypeInit ? COLOR.clear :
+            type === TomatoType.TomatoTypeResting ? COLOR.secondary : COLOR.primary;
+
         return (
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
@@ -157,11 +161,11 @@ class TomatoScreen extends Component {
                         {moment(GlobalData.defaultTomatoConfig.duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
 
-                    <TouchableWithoutFeedback onPress={this.actionToggle3}>
+                    <TouchableWithoutFeedback onPress={this.actionToggle}>
                         <View style={styles.circleProgressView}>
                             <Progress.Circle
                                 progress={this.state.progress}
-                                color={this.state.tomatoType === TomatoType.TomatoTypeResting ? COLOR.secondary : COLOR.primary}
+                                color={color}
                                 unfilledColor={COLOR.backgroundNormal}
                                 borderWidth={0}
                                 animated={this.state.animated}
@@ -170,7 +174,7 @@ class TomatoScreen extends Component {
                                 showsText={false}
                                 strokeCap="round"
                             >
-                                <ProgressChildView playStatus={this.state.tomatoStatus}/>
+                                <ProgressChildView playStatus={state}/>
                             </Progress.Circle>
                         </View>
                     </TouchableWithoutFeedback>
@@ -183,15 +187,17 @@ class TomatoScreen extends Component {
     }
 
     /*
-    VIP onPress 必须的这么写 onPress={()=>this.actionToggle()} ，this.state.tomatoStatus 才是定义过的，
-    actionToggle() {}
+        VIP
+        onPress 必须的这么写 onPress={()=>this.actionToggle()} ，this.state.tomatoStatus 才是定义过的，
+        actionToggle() {}
     */
 
     /*
-        VIP 如果这么写onPress={this.actionToggle} ，就要用以下方式定义方法。
+        VIP
+        如果这么写onPress={this.actionToggle} ，就要用以下方式定义方法。
      */
-    actionToggle3 = () => {
-        if (this.state.tomatoStatus === TomatoState.TomatoStateStart) {
+    actionToggle = () => {
+        if (this.tomatoStatus === TomatoState.TomatoStateStart) {
             Alert.alert('要终止这个番茄钟吗？', '', [
                     {
                         text: '不要',
@@ -207,117 +213,11 @@ class TomatoScreen extends Component {
                 {cancelable: false}
             )
         } else {
-            // } else if (this.state.tomatoStatus === TomatoState.TomatoStateInit
-            //     || this.state.tomatoStatus === TomatoState.TomatoStateCancel
-            //     || this.state.tomatoStatus === TomatoState.TomatoStatePause
-            //     || this.state.tomatoStatus === TomatoState.TomatoStateFinished) {
             Alert.alert('是否要先选择任务？', '', [
                     {
                         text: '暂不',
                         onPress: () => {
                             this.actionPlay()
-                        }
-                    },
-                    {
-                        text: '选任务',
-                        onPress: () => {
-                            this.props.toTaskScreenSelect()
-                        }
-                    },
-                ],
-                {cancelable: false}
-            )
-        }
-    }
-
-    actionToggle2 = () => {
-        if (this.state.tomatoType === TomatoType.TomatoTypeInit) {
-            this.setState({
-                tomatoType: TomatoType.TomatoTypeWorking,
-            })
-        }
-        // else if (this.state.tomatoType === TomatoType.TomatoTypeWorking) {
-        //     this.setState({
-        //         tomatoType : TomatoType.TomatoTypeResting,
-        //     })
-        // } else if (this.state.tomatoType === TomatoType.TomatoTypeResting){
-        //     this.setState({
-        //         tomatoType : TomatoType.TomatoTypeInit,
-        //     })
-        // }
-
-        if (this.state.tomatoStatus === TomatoState.TomatoStateInit
-            || this.state.tomatoStatus === TomatoState.TomatoStateCancel) {
-            this.setState({
-                tomatoStatus: TomatoState.TomatoStateStart,
-            })
-        } else if (this.state.tomatoStatus === TomatoState.TomatoStateStart) {
-            this.setState({
-                tomatoStatus: TomatoState.TomatoStateCancel,
-            })
-        }
-
-        if (this.state.tomatoStatus === TomatoState.TomatoStateStart) {
-            Alert.alert('是否要先选择任务？', '', [
-                    {
-                        text: '暂不',
-                        onPress: () => {
-                            this.actionPlay()
-                        }
-                    },
-                    {
-                        text: '选任务',
-                        onPress: () => {
-                            this.props.toTaskScreenSelect()
-                        }
-                    },
-                ],
-                {cancelable: false}
-            )
-        } else if (this.state.tomatoStatus === TomatoState.TomatoStateCancel) {
-            Alert.alert('要终止这个番茄钟吗？', '', [
-                    {
-                        text: '不要',
-                        onPress: () => console.log('goon')
-                    },
-                    {
-                        text: '终止',
-                        onPress: () => {
-                            this.actionStop()
-                        }
-                    },
-                ],
-                {cancelable: false}
-            )
-        }
-    }
-
-    actionToggle = () => {
-        if (this.tomato === undefined) {
-            this.tomato = new TomatoModel();
-        }
-
-        if (this.tomato.state === TomatoState.TomatoStateStart) {
-            Alert.alert('要终止这个番茄钟吗？', '', [
-                    {
-                        text: '不要',
-                        onPress: () => console.log('goon')
-                    },
-                    {
-                        text: '终止',
-                        onPress: () => {
-                            this.actionStop()
-                        }
-                    },
-                ],
-                {cancelable: false}
-            )
-        } else if (this.tomato.state === TomatoState.TomatoStateInit || this.tomato.state === TomatoState.TomatoStateCancel) {
-            Alert.alert('是否要先选择任务？', '', [
-                    {
-                        text: '暂不',
-                        onPress: () => {
-                            this.actionPlay(TomatoType.TomatoTypeWorking)
                         }
                     },
                     {
@@ -334,39 +234,27 @@ class TomatoScreen extends Component {
 
     // 用动画，不用setInterval来实现进度的效果，是为了后台运行不停止进度!!!
     actionPlay() {
-        // 类型
-        if (this.state.tomatoType === TomatoType.TomatoTypeInit) {
-            this.setState({
-                tomatoType: TomatoType.TomatoTypeWorking,
-            })
-        } else if (this.state.tomatoType === TomatoType.TomatoTypeWorking) {
-            this.setState({
-                tomatoType: TomatoType.TomatoTypeResting,
-            })
-        } else if (this.state.tomatoType === TomatoType.TomatoTypeResting) {
-            this.setState({
-                tomatoType: TomatoType.TomatoTypeInit, // todo...
-            })
+        // 类型转化
+        if (this.tomatoType === TomatoType.TomatoTypeInit) {
+            this.tomatoType = TomatoType.TomatoTypeWorking;
+        } else if (this.tomatoType === TomatoType.TomatoTypeWorking) {
+            this.tomatoType = TomatoType.TomatoTypeResting;
+        } else if (this.tomatoType === TomatoType.TomatoTypeResting) {
+            this.tomatoType = TomatoType.TomatoTypeInit;
         }
 
         // 状态
-        this.setState({
-            tomatoStatus: TomatoState.TomatoStateStart,
-        })
+        this.tomatoStatus = TomatoState.TomatoStateStart;
 
         // 数据
-        this.tomato = new TomatoModel()
-        this.tomato.startTime = new Date();
-        this.tomato.duration = GlobalData.defaultTomatoConfig.duration;
-        this.tomato.curTask = this.props.taskItem;
-        this.tomato.isInterrupt = false;
-        this.tomato.type = this.state.tomatoType;
-        this.tomato.state = this.state.tomatoStatus;
+        this.setState({
+            tomato: new TomatoModel(this.tomatoStatus, this.tomatoType, this.props.taskItem),
+        });
 
         // 动画
-        const totalSecond = this.tomato.duration
+        const totalSecond = this.state.tomato.duration;
         this.state.animateProgress.addListener(({value}) => {
-            console.log("progress = " + value)
+            console.log("progress = " + value);
             this.setState({
                 progress: value,
             })
@@ -375,33 +263,34 @@ class TomatoScreen extends Component {
             toValue: 1,
             duration: totalSecond * 1000,
             easing: Easing.linear,
-            useNativeDriver: true, // <-- 加上这一行
+            // useNativeDriver: true, // <-- 加上这一行
         }).start(this.onEndAnimated)
     }
 
     actionStop() {
         // 类型
-        this.setState({
-            tomatoType: TomatoType.TomatoTypeInit,
-        })
+        this.tomatoType = TomatoType.TomatoTypeInit;
 
         // 状态
-        this.setState({
-            tomatoStatus: TomatoState.TomatoStateCancel,
-        })
+        this.tomatoStatus = TomatoState.TomatoStateCancel;
 
         // 数据
-        this.tomato.state = this.state.tomatoStatus;
-
+        this.setState(prevState => ({
+            tomato: {
+                ...prevState,
+                type: this.tomatoType,
+                state: this.tomatoStatus,
+            }
+        }));
 
         // 动画-几种停止的写法，都可以用的
         // Animated.timing(
         //     this.state.animateProgress
         // ).stop();
         // this.state.animateProgress.stopAnimation()
-        this.state.animateProgress.resetAnimation()
+        this.state.animateProgress.resetAnimation();
         // VIP 很关键，要不然动画会闪一下。因为不移除监听还会监听一小段时间。
-        this.state.animateProgress.removeAllListeners()
+        this.state.animateProgress.removeAllListeners();
 
         // 状态2, 必须写后面
         this.setState({
@@ -414,16 +303,20 @@ class TomatoScreen extends Component {
     onEndAnimated = ({finished}) => {
         if (finished) {
             // 状态
-            this.setState({
-                tomatoStatus: TomatoState.TomatoStateFinished,
-            });
+            this.tomatoStatus = TomatoState.TomatoStateFinished;
+
             // 数据
-            this.tomato.state = this.state.tomatoStatus
+            this.setState(prevState => ({
+                tomato: {
+                    ...prevState,
+                    state: this.tomatoStatus,
+                },
+            }));
 
             // 动画
-            this.state.animateProgress.resetAnimation()
+            this.state.animateProgress.resetAnimation();
             // VIP 很关键，要不然动画会闪一下。因为不移除监听还会监听一小段时间。
-            this.state.animateProgress.removeAllListeners()
+            this.state.animateProgress.removeAllListeners();
 
             // 状态2, 必须写后面
             this.setState({
@@ -432,53 +325,41 @@ class TomatoScreen extends Component {
             });
 
             // 如果此时是专注时间，就自动开启休息的番茄钟
-            if (this.state.tomatoType === TomatoType.TomatoTypeWorking) {
-                this.actionPlay()
-
-                // Alert.alert('要终止这个番茄钟吗？', '', [
-                //         {
-                //             text: '不要',
-                //             onPress: () => console.log('goon')
-                //         },
-                //         {
-                //             text: '终止',
-                //             onPress: () => {
-                //                 this.actionStop()
-                //             }
-                //         },
-                //     ],
-                //     {cancelable: false}
-                // )
+            if (this.tomatoType === TomatoType.TomatoTypeWorking) {
+                this.actionPlay();
 
                 PushNotification.localNotification({
-                    message: "完成一个番茄钟，该休息一下啦",
+                    message: "完成一个番茄钟，开始休息一下喽",
                 })
 
                 // PushNotification.localNotificationSchedule({
                 //     message: "完成一个番茄钟，该休息一下啦",
                 //     date: new Date(Date.now() + (5 * 1000)) // in 60 secs
                 // });
-            } else if (this.state.tomatoType === TomatoType.TomatoTypeResting) {
+            } else if (this.tomatoType === TomatoType.TomatoTypeResting) {
+                this.actionStop();
+
                 Alert.alert('休息回来', '选择您的任务，开启新的蕃茄钟', [
                         {
                             text: '继续当前任务',
                             onPress: () => {
-                                this.actionStop()
+                                this.actionPlay();
                             }
                         },
                         {
                             text: '不干了',
-                            onPress: () => console.log('goon')
+                            onPress: () => {
+                            }
                         },
                         {
                             text: '新任务',
                             onPress: () => {
-                                this.actionStop()
+                                this.props.toTaskScreenSelect();
                             }
                         },
                     ],
                     {cancelable: false}
-                )
+                );
 
                 PushNotification.localNotification({
                     message: "休息回来，开始专注哦",
@@ -530,7 +411,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(TomatoScreen)
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#00f',
         flex: 1,
     },
     progressContainer: {
@@ -543,7 +423,6 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#0f0',
     },
     progressChildView: {
         position: 'absolute',
@@ -555,7 +434,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "transparent",
-        // marginLeft: 5,
     },
     circleProgressView: {
         margin: 50,
@@ -589,25 +467,4 @@ const styles = StyleSheet.create({
     }
 
 });
-
-
-// var styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         backgroundColor: '#F5FCFF',
-//     },
-//     image: {
-//         height: 500,
-//         justifyContent: "space-between",    //  <-- you can use "center", "flex-start",
-//         resizeMode: "repeat",             //      "flex-end" or "space-between" here
-//     },
-//     instructions: {
-//         textAlign: 'center',
-//         color: 'white',
-//         backgroundColor: "transparent",
-//         fontSize: 25,
-//     },
-// });
 

@@ -36,4 +36,5 @@ export const COLOR = {
     lineEmpha: '#929292',
     primary: '#ff6347',
     secondary: '#3aa',
+    clear: '#0000000'
 }

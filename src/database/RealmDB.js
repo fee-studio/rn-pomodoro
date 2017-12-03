@@ -15,6 +15,7 @@ export class Tomato extends Realm.Object {
             id: {type: 'string', indexed: true},
             createdAt: {type: 'date'},
             updatedAt: {type: 'date'},
+            deleted: {type: 'bool'},
 
             startTime: {type: 'date'},
             endTime: {type: 'date'},
@@ -35,10 +36,10 @@ export class Task extends Realm.Object {
             id: {type: 'string', indexed: true},
             createdAt: {type: 'date'},
             updatedAt: {type: 'date'},
+            deleted: {type: 'bool'},
 
             taskName: {type: 'string'},
             isRemind: {type: 'bool'},
-            deleted: {type: 'bool'},
             actionTime: {type: 'date'},
             remindTime: {type: 'date'},
             status: {type: 'int'},

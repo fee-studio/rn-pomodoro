@@ -7,15 +7,13 @@ export default class TaskModel {
         this.id = uuid();
         this.createdAt = new Date();
         this.updatedAt = new Date();
+        this.deleted = false;
 
         this.taskName = "";
         this.isRemind = false;
-        this.deleted = false;
         this.actionTime = new Date();
         this.remindTime = new Date();
         this.status = TaskState.TaskStateUnknown;
         this.tomatoes = [];
     }
-
-
 }

@@ -1,25 +1,23 @@
-import realm from 'RealmDB'
+import {Tomato} from './RealmDB'
+import RealmDBService from "./RealmDBService";
 
-export default class TomatoService {
-    create(tomatoModel) {
-        realm.write(() => {
-            tomatoModel.createdAt = new Date()
-            tomatoModel.updatedAt = new Date()
-
-            realm.create(Tomato.schema.name, tomatoModel)
-        })
+export default class TomatoService extends RealmDBService {
+    static create(tomatoModel) {
+        super.create(Tomato.schema.name, tomatoModel);
     }
 
-    update() {
-
+    static update(tomatoModel) {
+        super.update(Tomato.schema.name, tomatoModel)
     }
 
-    read() {
-
+    static read() {
+        super.read(Tomato.schema.name)
     }
 
-    delete() {
-
+    static delete(tomatoModel) {
+        super.delete(Tomato.schema.name, tomatoModel)
     }
+
+
 
 }

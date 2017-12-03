@@ -34,16 +34,17 @@ class TaskListScreen extends React.PureComponent {
         index: 0,
         routes: [
             {key: 'today', title: TaskStateTitle.TaskStateTitleTodo},
-            // {key: 'plan', title: TaskStateTitle.TaskStateTitlePlan},
-            // {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
-            // {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
+            {key: 'plan', title: TaskStateTitle.TaskStateTitlePlan},
+            {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
+            {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
         ],
     };
 
     todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>;
-    // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/> // todo ...
-    // didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
-    // undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>
+    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>;
+    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>;
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}
+                                     taskScreenType={this.props.taskScreenType}/>;
 
     constructor(props) {
         super(props)
@@ -62,7 +63,6 @@ class TaskListScreen extends React.PureComponent {
 
     }
 
-
     _handleIndexChange = index => {
         this.setState({index});
     };
@@ -74,9 +74,9 @@ class TaskListScreen extends React.PureComponent {
 
     _renderScene = SceneMap({
         today: this.todayTask,
-        // plan: this.planTask,
-        // did: this.didTask,
-        // undone: this.undoneTasks,
+        plan: this.planTask,
+        did: this.didTask,
+        undone: this.undoneTask,
     });
 
     render() {

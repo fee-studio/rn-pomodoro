@@ -7,35 +7,38 @@
 
 import Realm from 'realm'
 
-class Tomato extends Realm.Object {
+export class Tomato extends Realm.Object {
     static schema = {
         name: 'Tomato',
-        primaryKey: 'tomatoId',
+        primaryKey: 'id',
         properties: {
-            tomatoId: {type: 'string'},
+            id: {type: 'string', indexed: true},
+            createdAt: {type: 'date'},
+            updatedAt: {type: 'date'},
+
             startTime: {type: 'date'},
             endTime: {type: 'date'},
             isInterrupt: {type: 'bool'},
-            state: {type: 'int'},
-            workDuring: {type: 'int'},
-            curTask: {type: 'Task'},
+            state: {type: 'int'},       // 这个番茄钟的状态
+            type: {type: 'int'},        // 这个番茄钟的类型
+            duration: {type: 'int'},    // 这种类型的番茄钟持续的时间
+            curTask: {type: 'Task'},    // 这个番茄钟的任务
         }
     };
-
-
 }
 
-
-class Task extends Realm.Object {
+export class Task extends Realm.Object {
     static schema = {
         name: 'Task',
-        primaryKey: 'taskId',
+        primaryKey: 'id',
         properties: {
-            taskId: {type: 'string'},
+            id: {type: 'string', indexed: true},
+            createdAt: {type: 'date'},
+            updatedAt: {type: 'date'},
+
             taskName: {type: 'string'},
             isRemind: {type: 'bool'},
-            createTime: {type: 'date'},
-            updateTime: {type: 'date'},
+            deleted: {type: 'bool'},
             actionTime: {type: 'date'},
             remindTime: {type: 'date'},
             status: {type: 'int'},
@@ -45,43 +48,33 @@ class Task extends Realm.Object {
 }
 
 
-class TomatoConfig extends Realm.Object {
+export class TomatoConfig extends Realm.Object {
     static schema = {
         name: 'TomatoConfig',
-        primaryKey: 'index',
+        primaryKey: 'id',
         properties: {
-            index: {type: 'int'},              // id code
-            shortRestDuring: {type: 'int'},    // 短休息时长
-            longRestDuring: {type: 'int'},     // 长休息时长
-            workDuring: {type: 'int'},         // 专注工作时长
+            id: {type: 'string', indexed: true},  // id
+            createdAt: {type: 'date'},
+            updatedAt: {type: 'date'},
+
+            shortRestDuration: {type: 'int'},    // 短休息时长
+            longRestDuration: {type: 'int'},     // 长休息时长
+            duration: {type: 'int'},         // 专注工作时长
             longRestInterval: {type: 'int'},   // 长休息间隔
             dailyTargetCount: {type: 'int'},   // 每日番茄钟目标数
             isRingHint: {type: 'bool'},             // 铃声提示
             isShakeHint: {type: 'bool'},            // 震动提示
             isStartSelectTask: {type: 'bool'},      // 开始时选择任务
-            showToDoCount: {type: 'bool'},          // 应用图标数字标记今日待办数
+            showTodoCount: {type: 'bool'},          // 应用图标数字标记今日待办数
             notice4MorningEvening: {type: 'bool'},  // 早9晚9通知
         }
     };
-
-    static getInstance() {
-        if (!TomatoConfig.instance) {
-            TomatoConfig.instance = new TomatoConfig();
-        }
-        return TomatoConfig.instance;
-    }
-
-    constructor() {
-        super()
-
-
-    }
-
 }
 
 
 // VIP https://github.com/realm/realm-js/issues/141#ref-issue-231063626
 // TODO realm and redux 的结合，有时间研究
+/*
 export class Car extends Realm.Object {
     static schema = {
         name: 'Car',
@@ -111,11 +104,12 @@ export class Car extends Realm.Object {
         return Car.mapProps(this);
     }
 }
+*/
+
 
 const schemas = [Task, Tomato, TomatoConfig];
-// const schemas = [Car, Task, Tomato, TomatoConfig];
-
 const realm = new Realm({schema: schemas});
+
 
 console.log("realm default path = " + Realm.defaultPath);
 console.log("realm path = " + realm.path);

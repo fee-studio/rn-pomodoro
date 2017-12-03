@@ -154,7 +154,7 @@ class TomatoScreen extends Component {
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
                     <Text style={styles.tomatoTime}>
-                        {moment(GlobalData.defaultTomatoConfig.workDuring * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
+                        {moment(GlobalData.defaultTomatoConfig.duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
 
                     <TouchableWithoutFeedback onPress={this.actionToggle3}>
@@ -357,14 +357,14 @@ class TomatoScreen extends Component {
         // 数据
         this.tomato = new TomatoModel()
         this.tomato.startTime = new Date();
-        this.tomato.workDuring = GlobalData.defaultTomatoConfig.workDuring;
+        this.tomato.duration = GlobalData.defaultTomatoConfig.duration;
         this.tomato.curTask = this.props.taskItem;
         this.tomato.isInterrupt = false;
         this.tomato.type = this.state.tomatoType;
         this.tomato.state = this.state.tomatoStatus;
 
         // 动画
-        const totalSecond = this.tomato.workDuring
+        const totalSecond = this.tomato.duration
         this.state.animateProgress.addListener(({value}) => {
             console.log("progress = " + value)
             this.setState({

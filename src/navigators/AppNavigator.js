@@ -2,7 +2,7 @@
  *  功能：
  */
 
-import React from 'react'
+import React, {Component} from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
 import TomatoScreen from '../components/TomatoScreen'
 import TaskScreen from '../components/TaskScreen'
@@ -18,6 +18,7 @@ import TuCaoWebView from "../components/TuCaoWebView";
 import WebViewComponent from "../components/common/WebViewComponent";
 import {toTaskScreen} from "./actions";
 import DemoScreen from "../components/DemoScreen";
+import ComponentTemplete from "../other/ComponentTemplate";
 // import Icon from 'react-native-vector-icons/Entypo';
 
 export const tabTomato = StackNavigator(
@@ -119,7 +120,7 @@ export const RootTabs = TabNavigator(
             screen: tabSetting,
         },
         DemoTab: {
-            screen: DemoScreen,
+            screen: ComponentTemplete,
         },
     },
     {

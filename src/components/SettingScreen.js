@@ -79,7 +79,7 @@ class SettingScreen extends Component {
 
         this.state = {
             // dailyTargetCount: 8,
-            // workDuring: 100,
+            // duration: 100,
             // restDuring: 30,
             listItems: [],
         }
@@ -98,13 +98,13 @@ class SettingScreen extends Component {
                     {
                         title: '番茄时长/专注时长',
                         key: 'key-work-during',
-                        content: `${GlobalData.defaultTomatoConfig.workDuring}秒`,
+                        content: `${GlobalData.defaultTomatoConfig.duration}秒`,
                         onOff: false
                     },
                     {
                         title: '休息时长',
                         key: 'key-rest-during',
-                        content: `${GlobalData.defaultTomatoConfig.shortRestDuring}分钟`,
+                        content: `${GlobalData.defaultTomatoConfig.shortRestDuration}分钟`,
                         onOff: false
                     },
                 ],
@@ -125,7 +125,7 @@ class SettingScreen extends Component {
                         title: '桌面图标为今日待办数',
                         key: 'key-show-todo-count',
                         content: '',
-                        onOff: GlobalData.defaultTomatoConfig.showToDoCount
+                        onOff: GlobalData.defaultTomatoConfig.showTodoCount
                     },
                     {
                         title: '早9晚9提醒',
@@ -185,9 +185,9 @@ class SettingScreen extends Component {
                 if (item.key === 'key-daily-tomato-count') {
                     GlobalData.defaultTomatoConfig.dailyTargetCount = parseInt(data[0]);
                 } else if (item.key === 'key-work-during') {
-                    GlobalData.defaultTomatoConfig.workDuring = parseInt(data[0]);
+                    GlobalData.defaultTomatoConfig.duration = parseInt(data[0]);
                 } else if (item.key === 'key-rest-during') {
-                    GlobalData.defaultTomatoConfig.shortRestDuring = parseInt(data[0]);
+                    GlobalData.defaultTomatoConfig.shortRestDuration = parseInt(data[0]);
                 }
                 this.setState({
                     listItems: [...this.aListItems(),]
@@ -208,7 +208,7 @@ class SettingScreen extends Component {
         if (item.key === 'key-tomato-task') {
             GlobalData.defaultTomatoConfig.isStartSelectTask = !GlobalData.defaultTomatoConfig.isStartSelectTask;
         } else if (item.key === 'key-show-todo-count') {
-            GlobalData.defaultTomatoConfig.showToDoCount = !GlobalData.defaultTomatoConfig.showToDoCount;
+            GlobalData.defaultTomatoConfig.showTodoCount = !GlobalData.defaultTomatoConfig.showTodoCount;
         } else if (item.key === 'key-morning-evening') {
             GlobalData.defaultTomatoConfig.notice4MorningEvening = !GlobalData.defaultTomatoConfig.notice4MorningEvening;
         }

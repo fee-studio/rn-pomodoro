@@ -19,17 +19,13 @@ const initialLayout = {
     width: Dimensions.get('window').width,
 };
 
-// const todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
-// const planTask = () => <TaskListView taskState={TaskState.TaskStatePlan}/>
-// const didTask = () => <TaskListView taskState={TaskState.TaskStateComplete}/>
-// const undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}/>
-
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
         headerRight: <Button title="添加" onPress={() => {
+            navigation.dispatch(toCreateTask());
+
             // navigation.navigate('CreateTask')
-            navigation.dispatch(toCreateTask())
             // navigation.dispatch(NavigationActions.navigate({routeName: 'CreateTask'}))
         }}/>,
     });
@@ -38,22 +34,16 @@ class TaskListScreen extends React.PureComponent {
         index: 0,
         routes: [
             {key: 'today', title: TaskStateTitle.TaskStateTitleTodo},
-            {key: 'plan', title: TaskStateTitle.TaskStateTitlePlan},
-            {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
-            {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
+            // {key: 'plan', title: TaskStateTitle.TaskStateTitlePlan},
+            // {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
+            // {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
         ],
-
-        // todayTask: () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>,
-        // planTask: () => <TaskListView taskState={TaskState.TaskStatePlan}/>,
-        // didTask: () => <TaskListView taskState={TaskState.TaskStateComplete}/>,
-        // undoneTask: () => <TaskListView taskState={TaskState.TaskStateOverdue}/>,
     };
 
-    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
-    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>
-    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>
-
+    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>;
+    // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/> // todo ...
+    // didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
+    // undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>
 
     constructor(props) {
         super(props)
@@ -73,31 +63,20 @@ class TaskListScreen extends React.PureComponent {
     }
 
 
-    // todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
-    // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan}/>
-    // didTask = () => <TaskListView taskState={TaskState.TaskStateComplete}/>
-    // undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}/>
-
     _handleIndexChange = index => {
         this.setState({index});
-    }
+    };
 
     _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.secondary}}
                                      labelStyle={{fontSize: 12, margin: 3}}
         // indicatorStyle={{backgroundColor: COLOR.primary}}
     />;
 
-    // _renderScene = SceneMap({
-    //     today: this.state.todayTask,
-    //     plan: this.state.planTask,
-    //     did: this.state.didTask,
-    //     undone: this.state.undoneTask,
-    // });
     _renderScene = SceneMap({
         today: this.todayTask,
-        plan: this.planTask,
-        did: this.didTask,
-        undone: this.undoneTask,
+        // plan: this.planTask,
+        // did: this.didTask,
+        // undone: this.undoneTasks,
     });
 
     render() {

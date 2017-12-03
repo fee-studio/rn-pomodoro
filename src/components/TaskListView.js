@@ -9,20 +9,16 @@ import {TaskState} from "../config/GlobalData";
 import {toCreateTask, toTaskScreen, toTomatoScreenWithTask} from "../navigators/actions";
 import {connect} from "react-redux";
 import {COLOR} from "../config/Config";
+import TaskService from "../database/TaskService";
 
 export class TaskListItem extends PureComponent {
 
     constructor(props) {
         super(props);
-
-        // this.title = props.title || "default-title";
-        this.task = props.task || null;
     }
 
     render() {
-
         // const {navigate,goBack,state} = this.props.navigation;
-
         return (
             <TouchableHighlight onPress={this.props.onPress}>
                 <View style={styles.taskListItemContainer}>
@@ -34,7 +30,7 @@ export class TaskListItem extends PureComponent {
 
                         </View>
                     </View>
-                    <Text>{this.task.taskName}</Text>
+                    <Text>{this.props.task.taskName}</Text>
                 </View>
             </TouchableHighlight>
 
@@ -55,7 +51,6 @@ export class TaskListItemHeader extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.title = props.title || "default-title";
     }
 
     render() {
@@ -68,7 +63,7 @@ export class TaskListItemHeader extends PureComponent {
                 paddingBottom: 3,
                 paddingRight: 10
             }}>
-                <Text style={{fontSize: 12, color: COLOR.textNormal}}>{this.title}</Text>
+                <Text style={{fontSize: 12, color: COLOR.textNormal}}>{this.props.title}</Text>
             </View>
         );
     }
@@ -88,120 +83,6 @@ class TaskListView extends PureComponent {
     componentWillMount() {
 
     }
-
-    componentWillReceiveProps(nextProps) {
-
-    }
-
-
-    componentDidMount() {
-        let aTasks = realm.objects('Task');
-
-        if (this.props.taskState === TaskState.TaskStateTodo) {
-            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
-        } else if (this.props.taskState === TaskState.TaskStatePlan) {
-            aTasks = aTasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
-        } else if (this.props.taskState === TaskState.TaskStateComplete) {
-            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
-        } else if (this.props.taskState === TaskState.TaskStateOverdue) {
-            aTasks = aTasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
-        }
-
-        // 初始化
-        this.setupListData(aTasks);
-
-        // Realm Notifications
-        // realm.addListener('change', (sender, event) => {
-        //
-        // })
-
-        /* VIP
-        When using addListener(objects, changes) on React Native iOS it always returns empty on the first notification and the second notification returns what should have been in the first one.
-        https://github.com/realm/realm-js/issues/927
-        */
-        // Collection Notifications 监听数据变化
-        aTasks.addListener((tasks, changes) => {
-            console.log('=======================================');
-            console.log(`${this.props.taskState} task data changed!!!`);
-            // if (this.props.taskState === TaskState.TaskStateTodo) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
-            // } else if (this.props.taskState === TaskState.TaskStatePlan) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
-            // } else if (this.props.taskState === TaskState.TaskStateComplete) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
-            // } else if (this.props.taskState === TaskState.TaskStateOverdue) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
-            // }
-            // console.log("tasks.length = " + tasks.length)
-            // let  tasks = realm.objects('Task');
-            // if (this.props.taskState === TaskState.TaskStateTodo) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateTodo}`).sorted('actionTime')
-            // } else if (this.props.taskState === TaskState.TaskStatePlan) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStatePlan}`).sorted('actionTime')
-            // } else if (this.props.taskState === TaskState.TaskStateComplete) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateComplete}`).sorted('actionTime', true)
-            // } else if (this.props.taskState === TaskState.TaskStateOverdue) {
-            //     tasks = tasks.filtered(`status = ${TaskState.TaskStateOverdue}`).sorted('actionTime', true)
-            // }
-            console.log("tasks.length = " + tasks.length);
-
-            this.setupListData(tasks);
-
-            // Update UI in response to inserted objects
-            changes.insertions.forEach((index) => {
-                let insertedDog = tasks[index];
-                console.log('insertedDog = ' + JSON.stringify(insertedDog));
-            });
-
-            // Update UI in response to modified objects
-            changes.modifications.forEach((index) => {
-                let modifiedDog = tasks[index];
-                console.log('modifiedDog = ' + JSON.stringify(modifiedDog));
-            });
-
-            // Update UI in response to deleted objects
-            changes.deletions.forEach((index) => {
-                let deletedDog = tasks[index];
-                console.log('deletedDog = ' + JSON.stringify(deletedDog));
-                // Deleted objects cannot be accessed directly
-                // Support for accessing deleted objects coming soon...
-            });
-            // console.log('=======================================');
-        });
-    }
-
-    setupListData(tasks) {
-        // const tasks = [...aTasks];
-        let dayItems = null;
-        let dayGroup = [];
-
-        for (let i = 0; i < tasks.length; i++) {
-            let task = tasks[i];
-
-            if (task.isValid()) {
-                if (dayItems === null) {
-                    dayItems = [];
-                    dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
-                    dayItems.push(task)
-                } else {
-                    if (task.actionTime === null && dayItems[dayItems.length - 1].actionTime === null
-                        || task.actionTime.toDateString() === dayItems[dayItems.length - 1].actionTime.toDateString()) {
-                        dayItems.push(task)
-                    } else {
-                        dayItems = [];
-                        dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
-                        dayItems.push(task)
-                    }
-                }
-            }
-        }
-
-        this.setState({
-            taskItems: dayGroup,
-        });
-    }
-
-    _keyExtractor = (item, index) => index;
 
     render() {
         return (
@@ -230,6 +111,89 @@ class TaskListView extends PureComponent {
             </View>
         );
     }
+
+    componentDidMount() {
+        let aTasks = TaskService.read(this.props.taskState);
+
+        // 初始化
+        this.setupListData(aTasks);
+
+        // Realm Notifications
+        // realm.addListener('change', (sender, event) => {
+        //
+        // })
+
+        /* VIP
+        When using addListener(objects, changes) on React Native iOS it always returns empty on the first notification and the second notification returns what should have been in the first one.
+        https://github.com/realm/realm-js/issues/927
+        */
+        // Collection Notifications 监听数据变化
+        aTasks.addListener((tasks, changes) => {
+            console.log('=======================================');
+            // console.log(JSON.stringify(changes));
+
+            this.setupListData(tasks);
+
+            // // Update UI in response to inserted objects
+            // changes.insertions.forEach((index) => {
+            //     let insertedDog = tasks[index];
+            //     console.log('insertedDog = ' + JSON.stringify(insertedDog));
+            // });
+            //
+            // // Update UI in response to modified objects
+            // changes.modifications.forEach((index) => {
+            //     let modifiedDog = tasks[index];
+            //     console.log('modifiedDog = ' + JSON.stringify(modifiedDog));
+            // });
+            //
+            // // Update UI in response to deleted objects
+            // changes.deletions.forEach((index) => {
+            //     let deletedDog = tasks[index];
+            //     console.log('deletedDog = ' + JSON.stringify(deletedDog));
+            //     // Deleted objects cannot be accessed directly
+            //     // Support for accessing deleted objects coming soon...
+            // });
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+    }
+
+    setupListData(tasks) {
+        let dayItems = null;
+        let dayGroup = [];
+
+        for (let i = 0; i < tasks.length; i++) {
+            let task = tasks[i];
+
+            if (task.isValid()) {
+                if (dayItems === null) {
+                    dayItems = [];
+                    dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
+                    dayItems.push(task)
+                } else {
+                    if (task.actionTime === null && dayItems[dayItems.length - 1].actionTime === null
+                        || task.actionTime.toDateString() === dayItems[dayItems.length - 1].actionTime.toDateString()) {
+                        dayItems.push(task)
+                    } else {
+                        dayItems = [];
+                        dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
+                        dayItems.push(task)
+                    }
+                }
+            }
+        }
+
+        // alert(JSON.stringify(dayGroup));
+
+        this.setState({
+            taskItems: dayGroup,
+        });
+    }
+
+    _keyExtractor = (item, index) => index;
+
 }
 
 // const mapStateToProps = (state) => {

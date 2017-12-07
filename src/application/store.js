@@ -4,36 +4,44 @@
 
 import {
     createStore,
-    // applyMiddleware,
-    // compose
+    applyMiddleware,
+    compose
 } from 'redux';
 
 import appReducer from "./reducer";
-
-// import {reducer as todoReducer} from './todos';
-// import {reducer as filterReducer} from './filter';
+import thunk from 'redux-thunk'
+import {createLogger} from 'redux-logger'
 
 // import Perf from 'react-addons-perf'
 
 // const win = window;
 // win.Perf = Perf
 
-// const middlewares = [];
-// if (process.env.NODE_ENV !== 'production') {
-//     middlewares.push(require('redux-immutable-state-invariant')());
-// }
-//
-// const storeEnhancers = compose(
-//     applyMiddleware(...middlewares),
-//     (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
-// );
+import {IN_DEBUGGER} from '../config/Config'
+
+const logger = createLogger({
+    duration: true,
+    collapsed: true
+});
+
+// 中间件
+const middlewares = [thunk];
+if (IN_DEBUGGER) {
+    middlewares.push(logger)
+}
+
+// Store Enhancer
+const storeEnhancers = compose(
+    applyMiddleware(...middlewares),
+);
+
+const store = createStore(appReducer, {}, storeEnhancers);
+
+export default store;
+
 
 /// VIP https://stackoverflow.com/questions/41146446/get-rid-of-remote-debugger-is-in-a-background-tab-warning-in-react-native
 console.ignoredYellowBox = ['Remote debugger'];
 
-
-export default createStore(appReducer);
-
-// export default createStore(reducer, {}, storeEnhancers);
 
 

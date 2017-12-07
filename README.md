@@ -58,8 +58,12 @@ Pomodoro app powered by react-native.
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
     - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
     - [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
+    - [redux-thunk](https://github.com/gaearon/redux-thunk)
+    - [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+    - [Ant Design Mobile of React](https://mobile.ant.design/index-cn)        
     - [NativeBase](https://github.com/GeekyAnts/NativeBase)
-    - [Ant Design Mobile of React](https://mobile.ant.design/index-cn)
+    
+    
 
 - iOS deploy tutorial
 
@@ -86,6 +90,6 @@ Pomodoro app powered by react-native.
     ***KEY POINT***
     
     1. Open Android project use Android Studio, Build->Generate Signed Apk, config sign~
-    2. 
+    2. [打包APK](http://reactnative.cn/docs/0.50/signed-apk-android.html#content)
         
         

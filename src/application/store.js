@@ -17,7 +17,7 @@ import {createLogger} from 'redux-logger'
 // const win = window;
 // win.Perf = Perf
 
-import {IN_DEBUGGER} from '../config/Config'
+import {IN_DEBUGGER} from '../utils/Config'
 
 const logger = createLogger({
     duration: true,

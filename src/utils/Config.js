@@ -4,6 +4,7 @@
 
 import {Dimensions} from 'react-native'
 
+
 export const VERSION = '0.0.1'
 
 export const DEBUG = __DEV__ // eslint-disable-line no-undef

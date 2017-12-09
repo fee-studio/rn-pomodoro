@@ -4,8 +4,8 @@
 
 'use strict';
 
-import {TomatoState, TomatoType} from '../config/GlobalData'
-import GlobalData from "../config/GlobalData";
+import {TomatoState, TomatoType} from '../utils/GlobalData'
+import GlobalData from "../utils/GlobalData";
 import uuid from "uuid";
 
 export default class TomatoModel {
@@ -23,9 +23,9 @@ export default class TomatoModel {
         this.type = type;
 
         if (this.type === TomatoType.TomatoTypeWorking) {
-            this.duration = GlobalData.defaultTomatoConfig.duration;
+            this.duration = GlobalData.tomatoConfig.duration;
         } else if (this.type === TomatoType.TomatoTypeResting) {
-            this.duration = GlobalData.defaultTomatoConfig.shortRestDuration;
+            this.duration = GlobalData.tomatoConfig.shortRestDuration;
         } else {
             this.duration = 0;
         }

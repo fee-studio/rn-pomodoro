@@ -8,7 +8,7 @@ import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "r
 import realm from '../database/RealmDB'
 import {StackRouter, TabNavigator} from "react-navigation";
 import TaskListView from "./TaskListView";
-import {TaskScreenType, TaskState, TaskStateTitle} from "../config/GlobalData";
+import {TaskScreenType, TaskState, TaskStateTitle} from "../utils/GlobalData";
 import {NAV_TO_CREATE_TASK} from "../navigators/actionTypes";
 import {NavigationActions} from 'react-navigation';
 import {toCreateTask} from "../navigators/actions";

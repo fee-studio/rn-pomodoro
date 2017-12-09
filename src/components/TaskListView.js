@@ -5,10 +5,10 @@
 import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
-import {TaskState} from "../config/GlobalData";
+import {TaskState} from "../utils/GlobalData";
 import {toCreateTask, toTaskScreen, toTomatoScreenWithTask} from "../navigators/actions";
 import {connect} from "react-redux";
-import {COLOR} from "../config/Config";
+import {COLOR} from "../utils/Config";
 import TaskService from "../database/TaskService";
 
 export class TaskListItem extends PureComponent {

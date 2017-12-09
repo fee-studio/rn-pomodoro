@@ -20,17 +20,17 @@ import {
 import * as Progress from 'react-native-progress';
 import CountdownCircle from '../libs/CountDown'
 import {Tomato} from "../database/RealmDB";
-import {TaskScreenType, TomatoState, TomatoType} from "../config/GlobalData";
-import Initialization from "../config/Initialization";
+import {TaskScreenType, TomatoState, TomatoType} from "../utils/GlobalData";
+import Initialization from "../utils/Initialization";
 import TomatoModel from "../models/TomatoModel";
 import {connect} from "react-redux";
 import {toTaskScreen, toTaskScreenSelectTask} from "../navigators/actions";
 import Icon from 'react-native-vector-icons/Entypo';
 // import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import {COLOR} from "../config/Config";
+import {COLOR} from "../utils/Config";
 import Circle from "react-native-progress/Circle";
 import {AnimatedCircularProgress} from "react-native-circular-progress";
-import GlobalData from "../config/GlobalData";
+import GlobalData from "../utils/GlobalData";
 import moment from 'moment';
 import * as PushNotification from "react-native-push-notification";
 
@@ -158,7 +158,7 @@ class TomatoScreen extends Component {
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
                     <Text style={styles.tomatoTime}>
-                        {moment(GlobalData.defaultTomatoConfig.duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
+                        {moment(GlobalData.tomatoConfig.duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>

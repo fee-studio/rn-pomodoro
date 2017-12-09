@@ -9,12 +9,12 @@ import {
 import {Provider} from 'react-redux';
 import store from './store'
 import AppNavigator from '../navigators/AppNavigator'
-import Initialization from "../config/Initialization";
+import Initialization from "../utils/Initialization";
 
 class PomodoroApp extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
 
         // 初始化数据
         new Initialization()

@@ -12,11 +12,10 @@ const PushNotification = require('react-native-push-notification');
 export default class Initialization {
 
     constructor() {
-        // GlobalData.defaultTomatoConfig = Initialization.initTomatoConfig();
+        // GlobalData.tomatoConfig = Initialization.initTomatoConfig();
 
-        this.initNotification()
-        this.initMockData4Task()
-
+        this.initNotification();
+        this.initMockData4Task();
     }
 
     initNotification() {

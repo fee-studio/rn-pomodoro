@@ -1,4 +1,4 @@
-import {TaskState, TomatoState, TomatoType} from "../config/GlobalData";
+import {TaskState, TomatoState, TomatoType} from "../utils/GlobalData";
 import uuid from "uuid";
 
 export default class TaskModel {

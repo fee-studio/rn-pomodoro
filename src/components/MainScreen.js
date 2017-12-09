@@ -11,7 +11,7 @@ import StatisticsScreen from './StatisticsScreen'
 import SettingScreen from './SettingScreen'
 import {RealmDemo} from "../database/RealmDemo";
 import CreateTaskScreen from "./CreateTaskScreen";
-import {TaskStateTitle} from "../config/GlobalData";
+import {TaskStateTitle} from "../utils/GlobalData";
 
 
 const RootTabs = TabNavigator(

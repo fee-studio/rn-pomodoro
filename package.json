@@ -29,6 +29,9 @@
   },
   "dependencies": {
     "antd-mobile": "^2.0.3",
+    "appcenter": "^1.0.1",
+    "appcenter-analytics": "^1.0.1",
+    "appcenter-crashes": "^1.0.1",
     "art": "^0.10.1",
     "babel-plugin-import": "^1.6.2",
     "react": "16.0.0",

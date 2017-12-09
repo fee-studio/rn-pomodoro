@@ -7,8 +7,8 @@ import React, {Component} from 'react';
 import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight} from "react-native";
 import {RealmDemo} from "../database/RealmDemo";
 import Picker from 'react-native-picker';
-import {COLOR} from "../config/Config";
-import GlobalData from "../config/GlobalData";
+import {COLOR} from "../utils/Config";
+import GlobalData from "../utils/GlobalData";
 import {toTuCaoWebView, toWebViewComponent} from "../navigators/actions";
 import {connect} from "react-redux";
 var PushNotification = require('react-native-push-notification');
@@ -92,19 +92,19 @@ class SettingScreen extends Component {
                     {
                         title: '每日番茄目标',
                         key: 'key-daily-tomato-count',
-                        content: `${GlobalData.defaultTomatoConfig.dailyTargetCount}个`,
+                        content: `${GlobalData.tomatoConfig.dailyTargetCount}个`,
                         onOff: false
                     },
                     {
                         title: '番茄时长/专注时长',
                         key: 'key-work-during',
-                        content: `${GlobalData.defaultTomatoConfig.duration}秒`,
+                        content: `${GlobalData.tomatoConfig.duration}秒`,
                         onOff: false
                     },
                     {
                         title: '休息时长',
                         key: 'key-rest-during',
-                        content: `${GlobalData.defaultTomatoConfig.shortRestDuration}分钟`,
+                        content: `${GlobalData.tomatoConfig.shortRestDuration}分钟`,
                         onOff: false
                     },
                 ],
@@ -119,19 +119,19 @@ class SettingScreen extends Component {
                         title: '开启番茄钟时提醒选择任务',
                         key: 'key-tomato-task',
                         content: '',
-                        onOff: GlobalData.defaultTomatoConfig.isStartSelectTask
+                        onOff: GlobalData.tomatoConfig.isStartSelectTask
                     },
                     {
                         title: '桌面图标为今日待办数',
                         key: 'key-show-todo-count',
                         content: '',
-                        onOff: GlobalData.defaultTomatoConfig.showTodoCount
+                        onOff: GlobalData.tomatoConfig.showTodoCount
                     },
                     {
                         title: '早9晚9提醒',
                         key: 'key-morning-evening',
                         content: '',
-                        onOff: GlobalData.defaultTomatoConfig.notice4MorningEvening
+                        onOff: GlobalData.tomatoConfig.notice4MorningEvening
                     },
                 ],
                 sectionTitle: "其他",
@@ -183,11 +183,11 @@ class SettingScreen extends Component {
             pickerBg: [255, 255, 255, 1],
             onPickerConfirm: data => {
                 if (item.key === 'key-daily-tomato-count') {
-                    GlobalData.defaultTomatoConfig.dailyTargetCount = parseInt(data[0]);
+                    GlobalData.tomatoConfig.dailyTargetCount = parseInt(data[0]);
                 } else if (item.key === 'key-work-during') {
-                    GlobalData.defaultTomatoConfig.duration = parseInt(data[0]);
+                    GlobalData.tomatoConfig.duration = parseInt(data[0]);
                 } else if (item.key === 'key-rest-during') {
-                    GlobalData.defaultTomatoConfig.shortRestDuration = parseInt(data[0]);
+                    GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]);
                 }
                 this.setState({
                     listItems: [...this.aListItems(),]
@@ -206,11 +206,11 @@ class SettingScreen extends Component {
 
     _actionOther(item) {
         if (item.key === 'key-tomato-task') {
-            GlobalData.defaultTomatoConfig.isStartSelectTask = !GlobalData.defaultTomatoConfig.isStartSelectTask;
+            GlobalData.tomatoConfig.isStartSelectTask = !GlobalData.tomatoConfig.isStartSelectTask;
         } else if (item.key === 'key-show-todo-count') {
-            GlobalData.defaultTomatoConfig.showTodoCount = !GlobalData.defaultTomatoConfig.showTodoCount;
+            GlobalData.tomatoConfig.showTodoCount = !GlobalData.tomatoConfig.showTodoCount;
         } else if (item.key === 'key-morning-evening') {
-            GlobalData.defaultTomatoConfig.notice4MorningEvening = !GlobalData.defaultTomatoConfig.notice4MorningEvening;
+            GlobalData.tomatoConfig.notice4MorningEvening = !GlobalData.tomatoConfig.notice4MorningEvening;
         }
         this.setState({
             listItems: [...this.aListItems(),]

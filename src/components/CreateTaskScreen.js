@@ -5,10 +5,10 @@
 import React from "react";
 import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight} from "react-native";
 import realm from '../database/RealmDB'
-import {TaskState} from "../config/GlobalData";
+import {TaskState} from "../utils/GlobalData";
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {connect} from "react-redux";
-import {COLOR} from "../config/Config";
+import {COLOR} from "../utils/Config";
 import TaskService from "../database/TaskService";
 import TaskModel from "../models/TaskModel";
 

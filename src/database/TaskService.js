@@ -1,5 +1,5 @@
 import {Task} from "./RealmDB";
-import {TaskState} from "../config/GlobalData";
+import {TaskState} from "../utils/GlobalData";
 import RealmDBService from "./RealmDBService";
 
 export default class TaskService extends RealmDBService {

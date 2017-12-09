@@ -11,7 +11,7 @@ import SettingScreen from '../components/SettingScreen'
 import CreateTaskScreen from "../components/CreateTaskScreen";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {COLOR} from "../config/Config";
+import {COLOR} from "../utils/Config";
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TaskListScreen from "../components/TaskListScreen";
 import TuCaoWebView from "../components/TuCaoWebView";

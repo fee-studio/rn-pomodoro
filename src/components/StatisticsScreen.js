@@ -5,7 +5,7 @@
 
 import React, {Component, PureComponent} from 'react';
 import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback} from "react-native";
-import {COLOR} from "../config/Config";
+import {COLOR} from "../utils/Config";
 
 
 class StatisticsItem extends PureComponent {

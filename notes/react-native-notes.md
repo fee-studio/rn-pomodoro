@@ -102,7 +102,15 @@
 
 15. [使用 fastlane 发布 react-native APP / Shipping React Native apps with Fastlane](https://carloscuesta.me/blog/shipping-react-native-apps-with-fastlane/)
 
-16.
+16. code-push注意点
+    ```shell
+    // 发布到CodePush的命令
+    code-push release-react rn-ios-pomodoro ios -m true --des \"test color 2\" -d Production -b index.jsbundle -t 1.0.3
+    ```
+    **千万注意:**
+    
+    **-t 1.0.3   // VIP 这里是指 要更新的 当前App的 版本, 而不是 你要更新到的 版本**
+    
 
 
 

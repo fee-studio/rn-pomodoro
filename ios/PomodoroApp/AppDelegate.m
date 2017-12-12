@@ -8,35 +8,36 @@
  */
 
 #import "AppDelegate.h"
+#import <CodePush/CodePush.h>
+#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
+#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
+#import <AppCenterReactNative/AppCenterReactNative.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTPushNotificationManager.h>
 
+#import <React/RCTLog.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSURL *jsCodeLocation;
+  RCTSetLogThreshold(RCTLogLevelInfo);
   
-//  // 真机运行 -> first: npm start
-//#ifdef DEBUG
-//  [[RCTBundleURLProvider sharedSettings] setDefaults];
-//  if (TARGET_IPHONE_SIMULATOR) {
-//    // 如果是 模拟器
-//    [[RCTBundleURLProvider sharedSettings] setJsLocation:@"127.0.0.1"];
-//  } else {
-//    // 如果是 真机 && 公司
-//    [[RCTBundleURLProvider sharedSettings] setJsLocation:@"172.16.20.133"];
-//  }
-//#else
-//  // 离线打包
-////  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"jsbundle"];
-//  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-//#endif
+  NSURL *jsCodeLocation;
 
+  [AppCenterReactNative register];  // Initialize AppCenter 
 
+  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+
+  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
+  
+#if DEBUG
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+#else
+  jsCodeLocation = [CodePush bundleURLForResource:@"index"];
+#endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"PomodoroApp"

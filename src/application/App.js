@@ -1,15 +1,14 @@
 /**
- *  功能：
+ *  功能：入口类
  */
 
 import React from 'react';
-import {
-    AppRegistry,
-} from 'react-native';
+import {AppRegistry} from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store'
 import AppNavigator from '../navigators/AppNavigator'
 import Initialization from "../utils/Initialization";
+import codePush from 'react-native-code-push'
 
 class PomodoroApp extends React.Component {
 
@@ -20,7 +19,6 @@ class PomodoroApp extends React.Component {
         new Initialization()
     }
 
-
     render() {
         return (
             <Provider store={store}>
@@ -28,6 +26,42 @@ class PomodoroApp extends React.Component {
             </Provider>
         )
     }
+
+    codePushStatusDidChange(status) {
+        switch (status) {
+            case codePush.SyncStatus.CHECKING_FOR_UPDATE:
+                console.log("Checking for updates.");
+                break;
+            case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+                console.log("Downloading package.");
+                break;
+            case codePush.SyncStatus.INSTALLING_UPDATE:
+                console.log("Installing update.");
+                break;
+            case codePush.SyncStatus.UP_TO_DATE:
+                console.log("Up-to-date.");
+                break;
+            case codePush.SyncStatus.UPDATE_INSTALLED:
+                console.log("Update installed.");
+                break;
+        }
+    }
+
+    codePushDownloadDidProgress(progress) {
+        console.log(progress.receivedBytes + " of " + progress.totalBytes + " received.");
+    }
+
+    codePushOnBinaryVersionMismatch(update) {
+        console.log("codePushOnBinaryVersionMismatch = " + JSON.stringify(update));
+    }
 }
+
+// CodePush热更新
+let options = {
+    checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+    updateDialog: true,
+    installMode: codePush.InstallMode.IMMEDIATE
+};
+PomodoroApp = codePush(options)(PomodoroApp);
 
 AppRegistry.registerComponent('PomodoroApp', () => PomodoroApp);

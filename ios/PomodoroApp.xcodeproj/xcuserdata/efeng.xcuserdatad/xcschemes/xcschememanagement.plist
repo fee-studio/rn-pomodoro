@@ -7,7 +7,7 @@
 		<key>PomodoroApp-tvOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<false />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -27,7 +27,7 @@
 		<key>52AEC8FB1FB84E8600149126</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

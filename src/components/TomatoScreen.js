@@ -347,7 +347,7 @@ class TomatoScreen extends Component {
                             }
                         },
                         {
-                            text: '不干了',
+                            text: '不干啦',
                             onPress: () => {
                             }
                         },
@@ -412,12 +412,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(TomatoScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
     },
     progressContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#eee',
+
+        backgroundColor: "#f00"
     },
     progressText: {
         marginBottom: 50,

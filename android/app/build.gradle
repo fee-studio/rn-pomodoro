@@ -80,6 +80,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -161,6 +162,13 @@ android {
 }
 
 dependencies {
+    compile project(':appcenter')
+    def appCenterSdkVersion = '1.0.0'
+    compile "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    compile "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+    compile project(':react-native-code-push')
+    compile project(':appcenter-crashes')
+    compile project(':appcenter-analytics')
 //    compile project(':react-native-document-picker')
     compile project(':react-native-push-notification')
     compile ('com.google.android.gms:play-services-gcm:8.1.0') {

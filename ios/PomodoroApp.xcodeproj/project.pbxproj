@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -24,9 +25,27 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1DCF25B2F836429B9FB716B6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C9DE5F457DD4045BF8DEE45 /* Entypo.ttf */; };
+		5219D63C1FDBE0C80001F9F2 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219D60D1FDBE0830001F9F2 /* libCodePush.a */; };
 		522194DC1F96F4D70019E9BD /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 522194D21F96F0860019E9BD /* libRCTBEEPickerManager.a */; };
+		5259C4641FDF783D00517880 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4631FDF749400517880 /* libAppCenterReactNative.a */; };
+		5259C4651FDF784B00517880 /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219D5DF1FDBACF20001F9F2 /* libAppCenterReactNativeCrashes.a */; };
+		5259C4661FDF785200517880 /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5219D5E91FDBACF20001F9F2 /* libAppCenterReactNativeAnalytics.a */; };
+		5259C46E1FDF7DA700517880 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4681FDF7DA500517880 /* AppCenterDistribute.framework */; };
+		5259C46F1FDF7DA700517880 /* AppCenterDistribute.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4681FDF7DA500517880 /* AppCenterDistribute.framework */; };
+		5259C4701FDF7DA700517880 /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4691FDF7DA600517880 /* AppCenter.framework */; };
+		5259C4711FDF7DA700517880 /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4691FDF7DA600517880 /* AppCenter.framework */; };
+		5259C4721FDF7DA700517880 /* AppCenterPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46A1FDF7DA600517880 /* AppCenterPush.framework */; };
+		5259C4731FDF7DA700517880 /* AppCenterPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46A1FDF7DA600517880 /* AppCenterPush.framework */; };
+		5259C4741FDF7DA700517880 /* AppCenterAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46B1FDF7DA600517880 /* AppCenterAnalytics.framework */; };
+		5259C4751FDF7DA700517880 /* AppCenterAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46B1FDF7DA600517880 /* AppCenterAnalytics.framework */; };
+		5259C4761FDF7DA700517880 /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46C1FDF7DA700517880 /* AppCenterCrashes.framework */; };
+		5259C4771FDF7DA700517880 /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C46C1FDF7DA700517880 /* AppCenterCrashes.framework */; };
+		5259C4781FDF7DA700517880 /* AppCenterDistributeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5259C46D1FDF7DA700517880 /* AppCenterDistributeResources.bundle */; };
+		5259C4791FDF7DA700517880 /* AppCenterDistributeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5259C46D1FDF7DA700517880 /* AppCenterDistributeResources.bundle */; };
+		5259C4C71FDF80BA00517880 /* AppCenterReactNativeShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4931FDF80BA00517880 /* AppCenterReactNativeShared.framework */; };
+		5259C4C81FDF80BA00517880 /* AppCenterReactNativeShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5259C4931FDF80BA00517880 /* AppCenterReactNativeShared.framework */; };
+		5259C5161FDF882600517880 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 5259C5151FDF882600517880 /* assets */; };
 		528713801FC43CDC0007EEF8 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529F54781FC43CA100C1D493 /* libRCTPushNotification.a */; };
-		528AE60D1FB359A7001C73B6 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 528AE60C1FB359A7001C73B6 /* assets */; };
 		529B58661F8CC6A9001CE830 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529B58631F8CC652001CE830 /* libART.a */; };
 		52AEC8FE1FB84E8600149126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		52AEC8FF1FB84E8600149126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -58,7 +77,6 @@
 		52AEC91C1FB84E8600149126 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDFAB5362A3B443FB269659A /* FontAwesome.ttf */; };
 		52AEC91D1FB84E8600149126 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 332D57E78C984C789A0D4FDB /* Foundation.ttf */; };
 		52AEC91E1FB84E8600149126 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E749C9224F5A4FD1B7E909DC /* Ionicons.ttf */; };
-		52AEC91F1FB84E8600149126 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 528AE60C1FB359A7001C73B6 /* assets */; };
 		52AEC9201FB84E8600149126 /* index.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */; };
 		52AEC9211FB84E8600149126 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCFB847FD7334F93B5330515 /* MaterialCommunityIcons.ttf */; };
 		52AEC9221FB84E8600149126 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
@@ -80,6 +98,7 @@
 		81DB17D82A074AB188ACC14A /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE0103EC4A7F4F8A8D2C4E8D /* Feather.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9B8BF99CAD722E2AF4714A48 /* libPods-PomodoroApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B214FD60EF944F3085C1A64 /* libPods-PomodoroApp.a */; };
+		9DDC26B380B04D0A906629BB /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA399C531BC4436AEF37E13 /* AppCenter-Config.plist */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BA68BF63756E4CFF96DA5E61 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 176CBE88C20F40BD9C2A7701 /* libz.tbd */; };
 		CCF89799708E49458BE6DF4D /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 354CDD15E5CD4072899210B5 /* MaterialIcons.ttf */; };
@@ -269,6 +288,34 @@
 			remoteGlobalIDString = F60690131CA2766F0003FB26;
 			remoteInfo = RealmReact;
 		};
+		5219D5DE1FDBACF20001F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B2C0C400A34C1B9A254681 /* AppCenterReactNativeCrashes.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
+			remoteInfo = AppCenterReactNativeCrashes;
+		};
+		5219D5E81FDBACF20001F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D4AA43EAEBF467F950243C0 /* AppCenterReactNativeAnalytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 548694001D8384E600E6685A;
+			remoteInfo = AppCenterReactNativeAnalytics;
+		};
+		5219D60C1FDBE0830001F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5219D6021FDBE0830001F9F2 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
+		5219D60E1FDBE0830001F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5219D6021FDBE0830001F9F2 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F886647B1F4ADB500036D01B;
+			remoteInfo = "CodePush-tvOS";
+		};
 		522194CC1F96F0860019E9BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEC62EA9289D4611A33930E2 /* SplashScreen.xcodeproj */;
@@ -296,6 +343,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
 			remoteInfo = "RNDeviceInfo-tvOS";
+		};
+		5259C4621FDF749400517880 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCA349C13C5B42A8A9585663 /* AppCenterReactNative.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C35AEC211EF91F9300931F0C;
+			remoteInfo = AppCenterReactNative;
 		};
 		526A95031F985E12004B5BF9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -434,8 +488,10 @@
 		00E356EE1AD99517003FC87E /* PomodoroAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PomodoroAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroAppTests.m; sourceTree = "<group>"; };
+		04453ACCA4D74DA4B28998EC /* libAppCenterReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNative.a; sourceTree = "<group>"; };
 		0D9B594061C64319B6402179 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		0FF0C0F065F245CD9EC55DA8 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		11C021B5A0E648CBA83F0C80 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeCrashes.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PomodoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -447,12 +503,22 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PomodoroApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		176CBE88C20F40BD9C2A7701 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1CA399C531BC4436AEF37E13 /* AppCenter-Config.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "PomodoroApp/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		332D57E78C984C789A0D4FDB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		354CDD15E5CD4072899210B5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		3E97B0AF302348C5931FBC48 /* libRNDeviceInfo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNDeviceInfo-tvOS.a"; sourceTree = "<group>"; };
+		45B2C0C400A34C1B9A254681 /* AppCenterReactNativeCrashes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativeCrashes.xcodeproj; path = "../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes.xcodeproj"; sourceTree = "<group>"; };
+		5219D6021FDBE0830001F9F2 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
+		5259C4681FDF7DA500517880 /* AppCenterDistribute.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenterDistribute.framework; sourceTree = "<group>"; };
+		5259C4691FDF7DA600517880 /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenter.framework; sourceTree = "<group>"; };
+		5259C46A1FDF7DA600517880 /* AppCenterPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenterPush.framework; sourceTree = "<group>"; };
+		5259C46B1FDF7DA600517880 /* AppCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenterAnalytics.framework; sourceTree = "<group>"; };
+		5259C46C1FDF7DA700517880 /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenterCrashes.framework; sourceTree = "<group>"; };
+		5259C46D1FDF7DA700517880 /* AppCenterDistributeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppCenterDistributeResources.bundle; sourceTree = "<group>"; };
+		5259C4931FDF80BA00517880 /* AppCenterReactNativeShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCenterReactNativeShared.framework; sourceTree = "<group>"; };
+		5259C5151FDF882600517880 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		525FBAAE1F90726C000D9CA3 /* libRealmJS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRealmJS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		528713AD1FC43F510007EEF8 /* PomodoroApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PomodoroApp.entitlements; path = PomodoroApp/PomodoroApp.entitlements; sourceTree = "<group>"; };
-		528AE60C1FB359A7001C73B6 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		529B585C1F8CC594001CE830 /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		529B585D1F8CC652001CE830 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		529F54721FC43CA100C1D493 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
@@ -470,9 +536,11 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7D900780B37F40EFAA35BEAD /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8D4AA43EAEBF467F950243C0 /* AppCenterReactNativeAnalytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativeAnalytics.xcodeproj; path = "../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics.xcodeproj"; sourceTree = "<group>"; };
 		9654FA7ACFDB4DC299C09CE2 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		97899177E4C848F6887D8622 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.release.xcconfig"; sourceTree = "<group>"; };
+		AD9ED335762841EFBBFD52CF /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeAnalytics.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AE0103EC4A7F4F8A8D2C4E8D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		B73D9294FDEC402498F44228 /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
@@ -483,6 +551,7 @@
 		D6EC386AFC3A413A98448EA0 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		D78BE8F7D9FE9E1DD2219AD2 /* Pods-PomodoroApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PomodoroApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DB57392F5F914CCEA397F1AA /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		DCA349C13C5B42A8A9585663 /* AppCenterReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNative.xcodeproj; path = ../node_modules/appcenter/ios/AppCenterReactNative.xcodeproj; sourceTree = "<group>"; };
 		E0A04F5781EF4B2FA42B6742 /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
 		E749C9224F5A4FD1B7E909DC /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E8A496BF7BE94800B3B47DE8 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -504,24 +573,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5219D63C1FDBE0C80001F9F2 /* libCodePush.a in Frameworks */,
+				5259C4741FDF7DA700517880 /* AppCenterAnalytics.framework in Frameworks */,
 				529B58661F8CC6A9001CE830 /* libART.a in Frameworks */,
 				9B8BF99CAD722E2AF4714A48 /* libPods-PomodoroApp.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				5259C46E1FDF7DA700517880 /* AppCenterDistribute.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				5259C4701FDF7DA700517880 /* AppCenter.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				5259C4761FDF7DA700517880 /* AppCenterCrashes.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				5AC36993F76741B7B2630300 /* libRNDeviceInfo.a in Frameworks */,
 				D440CA3843374F71AF329956 /* libSplashScreen.a in Frameworks */,
+				5259C4C71FDF80BA00517880 /* AppCenterReactNativeShared.framework in Frameworks */,
 				522194DC1F96F4D70019E9BD /* libRCTBEEPickerManager.a in Frameworks */,
+				5259C4721FDF7DA700517880 /* AppCenterPush.framework in Frameworks */,
 				EA3ACB7D14E843C79B8829E9 /* libRNVectorIcons.a in Frameworks */,
 				FC0466F6B0104287900680CA /* libRealmReact.a in Frameworks */,
 				D8B573DBD8E64CB1A26AB19D /* libc++.tbd in Frameworks */,
@@ -529,6 +605,9 @@
 				FCE93B81309E434AB2041D7D /* libRNGestureHandler.a in Frameworks */,
 				528713801FC43CDC0007EEF8 /* libRCTPushNotification.a in Frameworks */,
 				E959CC042881CB632B45B972 /* libPods-PomodoroApp.a in Frameworks */,
+				5259C4641FDF783D00517880 /* libAppCenterReactNative.a in Frameworks */,
+				5259C4651FDF784B00517880 /* libAppCenterReactNativeCrashes.a in Frameworks */,
+				5259C4661FDF785200517880 /* libAppCenterReactNativeAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,13 +619,18 @@
 				52AEC9031FB84E8600149126 /* libRCTBlob.a in Frameworks */,
 				52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */,
 				52AEC9051FB84E8600149126 /* libReact.a in Frameworks */,
+				5259C4751FDF7DA700517880 /* AppCenterAnalytics.framework in Frameworks */,
 				52AEC9041FB84E8600149126 /* libRCTAnimation.a in Frameworks */,
 				52AEC9061FB84E8600149126 /* libRCTActionSheet.a in Frameworks */,
+				5259C4771FDF7DA700517880 /* AppCenterCrashes.framework in Frameworks */,
+				5259C4C81FDF80BA00517880 /* AppCenterReactNativeShared.framework in Frameworks */,
 				52AEC9071FB84E8600149126 /* libRCTGeolocation.a in Frameworks */,
 				52AEC9081FB84E8600149126 /* libRCTImage.a in Frameworks */,
 				52AEC9091FB84E8600149126 /* libRCTLinking.a in Frameworks */,
 				52AEC90A1FB84E8600149126 /* libRCTNetwork.a in Frameworks */,
+				5259C46F1FDF7DA700517880 /* AppCenterDistribute.framework in Frameworks */,
 				52AEC90B1FB84E8600149126 /* libRCTSettings.a in Frameworks */,
+				5259C4711FDF7DA700517880 /* AppCenter.framework in Frameworks */,
 				52AEC90C1FB84E8600149126 /* libRCTText.a in Frameworks */,
 				52AEC90D1FB84E8600149126 /* libRCTVibration.a in Frameworks */,
 				52AEC90E1FB84E8600149126 /* libRCTWebSocket.a in Frameworks */,
@@ -555,6 +639,7 @@
 				52AEC9111FB84E8600149126 /* libRCTBEEPickerManager.a in Frameworks */,
 				52AEC9121FB84E8600149126 /* libRNVectorIcons.a in Frameworks */,
 				52AEC9131FB84E8600149126 /* libRealmReact.a in Frameworks */,
+				5259C4731FDF7DA700517880 /* AppCenterPush.framework in Frameworks */,
 				52AEC9141FB84E8600149126 /* libc++.tbd in Frameworks */,
 				52AEC9151FB84E8600149126 /* libz.tbd in Frameworks */,
 			);
@@ -700,6 +785,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5219D5DB1FDBACF20001F9F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5219D5DF1FDBACF20001F9F2 /* libAppCenterReactNativeCrashes.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5219D5E51FDBACF20001F9F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5219D5E91FDBACF20001F9F2 /* libAppCenterReactNativeAnalytics.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5219D6031FDBE0830001F9F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5219D60D1FDBE0830001F9F2 /* libCodePush.a */,
+				5219D60F1FDBE0830001F9F2 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		522194C91F96F0860019E9BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,6 +833,28 @@
 				522194DA1F96F0860019E9BD /* libRNDeviceInfo-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5259C45F1FDF749400517880 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5259C4631FDF749400517880 /* libAppCenterReactNative.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5259C4671FDF7D6B00517880 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				5259C4931FDF80BA00517880 /* AppCenterReactNativeShared.framework */,
+				5259C4691FDF7DA600517880 /* AppCenter.framework */,
+				5259C46B1FDF7DA600517880 /* AppCenterAnalytics.framework */,
+				5259C46C1FDF7DA700517880 /* AppCenterCrashes.framework */,
+				5259C4681FDF7DA500517880 /* AppCenterDistribute.framework */,
+				5259C46D1FDF7DA700517880 /* AppCenterDistributeResources.bundle */,
+				5259C46A1FDF7DA600517880 /* AppCenterPush.framework */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		526A95001F985E12004B5BF9 /* Products */ = {
@@ -752,6 +884,9 @@
 				DB57392F5F914CCEA397F1AA /* libRNVectorIcons.a */,
 				D0AD78490F164C55991E1873 /* libRealmReact.a */,
 				F3FA9F67D1C944419D9CC6BB /* libRNGestureHandler.a */,
+				AD9ED335762841EFBBFD52CF /* libAppCenterReactNativeAnalytics.a */,
+				11C021B5A0E648CBA83F0C80 /* libAppCenterReactNativeCrashes.a */,
+				04453ACCA4D74DA4B28998EC /* libAppCenterReactNative.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -794,6 +929,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5219D6021FDBE0830001F9F2 /* CodePush.xcodeproj */,
 				529F54721FC43CA100C1D493 /* RCTPushNotification.xcodeproj */,
 				529B585D1F8CC652001CE830 /* ART.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -814,6 +950,9 @@
 				9654FA7ACFDB4DC299C09CE2 /* RNVectorIcons.xcodeproj */,
 				EF662C592ECF48099EBCB3C6 /* RealmReact.xcodeproj */,
 				D6EC386AFC3A413A98448EA0 /* RNGestureHandler.xcodeproj */,
+				8D4AA43EAEBF467F950243C0 /* AppCenterReactNativeAnalytics.xcodeproj */,
+				45B2C0C400A34C1B9A254681 /* AppCenterReactNativeCrashes.xcodeproj */,
+				DCA349C13C5B42A8A9585663 /* AppCenterReactNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -832,8 +971,9 @@
 			children = (
 				52D2BA6C1FB5AF190016B950 /* index.jsbundle */,
 				52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */,
-				528AE60C1FB359A7001C73B6 /* assets */,
+				5259C5151FDF882600517880 /* assets */,
 				13B07FAE1A68108700A75B9A /* PomodoroApp */,
+				5259C4671FDF7D6B00517880 /* Vendor */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* PomodoroAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -841,6 +981,7 @@
 				13480B8ED6AF75C04394B398 /* Frameworks */,
 				529B58741F8DBE79001CE830 /* Recovered References */,
 				FBE8E5C83A8B4DB2BE03B119 /* Resources */,
+				1CA399C531BC4436AEF37E13 /* AppCenter-Config.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1001,8 +1142,24 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 5259C45F1FDF749400517880 /* Products */;
+					ProjectRef = DCA349C13C5B42A8A9585663 /* AppCenterReactNative.xcodeproj */;
+				},
+				{
+					ProductGroup = 5219D5E51FDBACF20001F9F2 /* Products */;
+					ProjectRef = 8D4AA43EAEBF467F950243C0 /* AppCenterReactNativeAnalytics.xcodeproj */;
+				},
+				{
+					ProductGroup = 5219D5DB1FDBACF20001F9F2 /* Products */;
+					ProjectRef = 45B2C0C400A34C1B9A254681 /* AppCenterReactNativeCrashes.xcodeproj */;
+				},
+				{
 					ProductGroup = 529B585E1F8CC652001CE830 /* Products */;
 					ProjectRef = 529B585D1F8CC652001CE830 /* ART.xcodeproj */;
+				},
+				{
+					ProductGroup = 5219D6031FDBE0830001F9F2 /* Products */;
+					ProjectRef = 5219D6021FDBE0830001F9F2 /* CodePush.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -1259,6 +1416,34 @@
 			remoteRef = 520E68001FA18D1F0085DA86 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5219D5DF1FDBACF20001F9F2 /* libAppCenterReactNativeCrashes.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAppCenterReactNativeCrashes.a;
+			remoteRef = 5219D5DE1FDBACF20001F9F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5219D5E91FDBACF20001F9F2 /* libAppCenterReactNativeAnalytics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAppCenterReactNativeAnalytics.a;
+			remoteRef = 5219D5E81FDBACF20001F9F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5219D60D1FDBE0830001F9F2 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 5219D60C1FDBE0830001F9F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5219D60F1FDBE0830001F9F2 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 5219D60E1FDBE0830001F9F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		522194CD1F96F0860019E9BD /* libSplashScreen.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1285,6 +1470,13 @@
 			fileType = archive.ar;
 			path = "libRNDeviceInfo-tvOS.a";
 			remoteRef = 522194D91F96F0860019E9BD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5259C4631FDF749400517880 /* libAppCenterReactNative.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAppCenterReactNative.a;
+			remoteRef = 5259C4621FDF749400517880 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		526A95041F985E12004B5BF9 /* libRNVectorIcons.a */ = {
@@ -1429,21 +1621,23 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				5259C4781FDF7DA700517880 /* AppCenterDistributeResources.bundle in Resources */,
 				1DCF25B2F836429B9FB716B6 /* Entypo.ttf in Resources */,
 				7A75802AD4F5454090215613 /* EvilIcons.ttf in Resources */,
 				81DB17D82A074AB188ACC14A /* Feather.ttf in Resources */,
 				CE1415A187B54FCAA0A8FE9F /* FontAwesome.ttf in Resources */,
 				7D86513D951B418DB25C9D25 /* Foundation.ttf in Resources */,
 				FF2E98DAF6C342A7B1974404 /* Ionicons.ttf in Resources */,
-				528AE60D1FB359A7001C73B6 /* assets in Resources */,
 				52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */,
 				52AEC95C1FB84FEB00149126 /* Info.plist in Resources */,
+				5259C5161FDF882600517880 /* assets in Resources */,
 				5E8C85FFD50340F39A5BBEA8 /* MaterialCommunityIcons.ttf in Resources */,
 				52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */,
 				CCF89799708E49458BE6DF4D /* MaterialIcons.ttf in Resources */,
 				107547209B004F7C950C60AA /* Octicons.ttf in Resources */,
 				12F4EF2C11174691840D987D /* SimpleLineIcons.ttf in Resources */,
 				6AF99836980E42ABB7C959B6 /* Zocial.ttf in Resources */,
+				9DDC26B380B04D0A906629BB /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1460,8 +1654,8 @@
 				52AEC91C1FB84E8600149126 /* FontAwesome.ttf in Resources */,
 				52AEC91D1FB84E8600149126 /* Foundation.ttf in Resources */,
 				52AEC91E1FB84E8600149126 /* Ionicons.ttf in Resources */,
-				52AEC91F1FB84E8600149126 /* assets in Resources */,
 				52AEC9201FB84E8600149126 /* index.jsbundle.meta in Resources */,
+				5259C4791FDF7DA700517880 /* AppCenterDistributeResources.bundle in Resources */,
 				52AEC9211FB84E8600149126 /* MaterialCommunityIcons.ttf in Resources */,
 				52AEC9221FB84E8600149126 /* index.jsbundle in Resources */,
 				52AEC9231FB84E8600149126 /* MaterialIcons.ttf in Resources */,
@@ -1620,13 +1814,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
 				INFOPLIST_FILE = PomodoroAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1652,13 +1848,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
 				INFOPLIST_FILE = PomodoroAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1675,11 +1873,16 @@
 			baseConfigurationReference = D78BE8F7D9FE9E1DD2219AD2 /* Pods-PomodoroApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "";
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
@@ -1688,6 +1891,10 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/**",
 				);
 				INFOPLIST_FILE = PomodoroApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1709,11 +1916,16 @@
 			baseConfigurationReference = 9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "Kxx1ZJ22xcWxIxu43pQqM5vPHCNBBy_xCzK-M";
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
@@ -1722,6 +1934,10 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/**",
 				);
 				INFOPLIST_FILE = PomodoroApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1738,13 +1954,90 @@
 			};
 			name = Release;
 		};
-		52AEC92B1FB84E8600149126 /* Debug */ = {
+		5259C5171FDFA63B00517880 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Staging;
+		};
+		5259C5181FDFA63B00517880 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CDC818502B6F115F93FBC7E /* Pods-PomodoroApp.release.xcconfig */;
+			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = MrIJKkjtmOVN6SHELml8WmwYui7kHJNlCftbz;
+				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
-				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+					"$(SRCROOT)/../node_modules/react-native-code-push/ios/**",
+				);
+				INFOPLIST_FILE = PomodoroApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
+				PRODUCT_NAME = PomodoroApp;
+				PROVISIONING_PROFILE = "efc0cef5-4ab0-4c50-8a20-5cdf88ad54b2";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_appstore_20171122";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Staging;
+		};
+		5259C5191FDFA63B00517880 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1754,6 +2047,92 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+				);
+				INFOPLIST_FILE = PomodoroAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PomodoroApp.app/PomodoroApp";
+			};
+			name = Staging;
+		};
+		5259C51A1FDFA63B00517880 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
+				);
+				INFOPLIST_FILE = "PomodoroAppRelease-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "efc0cef5-4ab0-4c50-8a20-5cdf88ad54b2";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_appstore_20171122";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Staging;
+		};
+		52AEC92B1FB84E8600149126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
+					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/realm/src/**",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
 				INFOPLIST_FILE = "PomodoroAppRelease-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1782,6 +2161,10 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9LA84498JK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
@@ -1790,6 +2173,9 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
+					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
 				INFOPLIST_FILE = "PomodoroAppRelease-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1894,6 +2280,7 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+				5259C5191FDFA63B00517880 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1903,6 +2290,7 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+				5259C5181FDFA63B00517880 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1912,6 +2300,7 @@
 			buildConfigurations = (
 				52AEC92B1FB84E8600149126 /* Debug */,
 				52AEC92C1FB84E8600149126 /* Release */,
+				5259C51A1FDFA63B00517880 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1921,6 +2310,7 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+				5259C5171FDFA63B00517880 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -412,14 +412,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(TomatoScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
     progressContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-
-        backgroundColor: "#f00"
     },
     progressText: {
         marginBottom: 50,

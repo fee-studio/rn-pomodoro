@@ -10,12 +10,14 @@ build
 *.apk
 .gradle/
 local.properties
-*.bundle*
+index.bundle
+index.bundle.meta
 
 # iOS/Xcode
 Pods/
 ios/assets/
-*.jsbundle*
+index.jsbundle
+index.jsbundle.meta
 
 *.pbxuser
 !default.pbxuser

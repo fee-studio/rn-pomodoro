@@ -34,7 +34,12 @@
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
   
 #if DEBUG
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+  
+    #ifdef DEBUG
+        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+    #else
+        jsCodeLocation = [CodePush bundleURL];
+    #endif
 #else
   jsCodeLocation = [CodePush bundleURLForResource:@"index"];
 #endif

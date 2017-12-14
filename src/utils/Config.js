@@ -21,20 +21,24 @@ export const TAB_BAR_HEIGHT = 49
 export const COLOR = {
     theme: '#006633',
     favored: '#C71A22',
+
     textPrompt: '#929292',
     textNormal: '#5E5E5E',
     textEmphasis: '#212121',
     textLightPrompt: '#EBEBEB',
     textLightNormal: '#FFFFFF',
+
     backgroundDarker: '#D6D6D6',
     backgroundNormal: '#EBEBEB',
     backgroundLighter: '#FFFFFF',
     backgroundDarkLighter: '#424242',
     backgroundDarkNormal: '#000000',
     backgroundNotice: '#FFFB00',
+
     linePrompt: '#EBEBEB',
     lineNormal: '#A9A9A9',
-    lineEmpha: '#929292',
+    lineEmphasis: '#929292',
+
     primary: '#ff6347',
     secondary: '#3aa',
     clear: '#0000000'

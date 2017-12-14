@@ -1,5 +1,5 @@
 import {Task} from "./RealmDB";
-import {TaskState} from "../utils/GlobalData";
+import {TaskState, TomatoState} from "../utils/GlobalData";
 import RealmDBService from "./RealmDBService";
 
 export default class TaskService extends RealmDBService {
@@ -14,7 +14,11 @@ export default class TaskService extends RealmDBService {
 
     static read(taskState = TaskState.TaskStateUnknown) {
         let tasks = super.read(Task.schema.name);
-        tasks = tasks.filtered(`status = ${taskState} AND deleted = false`);
+
+        // 有这种小逻辑并不好.
+        if (taskState !== TaskState.TaskStateUnknown) {
+            tasks = tasks.filtered(`status = ${taskState} AND deleted = false`);
+        }
 
         // 分开写是为了处理各种情况下不同的逻辑.
         if (taskState === TaskState.TaskStateTodo) {
@@ -33,6 +37,26 @@ export default class TaskService extends RealmDBService {
     static delete(taskModel) {
         super.delete(Task.schema.name, taskModel);
     }
+
+
+    static didFinishTotalCount() {
+        let didFinishTasks = TaskService.read(TaskState.TaskStateComplete);
+        let count = didFinishTasks.length;
+        return count;
+    }
+
+    static didFinishTodayCount() {
+        let date = new Date();
+        let nextDate = new Date(date.getTime() + 24*60*60*1000); //后一天
+
+        let today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        let tomorrow = new Date(nextDate.getFullYear(), nextDate.getMonth(), nextDate.getDate());
+
+        let tasks = TaskService.read(TaskState.TaskStateComplete).filtered('actionTime >= $0 AND actionTime < $1', today, tomorrow);
+        let count = tasks.length;
+        return count;
+    }
+
 
 
     // static create(taskModel) {

@@ -2,12 +2,7 @@
  *  功能：
  */
 
-import {
-    createStore,
-    applyMiddleware,
-    compose
-} from 'redux';
-
+import {createStore, applyMiddleware, compose} from 'redux';
 import appReducer from "./reducer";
 import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
@@ -18,6 +13,7 @@ import {createLogger} from 'redux-logger'
 // win.Perf = Perf
 
 import {IN_DEBUGGER} from '../utils/Config'
+import screenTracking from "../navigators/ScreenTrackingMiddleware";
 
 const logger = createLogger({
     duration: true,
@@ -25,7 +21,7 @@ const logger = createLogger({
 });
 
 // 中间件
-const middlewares = [thunk];
+const middlewares = [thunk, screenTracking];
 if (IN_DEBUGGER) {
     middlewares.push(logger)
 }

@@ -7,7 +7,7 @@ import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation'
 import TomatoScreen from './TomatoScreen'
 import TaskScreen, {TaskList, TaskListItem} from './TaskScreen'
-import StatisticsScreen from './StatisticsScreen'
+import StatisticsScreen from './statistics/StatisticsScreen'
 import SettingScreen from './SettingScreen'
 import {RealmDemo} from "../database/RealmDemo";
 import CreateTaskScreen from "./CreateTaskScreen";

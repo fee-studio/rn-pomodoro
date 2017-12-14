@@ -5,7 +5,11 @@
 
 import React, {Component, PureComponent} from 'react';
 import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback} from "react-native";
-import {COLOR} from "../utils/Config";
+import {COLOR} from "../../utils/Config";
+import {Tomato} from "../../database/RealmDB";
+import TomatoService from "../../database/TomatoService";
+import TaskService from "../../database/TaskService";
+import GlobalData from "../../utils/GlobalData";
 
 
 class StatisticsItem extends PureComponent {
@@ -43,30 +47,30 @@ export default class StatisticsScreen extends PureComponent {
         this.totalStatisticsData = {
             title: '累计完成统计',
             time: {
-                value: '7.1h',
+                value: TomatoService.didFinishTotalTime(),
                 title: '总专注时间',
             },
             tomatoCount: {
-                value: '7.1h',
-                title: '总专注时间',
+                value: TomatoService.didFinishTotalCount(),
+                title: '总番茄数',
             },
             taskCount: {
-                value: '7.1h',
-                title: '总专注时间',
+                value: TaskService.didFinishTotalCount(),
+                title: '总任务数',
             },
         };
         this.todayStatisticsData = {
             title: '今日完成统计',
             targetTomatoCount: {
-                value: '7.2h',
+                value: GlobalData.tomatoConfig.dailyTargetCount,
                 title: '目标番茄数',
             },
             tomatoCount: {
-                value: '7.3h',
+                value: TomatoService.didFinishTodayCount(),
                 title: '今日番茄数',
             },
             taskCount: {
-                value: '7.4h',
+                value: TaskService.didFinishTodayCount(),
                 title: '今日任务数',
             },
         };
@@ -174,6 +178,12 @@ export default class StatisticsScreen extends PureComponent {
             </View>
         );
     }
+
+    componentDidMount() {
+
+    }
+
+
 }
 
 class DailyTomatoCountListItem extends React.PureComponent {
@@ -242,7 +252,7 @@ class DailyTomatoCountList extends React.PureComponent {
                 extraData={this.state}
                 keyExtractor={this._keyExtractor}
                 renderItem={this._renderItem}
-                ItemSeparatorComponent={() => ( <View style={styles.listSeparator}/> )}
+                ItemSeparatorComponent={() => (<View style={styles.listSeparator}/>)}
                 // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
             />
         );

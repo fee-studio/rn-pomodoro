@@ -14,14 +14,15 @@ class xxx extends Component {
 
     constructor(props) {
         super(props);
-
+        debugger
     }
 
     componentWillMount() {
-
+        debugger
     }
 
     render() {
+        debugger
         return (
             <View style={styles.container}>
                 <Text> xxx </Text>
@@ -30,11 +31,11 @@ class xxx extends Component {
     }
 
     componentDidMount() {
-
+        debugger
     }
 
     componentWillReceiveProps(nextProps) {
-
+        debugger
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -42,15 +43,15 @@ class xxx extends Component {
     }
 
     componentWillUpdate() {
-
+        debugger
     }
 
     componentDidUpdate() {
-
+        debugger
     }
 
     componentWillUnmount() {
-
+        debugger
     }
 
     // ===== LIFECYCLE END =====
@@ -58,10 +59,12 @@ class xxx extends Component {
 }
 
 const mapStateToProps = (state) => {
+    debugger
     return {};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+    debugger
     return {}
 };
 

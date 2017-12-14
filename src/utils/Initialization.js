@@ -5,6 +5,7 @@
 import realm, {TomatoConfig} from '../database/RealmDB'
 import GlobalData from "./GlobalData";
 import {DEBUG} from "./Config";
+import TomatoService from "../database/TomatoService";
 // import PushNotification from "react-native-push-notification";
 
 const PushNotification = require('react-native-push-notification');
@@ -16,6 +17,8 @@ export default class Initialization {
 
         this.initNotification();
         this.initMockData4Task();
+        this.initMockData4Tomato();
+
     }
 
     initNotification() {
@@ -396,8 +399,7 @@ export default class Initialization {
                 status: 3,
                 tomatoes: []
             },
-
-        ]
+        ];
 
         realm.write(() => {
             // deletes all tasks
@@ -416,7 +418,90 @@ export default class Initialization {
                 realm.create('Task', data);  // todo 为什么这里添加的数据 delete 就会出错? 怪怪
             });
         }
+    }
 
+    initMockData4Tomato() {
+        let mockData = [
+            {
+                id: '1',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                deleted: false,
+                startTime: new Date(),
+                endTime: new Date(),
+                isInterrupt: false,
+                state: 4,
+                type: 1,
+                duration: 300,
+                // curTask: {}
+            },
+            {
+                id: '2',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                deleted: false,
+                startTime: new Date(),
+                endTime: new Date(),
+                isInterrupt: false,
+                state: 4,
+                type: 1,
+                duration: 300,
+                // curTask: {}
+            },
+            {
+                id: '3',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                deleted: false,
+                startTime: new Date(),
+                endTime: new Date(),
+                isInterrupt: false,
+                state: 4,
+                type: 1,
+                duration: 300,
+                // curTask: {}
+            },
+            {
+                id: '4',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                deleted: false,
+                startTime: new Date(),
+                endTime: new Date(),
+                isInterrupt: false,
+                state: 4,
+                type: 1,
+                duration: 300,
+                // curTask: {}
+            },
+            {
+                id: '5',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+                deleted: false,
+                startTime: new Date(),
+                endTime: new Date(),
+                isInterrupt: false,
+                state: 4,
+                type: 1,
+                duration: 300,
+                // curTask: {}
+            },
+        ];
 
+        realm.write(() => {
+            let allTomatoes = realm.objects('Tomato');
+            realm.delete(allTomatoes);
+        });
+
+        // create data
+        for (let data of mockData) {
+            console.log("data = " + JSON.stringify(data));
+            // realm.write(() => {
+            //     realm.create('Tomato', data);  // todo 为什么这里添加的数据 delete 就会出错? 怪怪
+            // });
+
+            TomatoService.create(data);
+        }
     }
 }

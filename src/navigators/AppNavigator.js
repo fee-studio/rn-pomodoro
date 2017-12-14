@@ -6,7 +6,7 @@ import React, {Component} from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
 import TomatoScreen from '../components/TomatoScreen'
 import TaskScreen from '../components/TaskScreen'
-import StatisticsScreen from '../components/StatisticsScreen'
+import StatisticsScreen from '../components/statistics/StatisticsScreen'
 import SettingScreen from '../components/SettingScreen'
 import CreateTaskScreen from "../components/CreateTaskScreen";
 import PropTypes from 'prop-types';
@@ -128,9 +128,9 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'TomatoTab', // todo...
+        initialRouteName: 'StatisticsTab', // todo...
         navigationOptions: {
-            headerTintColor: '#333',
+            headerTintColor: COLOR.textNormal,
         },
         tabBarOptions: {
             // activeTintColor: COLOR.theme,

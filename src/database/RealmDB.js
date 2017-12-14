@@ -60,9 +60,9 @@ export class TomatoConfig extends Realm.Object {
 
             shortRestDuration: {type: 'int'},    // 短休息时长
             longRestDuration: {type: 'int'},     // 长休息时长
-            duration: {type: 'int'},         // 专注工作时长
-            longRestInterval: {type: 'int'},   // 长休息间隔
-            dailyTargetCount: {type: 'int'},   // 每日番茄钟目标数
+            duration: {type: 'int'},             // 专注工作时长
+            longRestInterval: {type: 'int'},     // 长休息间隔
+            dailyTargetCount: {type: 'int'},     // 每日番茄钟目标数
             isRingHint: {type: 'bool'},             // 铃声提示
             isShakeHint: {type: 'bool'},            // 震动提示
             isStartSelectTask: {type: 'bool'},      // 开始时选择任务

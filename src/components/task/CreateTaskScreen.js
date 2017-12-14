@@ -4,13 +4,13 @@
 
 import React from "react";
 import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight} from "react-native";
-import realm from '../database/RealmDB'
-import {TaskState} from "../utils/GlobalData";
+import realm from '../../database/RealmDB'
+import {TaskState} from "../../utils/GlobalData";
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {connect} from "react-redux";
-import {COLOR} from "../utils/Config";
-import TaskService from "../database/TaskService";
-import TaskModel from "../models/TaskModel";
+import {COLOR} from "../../utils/Config";
+import TaskService from "../../database/TaskService";
+import TaskModel from "../../models/TaskModel";
 
 class CreateTaskScreen extends React.PureComponent {
 

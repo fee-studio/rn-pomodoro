@@ -43,4 +43,13 @@ export default class RealmDBService {
         })
     }
 
+    static start() {
+        realm.addListener('change', (sender, event) => {
+            console.log("sender = " + JSON.stringify(sender));
+            console.log("event = " + JSON.stringify(event));
+
+
+        })
+    }
+
 }

@@ -4,17 +4,17 @@
 
 import React, {Component} from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
-import TomatoScreen from '../components/TomatoScreen'
-import TaskScreen from '../components/TaskScreen'
+import TomatoScreen from '../components/tomato/TomatoScreen'
+import TaskScreen from '../components/task/TaskScreen'
 import StatisticsScreen from '../components/statistics/StatisticsScreen'
-import SettingScreen from '../components/SettingScreen'
-import CreateTaskScreen from "../components/CreateTaskScreen";
+import SettingScreen from '../components/setting/SettingScreen'
+import CreateTaskScreen from "../components/task/CreateTaskScreen";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {COLOR} from "../utils/Config";
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import TaskListScreen from "../components/TaskListScreen";
-import TuCaoWebView from "../components/TuCaoWebView";
+import TaskListScreen from "../components/task/TaskListScreen";
+import TuCaoWebView from "../components/setting/TuCaoWebView";
 import WebViewComponent from "../components/common/WebViewComponent";
 import {toTaskScreen} from "./actions";
 import DemoScreen from "../components/DemoScreen";
@@ -128,7 +128,7 @@ export const RootTabs = TabNavigator(
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'StatisticsTab', // todo...
+        initialRouteName: 'TomatoTab', // todo...
         navigationOptions: {
             headerTintColor: COLOR.textNormal,
         },

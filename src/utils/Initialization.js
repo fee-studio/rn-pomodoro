@@ -6,6 +6,7 @@ import realm, {TomatoConfig} from '../database/RealmDB'
 import GlobalData from "./GlobalData";
 import {DEBUG} from "./Config";
 import TomatoService from "../database/TomatoService";
+import RealmDBService from "../database/RealmDBService";
 // import PushNotification from "react-native-push-notification";
 
 const PushNotification = require('react-native-push-notification');
@@ -19,6 +20,8 @@ export default class Initialization {
         this.initMockData4Task();
         this.initMockData4Tomato();
 
+        // 启动服务
+        RealmDBService.start();
     }
 
     initNotification() {
@@ -489,18 +492,13 @@ export default class Initialization {
             },
         ];
 
+        let allTomatoes = realm.objects('Tomato');
         realm.write(() => {
-            let allTomatoes = realm.objects('Tomato');
             realm.delete(allTomatoes);
         });
 
         // create data
         for (let data of mockData) {
-            console.log("data = " + JSON.stringify(data));
-            // realm.write(() => {
-            //     realm.create('Tomato', data);  // todo 为什么这里添加的数据 delete 就会出错? 怪怪
-            // });
-
             TomatoService.create(data);
         }
     }

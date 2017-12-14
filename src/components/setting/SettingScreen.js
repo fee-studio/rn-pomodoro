@@ -5,11 +5,11 @@
 
 import React, {Component} from 'react';
 import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight} from "react-native";
-import {RealmDemo} from "../database/RealmDemo";
+import {RealmDemo} from "../../database/RealmDemo";
 import Picker from 'react-native-picker';
-import {COLOR} from "../utils/Config";
-import GlobalData from "../utils/GlobalData";
-import {toTuCaoWebView, toWebViewComponent} from "../navigators/actions";
+import {COLOR} from "../../utils/Config";
+import GlobalData from "../../utils/GlobalData";
+import {toTuCaoWebView, toWebViewComponent} from "../../navigators/actions";
 import {connect} from "react-redux";
 var PushNotification = require('react-native-push-notification');
 
@@ -25,7 +25,7 @@ class SettingListItem4Content extends Component {
                     <Text style={styles.itemTitle}>{this.props.title}</Text>
                     <View style={styles.itemContentRight}>
                         <Text style={styles.itemContent}>{this.props.content}</Text>
-                        <Image style={styles.itemArrowRight} source={require('../resources/arrow_right.png')}/>
+                        <Image style={styles.itemArrowRight} source={require('../../resources/arrow_right.png')}/>
                     </View>
                 </View>
             </TouchableHighlight>

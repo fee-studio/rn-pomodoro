@@ -5,12 +5,12 @@
 
 import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation'
-import TomatoScreen from './TomatoScreen'
-import TaskScreen, {TaskList, TaskListItem} from './TaskScreen'
+import TomatoScreen from './tomato/TomatoScreen'
+import TaskScreen, {TaskList, TaskListItem} from './task/TaskScreen'
 import StatisticsScreen from './statistics/StatisticsScreen'
-import SettingScreen from './SettingScreen'
+import SettingScreen from './setting/SettingScreen'
 import {RealmDemo} from "../database/RealmDemo";
-import CreateTaskScreen from "./CreateTaskScreen";
+import CreateTaskScreen from "./task/CreateTaskScreen";
 import {TaskStateTitle} from "../utils/GlobalData";
 
 

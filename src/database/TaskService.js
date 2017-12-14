@@ -58,6 +58,10 @@ export default class TaskService extends RealmDBService {
     }
 
 
+    start() {
+
+    }
+
 
     // static create(taskModel) {
     //     realm.write(() => {

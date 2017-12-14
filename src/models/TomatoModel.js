@@ -10,7 +10,7 @@ import uuid from "uuid";
 
 export default class TomatoModel {
 
-    constructor(state = TomatoState.TomatoStateInit, type = TomatoType.TomatoTypeInit, curTask = {}) {
+    constructor(state = TomatoState.TomatoStateInit, type = TomatoType.TomatoTypeInit, curTask = null) {
         this.id = uuid();
         this.createdAt = new Date();
         this.updatedAt = new Date();

@@ -18,21 +18,22 @@ import {
     Easing, fetch,
 } from "react-native";
 import * as Progress from 'react-native-progress';
-import CountdownCircle from '../libs/CountDown'
-import {Tomato} from "../database/RealmDB";
-import {TaskScreenType, TomatoState, TomatoType} from "../utils/GlobalData";
-import Initialization from "../utils/Initialization";
-import TomatoModel from "../models/TomatoModel";
+import CountdownCircle from '../../libs/CountDown'
+import {Tomato} from "../../database/RealmDB";
+import {TaskScreenType, TomatoState, TomatoType} from "../../utils/GlobalData";
+import Initialization from "../../utils/Initialization";
+import TomatoModel from "../../models/TomatoModel";
 import {connect} from "react-redux";
-import {toTaskScreen, toTaskScreenSelectTask} from "../navigators/actions";
+import {toTaskScreen, toTaskScreenSelectTask} from "../../navigators/actions";
 import Icon from 'react-native-vector-icons/Entypo';
 // import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import {COLOR} from "../utils/Config";
+import {COLOR} from "../../utils/Config";
 import Circle from "react-native-progress/Circle";
 import {AnimatedCircularProgress} from "react-native-circular-progress";
-import GlobalData from "../utils/GlobalData";
+import GlobalData from "../../utils/GlobalData";
 import moment from 'moment';
 import * as PushNotification from "react-native-push-notification";
+import TomatoService from "../../database/TomatoService";
 
 
 class ProgressChildView extends Component {
@@ -249,6 +250,8 @@ class TomatoScreen extends Component {
         // 数据
         this.setState({
             tomato: new TomatoModel(this.tomatoStatus, this.tomatoType, this.props.taskItem),
+        }, () => {
+            TomatoService.create(this.state.tomato);
         });
 
         // 动画
@@ -277,11 +280,13 @@ class TomatoScreen extends Component {
         // 数据
         this.setState(prevState => ({
             tomato: {
-                ...prevState,
+                ...prevState.tomato,
                 type: this.tomatoType,
                 state: this.tomatoStatus,
             }
-        }));
+        }), () => {
+            TomatoService.update(this.state.tomato);
+        });
 
         // 动画-几种停止的写法，都可以用的
         // Animated.timing(
@@ -308,10 +313,13 @@ class TomatoScreen extends Component {
             // 数据
             this.setState(prevState => ({
                 tomato: {
-                    ...prevState,
+                    ...prevState.tomato,
                     state: this.tomatoStatus,
                 },
-            }));
+            }), () => {
+                debugger;
+                TomatoService.update(this.state.tomato);
+            });
 
             // 动画
             this.state.animateProgress.resetAnimation();
@@ -328,16 +336,17 @@ class TomatoScreen extends Component {
             if (this.tomatoType === TomatoType.TomatoTypeWorking) {
                 this.actionPlay();
 
-                PushNotification.localNotification({
-                    message: "完成一个番茄钟，开始休息一下喽",
-                })
+                // PushNotification.localNotification({
+                //     title: "恭喜",
+                //     message: "完成一个番茄钟，开始休息一下喽",
+                // })
 
                 // PushNotification.localNotificationSchedule({
                 //     message: "完成一个番茄钟，该休息一下啦",
                 //     date: new Date(Date.now() + (5 * 1000)) // in 60 secs
                 // });
             } else if (this.tomatoType === TomatoType.TomatoTypeResting) {
-                this.actionStop();
+                // this.actionStop();
 
                 Alert.alert('休息回来', '选择您的任务，开启新的蕃茄钟', [
                         {
@@ -361,9 +370,9 @@ class TomatoScreen extends Component {
                     {cancelable: false}
                 );
 
-                PushNotification.localNotification({
-                    message: "休息回来，开始专注哦",
-                })
+                // PushNotification.localNotification({
+                //     message: "休息回来，开始专注哦",
+                // })
 
                 // PushNotification.localNotificationSchedule({
                 //     message: "My Notification Message2222", // (required)

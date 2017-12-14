@@ -1,7 +1,7 @@
 /**
  *  功能：
  */
-import WebViewComponent from "./common/WebViewComponent";
+import WebViewComponent from "../common/WebViewComponent";
 import {connect} from "react-redux";
 
 class TuCaoWebView extends WebViewComponent {

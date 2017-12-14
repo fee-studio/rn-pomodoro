@@ -110,6 +110,10 @@
     **千万注意:**
     
     **-t 1.0.3   // VIP 这里是指 要更新的 当前App的 版本, 而不是 你要更新到的 版本**
+
+17. (报错)[Missing property value for property name](https://github.com/realm/realm-js/issues/367)
+
+  
     
 
 

@@ -58,7 +58,7 @@ class xxx extends Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     debugger
     return {};
 };

@@ -21,62 +21,64 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  RCTSetLogThreshold(RCTLogLevelInfo);
-  
-  NSURL *jsCodeLocation;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    RCTSetLogThreshold(RCTLogLevelInfo);
 
-  [AppCenterReactNative register];  // Initialize AppCenter 
+    NSURL *jsCodeLocation;
 
-  [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+    [AppCenterReactNative register];  // Initialize AppCenter
 
-  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
-  
-#if DEBUG
-  
-    #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
-    #else
-        jsCodeLocation = [CodePush bundleURL];
-    #endif
+    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+
+    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
+
+#ifdef DEBUG
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
 #else
-  jsCodeLocation = [CodePush bundleURLForResource:@"index"];
+    jsCodeLocation = [CodePush bundleURLForResource:@"index"];
 #endif
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"PomodoroApp"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                        moduleName:@"PomodoroApp"
+                                                 initialProperties:nil
+                                                     launchOptions:launchOptions];
+    rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
-  [self.window makeKeyAndVisible];
-  return YES;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *rootViewController = [UIViewController new];
+    rootViewController.view = rootView;
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
+    return YES;
 }
+
+#pragma mark - Push Notification
 
 // Required to register for notifications
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
-{
-  [RCTPushNotificationManager didRegisterUserNotificationSettings:notificationSettings];
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    [RCTPushNotificationManager didRegisterUserNotificationSettings:notificationSettings];
 }
+
 // Required for the register event.
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-  [RCTPushNotificationManager didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [RCTPushNotificationManager didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
-// Required for the notification event.
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
-{
-  [RCTPushNotificationManager didReceiveRemoteNotification:notification];
+
+// Required for the notification event. You must call the completion handler after handling the remote notification.
+- (void)   application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [RCTPushNotificationManager didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
+
+// Required for the registrationError event.
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    [RCTPushNotificationManager didFailToRegisterForRemoteNotificationsWithError:error];
+}
+
 // Required for the localNotification event.
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-  [RCTPushNotificationManager didReceiveLocalNotification:notification];
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [RCTPushNotificationManager didReceiveLocalNotification:notification];
 }
+
 
 @end

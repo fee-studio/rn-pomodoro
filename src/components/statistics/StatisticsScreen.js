@@ -10,181 +10,8 @@ import {Tomato} from "../../database/RealmDB";
 import TomatoService from "../../database/TomatoService";
 import TaskService from "../../database/TaskService";
 import GlobalData from "../../utils/GlobalData";
+import {connect} from "react-redux";
 
-
-class StatisticsItem extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.value = props.value;
-        this.title = props.title;
-    }
-
-    render() {
-        return (
-            <View style={styles.itemContainer}>
-                <Text style={styles.itemValue}>{this.value}</Text>
-                <Text style={styles.itemTitle}>{this.title}</Text>
-            </View>
-        );
-    }
-}
-
-
-export default class StatisticsScreen extends PureComponent {
-
-    static navigationOptions = ({navigation, screenProps}) => ({
-        // title: "统计",
-        // headerRight: <Button title="添加" onPress={() => {
-        //     console.log('add :' + JSON.stringify(navigation));
-        //     navigation.navigate('CreateTask')
-        // }}/>,
-    });
-
-    constructor(props) {
-        super(props);
-
-        this.totalStatisticsData = {
-            title: '累计完成统计',
-            time: {
-                value: TomatoService.didFinishTotalTime(),
-                title: '总专注时间',
-            },
-            tomatoCount: {
-                value: TomatoService.didFinishTotalCount(),
-                title: '总番茄数',
-            },
-            taskCount: {
-                value: TaskService.didFinishTotalCount(),
-                title: '总任务数',
-            },
-        };
-        this.todayStatisticsData = {
-            title: '今日完成统计',
-            targetTomatoCount: {
-                value: GlobalData.tomatoConfig.dailyTargetCount,
-                title: '目标番茄数',
-            },
-            tomatoCount: {
-                value: TomatoService.didFinishTodayCount(),
-                title: '今日番茄数',
-            },
-            taskCount: {
-                value: TaskService.didFinishTodayCount(),
-                title: '今日任务数',
-            },
-        };
-        this.everydayStatisticsData = {
-            title: '每日完成的番茄数',
-            items: [
-                {id: '0', title: "item2", tomatoCount: 2,},
-                {id: '1', title: "item3", tomatoCount: 3,},
-                {id: '2', title: "item3", tomatoCount: 4,},
-                {id: '3', title: "item3", tomatoCount: 5,},
-                {id: '4', title: "item3", tomatoCount: 6,},
-                {id: '5', title: "item3", tomatoCount: 7,},
-                {id: '6', title: "item3", tomatoCount: 8,},
-                {id: '7', title: "item3", tomatoCount: 9,},
-                {id: '8', title: "item3", tomatoCount: 10,},
-                {id: '9', title: "item3", tomatoCount: 9,},
-                {id: '10', title: "item3", tomatoCount: 8,},
-                {id: '11', title: "item3", tomatoCount: 7,},
-                {id: '12', title: "item1", tomatoCount: 1,},
-                {id: '13', title: "item3", tomatoCount: 6,},
-                {id: '14', title: "item3", tomatoCount: 5,},
-                {id: '15', title: "item3", tomatoCount: 4,},
-                {id: '16', title: "item3", tomatoCount: 3,},
-                {id: '17', title: "item3", tomatoCount: 2,},
-                {id: '18', title: "item3", tomatoCount: 1,},
-                {id: '19', title: "item3", tomatoCount: 0,},
-                {id: '20', title: "item3", tomatoCount: 1,},
-                {id: '21', title: "item3", tomatoCount: 2,},
-                {id: '22', title: "item3", tomatoCount: 3,},
-                {id: '23', title: "item3", tomatoCount: 4,},
-                {id: '24', title: "item3", tomatoCount: 5,},
-                {id: '25', title: "item3", tomatoCount: 6,},
-                {id: '26', title: "item3", tomatoCount: 7,},
-                {id: '27', title: "item3", tomatoCount: 8,},
-                {id: '28', title: "item3", tomatoCount: 9,},
-                {id: '29', title: "item3", tomatoCount: 10,},
-                {id: '30', title: "item3", tomatoCount: 0,},
-            ],
-        };
-
-        this.items = [
-            {
-                data: [
-                    {title: '每日番茄目标', key: 'data-key-31', content: '8个', onOff: false},
-                    {title: '番茄时长', key: 'data-key-32', content: '3秒', onOff: false},
-                    {title: '休息时长', key: 'data-key-33', content: '5分钟', onOff: false},
-                ],
-                sectionTitle: "目标和时间",
-                renderItem: ({item}) => <SettingListItem4Content title={item.title} content={item.content}/>,
-            },
-            {
-                data: [
-                    {title: '开启番茄钟时提醒选择任务', key: 'data-key-21', content: '', onOff: true},
-                    {title: '桌面图标为今日待办数', key: 'data-key-22', content: '', onOff: true},
-                    {title: '早9晚9提醒', key: 'data-key-23', content: '', onOff: false},
-                ],
-                sectionTitle: "其他",
-                renderItem: ({item}) => <SettingListItem4OnOff title={item.title} onOff={item.onOff}/>,
-            },
-            {
-                data: [
-                    {title: '评价，鼓励我', key: 'data-key-11',},
-                    {title: '反馈，改进我', key: 'data-key-12',},
-                    // {title: 'data-title-13', key: 'data-key-13',},
-                ],
-                sectionTitle: "",
-                renderItem: ({item}) => <SettingListItem4Content title={item.title}/>,
-            },
-        ];
-
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.moduleContainer}>
-                    <Text style={styles.moduleTitle}>{this.totalStatisticsData.title}</Text>
-                    <View style={styles.itemContainerView}>
-                        <StatisticsItem title={this.totalStatisticsData.time.title}
-                                        value={this.totalStatisticsData.time.value}/>
-                        <StatisticsItem title={this.totalStatisticsData.tomatoCount.title}
-                                        value={this.totalStatisticsData.tomatoCount.value}/>
-                        <StatisticsItem title={this.totalStatisticsData.taskCount.title}
-                                        value={this.totalStatisticsData.taskCount.value}/>
-                    </View>
-                </View>
-
-                <View style={styles.moduleContainer}>
-                    <Text style={styles.moduleTitle}>{this.todayStatisticsData.title}</Text>
-                    <View style={styles.itemContainerView}>
-                        <StatisticsItem title={this.todayStatisticsData.targetTomatoCount.title}
-                                        value={this.todayStatisticsData.targetTomatoCount.value}/>
-                        <StatisticsItem title={this.todayStatisticsData.tomatoCount.title}
-                                        value={this.todayStatisticsData.tomatoCount.value}/>
-                        <StatisticsItem title={this.todayStatisticsData.taskCount.title}
-                                        value={this.todayStatisticsData.taskCount.value}/>
-                    </View>
-                </View>
-
-                <View style={[styles.moduleContainer]}>
-                    <Text style={styles.moduleTitle}>{this.everydayStatisticsData.title}</Text>
-                    <Text style={styles.moduleTitle}>{}</Text>
-                    <DailyTomatoCountList data={this.everydayStatisticsData.items}/>
-                </View>
-            </View>
-        );
-    }
-
-    componentDidMount() {
-
-    }
-
-
-}
 
 class DailyTomatoCountListItem extends React.PureComponent {
 
@@ -212,7 +39,7 @@ class DailyTomatoCountListItem extends React.PureComponent {
                         marginTop: 5,
                         marginBottom: 10,
                         textAlign: 'center'
-                    }}>12-10</Text>
+                    }}>{this.props.title}</Text>
                     {/*<Text style={{backgroundColor: '#f00', width: 30, height: 40}}>{this.props.title}</Text>*/}
                 </View>
             </TouchableWithoutFeedback>
@@ -258,6 +85,163 @@ class DailyTomatoCountList extends React.PureComponent {
         );
     }
 }
+
+class StatisticsItem extends PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={styles.itemContainer}>
+                <Text style={styles.itemValue}>{this.props.value}</Text>
+                <Text style={styles.itemTitle}>{this.props.title}</Text>
+            </View>
+        );
+    }
+}
+
+class StatisticsScreen extends PureComponent {
+
+    static navigationOptions = ({navigation, screenProps}) => ({
+        // title: "统计",
+        // headerRight: <Button title="添加" onPress={() => {
+        //     console.log('add :' + JSON.stringify(navigation));
+        //     navigation.navigate('CreateTask')
+        // }}/>,
+    });
+
+    constructor(props) {
+        super(props);
+
+
+        this.everydayStatisticsData = {
+            title: '每日完成的番茄数',
+            items: [
+                {id: '0', title: "item2", tomatoCount: 2,},
+                {id: '1', title: "item3", tomatoCount: 3,},
+                {id: '2', title: "item3", tomatoCount: 4,},
+                {id: '3', title: "item3", tomatoCount: 5,},
+                {id: '4', title: "item3", tomatoCount: 6,},
+                {id: '5', title: "item3", tomatoCount: 7,},
+                {id: '6', title: "item3", tomatoCount: 8,},
+                {id: '7', title: "item3", tomatoCount: 9,},
+                {id: '8', title: "item3", tomatoCount: 10,},
+                {id: '9', title: "item3", tomatoCount: 9,},
+                {id: '10', title: "item3", tomatoCount: 8,},
+                {id: '11', title: "item3", tomatoCount: 7,},
+                {id: '12', title: "item1", tomatoCount: 1,},
+                {id: '13', title: "item3", tomatoCount: 6,},
+                {id: '14', title: "item3", tomatoCount: 5,},
+                {id: '15', title: "item3", tomatoCount: 4,},
+                {id: '16', title: "item3", tomatoCount: 3,},
+                {id: '17', title: "item3", tomatoCount: 2,},
+                {id: '18', title: "item3", tomatoCount: 1,},
+                {id: '19', title: "item3", tomatoCount: 0,},
+                {id: '20', title: "item3", tomatoCount: 1,},
+                {id: '21', title: "item3", tomatoCount: 2,},
+                {id: '22', title: "item3", tomatoCount: 3,},
+                {id: '23', title: "item3", tomatoCount: 4,},
+                {id: '24', title: "item3", tomatoCount: 5,},
+                {id: '25', title: "item3", tomatoCount: 6,},
+                {id: '26', title: "item3", tomatoCount: 7,},
+                {id: '27', title: "item3", tomatoCount: 8,},
+                {id: '28', title: "item3", tomatoCount: 9,},
+                {id: '29', title: "item3", tomatoCount: 10,},
+                {id: '30', title: "item3", tomatoCount: 0,},
+            ],
+        };
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.moduleContainer}>
+                    <Text style={styles.moduleTitle}>{this.props.totalStatisticsData.title}</Text>
+                    <View style={styles.itemContainerView}>
+                        <StatisticsItem title={this.props.totalStatisticsData.time.title}
+                                        value={this.props.totalStatisticsData.time.value}/>
+                        <StatisticsItem title={this.props.totalStatisticsData.tomatoCount.title}
+                                        value={this.props.totalStatisticsData.tomatoCount.value}/>
+                        <StatisticsItem title={this.props.totalStatisticsData.taskCount.title}
+                                        value={this.props.totalStatisticsData.taskCount.value}/>
+                    </View>
+                </View>
+
+                <View style={styles.moduleContainer}>
+                    <Text style={styles.moduleTitle}>{this.props.todayStatisticsData.title}</Text>
+                    <View style={styles.itemContainerView}>
+                        <StatisticsItem title={this.props.todayStatisticsData.targetTomatoCount.title}
+                                        value={this.props.todayStatisticsData.targetTomatoCount.value}/>
+                        <StatisticsItem title={this.props.todayStatisticsData.tomatoCount.title}
+                                        value={this.props.todayStatisticsData.tomatoCount.value}/>
+                        <StatisticsItem title={this.props.todayStatisticsData.taskCount.title}
+                                        value={this.props.todayStatisticsData.taskCount.value}/>
+                    </View>
+                </View>
+
+                <View style={[styles.moduleContainer]}>
+                    <Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>
+                    <Text style={styles.moduleTitle}>{}</Text>
+                    <DailyTomatoCountList data={this.props.everydayStatisticsData.items}/>
+                </View>
+            </View>
+        );
+    }
+
+    componentDidMount() {
+
+    }
+
+}
+
+const mapStateToProps = (state, ownProps) => {
+    // todo 写这里会刷新好多次, 完了优化
+    let props = {
+        totalStatisticsData: {
+            title: '累计完成统计',
+            time: {
+                value: TomatoService.didFinishTotalTime(),
+                title: '总专注时间',
+            },
+            tomatoCount: {
+                value: TomatoService.didFinishTotalCount(),
+                title: '总番茄数',
+            },
+            taskCount: {
+                value: TaskService.didFinishTotalCount(),
+                title: '总任务数',
+            },
+        },
+        todayStatisticsData: {
+            title: '今日完成统计',
+            targetTomatoCount: {
+                value: GlobalData.tomatoConfig.dailyTargetCount,
+                title: '目标番茄数',
+            },
+            tomatoCount: {
+                value: TomatoService.didFinishTodayCount(),
+                title: '今日番茄数',
+            },
+            taskCount: {
+                value: TaskService.didFinishTodayCount(),
+                title: '今日任务数',
+            },
+        },
+        everydayStatisticsData: {
+            title: '每日完成的番茄数',
+            items: TomatoService.arrInMonthDidFinishCount(),
+        }
+    };
+
+    return props;
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StatisticsScreen)
 
 
 const styles = StyleSheet.create({

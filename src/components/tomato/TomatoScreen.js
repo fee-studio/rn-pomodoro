@@ -274,12 +274,10 @@ class TomatoScreen extends Component {
     // 用动画，不用setInterval来实现进度的效果，是为了后台运行不停止进度!!!
     actionPlay() {
         // 类型转化
-        if (this.tomatoType === TomatoType.TomatoTypeInit) {
+        if (this.tomatoType === TomatoType.TomatoTypeInit || this.tomatoType === TomatoType.TomatoTypeResting) {
             this.tomatoType = TomatoType.TomatoTypeWorking;
         } else if (this.tomatoType === TomatoType.TomatoTypeWorking) {
             this.tomatoType = TomatoType.TomatoTypeResting;
-        } else if (this.tomatoType === TomatoType.TomatoTypeResting) {
-            this.tomatoType = TomatoType.TomatoTypeInit;
         }
 
         // 状态
@@ -345,6 +343,11 @@ class TomatoScreen extends Component {
     // VIP 动画结束时的回调，有完成时，有没完成时。
     onEndAnimated = ({finished}) => {
         if (finished) {
+            // 类型 - 休息完就重置
+            // if (this.tomatoType === TomatoType.TomatoTypeResting) {
+            //     this.tomatoType = TomatoType.TomatoTypeInit;
+            // }
+
             // 状态
             this.tomatoStatus = TomatoState.TomatoStateFinished;
 
@@ -355,7 +358,6 @@ class TomatoScreen extends Component {
                     state: this.tomatoStatus,
                 },
             }), () => {
-                debugger;
                 TomatoService.update(this.state.tomato);
             });
 
@@ -374,6 +376,7 @@ class TomatoScreen extends Component {
             if (this.tomatoType === TomatoType.TomatoTypeWorking) {
                 this.actionPlay();
 
+                // todo
                 // PushNotification.localNotification({
                 //     title: "恭喜",
                 //     message: "完成一个番茄钟，开始休息一下喽",
@@ -384,8 +387,6 @@ class TomatoScreen extends Component {
                 //     date: new Date(Date.now() + (5 * 1000)) // in 60 secs
                 // });
             } else if (this.tomatoType === TomatoType.TomatoTypeResting) {
-                // this.actionStop();
-
                 Alert.alert('休息回来', '选择您的任务，开启新的蕃茄钟', [
                         {
                             text: '继续当前任务',
@@ -408,6 +409,7 @@ class TomatoScreen extends Component {
                     {cancelable: false}
                 );
 
+                // todo
                 // PushNotification.localNotification({
                 //     message: "休息回来，开始专注哦",
                 // })

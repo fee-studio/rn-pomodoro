@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     deleteButton: {
-        backgroundColor: '#a00',
+        backgroundColor: COLOR.dangerous,
         padding: 10,
         justifyContent: 'center',
         alignItems: 'center',

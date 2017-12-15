@@ -41,5 +41,6 @@ export const COLOR = {
 
     primary: '#ff6347',
     secondary: '#3aa',
+    dangerous: '#C71A22',
     clear: '#00000000'
 }

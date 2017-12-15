@@ -193,11 +193,13 @@ class TomatoScreen extends Component {
         let color = type === TomatoType.TomatoTypeInit ? COLOR.clear :
             type === TomatoType.TomatoTypeResting ? COLOR.secondary : COLOR.primary;
 
+        let duration = this.state.tomato && this.state.tomato.state === TomatoState.TomatoStateStart ? this.state.tomato.duration : this.props.workDuration;
+
         return (
             <View style={[styles.container]}>
                 <View style={styles.progressContainer}>
                     <Text style={styles.tomatoTime}>
-                        {moment(GlobalData.tomatoConfig.duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
+                        {moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>
@@ -440,6 +442,7 @@ class TomatoScreen extends Component {
 const mapStateToProps = (state) => {
     return {
         taskItem: state.reducerNavigator.task,
+        workDuration: GlobalData.tomatoConfig.duration,
     };
 };
 

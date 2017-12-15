@@ -11,6 +11,7 @@ import {COLOR} from "../../utils/Config";
 import GlobalData from "../../utils/GlobalData";
 import {toTuCaoWebView, toWebViewComponent} from "../../navigators/actions";
 import {connect} from "react-redux";
+
 var PushNotification = require('react-native-push-notification');
 
 class SettingListItem4Content extends Component {
@@ -98,13 +99,13 @@ class SettingScreen extends Component {
                     {
                         title: '番茄时长/专注时长',
                         key: 'key-work-during',
-                        content: `${GlobalData.tomatoConfig.duration}秒`,
+                        content: `${(GlobalData.tomatoConfig.duration / 60)}分钟`, //todo
                         onOff: false
                     },
                     {
                         title: '休息时长',
                         key: 'key-rest-during',
-                        content: `${GlobalData.tomatoConfig.shortRestDuration}分钟`,
+                        content: `${(GlobalData.tomatoConfig.shortRestDuration / 60)}分钟`,
                         onOff: false
                     },
                 ],
@@ -161,12 +162,16 @@ class SettingScreen extends Component {
             selectedValue = [8]
             pickerTitleText = '每日番茄目标'
         } else if (item.key === 'key-work-during') {
-            data = [20 * 60, 25 * 60, 30 * 60, 45 * 60, 60 * 60]
-            selectedValue = [25 * 60]
+            data = [20, 25, 30, 45, 50]
+            // data = [20 * 60, 25 * 60, 30 * 60, 45 * 60, 60 * 60]
+            selectedValue = [25]
+            // selectedValue = [25 * 60]
             pickerTitleText = '番茄时长/专注时长'
         } else if (item.key === 'key-rest-during') {
-            data = [5 * 60, 10 * 60, 15 * 60]
-            selectedValue = [5 * 60]
+            data = [5, 10, 15]
+            // data = [5 * 60, 10 * 60, 15 * 60]
+            selectedValue = [5]
+            // selectedValue = [5 * 60]
             pickerTitleText = '休息时长'
         }
 
@@ -185,9 +190,9 @@ class SettingScreen extends Component {
                 if (item.key === 'key-daily-tomato-count') {
                     GlobalData.tomatoConfig.dailyTargetCount = parseInt(data[0]);
                 } else if (item.key === 'key-work-during') {
-                    GlobalData.tomatoConfig.duration = parseInt(data[0]);
+                    GlobalData.tomatoConfig.duration = parseInt(data[0]) * 60;
                 } else if (item.key === 'key-rest-during') {
-                    GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]);
+                    GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]) * 60;
                 }
                 this.setState({
                     listItems: [...this.aListItems(),]
@@ -215,7 +220,6 @@ class SettingScreen extends Component {
         this.setState({
             listItems: [...this.aListItems(),]
         })
-
     }
 
     _actionAdditional(item) {

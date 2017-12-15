@@ -15,9 +15,9 @@ import TaskModel from "../../models/TaskModel";
 class CreateTaskScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation}) => {
-        const {params = {}} = navigation.state;
+        const {params = {name: ""}} = navigation.state;
         return {
-            title: "添加任务",
+            title: params.name,
             headerRight: <Button title="完成" onPress={() => params.handleSave()}/>
         };
     };
@@ -51,6 +51,10 @@ class CreateTaskScreen extends React.PureComponent {
             taskModel: this.isCreateTask ? new TaskModel() : {...this.props.item},
             isDateTimePickerVisible: false,
         }
+    }
+
+    componentWillMount() {
+        this.props.navigation.setParams({name: this.isCreateTask ? "添加任务" : "编辑任务"});
     }
 
     componentDidMount() {

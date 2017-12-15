@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight} from "react-native";
+import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight, ART} from "react-native";
 import realm from '../database/RealmDB'
 import {TaskState} from "../utils/GlobalData";
 import DateTimePicker from 'react-native-modal-datetime-picker';
@@ -48,6 +48,22 @@ class DemoScreen extends React.PureComponent {
     };
 
     render() {
+        let width = 100;
+        let side = 60;
+        let radius = 10;
+
+        const path = ART.Path()
+            .moveTo((width - side * Math.sin(Math.PI / 3)) / 2, width / 2)
+            .lineTo((width - side * Math.sin(Math.PI / 3)) / 2, (width - side) / 2 + radius / Math.tan(Math.PI / 6))
+            .arc(radius + radius * Math.sin(Math.PI / 6), -(radius * Math.cos(Math.PI / 6)), radius)
+            .lineTo(width - (width - side * Math.sin(Math.PI / 3)) / 2 - (radius * Math.sin(Math.PI / 3) / Math.tan(Math.PI / 6)),
+                width / 2 - (radius * Math.sin(Math.PI / 3)))
+            .arc(0, 2 * (radius * Math.sin(Math.PI / 3)), radius)
+            .lineTo((width - side * Math.sin(Math.PI / 3)) / 2 + (radius / Math.tan(Math.PI / 6) * Math.sin(Math.PI / 3)),
+                width - (width - side) / 2 - (radius / Math.tan(Math.PI / 6) * Math.cos(Math.PI / 3)))
+            .arc(-(radius + radius * Math.cos(Math.PI / 3)), -(radius * Math.sin(Math.PI / 3)), radius)
+            .close();
+
         return (
             <View style={styles.container}>
                 <Button
@@ -56,6 +72,11 @@ class DemoScreen extends React.PureComponent {
                     color="#841584"
                     accessibilityLabel="Learn more about purple"
                 />
+
+                <ART.Surface width={width} height={width} >
+                    <ART.Shape d={path} stroke="#f00" fill="#f00" strokeWidth={1}/>
+                </ART.Surface>
+
             </View>
         );
     }

@@ -15,7 +15,9 @@ import {
     Alert,
     InteractionManager,
     Animated,
-    Easing, fetch,
+    Easing,
+    fetch,
+    ART,
 } from "react-native";
 import * as Progress from 'react-native-progress';
 import CountdownCircle from '../../libs/CountDown'
@@ -44,6 +46,8 @@ class ProgressChildView extends Component {
         this.state = {
             myStatus: this.props.playStatus,
         };
+
+
     }
 
     /*
@@ -58,18 +62,46 @@ class ProgressChildView extends Component {
     }
 
     c_stateView() {
+
+        let width = 60;
+        let side = 60;
+        let radius = 10;
+
+        const path = ART.Path()
+            .moveTo((width - side * Math.sin(Math.PI / 3)) / 2, width / 2)
+            .lineTo((width - side * Math.sin(Math.PI / 3)) / 2, (width - side) / 2 + radius / Math.tan(Math.PI / 6))
+            .arc(radius + radius * Math.sin(Math.PI / 6), -(radius * Math.cos(Math.PI / 6)), radius)
+            .lineTo(width - (width - side * Math.sin(Math.PI / 3)) / 2 - (radius * Math.sin(Math.PI / 3) / Math.tan(Math.PI / 6)),
+                width / 2 - (radius * Math.sin(Math.PI / 3)))
+            .arc(0, 2 * (radius * Math.sin(Math.PI / 3)), radius)
+            .lineTo((width - side * Math.sin(Math.PI / 3)) / 2 + (radius / Math.tan(Math.PI / 6) * Math.sin(Math.PI / 3)),
+                width - (width - side) / 2 - (radius / Math.tan(Math.PI / 6) * Math.cos(Math.PI / 3)))
+            .arc(-(radius + radius * Math.cos(Math.PI / 3)), -(radius * Math.sin(Math.PI / 3)), radius)
+            .close();
+
         if (this.state.myStatus === TomatoState.TomatoStateInit) {
+
             return (
                 <View style={styles.progressChildView}>
-                    <Icon name="controller-play" size={80} color={COLOR.primary}/>
-                    {/*<Image style={styles.play}*/}
-                    {/*source={require('../resources/play.png')}/>*/}
+                    <ART.Surface width={width} height={width}>
+                        <ART.Shape d={path} stroke={COLOR.primary} fill={COLOR.primary} strokeWidth={1}/>
+                    </ART.Surface>
                 </View>
+
+                // <View style={styles.progressChildView}>
+                //     {<Icon name="controller-play" size={80} color={COLOR.primary}/>}
+                //
+                //     {/*<Image style={styles.play}*/}
+                //     {/*source={require('../resources/play.png')}/>*/}
+                // </View>
             );
         } else if (this.state.myStatus === TomatoState.TomatoStateStart) {
             return (
                 <View style={styles.progressChildView}>
-                    <Icon name="controller-paus" size={60} color={COLOR.primary}/>
+                    <View style={styles.progressChildViewPause} />
+                    <View style={styles.progressChildViewPause} />
+
+                    {/*<Icon name="controller-paus" size={60} color={COLOR.textPrompt}/>*/}
                     {/*<Image style={styles.play}*/}
                     {/*source={require('../resources/pause.png')}/>*/}
                 </View>
@@ -77,10 +109,16 @@ class ProgressChildView extends Component {
         } else {
             return (
                 <View style={styles.progressChildView}>
-                    <Icon name="controller-play" size={80} color={COLOR.primary}/>
-                    {/*<Image style={styles.play}*/}
-                    {/*source={require('../resources/play.png')}/>*/}
+                    <ART.Surface width={width} height={width}>
+                        <ART.Shape d={path} stroke={COLOR.primary} fill={COLOR.primary} strokeWidth={1}/>
+                    </ART.Surface>
                 </View>
+
+                // <View style={styles.progressChildView}>
+                //     <Icon name="controller-play" size={80} color={COLOR.primary}/>
+                //     {/*<Image style={styles.play}*/}
+                //     {/*source={require('../resources/play.png')}/>*/}
+                // </View>
             );
         }
     }
@@ -167,7 +205,7 @@ class TomatoScreen extends Component {
                             <Progress.Circle
                                 progress={this.state.progress}
                                 color={color}
-                                unfilledColor={COLOR.backgroundNormal}
+                                unfilledColor={COLOR.backgroundDarker}
                                 borderWidth={0}
                                 animated={this.state.animated}
                                 size={200}
@@ -434,14 +472,22 @@ const styles = StyleSheet.create({
     },
     progressChildView: {
         position: 'absolute',
-        left: 0,
+        left: 5,
         top: 0,
         width: 200,
         height: 200,
-        borderRadius: 200 / 2,
+        borderRadius: 200.0 / 2,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "transparent",
+        flexDirection:'row'
+    },
+    progressChildViewPause:{
+        width:10,
+        height:40,
+        borderRadius:3,
+        backgroundColor: COLOR.backgroundDarker,
+        marginRight: 10,
     },
     circleProgressView: {
         margin: 50,
@@ -472,6 +518,39 @@ const styles = StyleSheet.create({
     tomatoTask: {
         color: COLOR.textNormal,
         fontSize: 16,
+    },
+    triangle: {
+        position: 'absolute',
+
+        // top: -20,
+        left: 50,
+
+        marginLeft: -20,
+
+        width: 0,
+        height: 0,
+        backgroundColor: "#f00",
+        color: "#0f0",
+        borderWidth: 10,
+        // borderRadius: 50,
+        borderStyle: "solid",
+
+        borderTopColor: "#00f",
+        borderTopWidth: 50,
+        borderTopLeftRadius: 50,
+
+        borderBottomColor: COLOR.clear,
+        borderBottomWidth: 50,
+
+
+        borderLeftWidth: 100,
+        borderLeftColor: COLOR.primary,
+
+        borderRightWidth: 20,
+        borderRightColor: COLOR.primary,
+
+        transform: [{translateX: 10}, {rotateZ: "45deg"}],
+
     }
 
 });

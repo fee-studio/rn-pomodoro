@@ -120,7 +120,7 @@ export const RootTabs = TabNavigator(
             screen: tabSetting,
         },
         DemoTab: {
-            screen: ComponentTemplete,
+            screen: DemoScreen,
         },
     },
     {

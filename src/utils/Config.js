@@ -41,5 +41,5 @@ export const COLOR = {
 
     primary: '#ff6347',
     secondary: '#3aa',
-    clear: '#0000000'
+    clear: '#00000000'
 }

@@ -66,7 +66,7 @@ class DailyTomatoCountList extends React.PureComponent {
             id={item.id}
             onPress={() => this._onPressItem(item.id)}
             selected={!!this.state.selected[item.id]}
-            title={item.title}
+            title={item.id}
             value={item.tomatoCount}
         />
     );
@@ -80,9 +80,25 @@ class DailyTomatoCountList extends React.PureComponent {
                 keyExtractor={this._keyExtractor}
                 renderItem={this._renderItem}
                 ItemSeparatorComponent={() => (<View style={styles.listSeparator}/>)}
+                ref="_flatList"
+                // ref={(fl) => this._flatList = fl}
+                // getItemLayout={(data, index) => (
+                //     {length: 30, offset: 30 * index, index}
+                // )}
                 // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
             />
         );
+    }
+
+    componentDidMount() {
+        // this._flatList.scrollToEnd();
+        // this._flatList.scrollToEnd({animated: true});
+        // this.refs._flatList.scrollToEnd();
+
+        // 必须要加setTimeout, 应该是 react-native自己的问题
+        setTimeout(() => {
+            this.refs._flatList.scrollToEnd({animated: true});
+        }, 100);
     }
 }
 
@@ -114,43 +130,6 @@ class StatisticsScreen extends PureComponent {
     constructor(props) {
         super(props);
 
-
-        this.everydayStatisticsData = {
-            title: '每日完成的番茄数',
-            items: [
-                {id: '0', title: "item2", tomatoCount: 2,},
-                {id: '1', title: "item3", tomatoCount: 3,},
-                {id: '2', title: "item3", tomatoCount: 4,},
-                {id: '3', title: "item3", tomatoCount: 5,},
-                {id: '4', title: "item3", tomatoCount: 6,},
-                {id: '5', title: "item3", tomatoCount: 7,},
-                {id: '6', title: "item3", tomatoCount: 8,},
-                {id: '7', title: "item3", tomatoCount: 9,},
-                {id: '8', title: "item3", tomatoCount: 10,},
-                {id: '9', title: "item3", tomatoCount: 9,},
-                {id: '10', title: "item3", tomatoCount: 8,},
-                {id: '11', title: "item3", tomatoCount: 7,},
-                {id: '12', title: "item1", tomatoCount: 1,},
-                {id: '13', title: "item3", tomatoCount: 6,},
-                {id: '14', title: "item3", tomatoCount: 5,},
-                {id: '15', title: "item3", tomatoCount: 4,},
-                {id: '16', title: "item3", tomatoCount: 3,},
-                {id: '17', title: "item3", tomatoCount: 2,},
-                {id: '18', title: "item3", tomatoCount: 1,},
-                {id: '19', title: "item3", tomatoCount: 0,},
-                {id: '20', title: "item3", tomatoCount: 1,},
-                {id: '21', title: "item3", tomatoCount: 2,},
-                {id: '22', title: "item3", tomatoCount: 3,},
-                {id: '23', title: "item3", tomatoCount: 4,},
-                {id: '24', title: "item3", tomatoCount: 5,},
-                {id: '25', title: "item3", tomatoCount: 6,},
-                {id: '26', title: "item3", tomatoCount: 7,},
-                {id: '27', title: "item3", tomatoCount: 8,},
-                {id: '28', title: "item3", tomatoCount: 9,},
-                {id: '29', title: "item3", tomatoCount: 10,},
-                {id: '30', title: "item3", tomatoCount: 0,},
-            ],
-        };
     }
 
     render() {

@@ -27,6 +27,31 @@ class PomodoroApp extends React.Component {
         )
     }
 
+    componentDidMount() {
+        debugger
+    }
+
+    componentWillReceiveProps(nextProps) {
+        debugger
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
+
+    componentWillUpdate() {
+        debugger
+    }
+
+    componentDidUpdate() {
+        debugger
+    }
+
+    componentWillUnmount() {
+        debugger
+    }
+
+    // CodePush
     codePushStatusDidChange(status) {
         switch (status) {
             case codePush.SyncStatus.CHECKING_FOR_UPDATE:

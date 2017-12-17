@@ -98,8 +98,8 @@ class ProgressChildView extends Component {
         } else if (this.state.myStatus === TomatoState.TomatoStateStart) {
             return (
                 <View style={styles.progressChildView}>
-                    <View style={styles.progressChildViewPause} />
-                    <View style={styles.progressChildViewPause} />
+                    <View style={styles.progressChildViewPause}/>
+                    <View style={styles.progressChildViewPause}/>
 
                     {/*<Icon name="controller-paus" size={60} color={COLOR.textPrompt}/>*/}
                     {/*<Image style={styles.play}*/}
@@ -254,22 +254,27 @@ class TomatoScreen extends Component {
                 {cancelable: false}
             )
         } else {
-            Alert.alert('是否要先选择任务？', '', [
-                    {
-                        text: '暂不',
-                        onPress: () => {
-                            this.actionPlay()
-                        }
-                    },
-                    {
-                        text: '选任务',
-                        onPress: () => {
-                            this.props.toTaskScreenSelect()
-                        }
-                    },
-                ],
-                {cancelable: false}
-            )
+            if (GlobalData.tomatoConfig.isStartSelectTask) {
+                Alert.alert('是否要先选择任务？', '', [
+                        {
+                            text: '暂不',
+                            onPress: () => {
+                                this.actionPlay()
+                            }
+                        },
+                        {
+                            text: '选任务',
+                            onPress: () => {
+                                this.props.toTaskScreenSelect()
+                            }
+                        },
+                    ],
+                    {cancelable: false}
+                )
+            } else {
+                this.actionPlay();
+            }
+
         }
     };
 
@@ -286,14 +291,15 @@ class TomatoScreen extends Component {
         this.tomatoStatus = TomatoState.TomatoStateStart;
 
         // 数据
+        let tomato = new TomatoModel(this.tomatoStatus, this.tomatoType, this.props.taskItem);
         this.setState({
-            tomato: new TomatoModel(this.tomatoStatus, this.tomatoType, this.props.taskItem),
+            tomato: tomato,
         }, () => {
             TomatoService.create(this.state.tomato);
         });
 
         // 动画
-        const totalSecond = this.state.tomato.duration;
+        const totalSecond = tomato.duration;
         this.state.animateProgress.addListener(({value}) => {
             console.log("progress = " + value);
             this.setState({
@@ -485,12 +491,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "transparent",
-        flexDirection:'row'
+        flexDirection: 'row'
     },
-    progressChildViewPause:{
-        width:10,
-        height:40,
-        borderRadius:3,
+    progressChildViewPause: {
+        width: 10,
+        height: 40,
+        borderRadius: 3,
         backgroundColor: COLOR.backgroundDarker,
         marginRight: 10,
     },

@@ -3,61 +3,70 @@
  */
 
 import realm, {TomatoConfig} from '../database/RealmDB'
-import GlobalData from "./GlobalData";
+import GlobalData, {TaskState} from "./GlobalData";
 import {DEBUG} from "./Config";
 import TomatoService from "../database/TomatoService";
 import RealmDBService from "../database/RealmDBService";
-// import PushNotification from "react-native-push-notification";
-
-const PushNotification = require('react-native-push-notification');
+import NotificationManager from "./NotificationManager";
+import TaskService from "../database/TaskService";
+import PushNotification from "react-native-push-notification";
+import StorageManager, {AppFirstLaunch4SettingConfig} from "./StorageManager";
 
 export default class Initialization {
 
     constructor() {
         // GlobalData.tomatoConfig = Initialization.initTomatoConfig();
 
-        this.initNotification();
+        // NotificationManager.removeAllNotices();
+
+        StorageManager.initStorage();
+
+        NotificationManager.initNotification();
+
+
+        this.initSettingConfig();
+
         this.initMockData4Task();
         this.initMockData4Tomato();
 
         // 启动服务
         RealmDBService.start();
+
     }
 
-    initNotification() {
-        PushNotification.configure({
-            // (optional) Called when Token is generated (iOS and Android)
-            onRegister: function (token) {
-                console.log('NOTIFICATION TOKEN:', token);
-            },
+    // todo 只能是App首次启动是才执行
+    initSettingConfig() {
+        // GlobalData.storage.remove({key: 'AppFirstLaunch4SettingConfig'});
 
-            // (required) Called when a remote or local notification is opened or received
-            onNotification: function (notification) {
-                console.log('NOTIFICATION:', notification);
-            },
+        StorageManager.storage.load({
+            key: AppFirstLaunch4SettingConfig
+        }).then(result => {
+            if (result === 'didLaunch') {
+            }
+        }).catch(error => {
+            // 桌面图标为今日待办数
+            let count = 0
+            if (GlobalData.tomatoConfig.showTodoCount) {
+                count = TaskService.read(TaskState.TaskStateTodo).length;
+            }
+            PushNotification.setApplicationIconBadgeNumber(count);
 
-            // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications)
-            senderID: "YOUR GCM SENDER ID",
+            // 早9晚9
+            if (GlobalData.tomatoConfig.notice4MorningEvening) {
+                NotificationManager.setupMorningEveningNotice();
+            } else {
+                NotificationManager.removeMorningEveningNotice();
+            }
 
-            // IOS ONLY (optional): default: all - Permissions to register.
-            permissions: {
-                alert: true,
-                badge: true,
-                sound: true
-            },
-
-            // Should the initial notification be popped automatically
-            // default: true
-            popInitialNotification: true,
-
-            /**
-             * (optional) default: true
-             * - Specified if permissions (ios) and token (android and ios) will requested or not,
-             * - if not, you must call PushNotificationsHandler.requestPermissions() later
-             */
-            requestPermissions: true,
+            // 做标记
+            GlobalData.storage.save({
+                key: AppFirstLaunch4SettingConfig,
+                data: 'didLaunch',
+            });
         });
+
     }
+
 
     initMockData4Task() {
         const today = new Date()
@@ -502,4 +511,6 @@ export default class Initialization {
             TomatoService.create(data);
         }
     }
+
+
 }

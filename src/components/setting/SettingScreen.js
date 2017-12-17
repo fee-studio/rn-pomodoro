@@ -8,9 +8,11 @@ import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight} 
 import {RealmDemo} from "../../database/RealmDemo";
 import Picker from 'react-native-picker';
 import {COLOR} from "../../utils/Config";
-import GlobalData from "../../utils/GlobalData";
+import GlobalData, {TaskState} from "../../utils/GlobalData";
 import {toTuCaoWebView, toWebViewComponent} from "../../navigators/actions";
 import {connect} from "react-redux";
+import NotificationManager from "../../utils/NotificationManager";
+import TaskService from "../../database/TaskService";
 
 var PushNotification = require('react-native-push-notification');
 
@@ -67,6 +69,7 @@ class SettingListItemHeader extends Component {
 
 class SettingScreen extends Component {
 
+
     static navigationOptions = ({navigation, screenProps}) => ({
         // title: "设置",
         // headerRight: <Button title="添加" onPress={() => {
@@ -99,13 +102,13 @@ class SettingScreen extends Component {
                     {
                         title: '番茄时长/专注时长',
                         key: 'key-work-during',
-                        content: `${(GlobalData.tomatoConfig.duration / 60)}分钟`, //todo
+                        content: `${(GlobalData.tomatoConfig.duration / 60).toFixed(0)}分钟`, //todo
                         onOff: false
                     },
                     {
                         title: '休息时长',
                         key: 'key-rest-during',
-                        content: `${(GlobalData.tomatoConfig.shortRestDuration / 60)}分钟`,
+                        content: `${(GlobalData.tomatoConfig.shortRestDuration / 60).toFixed(0)}分钟`,
                         onOff: false
                     },
                 ],
@@ -214,9 +217,19 @@ class SettingScreen extends Component {
             GlobalData.tomatoConfig.isStartSelectTask = !GlobalData.tomatoConfig.isStartSelectTask;
         } else if (item.key === 'key-show-todo-count') {
             GlobalData.tomatoConfig.showTodoCount = !GlobalData.tomatoConfig.showTodoCount;
+
+            let count = 0
+            if (GlobalData.tomatoConfig.showTodoCount) {
+                count = TaskService.read(TaskState.TaskStateTodo).length;
+            }
+            PushNotification.setApplicationIconBadgeNumber(count);
         } else if (item.key === 'key-morning-evening') {
             GlobalData.tomatoConfig.notice4MorningEvening = !GlobalData.tomatoConfig.notice4MorningEvening;
+
+            GlobalData.tomatoConfig.notice4MorningEvening ? NotificationManager.setupMorningEveningNotice()
+                : NotificationManager.removeMorningEveningNotice();
         }
+
         this.setState({
             listItems: [...this.aListItems(),]
         })

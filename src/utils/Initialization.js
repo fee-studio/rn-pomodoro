@@ -59,7 +59,7 @@ export default class Initialization {
             }
 
             // 做标记
-            GlobalData.storage.save({
+            StorageManager.storage.save({
                 key: AppFirstLaunch4SettingConfig,
                 data: 'didLaunch',
             });

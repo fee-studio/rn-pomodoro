@@ -43,8 +43,7 @@ class TaskListScreen extends React.PureComponent {
     todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>;
     planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>;
     didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>;
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}
-                                     taskScreenType={this.props.taskScreenType}/>;
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>;
 
     constructor(props) {
         super(props)

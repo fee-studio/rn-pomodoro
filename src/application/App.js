@@ -9,6 +9,7 @@ import store from './store'
 import AppNavigator from '../navigators/AppNavigator'
 import Initialization from "../utils/Initialization";
 import codePush from 'react-native-code-push'
+import SplashScreen from 'react-native-splash-screen'
 
 class PomodoroApp extends React.Component {
 
@@ -28,11 +29,10 @@ class PomodoroApp extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        SplashScreen.hide();
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -40,15 +40,12 @@ class PomodoroApp extends React.Component {
     }
 
     componentWillUpdate() {
-        debugger
     }
 
     componentDidUpdate() {
-        debugger
     }
 
     componentWillUnmount() {
-        debugger
     }
 
     // CodePush

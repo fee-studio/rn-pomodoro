@@ -5,6 +5,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Text, View, StyleSheet} from "react-native";
+import PropTypes from 'prop-types';
+
 
 // TODO: replace all xxx
 
@@ -12,17 +14,26 @@ class xxx extends Component {
 
     // ===== LIFECYCLE BEGIN =====
 
+    static propTypes = {
+        title: PropTypes.string,
+    };
+
+    static defaultProps = {
+        title: ""
+    };
+
+    state = {
+
+    };
+
     constructor(props) {
         super(props);
-        debugger
     }
 
     componentWillMount() {
-        debugger
     }
 
     render() {
-        debugger
         return (
             <View style={styles.container}>
                 <Text> xxx </Text>
@@ -31,11 +42,9 @@ class xxx extends Component {
     }
 
     componentDidMount() {
-        debugger
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -43,15 +52,12 @@ class xxx extends Component {
     }
 
     componentWillUpdate() {
-        debugger
     }
 
     componentDidUpdate() {
-        debugger
     }
 
     componentWillUnmount() {
-        debugger
     }
 
     // ===== LIFECYCLE END =====
@@ -59,12 +65,10 @@ class xxx extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    debugger
     return {}
 };
 

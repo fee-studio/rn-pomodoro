@@ -49,7 +49,7 @@ export default class Initialization {
             if (GlobalData.tomatoConfig.showTodoCount) {
                 count = TaskService.read(TaskState.TaskStateTodo).length;
             }
-            PushNotification.setApplicationIconBadgeNumber(count);
+            // PushNotification.setApplicationIconBadgeNumber(count);
 
             // 早9晚9
             if (GlobalData.tomatoConfig.notice4MorningEvening) {

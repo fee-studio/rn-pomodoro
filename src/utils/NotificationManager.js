@@ -42,6 +42,15 @@ export default class NotificationManager {
     static setupMorningEveningNotice() {
         this.setupMorningNotice();
         this.setupEveningNotice();
+
+        // PushNotification.checkPermissions((results)=>{
+        //     if (results.alert === 0 && results.sound === 0 && results.badge === 0) {
+        //
+        //     } else {
+        //         this.setupMorningNotice();
+        //         this.setupEveningNotice();
+        //     }
+        // });
     }
 
     static setupMorningNotice() {

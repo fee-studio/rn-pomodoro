@@ -1,16 +1,54 @@
 platform :ios, '8.0'
 
 target 'PomodoroApp' do
-
-# TODO 在公司网试一下,不行就不用这个appcenter了.以后再用!!!
-#
-# Use the following line to use App Center Analytics and Crashes.
-#   
-
-# Use the following lines if you want to specify which service you want to use.
-#   pod 'AppCenter/Analytics', '~> 1.0.1'
-#   pod 'AppCenter/Crashes', '~> 1.0.1'
+	
+	# TODO 在公司网试一下,不行就不用这个appcenter了.以后再用!!!
+	# Use the following lines if you want to specify which service you want to use.
+	#   pod 'AppCenter/Analytics', '~> 1.1.0'
+	#   pod 'AppCenter/Crashes', '~> 1.1.0'
+	#	pod 'AppCenterReactNativeShared', '~> 1.1.0'
+	
+	# 'node_modules'目录一般位于根目录中
+	# 但是如果你的结构不同，那你就要根据实际路径修改下面的`:path`
+	pod 'React', :path => '../node_modules/react-native', :subspecs => [
+	'Core',
+	'CxxBridge', # 如果RN版本 >= 0.45则加入此行
+	'DevSupport', # 如果RN版本 >= 0.43，则需要加入此行才能开启开发者菜单
+	'RCTText',
+	'RCTNetwork',
+	'RCTWebSocket', # 这个模块是用于调试功能的
+	'RCTActionSheet',
+	'RCTAnimation',
+	'RCTGeolocation',
+	'RCTImage',
+	'RCTLinkingIOS',
+	'RCTSettings',
+	'RCTVibration',
+	'BatchedBridge',
+	'RCTPushNotification',
+	'RCTBlob',
+	'ART',	
+	]
+	# 如果你的RN版本 >= 0.42.0，则加入下面这行
+	pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+	
+	# 如果RN版本 >= 0.45则加入下面三个第三方编译依赖
+	pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+	pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+	pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+	
+#	pod 'appcenter', :path => '../node_modules/appcenter/ios'
+#	pod 'appcenter-analytics', :path => '../node_modules/appcenter-analytics/ios'
+#	pod 'appcenter-crashes', :path => '../node_modules/appcenter-crashes/ios'
+	
+	pod 'CodePush', :path => '../node_modules/react-native-code-push'
+	pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+	pod 'Picker', :path => '../node_modules/react-native-picker'
+	pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+	#	pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler/ios'
 
 	pod 'WechatOpenSDK'
-#	pod 'AppCenterReactNativeShared', '~> 1.0.1'
+	pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+	
 end
+

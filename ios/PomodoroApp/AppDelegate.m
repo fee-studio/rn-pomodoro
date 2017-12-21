@@ -9,13 +9,16 @@
 
 #import "AppDelegate.h"
 #import <CodePush/CodePush.h>
-#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
-#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
-#import <AppCenterReactNative/AppCenterReactNative.h>
+
+//#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
+//#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
+//#import <AppCenterReactNative/AppCenterReactNative.h>
+
+#import "SplashScreen.h"  // here
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-#import <React/RCTPushNotificationManager.h>
+#import "RCTPushNotificationManager.h"
 
 #import <React/RCTLog.h>
 
@@ -26,14 +29,17 @@
 
     NSURL *jsCodeLocation;
 
-    [AppCenterReactNative register];  // Initialize AppCenter
 
-    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
-
-    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
+//    [AppCenterReactNative register];  // Initialize AppCenter
+//    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+//    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
 
 #ifdef DEBUG
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+    #ifdef DEBUG
+        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+    #else
+        jsCodeLocation = [CodePush bundleURL];
+    #endif
 #else
     jsCodeLocation = [CodePush bundleURLForResource:@"index"];
 #endif
@@ -49,6 +55,9 @@
     rootViewController.view = rootView;
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
+  
+//    [SplashScreen show];  // here
+  
     return YES;
 }
 

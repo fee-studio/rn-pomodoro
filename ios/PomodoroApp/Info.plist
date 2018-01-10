@@ -28,20 +28,15 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-    <key>NSAllowsLocalNetworking</key>
-    <true/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>codepush.azurewebsites.net</key>
-			<dict/>
-      <key>localhost:8081</key>
-      <dict>
-        <key>NSIncludesSubdomains</key>
+        <key>NSAllowsArbitraryLoads</key>
         <true/>
-      </dict>
-		</dict>
+        <key>NSAllowsLocalNetworking</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>codepush.azurewebsites.net</key>
+            <dict/>
+        </dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>

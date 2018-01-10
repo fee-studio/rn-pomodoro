@@ -41,6 +41,7 @@ const navigatorReducer = (state = initialNavState, action) => {
             break;
         case NAV_TO_TOMATO_SCREEN_WITH_TASK:
             nextState = RootStack.router.getStateForAction(NavigationActions.back(), state);
+            // nextState = RootStack.router.getStateForAction(NavigationActions.navigate({routeName: 'TomatoTab'}), state);
             nextState = {...nextState, task: action.task}
             break;
         case NAV_TO_WEB_VIEW:

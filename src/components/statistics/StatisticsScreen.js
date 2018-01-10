@@ -4,7 +4,7 @@
  */
 
 import React, {Component, PureComponent} from 'react';
-import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback} from "react-native";
+import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback, ScrollView} from "react-native";
 import {COLOR} from "../../utils/Config";
 import {Tomato} from "../../database/RealmDB";
 import TomatoService from "../../database/TomatoService";
@@ -31,7 +31,7 @@ class DailyTomatoCountListItem extends React.PureComponent {
                         backgroundColor: this.props.selected ? COLOR.primary : COLOR.secondary,
                         borderRadius: 5,
                         width: 10,
-                        height: 10 + 150 * this.props.value / 10
+                        height: 10 + 160 * Math.min(this.props.value, 10) / 10
                     }}/>
                     <Text style={{
                         width: 30,
@@ -40,7 +40,6 @@ class DailyTomatoCountListItem extends React.PureComponent {
                         marginBottom: 10,
                         textAlign: 'center'
                     }}>{this.props.title}</Text>
-                    {/*<Text style={{backgroundColor: '#f00', width: 30, height: 40}}>{this.props.title}</Text>*/}
                 </View>
             </TouchableWithoutFeedback>
         )
@@ -48,45 +47,51 @@ class DailyTomatoCountListItem extends React.PureComponent {
 }
 
 class DailyTomatoCountList extends React.PureComponent {
-    state = {selected: {}};
+    state = {selected: {}, selectedValue: ''};
 
     _keyExtractor = (item, index) => index;
 
-    _onPressItem = (id: string) => {
+    _onPressItem = (item) => {
         this.setState((state) => {
             // let selected = {...state.selected};
             let selected = {};
-            selected[id] = !selected[id];
-            return {selected};
+            selected[item.id] = !selected[item.id];
+
+            let selectedValue = item.tomatoCount;
+
+            return {selected, selectedValue};
         });
     };
 
     _renderItem = ({item}) => (
         <DailyTomatoCountListItem
             id={item.id}
-            onPress={() => this._onPressItem(item.id)}
+            onPress={() => this._onPressItem(item)}
             selected={!!this.state.selected[item.id]}
-            title={item.id}
+            title={item.title}
             value={item.tomatoCount}
         />
     );
 
     render() {
         return (
-            <FlatList
-                horizontal={true}
-                data={this.props.data}
-                extraData={this.state}
-                keyExtractor={this._keyExtractor}
-                renderItem={this._renderItem}
-                ItemSeparatorComponent={() => (<View style={styles.listSeparator}/>)}
-                ref="_flatList"
-                // ref={(fl) => this._flatList = fl}
-                // getItemLayout={(data, index) => (
-                //     {length: 30, offset: 30 * index, index}
-                // )}
-                // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
-            />
+            <View style={{}}>
+                <Text style={{textAlign:'center', fontSize:30, color:COLOR.primary, height:30}}>{this.state.selectedValue}</Text>
+                <FlatList
+                    horizontal={true}
+                    data={this.props.data}
+                    extraData={this.state}
+                    keyExtractor={this._keyExtractor}
+                    renderItem={this._renderItem}
+                    ItemSeparatorComponent={() => (<View style={styles.listSeparator}/>)}
+                    ref="_flatList"
+                    // ref={(fl) => this._flatList = fl}
+                    // getItemLayout={(data, index) => (
+                    //     {length: 30, offset: 30 * index, index}
+                    // )}
+                    // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
+                />
+            </View>
         );
     }
 
@@ -134,7 +139,7 @@ class StatisticsScreen extends PureComponent {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={styles.moduleContainer}>
                     <Text style={styles.moduleTitle}>{this.props.totalStatisticsData.title}</Text>
                     <View style={styles.itemContainerView}>
@@ -159,12 +164,11 @@ class StatisticsScreen extends PureComponent {
                     </View>
                 </View>
 
-                <View style={[styles.moduleContainer]}>
+                <View style={[styles.moduleContainer,]}>
                     <Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>
-                    <Text style={styles.moduleTitle}>{}</Text>
                     <DailyTomatoCountList data={this.props.everydayStatisticsData.items}/>
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 

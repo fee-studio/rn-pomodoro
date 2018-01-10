@@ -3,13 +3,16 @@ package com.buerguo.pomodoroapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
-import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
-import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage;
+//import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
+//import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
+//import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
+
 import com.microsoft.codepush.react.CodePush;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+
 import org.devio.rn.splashscreen.SplashScreen; // here
+
 import io.realm.react.RealmReactPackage;
 
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -31,9 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected String getJSBundleFile() {
-        return CodePush.getJSBundleFile();
+            return CodePush.getJSBundleFile();
         }
-    
+
         @Override
         public boolean getUseDeveloperSupport() {
             return BuildConfig.DEBUG;
@@ -43,14 +46,12 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appcenterCrashes_whenToSendCrashes)),
-            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appcenterAnalytics_whenToEnableAnalytics)),
-            new AppCenterReactNativePackage(MainApplication.this),
-            new SplashScreenReactPackage(),
-            new CodePush("uqnMMt7A2RgGjjCylwa8sexWLgrwBy3eCzF-f", getApplicationContext(), BuildConfig.DEBUG),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+//            new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appcenterCrashes_whenToSendCrashes)),
+//            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appcenterAnalytics_whenToEnableAnalytics)),
+//            new AppCenterReactNativePackage(MainApplication.this),
+                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
 //            new ReactNativeDocumentPicker(),
-            new ReactNativePushNotificationPackage(),
+                    new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),
                     new VectorIconsPackage(),
                     new SplashScreenReactPackage(),
@@ -78,7 +79,6 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     public void onCreate() {
-        SplashScreen.show(this);  // here
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
     }

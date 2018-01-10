@@ -5,7 +5,6 @@
 import React, {Component} from 'react'
 import {addNavigationHelpers, StackNavigator, TabNavigator} from 'react-navigation'
 import TomatoScreen from '../components/tomato/TomatoScreen'
-import TaskScreen from '../components/task/TaskScreen'
 import StatisticsScreen from '../components/statistics/StatisticsScreen'
 import SettingScreen from '../components/setting/SettingScreen'
 import CreateTaskScreen from "../components/task/CreateTaskScreen";
@@ -20,6 +19,7 @@ import {toTaskScreen} from "./actions";
 import DemoScreen from "../components/DemoScreen";
 import ComponentTemplete from "../other/ComponentTemplate";
 // import Icon from 'react-native-vector-icons/Entypo';
+
 
 export const tabTomato = StackNavigator(
     {
@@ -52,7 +52,6 @@ export const tabTask = StackNavigator(
         headerMode: 'none',
         navigationOptions: {
             title: "任务清单",
-            headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
                 /*
                 <Icon
@@ -95,7 +94,6 @@ export const tabSetting = StackNavigator(
         headerMode: 'none',
         navigationOptions: {
             title: "设置",
-            headerMode: 'none',
             tabBarIcon: ({focused, tintColor}) => (
                 // <Icon name="settings" size={20} color={tintColor}/>
                 <Icon name="settings" size={20} color={tintColor}/>
@@ -119,28 +117,28 @@ export const RootTabs = TabNavigator(
         SettingTab: {
             screen: tabSetting,
         },
-        DemoTab: {
-            screen: DemoScreen,
-        },
+        // DemoTab: {
+        //     screen: DemoScreen,
+        // },
     },
     {
         tabBarPosition: 'bottom',
         lazy: true,
         animationEnabled: false,
         swipeEnabled: false,
-        initialRouteName: 'SettingTab', // todo...
+        initialRouteName: 'TaskTab',
         navigationOptions: {
             headerTintColor: COLOR.textNormal,
         },
         tabBarOptions: {
+            showIcon: true,
+            showLabel: true,
             // activeTintColor: COLOR.theme,
             // activeBackgroundColor: COLOR.backgroundLighter,
             // inactiveTintColor: COLOR.textEmpha,
             // inactiveBackgroundColor: COLOR.backgroundDarker,
-            showIcon: true,
-            showLabel: true,
             // style: {backgroundColor: COLOR.backgroundDarker},
-            // tabStyle: {paddingTop: 2, paddingBottom: 0},
+            // tabStyle: {paddingTop: 2, paddingBottom: 0, height:49},
             // labelStyle: {fontSize: 12, marginTop: 0, marginBottom: 5}, // VIP 这个会导致 字上面的图标靠下
         },
     }

@@ -40,7 +40,7 @@ export const formalDbData = {
 export class TomatoConfigModel {
 
     constructor(props) {
-        this.setupTomatoConfigData();
+        // this.setupTomatoConfigData();
     }
 
     static setupTomatoConfigData() {
@@ -65,10 +65,6 @@ export class TomatoConfigModel {
             formalConfig = {...formalConfigs[0]}
         }
 
-
         return [devConfig, formalConfig] // {...xxx}解构出来 当新的Object使用
-
     }
-
-
 }

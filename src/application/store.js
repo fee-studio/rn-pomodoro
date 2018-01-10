@@ -12,7 +12,7 @@ import {createLogger} from 'redux-logger'
 // const win = window;
 // win.Perf = Perf
 
-import {IN_DEBUGGER} from '../utils/Config'
+import {DEBUG} from '../utils/Config'
 import screenTracking from "../navigators/ScreenTrackingMiddleware";
 
 const logger = createLogger({
@@ -22,7 +22,7 @@ const logger = createLogger({
 
 // 中间件
 const middlewares = [thunk, screenTracking];
-if (IN_DEBUGGER) {
+if (DEBUG) {
     middlewares.push(logger)
 }
 

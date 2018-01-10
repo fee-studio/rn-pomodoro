@@ -113,6 +113,14 @@
 
 17. (报错)[Missing property value for property name](https://github.com/realm/realm-js/issues/367)
 
+18. (报错)[drawable-mdpi-v4 Duplicate file](https://github.com/facebook/react-native/issues/5787)
+    
+    看最后一条，把资源文件中的jpg文件换成png的文件。
+    
+19.  在打包的时候出现错误：maximum call stack size exceeded，导致打包失败！
+    
+    这是由于JS代码中重复定义了两个同名的方法导致的。千万注意这一点。
+
   
     
 

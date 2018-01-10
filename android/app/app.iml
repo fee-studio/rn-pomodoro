@@ -76,16 +76,28 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.qq.mta/mta/3.2.1-release/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.qq.visual/visual/1.0.8-release/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.tencent.mid/mid/3.73-release/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -101,31 +113,27 @@
     <orderEntry type="library" exported="" name="com.google.code.findbugs:jsr305:3.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3:okhttp-urlconnection:3.6.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.soloader:soloader-0.1.0" level="project" />
-    <orderEntry type="library" exported="" name="com.microsoft.appcenter:appcenter-crashes-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okio:okio:1.13.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fresco:fresco-1.3.0" level="project" />
-    <orderEntry type="library" exported="" name="com.microsoft.appcenter:appcenter-analytics-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.qq.mta:mta-3.2.1-release" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-23.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.tencent.mid:mid-3.73-release" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fresco:imagepipeline-1.3.0" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3:okhttp:3.6.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fresco:fbcore-1.3.0" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fresco:drawee-1.3.0" level="project" />
+    <orderEntry type="library" exported="" name="com.facebook.react:react-native-0.51.0" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fbui.textlayoutbuilder:staticlayout-proxy:1.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:support-annotations:23.4.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.facebook.react:react-native-0.50.4" level="project" />
-    <orderEntry type="library" exported="" name="com.microsoft.appcenter:appcenter-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms:play-services-basement-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="com.facebook.fbui.textlayoutbuilder:textlayoutbuilder-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.qq.visual:visual-1.0.8-release" level="project" />
     <orderEntry type="library" exported="" name="org.webkit:android-jsc-r174650" level="project" />
     <orderEntry type="module" module-name="react-native-splash-screen" exported="" />
-    <orderEntry type="module" module-name="appcenter-analytics" exported="" />
     <orderEntry type="module" module-name="react-native-push-notification" exported="" />
-    <orderEntry type="module" module-name="appcenter-crashes" exported="" />
     <orderEntry type="module" module-name="react-native-device-info" exported="" />
     <orderEntry type="module" module-name="react-native-vector-icons" exported="" />
     <orderEntry type="module" module-name="realm" exported="" />
-    <orderEntry type="module" module-name="react-native-gesture-handler" exported="" />
-    <orderEntry type="module" module-name="appcenter" exported="" />
     <orderEntry type="module" module-name="react-native-picker" exported="" />
     <orderEntry type="module" module-name="react-native-code-push" exported="" />
   </component>

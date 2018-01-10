@@ -9,7 +9,8 @@
 
 #import "AppDelegate.h"
 #import <CodePush/CodePush.h>
-
+#import "MTA.h"
+#import "MTAConfig.h"
 //#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
 //#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
 //#import <AppCenterReactNative/AppCenterReactNative.h>
@@ -27,13 +28,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     RCTSetLogThreshold(RCTLogLevelInfo);
 
+  //    [AppCenterReactNative register];  // Initialize AppCenter
+  //    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
+  //    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
+
+    [MTA startWithAppkey:@"I99GVWC6RQ5Y"];
+  
     NSURL *jsCodeLocation;
-
-
-//    [AppCenterReactNative register];  // Initialize AppCenter
-//    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
-//    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
-
+  
 #ifdef DEBUG
     #ifdef DEBUG
         jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
@@ -59,6 +61,16 @@
 //    [SplashScreen show];  // here
   
     return YES;
+}
+
+// 开始打点 使用时长统计
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [MTA trackActiveBegin];
+}
+
+// 结束打点
+- (void)applicationWillResignActive:(UIApplication *)application {
+  [MTA trackActiveEnd];
 }
 
 #pragma mark - Push Notification

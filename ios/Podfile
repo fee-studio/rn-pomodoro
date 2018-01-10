@@ -50,5 +50,13 @@ target 'PomodoroApp' do
 	pod 'WechatOpenSDK'
 	pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 	
+	# https://github.com/tegdata/mta
+	pod 'QQ_MTA'
+	pod 'QQ_MTA/AutoTrack'
+	pod 'QQ_MTA/Hybrid'
+	pod 'QQ_MTA/Idfa'
+	pod 'QQ_MTA/InstallTracker'
+	
+	
 end
 

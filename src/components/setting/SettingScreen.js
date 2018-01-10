@@ -138,7 +138,7 @@ class SettingScreen extends Component {
                         onOff: GlobalData.tomatoConfig.notice4MorningEvening
                     },
                 ],
-                sectionTitle: "其他",
+                sectionTitle: "提醒和通知",
                 renderItem: ({item}) => <SettingListItem4OnOff title={item.title}
                                                                onOff={item.onOff}
                                                                onValueChange={() => (this._actionOther(item))}/>,
@@ -149,7 +149,7 @@ class SettingScreen extends Component {
                     {title: '反馈，改进我', key: 'key-feedback',},
                     // {title: 'data-title-13', key: 'data-key-13',},
                 ],
-                sectionTitle: "",
+                sectionTitle: "其他",
                 renderItem: ({item}) => <SettingListItem4Content title={item.title}
                                                                  onPress={() => (this._actionAdditional(item))}/>,
             },

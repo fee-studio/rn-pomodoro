@@ -8,6 +8,7 @@ import {Dimensions} from 'react-native'
 export const VERSION = '0.0.1'
 
 export const DEBUG = __DEV__ // eslint-disable-line no-undef
+// export const DEBUG = false // todo
 export const IN_DEBUGGER = DEBUG && !!window.navigator.userAgent
 
 let {width, height} = Dimensions.get('window')
@@ -42,5 +43,6 @@ export const COLOR = {
     primary: '#ff6347',
     secondary: '#3aa',
     dangerous: '#C71A22',
+    blue: '#1E85FA',
     clear: '#00000000'
 }

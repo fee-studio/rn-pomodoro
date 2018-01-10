@@ -110,6 +110,10 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [
+                MTA_APPKEY:"AU8WY33FSQ7T",
+                MTA_CHANNEL:"应用宝"
+        ]
     }
     splits {
         abi {
@@ -162,13 +166,14 @@ android {
 }
 
 dependencies {
-    compile project(':appcenter-crashes')
-    compile project(':appcenter-analytics')
-    compile project(':appcenter')
+//    compile project(':appcenter-crashes')
+//    compile project(':appcenter-analytics')
+//    compile project(':appcenter')
+//    def appCenterSdkVersion = '1.0.0'
+//    compile "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+//    compile "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+
     compile project(':react-native-splash-screen')
-    def appCenterSdkVersion = '1.0.0'
-    compile "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
-    compile "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
     compile project(':react-native-code-push')
 //    compile project(':react-native-document-picker')
     compile project(':react-native-push-notification')
@@ -182,6 +187,12 @@ dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
+    //mta 3.2 稳定版
+    compile 'com.qq.mta:mta:3.2.1-release'
+    //mid  jar包 必须添加
+    compile 'com.tencent.mid:mid:3.73-release'
+    //可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和必须和当前MTA的版本号必须匹配使用 需要在配置文件中增加配置，具体请参考 高级功能中可视化埋点的接入。
+    compile 'com.qq.visual:visual:1.0.8-release'
 }
 
 // Run this once to be able to run the application with BUCK

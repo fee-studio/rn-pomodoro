@@ -3,32 +3,43 @@
  */
 
 
-import React from 'react';
-import {View, StyleSheet, Dimensions, Button, Text} from 'react-native';
-import {TabViewAnimated, TabBar, SceneMap} from 'react-native-tab-view';
-import TaskListView from "./TaskListView";
-import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData";
-import {COLOR} from "../../utils/Config";
-import {toCreateTask} from "../../navigators/actions";
-import {connect} from "react-redux";
+import React from 'react'
+import {View, StyleSheet, Dimensions, Button, Text, TouchableHighlight} from 'react-native'
+import {TabViewAnimated, TabBar, SceneMap} from 'react-native-tab-view'
+import TaskListView from "./TaskListView"
+import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData"
+import {COLOR} from "../../utils/Config"
+import {toCreateTask} from "../../navigators/actions"
+import {connect} from "react-redux"
 // import {Button} from 'antd-mobile';
 // import Button from 'antd-mobile/lib/button';
 
 const initialLayout = {
     height: 0,
     width: Dimensions.get('window').width,
-};
+}
 
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        headerRight: <Button title="添加" onPress={() => {
-            navigation.dispatch(toCreateTask());
+        headerRight: <TouchableHighlight style={styles.headerRightBtn} onPress={() => {
+            navigation.dispatch(toCreateTask())
+        }}>
+            <Text style={{color: COLOR.blue,fontSize: 18,}}>添加</Text>
+        </TouchableHighlight>,
 
-            // navigation.navigate('CreateTask')
-            // navigation.dispatch(NavigationActions.navigate({routeName: 'CreateTask'}))
-        }}/>,
-    });
+        // headerRight: <Button title="添加"
+        //                      color={COLOR.secondary}
+        //                      backgroundColor={COLOR.clear}
+        //                      borderRadius={12}
+        //                      fontSize={11}
+        //                      buttonStyle={{paddingTop: 5, paddingBottom: 5, paddingLeft: 8, paddingRight: 8, marginRight:10}}
+        //                      onPress={() => {
+        //                          navigation.dispatch(toCreateTask())
+        //                          // navigation.navigate('CreateTask')
+        //                          // navigation.dispatch(NavigationActions.navigate({routeName: 'CreateTask'}))
+        //                      }}/>,
+    })
 
     state = {
         index: 0,
@@ -38,12 +49,13 @@ class TaskListScreen extends React.PureComponent {
             {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
             {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
         ],
-    };
+    }
 
-    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>;
-    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>;
-    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>;
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>;
+    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
+    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>
+    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}
+                                     taskScreenType={this.props.taskScreenType}/>
 
     constructor(props) {
         super(props)
@@ -63,20 +75,20 @@ class TaskListScreen extends React.PureComponent {
     }
 
     _handleIndexChange = index => {
-        this.setState({index});
-    };
+        this.setState({index})
+    }
 
     _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.secondary}}
                                      labelStyle={{fontSize: 12, margin: 3}}
         // indicatorStyle={{backgroundColor: COLOR.primary}}
-    />;
+    />
 
     _renderScene = SceneMap({
         today: this.todayTask,
         plan: this.planTask,
         did: this.didTask,
         undone: this.undoneTask,
-    });
+    })
 
     render() {
         return (
@@ -90,7 +102,7 @@ class TaskListScreen extends React.PureComponent {
                     initialLayout={initialLayout}
                 />
             </View>
-        );
+        )
     }
 }
 
@@ -98,8 +110,8 @@ class TaskListScreen extends React.PureComponent {
 const mapStateToProps = (state) => {
     return {
         taskScreenType: state.reducerNavigator.taskScreenType || TaskScreenType.TaskScreenTypeList,
-    };
-};
+    }
+}
 
 
 export default connect(mapStateToProps)(TaskListScreen)
@@ -109,4 +121,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-});
+    headerRightBtn: {
+        width: 60,
+        alignItems: 'center',
+    }
+})

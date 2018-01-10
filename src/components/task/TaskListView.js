@@ -20,7 +20,7 @@ export class TaskListItem extends PureComponent {
     render() {
         // const {navigate,goBack,state} = this.props.navigation;
         return (
-            <TouchableHighlight onPress={this.props.onPress}>
+            <TouchableHighlight onPress={this.props.onPress} onLongPress={this.props.onLongPress}>
                 <View style={styles.taskListItemContainer}>
                     <View style={styles.taskListItemTop}>
                         <View style={styles.taskListItemTomatoCount}>
@@ -97,7 +97,11 @@ class TaskListView extends PureComponent {
                                                               } else {
                                                                   this.props.toTomatoScreenWithTask(item)
                                                               }
-                                                          }}/>}
+                                                          }}
+                                                          onLongPress={() => {
+                                                              // this.props.toTomatoScreenWithTask(item);
+                                                          }}
+                    />}
                     renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
                     sections={this.state.taskItems}
                     ItemSeparatorComponent={() => <View style={{height: 0.5, backgroundColor: '#ccc'}}/>}

@@ -3,14 +3,14 @@
  *  功能：
  */
 
-import React, {Component, PureComponent} from 'react';
-import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback, ScrollView} from "react-native";
-import {COLOR} from "../../utils/Config";
-import {Tomato} from "../../database/RealmDB";
-import TomatoService from "../../database/TomatoService";
-import TaskService from "../../database/TaskService";
-import GlobalData from "../../utils/GlobalData";
-import {connect} from "react-redux";
+import React, {Component, PureComponent} from 'react'
+import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback, ScrollView} from "react-native"
+import {COLOR} from "../../utils/Config"
+import {Tomato} from "../../database/RealmDB"
+import TomatoService from "../../database/TomatoService"
+import TaskService from "../../database/TaskService"
+import GlobalData from "../../utils/GlobalData"
+import {connect} from "react-redux"
 
 
 class DailyTomatoCountListItem extends React.PureComponent {
@@ -47,21 +47,21 @@ class DailyTomatoCountListItem extends React.PureComponent {
 }
 
 class DailyTomatoCountList extends React.PureComponent {
-    state = {selected: {}, selectedValue: ''};
+    state = {selected: {}, selectedValue: ''}
 
-    _keyExtractor = (item, index) => index;
+    _keyExtractor = (item, index) => index
 
     _onPressItem = (item) => {
         this.setState((state) => {
             // let selected = {...state.selected};
-            let selected = {};
-            selected[item.id] = !selected[item.id];
+            let selected = {}
+            selected[item.id] = !selected[item.id]
 
-            let selectedValue = item.tomatoCount;
+            let selectedValue = item.tomatoCount
 
-            return {selected, selectedValue};
-        });
-    };
+            return {selected, selectedValue}
+        })
+    }
 
     _renderItem = ({item}) => (
         <DailyTomatoCountListItem
@@ -71,12 +71,17 @@ class DailyTomatoCountList extends React.PureComponent {
             title={item.title}
             value={item.tomatoCount}
         />
-    );
+    )
 
     render() {
         return (
-            <View style={{}}>
-                <Text style={{textAlign:'center', fontSize:30, color:COLOR.primary, height:30}}>{this.state.selectedValue}</Text>
+            <View style={{height: 30+200}}>
+                <Text style={{
+                    textAlign: 'center',
+                    fontSize: 30,
+                    color: COLOR.primary,
+                    height: 30
+                }}>{this.state.selectedValue}</Text>
                 <FlatList
                     horizontal={true}
                     data={this.props.data}
@@ -92,7 +97,7 @@ class DailyTomatoCountList extends React.PureComponent {
                     // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
                 />
             </View>
-        );
+        )
     }
 
     componentDidMount() {
@@ -102,14 +107,14 @@ class DailyTomatoCountList extends React.PureComponent {
 
         // 必须要加setTimeout, 应该是 react-native自己的问题
         setTimeout(() => {
-            this.refs._flatList.scrollToEnd({animated: true});
-        }, 100);
+            this.refs._flatList.scrollToEnd({animated: true})
+        }, 100)
     }
 }
 
 class StatisticsItem extends PureComponent {
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {
@@ -118,7 +123,7 @@ class StatisticsItem extends PureComponent {
                 <Text style={styles.itemValue}>{this.props.value}</Text>
                 <Text style={styles.itemTitle}>{this.props.title}</Text>
             </View>
-        );
+        )
     }
 }
 
@@ -130,10 +135,10 @@ class StatisticsScreen extends PureComponent {
         //     console.log('add :' + JSON.stringify(navigation));
         //     navigation.navigate('CreateTask')
         // }}/>,
-    });
+    })
 
     constructor(props) {
-        super(props);
+        super(props)
 
     }
 
@@ -166,10 +171,16 @@ class StatisticsScreen extends PureComponent {
 
                 <View style={[styles.moduleContainer,]}>
                     <Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>
-                    <DailyTomatoCountList data={this.props.everydayStatisticsData.items}/>
+                    <DailyTomatoCountList style={{backgroundColor: '#0f0'}}
+                                          data={this.props.everydayStatisticsData.items}/>
                 </View>
+                {/*<View style={[styles.moduleContainer, {height:250}]}>*/}
+                    {/*<Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>*/}
+                    {/*<DailyTomatoCountList style={{backgroundColor: '#0f0'}}*/}
+                                          {/*data={this.props.everydayStatisticsData.items}/>*/}
+                {/*</View>*/}
             </ScrollView>
-        );
+        )
     }
 
     componentDidMount() {
@@ -215,14 +226,14 @@ const mapStateToProps = (state, ownProps) => {
             title: '每日完成的番茄数',
             items: TomatoService.arrInMonthDidFinishCount(),
         }
-    };
+    }
 
-    return props;
-};
+    return props
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {}
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(StatisticsScreen)
 
@@ -237,8 +248,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     moduleTitle: {
-        marginTop: 5,
-        color: COLOR.textEmphasis,
+        marginTop: 15,
+        marginBottom: 5,
+        color: COLOR.textNormal,
+        fontWeight: 'bold',
     },
     itemContainerView: {
         flexDirection: 'row',
@@ -272,4 +285,4 @@ const styles = StyleSheet.create({
         // height:10,
     }
 
-});
+})

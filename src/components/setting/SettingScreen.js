@@ -318,6 +318,7 @@ const styles = StyleSheet.create({
     listHeaderTitle: {
         marginLeft: 10,
         marginBottom: -10,
+        color:COLOR.textNormal,
     },
     itemContainer: {
         flexDirection: 'row',

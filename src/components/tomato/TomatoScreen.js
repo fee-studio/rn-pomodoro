@@ -27,14 +27,11 @@ import Initialization from "../../utils/Initialization";
 import TomatoModel from "../../models/TomatoModel";
 import {connect} from "react-redux";
 import {toTaskScreen, toTaskScreenSelectTask} from "../../navigators/actions";
-import Icon from 'react-native-vector-icons/Entypo';
-// import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import {COLOR} from "../../utils/Config";
 import Circle from "react-native-progress/Circle";
 import {AnimatedCircularProgress} from "react-native-circular-progress";
 import GlobalData from "../../utils/GlobalData";
 import moment from 'moment';
-import * as PushNotification from "react-native-push-notification";
 import TomatoService from "../../database/TomatoService";
 
 
@@ -46,8 +43,6 @@ class ProgressChildView extends Component {
         this.state = {
             myStatus: this.props.playStatus,
         };
-
-
     }
 
     /*
@@ -62,7 +57,6 @@ class ProgressChildView extends Component {
     }
 
     c_stateView() {
-
         let width = 60;
         let side = 60;
         let radius = 10;

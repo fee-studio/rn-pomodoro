@@ -4,7 +4,7 @@
  */
 
 import React, {Component} from 'react';
-import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight} from "react-native";
+import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight, NativeModules} from "react-native";
 import {RealmDemo} from "../../database/RealmDemo";
 import Picker from 'react-native-picker';
 import {COLOR} from "../../utils/Config";
@@ -14,7 +14,7 @@ import {connect} from "react-redux";
 import NotificationManager from "../../utils/NotificationManager";
 import TaskService from "../../database/TaskService";
 
-var PushNotification = require('react-native-push-notification');
+let PushNotification = require('react-native-push-notification');
 
 class SettingListItem4Content extends Component {
     constructor(props) {
@@ -292,6 +292,13 @@ class SettingScreen extends Component {
             </View>
         );
     }
+
+    componentWillMount() {
+
+    }
+
+    componentWillUnmount() {
+    }
 }
 
 
@@ -301,7 +308,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         toTuCaoWebView: (url) => dispatch(toTuCaoWebView(url)),
     }
 };
-
 
 export default connect(null, mapDispatchToProps)(SettingScreen)
 

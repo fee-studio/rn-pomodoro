@@ -117,9 +117,13 @@
     
     看最后一条，把资源文件中的jpg文件换成png的文件。
     
-19.  在打包的时候出现错误：maximum call stack size exceeded，导致打包失败！
+19. 在打包的时候出现错误：maximum call stack size exceeded，导致打包失败！
     
     这是由于JS代码中重复定义了两个同名的方法导致的。千万注意这一点。
+    
+20. 如果自己要写原生的Module。请不要以**RCT**开头命名。[参考](https://stackoverflow.com/questions/35052565/undefined-is-not-an-object-from-native-module-in-react-native)
+
+21.     
 
   
     

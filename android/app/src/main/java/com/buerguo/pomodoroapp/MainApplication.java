@@ -49,14 +49,15 @@ public class MainApplication extends Application implements ReactApplication {
 //            new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appcenterCrashes_whenToSendCrashes)),
 //            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appcenterAnalytics_whenToEnableAnalytics)),
 //            new AppCenterReactNativePackage(MainApplication.this),
-                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
 //            new ReactNativeDocumentPicker(),
+                    new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
                     new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),
                     new VectorIconsPackage(),
                     new SplashScreenReactPackage(),
                     new PickerViewPackage(),
-                    new RNDeviceInfo()
+                    new RNDeviceInfo(),
+                    new MtaPackage()
             );
         }
 

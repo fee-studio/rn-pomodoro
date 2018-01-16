@@ -1,4 +1,5 @@
 import {NavigationActions} from 'react-navigation';
+import {NativeModules} from "react-native"
 
 function getCurrentRouteName(navigationState) {
     if (!navigationState) {
@@ -23,7 +24,11 @@ const screenTracking = ({getState}) => next => (action) => {
     if (nextScreen !== currentScreen) {
         // the line below uses the Google Analytics tracker
         // change the tracker here to use other Mobile analytics SDK.
+        console.log('currentScreen = ' + currentScreen + ' nextScreen = ' + nextScreen);
 
+        // MTA统计
+        NativeModules.RNMTA.trackPageViewBegin(nextScreen);
+        NativeModules.RNMTA.trackPageViewEnd(currentScreen);
     }
     return result;
 };

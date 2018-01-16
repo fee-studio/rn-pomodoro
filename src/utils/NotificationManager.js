@@ -58,7 +58,7 @@ export default class NotificationManager {
         let date9 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9);
 
         PushNotification.localNotificationSchedule({
-            id: "rn_notice_morning_9",
+            id: "9527", // 原rn_notice_morning_9  Android需要数字型
             message: "My Notification Message11", // (required)
             date: date9,
             repeatType: "day",
@@ -70,7 +70,7 @@ export default class NotificationManager {
         let date21 = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9);
 
         PushNotification.localNotificationSchedule({
-            id: "rn_notice_evening_9",
+            id: "9528", // 原rn_notice_evening_9  Android需要数字型
             message: "My Notification Message", // (required)
             date: date21,
             repeatType: "day",
@@ -78,8 +78,8 @@ export default class NotificationManager {
     }
 
     static removeMorningEveningNotice() {
-        PushNotification.cancelLocalNotifications({id: 'rn_notice_morning_9'});
-        PushNotification.cancelLocalNotifications({id: 'rn_notice_evening_9'});
+        PushNotification.cancelLocalNotifications({id: '9527'});
+        PushNotification.cancelLocalNotifications({id: '9528'});
     }
 
     static removeAllNotices() {

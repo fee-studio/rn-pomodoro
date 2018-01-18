@@ -33,6 +33,7 @@ class PomodoroApp extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -40,6 +41,7 @@ class PomodoroApp extends React.Component {
     }
 
     componentWillUpdate() {
+
     }
 
     componentDidUpdate() {

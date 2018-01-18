@@ -32,10 +32,15 @@ public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
-        @Override
-        protected String getJSBundleFile() {
-            return CodePush.getJSBundleFile();
-        }
+        // todo code-push下的这个有问题
+        // 2. Override the getJSBundleFile method in order to let
+        // the CodePush runtime determine where to get the JS
+        // bundle location from on each app start
+//        @Override
+//        protected String getJSBundleFile() {
+////            return CodePush.getJSBundleFile();
+//            return "index.bundle";
+//        }
 
         @Override
         public boolean getUseDeveloperSupport() {
@@ -45,19 +50,19 @@ public class MainApplication extends Application implements ReactApplication {
         @Override
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
-                    new MainReactPackage(),
 //            new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appcenterCrashes_whenToSendCrashes)),
 //            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appcenterAnalytics_whenToEnableAnalytics)),
 //            new AppCenterReactNativePackage(MainApplication.this),
 //            new ReactNativeDocumentPicker(),
+                    new MainReactPackage(),
                     new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
                     new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),
                     new VectorIconsPackage(),
                     new SplashScreenReactPackage(),
                     new PickerViewPackage(),
-                    new RNDeviceInfo(),
-                    new MtaPackage()
+                    new MtaPackage(),
+                    new RNDeviceInfo()
             );
         }
 

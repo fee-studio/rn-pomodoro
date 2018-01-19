@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		107547209B004F7C950C60AA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8A496BF7BE94800B3B47DE8 /* Octicons.ttf */; };
 		12F4EF2C11174691840D987D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC100F29D7D4ADC975526FA /* SimpleLineIcons.ttf */; };
@@ -16,6 +15,7 @@
 		1DCF25B2F836429B9FB716B6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C9DE5F457DD4045BF8DEE45 /* Entypo.ttf */; };
 		522F39B41FEB876800BEDBD9 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 522F39AA1FEB845100BEDBD9 /* libRealmReact.a */; };
 		5259C5161FDF882600517880 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 5259C5151FDF882600517880 /* assets */; };
+		529AE8482010871F0078DFBB /* icon180@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529AE8462010871F0078DFBB /* icon180@3x.png */; };
 		52AEC95C1FB84FEB00149126 /* PomodoroApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* PomodoroApp-Info.plist */; };
 		52B059E2200DA68F005EA4DE /* RNMTA.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B059DF200DA68F005EA4DE /* RNMTA.m */; };
 		52C911711FC58E06006B54A7 /* RNDocumentPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C911701FC58E06006B54A7 /* RNDocumentPicker.m */; };
@@ -23,10 +23,7 @@
 		52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
 		5BF2C937981B1AC976F0E8C1 /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C3377A3FB60DECB4145F /* report.xml */; };
 		5BF2C9DFCA2C05BD87BE0215 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CF09B8A05AFD3281F6B1 /* Appfile */; };
-		5BF2CAC3DAC1C9A09C19DD20 /* makefile.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CDB589F0B8018DB82C54 /* makefile.cfg */; };
-		5BF2CBF741EE2472D5E74455 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2C0201B37DA74B043BE08 /* makefile */; };
 		5BF2CC6E9E58C1C55B691BA5 /* Pluginfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CC8CAD79C23C1E88B72D /* Pluginfile */; };
-		5BF2CCAE78A5597C9C7B1EF2 /* release-note.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CD893BFDFE85430F8744 /* release-note.json */; };
 		5BF2CE3F4FD549B8F27FC693 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C1B8392E2A319151680D /* Fastfile */; };
 		5E8C85FFD50340F39A5BBEA8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCFB847FD7334F93B5330515 /* MaterialCommunityIcons.ttf */; };
 		6AF99836980E42ABB7C959B6 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF0C0F065F245CD9EC55DA8 /* Zocial.ttf */; };
@@ -80,6 +77,7 @@
 		5259C5151FDF882600517880 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		525FBAAE1F90726C000D9CA3 /* libRealmJS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRealmJS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		528713AD1FC43F510007EEF8 /* PomodoroApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PomodoroApp.entitlements; path = PomodoroApp/PomodoroApp.entitlements; sourceTree = "<group>"; };
+		529AE8462010871F0078DFBB /* icon180@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon180@3x.png"; path = "PomodoroApp/Images.xcassets/AppIcon.appiconset/icon180@3x.png"; sourceTree = "<group>"; };
 		529B585C1F8CC594001CE830 /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52AEC95A1FB84FCA00149126 /* PomodoroAppRelease-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PomodoroAppRelease-Info.plist"; path = "PomodoroApp/PomodoroAppRelease-Info.plist"; sourceTree = "<group>"; };
 		52AEF06D1FE1105900E55D00 /* AppCenterDistributeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppCenterDistributeResources.bundle; sourceTree = "<group>"; };
@@ -89,12 +87,9 @@
 		52C911701FC58E06006B54A7 /* RNDocumentPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNDocumentPicker.m; sourceTree = "<group>"; };
 		52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle.meta; sourceTree = "<group>"; };
 		52D2BA6C1FB5AF190016B950 /* index.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle; sourceTree = "<group>"; };
-		5BF2C0201B37DA74B043BE08 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		5BF2C1B8392E2A319151680D /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
 		5BF2C3377A3FB60DECB4145F /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
 		5BF2CC8CAD79C23C1E88B72D /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
-		5BF2CD893BFDFE85430F8744 /* release-note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "release-note.json"; sourceTree = "<group>"; };
-		5BF2CDB589F0B8018DB82C54 /* makefile.cfg */ = {isa = PBXFileReference; lastKnownFileType = file.cfg; path = makefile.cfg; sourceTree = "<group>"; };
 		5BF2CF09B8A05AFD3281F6B1 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		5C9DE5F457DD4045BF8DEE45 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		5E686E8F616748BBA4AAC07B /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -148,6 +143,7 @@
 		13B07FAE1A68108700A75B9A /* PomodoroApp */ = {
 			isa = PBXGroup;
 			children = (
+				529AE8462010871F0078DFBB /* icon180@3x.png */,
 				52B059E1200DA68F005EA4DE /* RNMTA.h */,
 				52B059DF200DA68F005EA4DE /* RNMTA.m */,
 				52C9116F1FC58E05006B54A7 /* RNDocumentPicker.h */,
@@ -216,16 +212,6 @@
 			path = fastlane;
 			sourceTree = "<group>";
 		};
-		5BF2CBB64ABD3467A7101F9E /* make */ = {
-			isa = PBXGroup;
-			children = (
-				5BF2C0201B37DA74B043BE08 /* makefile */,
-				5BF2CDB589F0B8018DB82C54 /* makefile.cfg */,
-				5BF2CD893BFDFE85430F8744 /* release-note.json */,
-			);
-			name = make;
-			sourceTree = "<group>";
-		};
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +227,6 @@
 				1CA399C531BC4436AEF37E13 /* AppCenter-Config.plist */,
 				DA7AB250FF3B40ADA38B0B11 /* Libraries */,
 				CC4DA0148F4BDBCC8E225B37 /* Pods */,
-				5BF2CBB64ABD3467A7101F9E /* make */,
 				5BF2C7E26BF8E4359A78A101 /* fastlane */,
 			);
 			indentWidth = 2;
@@ -393,6 +378,7 @@
 				52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */,
 				52AEC95C1FB84FEB00149126 /* PomodoroApp-Info.plist in Resources */,
 				5259C5161FDF882600517880 /* assets in Resources */,
+				529AE8482010871F0078DFBB /* icon180@3x.png in Resources */,
 				5E8C85FFD50340F39A5BBEA8 /* MaterialCommunityIcons.ttf in Resources */,
 				52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */,
 				CCF89799708E49458BE6DF4D /* MaterialIcons.ttf in Resources */,
@@ -400,8 +386,6 @@
 				12F4EF2C11174691840D987D /* SimpleLineIcons.ttf in Resources */,
 				6AF99836980E42ABB7C959B6 /* Zocial.ttf in Resources */,
 				9DDC26B380B04D0A906629BB /* AppCenter-Config.plist in Resources */,
-				5BF2CAC3DAC1C9A09C19DD20 /* makefile.cfg in Resources */,
-				5BF2CCAE78A5597C9C7B1EF2 /* release-note.json in Resources */,
 				5BF2C9DFCA2C05BD87BE0215 /* Appfile in Resources */,
 				5BF2CE3F4FD549B8F27FC693 /* Fastfile in Resources */,
 				5BF2CC6E9E58C1C55B691BA5 /* Pluginfile in Resources */,
@@ -498,7 +482,6 @@
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				52B059E2200DA68F005EA4DE /* RNMTA.m in Sources */,
 				52C911711FC58E06006B54A7 /* RNDocumentPicker.m in Sources */,
-				5BF2CBF741EE2472D5E74455 /* makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

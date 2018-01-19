@@ -1,5 +1,6 @@
 package com.buerguo.pomodoroapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,7 +14,7 @@ public class MainActivity extends ReactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        SplashScreen.show(this);  // 有 bug
+        SplashScreen.show(this);  // todo
         super.onCreate(savedInstanceState);
 
         // androidManifest.xml指定本activity最先启动
@@ -40,5 +41,15 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "PomodoroApp";
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); 	不要调用父类的方法
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 }

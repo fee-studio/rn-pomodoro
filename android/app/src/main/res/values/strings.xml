@@ -5,4 +5,5 @@
     <!--<string moduleConfig="true" name="appcenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>-->
     <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">uqnMMt7A2RgGjjCylwa8sexWLgrwBy3eCzF-f</string>
     <string name="app_name">朝夕</string>
+    <string name="app_name_sub">番茄工作法</string>
 </resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_dark">#000000</color>
+
+    <color name="textPrompt">#929292</color>
+    <color name="textNormal">#5E5E5E</color>
+    <color name="textEmphasis">#212121</color>
+    <color name="textLightPrompt">#EBEBEB</color>
+    <color name="textLightNormal">#FFFFFF</color>
+    <color name="backgroundDarker">#D6D6D6</color>
+    <color name="backgroundNormal">#EBEBEB</color>
+    <color name="backgroundLighter">#ffffff</color>
+    <color name="backgroundDarkLighter">#424242</color>
+    <color name="backgroundDarkNormal">#000000</color>
+    <color name="backgroundNotice">#FFFB00</color>
+
+</resources>

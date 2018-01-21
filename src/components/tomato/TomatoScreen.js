@@ -59,7 +59,7 @@ class ProgressChildView extends Component {
     c_stateView() {
         let width = 60;
         let side = 60;
-        let radius = 10;
+        let radius = 0;
 
         const path = ART.Path()
             .moveTo((width - side * Math.sin(Math.PI / 3)) / 2, width / 2)
@@ -74,7 +74,6 @@ class ProgressChildView extends Component {
             .close();
 
         if (this.state.myStatus === TomatoState.TomatoStateInit) {
-
             return (
                 <View style={styles.progressChildView}>
                     <ART.Surface width={width} height={width}>
@@ -195,13 +194,31 @@ class TomatoScreen extends Component {
                     <Text style={styles.tomatoTime}>
                         {moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Symbol'}}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Courier'}}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Didot'}}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Georgia'}}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Verdana'}}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
+                    {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', }}>*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                    {/*</Text>*/}
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>
                         <View style={styles.circleProgressView}>
                             <Progress.Circle
                                 progress={this.state.progress}
                                 color={color}
-                                unfilledColor={COLOR.backgroundDarker}
+                                unfilledColor={COLOR.backgroundNormal}
                                 borderWidth={0}
                                 animated={this.state.animated}
                                 size={200}
@@ -464,6 +481,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(TomatoScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
     },
     progressContainer: {
         flex: 1,
@@ -477,15 +495,16 @@ const styles = StyleSheet.create({
     },
     progressChildView: {
         position: 'absolute',
-        left: 5,
-        top: 0,
+        // left: 5,
+        // top: 0,
         width: 200,
         height: 200,
         borderRadius: 200.0 / 2,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "transparent",
-        flexDirection: 'row'
+        backgroundColor: "#0f0",
+        // backgroundColor: "transparent",
+        flexDirection: 'row',
     },
     progressChildViewPause: {
         width: 10,
@@ -516,9 +535,10 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
     },
     tomatoTime: {
-        fontSize: 35,
+        fontSize: 50,
         color: COLOR.textNormal,
-
+        fontWeight: 'bold',
+        fontFamily: 'Courier'
     },
     tomatoTask: {
         color: COLOR.textNormal,

@@ -77,6 +77,8 @@ project.ext.react = [
         entryFile      : "index.js",
         bundleInDebug  : false,
         bundleInRelease: true,
+        // VIP https://github.com/facebook/react-native/issues/6875
+        nodeExecutableAndArgs : ["/usr/local/bin/node"],
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"

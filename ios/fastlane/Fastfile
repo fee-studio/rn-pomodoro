@@ -1,0 +1,29 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_build_number(xcodeproj: "PomodoroApp.xcodeproj")
+    build_app(workspace: "PomodoroApp.xcworkspace", scheme: "PomodoroApp")
+    upload_to_testflight
+  end
+
+  desc "Push a new beta build to Pgyer"
+  lane :beta_pgyer do
+    increment_build_number(xcodeproj: "PomodoroApp.xcodeproj")
+    build_app(workspace: "PomodoroApp.xcworkspace", scheme: "PomodoroApp", export_method: "ad-hoc")
+    pgyer(api_key: "a9762b679707e753653fdb670114ee7f", user_key: "3f9f122f04b86a92d71cc77afeeba110")
+  end
+
+end

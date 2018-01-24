@@ -13,7 +13,7 @@ export default class TaskModel {
         this.isRemind = false;
         this.actionTime = new Date();
         this.remindTime = new Date();
-        this.status = TaskState.TaskStateUnknown;
+        this.status = TaskState.TaskStatePlan;
         this.tomatoes = [];
     }
 }

@@ -10,11 +10,15 @@ import {toCreateTask, toTaskScreen, toTomatoScreenWithTask} from "../../navigato
 import {connect} from "react-redux";
 import {COLOR} from "../../utils/Config";
 import TaskService from "../../database/TaskService";
+import moment from 'moment';
+
 
 export class TaskListItem extends PureComponent {
 
     constructor(props) {
         super(props);
+
+        moment.locale('zh-cn')
     }
 
     render() {
@@ -57,7 +61,7 @@ export class TaskListItemHeader extends PureComponent {
         return (
             <View style={{
                 flex: 1,
-                backgroundColor: '#ccc',
+                backgroundColor: COLOR.backgroundNormal,
                 paddingLeft: 10,
                 paddingTop: 3,
                 paddingBottom: 3,
@@ -174,7 +178,7 @@ class TaskListView extends PureComponent {
             if (task.isValid()) {
                 if (dayItems === null) {
                     dayItems = [];
-                    dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
+                    dayGroup.push({data: dayItems, sectionTitle: moment(task.actionTime).format('YYYY-MM-DD dddd')});
                     dayItems.push(task)
                 } else {
                     if (task.actionTime === null && dayItems[dayItems.length - 1].actionTime === null
@@ -182,7 +186,7 @@ class TaskListView extends PureComponent {
                         dayItems.push(task)
                     } else {
                         dayItems = [];
-                        dayGroup.push({data: dayItems, sectionTitle: task.actionTime.toDateString()});
+                        dayGroup.push({data: dayItems, sectionTitle: moment(task.actionTime).format('YYYY-MM-DD dddd')});
                         dayItems.push(task)
                     }
                 }

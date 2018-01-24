@@ -59,7 +59,7 @@ class ProgressChildView extends Component {
     c_stateView() {
         let width = 60;
         let side = 60;
-        let radius = 0;
+        let radius = 10;
 
         const path = ART.Path()
             .moveTo((width - side * Math.sin(Math.PI / 3)) / 2, width / 2)
@@ -495,15 +495,15 @@ const styles = StyleSheet.create({
     },
     progressChildView: {
         position: 'absolute',
-        // left: 5,
+        left: 7, // 目前是个经验值
         // top: 0,
         width: 200,
         height: 200,
         borderRadius: 200.0 / 2,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#0f0",
-        // backgroundColor: "transparent",
+        // backgroundColor: "#0f0",
+        backgroundColor: "transparent",
         flexDirection: 'row',
     },
     progressChildViewPause: {
@@ -548,19 +548,19 @@ const styles = StyleSheet.create({
         position: 'absolute',
 
         // top: -20,
-        left: 50,
+        // left: 50,
 
         marginLeft: -20,
 
         width: 0,
         height: 0,
-        backgroundColor: "#f00",
-        color: "#0f0",
+        // backgroundColor: "#f00",
+        // color: "#0f0",
         borderWidth: 10,
         // borderRadius: 50,
         borderStyle: "solid",
 
-        borderTopColor: "#00f",
+        // borderTopColor: "#00f",
         borderTopWidth: 50,
         borderTopLeftRadius: 50,
 

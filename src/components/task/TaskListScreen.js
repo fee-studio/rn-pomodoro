@@ -4,7 +4,7 @@
 
 
 import React from 'react'
-import {View, StyleSheet, Dimensions, Button, Text, TouchableHighlight} from 'react-native'
+import {View, StyleSheet, Dimensions, Button, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native'
 import {TabViewAnimated, TabBar, SceneMap} from 'react-native-tab-view'
 import TaskListView from "./TaskListView"
 import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData"
@@ -22,11 +22,13 @@ const initialLayout = {
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        headerRight: <TouchableHighlight style={styles.headerRightBtn} onPress={() => {
+        headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn} onPress={() => {
             navigation.dispatch(toCreateTask())
         }}>
-            <Text style={{color: COLOR.blue,fontSize: 18,}}>添加</Text>
-        </TouchableHighlight>,
+            <View>
+                <Text style={{color: COLOR.blue, fontSize: 18, width: 50,}}>添加</Text>
+            </View>
+        </TouchableWithoutFeedback>,
 
         // headerRight: <Button title="添加"
         //                      color={COLOR.secondary}

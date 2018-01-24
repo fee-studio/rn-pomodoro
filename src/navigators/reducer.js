@@ -11,7 +11,7 @@ import {
 } from "./actionTypes";
 
 
-//Force a Init of the main router
+// Force a Init of the main router
 let initialNavState = RootStack.router.getStateForAction(
     NavigationActions.init()
 );

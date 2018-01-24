@@ -59,7 +59,7 @@ export default class NotificationManager {
 
         PushNotification.localNotificationSchedule({
             id: "9527", // 原rn_notice_morning_9  Android需要数字型
-            message: "My Notification Message11", // (required)
+            message: "整理下今天的清单，开始有进步的一天吧", // (required)
             date: date9,
             repeatType: "day",
         });
@@ -71,7 +71,7 @@ export default class NotificationManager {
 
         PushNotification.localNotificationSchedule({
             id: "9528", // 原rn_notice_evening_9  Android需要数字型
-            message: "My Notification Message", // (required)
+            message: "不早了，检查下今天的完成情况吧", // (required)
             date: date21,
             repeatType: "day",
         });

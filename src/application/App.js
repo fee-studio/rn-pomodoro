@@ -3,15 +3,20 @@
  */
 
 import React from 'react';
-import {AppRegistry} from 'react-native';
+import {AppRegistry, AppState} from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store'
 import AppNavigator from '../navigators/AppNavigator'
 import Initialization from "../utils/Initialization";
 import codePush from 'react-native-code-push'
 import SplashScreen from 'react-native-splash-screen'
+import Utils from "../utils/Utils"
 
 class PomodoroApp extends React.Component {
+
+    state = {
+        appState: AppState.currentState
+    }
 
     constructor(props) {
         super(props);
@@ -30,6 +35,7 @@ class PomodoroApp extends React.Component {
 
     componentDidMount() {
         SplashScreen.hide();
+        AppState.addEventListener('change', this._handleAppStateChange);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -45,9 +51,25 @@ class PomodoroApp extends React.Component {
     }
 
     componentDidUpdate() {
+
     }
 
     componentWillUnmount() {
+        AppState.removeEventListener('change', this._handleAppStateChange);
+    }
+
+    _handleAppStateChange = (nextAppState) => {
+        if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+            console.log('App has come to the foreground!')
+        }
+        this.setState({appState: nextAppState});
+
+        console.log(`Current state is: ${this.state.appState}`);
+
+        // 设置桌面图标
+        if (this.state.appState.match(/inactive|background/)) {
+            Utils.setupApplicationIconBadgeNumber();
+        }
     }
 
     // CodePush

@@ -12,6 +12,7 @@ import TaskService from "../database/TaskService";
 import PushNotification from "react-native-push-notification";
 import StorageManager, {AppFirstLaunch4SettingConfig} from "./StorageManager";
 import MockDataManager from "./MockDataManager";
+import Utils from "./Utils"
 
 export default class Initialization {
 
@@ -47,11 +48,7 @@ export default class Initialization {
             }
         }).catch(error => {
             // 桌面图标为今日待办数
-            let count = 0
-            if (GlobalData.tomatoConfig.showTodoCount) {
-                count = TaskService.read(TaskState.TaskStateTodo).length;
-            }
-            // PushNotification.setApplicationIconBadgeNumber(count);
+            Utils.setupApplicationIconBadgeNumber();
 
             // 早9晚9
             if (GlobalData.tomatoConfig.notice4MorningEvening) {

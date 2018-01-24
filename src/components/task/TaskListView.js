@@ -18,7 +18,7 @@ export class TaskListItem extends PureComponent {
     constructor(props) {
         super(props);
 
-        moment.locale('zh-cn')
+        moment.locale()
     }
 
     render() {

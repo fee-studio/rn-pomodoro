@@ -13,6 +13,7 @@ import {toTuCaoWebView, toWebViewComponent} from "../../navigators/actions";
 import {connect} from "react-redux";
 import NotificationManager from "../../utils/NotificationManager";
 import TaskService from "../../database/TaskService";
+import Utils from "../../utils/Utils"
 
 let PushNotification = require('react-native-push-notification');
 
@@ -89,7 +90,7 @@ class SettingScreen extends Component {
         }
     }
 
-    aListItems() {
+    static aListItems() {
         return [
             {
                 data: [
@@ -145,7 +146,7 @@ class SettingScreen extends Component {
             },
             {
                 data: [
-                    {title: '评价，鼓励我', key: 'key-evaluation',},
+                    // {title: '评价，鼓励我', key: 'key-evaluation',},
                     {title: '反馈，改进我', key: 'key-feedback',},
                     // {title: 'data-title-13', key: 'data-key-13',},
                 ],
@@ -198,7 +199,7 @@ class SettingScreen extends Component {
                     GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]) * 60;
                 }
                 this.setState({
-                    listItems: [...this.aListItems(),]
+                    listItems: [... SettingScreen.aListItems(),]
                 })
             },
             onPickerCancel: data => {
@@ -208,7 +209,6 @@ class SettingScreen extends Component {
                 console.log(data);
             }
         });
-
         Picker.show();
     }
 
@@ -217,12 +217,7 @@ class SettingScreen extends Component {
             GlobalData.tomatoConfig.isStartSelectTask = !GlobalData.tomatoConfig.isStartSelectTask;
         } else if (item.key === 'key-show-todo-count') {
             GlobalData.tomatoConfig.showTodoCount = !GlobalData.tomatoConfig.showTodoCount;
-
-            let count = 0
-            if (GlobalData.tomatoConfig.showTodoCount) {
-                count = TaskService.read(TaskState.TaskStateTodo).length;
-            }
-            PushNotification.setApplicationIconBadgeNumber(count);
+            Utils.setupApplicationIconBadgeNumber();
         } else if (item.key === 'key-morning-evening') {
             GlobalData.tomatoConfig.notice4MorningEvening = !GlobalData.tomatoConfig.notice4MorningEvening;
 
@@ -231,30 +226,13 @@ class SettingScreen extends Component {
         }
 
         this.setState({
-            listItems: [...this.aListItems(),]
+            listItems: [... SettingScreen.aListItems(),]
         })
     }
 
     _actionAdditional(item) {
         if (item.key === 'key-evaluation') {
-            // this.props.toWebView("https://support.qq.com/products/17202")
-
-
-            PushNotification.localNotificationSchedule({
-                message: "My Notification Message2222", // (required)
-                date: new Date(Date.now() + (5 * 1000)) // in 60 secs
-            });
-
-            // PushNotification.localNotification({
-            //     title: "My Notification Title", // (optional, for iOS this is only used in apple watch, the title will be the app name on other iOS devices)
-            //     message: "My Notification Message", // (required)
-            //     playSound: false, // (optional) default: true
-            //     soundName: 'default', // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
-            //     number: 10, // (optional) Valid 32 bit integer specified as string. default: none (Cannot be zero)
-            //     repeatType: 'day', // (Android only) Repeating interval. Could be one of `week`, `day`, `hour`, `minute, `time`. If specified as time, it should be accompanied by one more parameter 'repeatTime` which should the number of milliseconds between each interval
-            //     actions: '["Yes", "No"]',  // (Android only) See the doc for notification actions to know more
-            // });
-
+            // todo ...
         } else if (item.key === 'key-feedback') {
             this.props.toTuCaoWebView("https://support.qq.com/products/17202")
         }
@@ -275,7 +253,7 @@ class SettingScreen extends Component {
 
     componentDidMount() {
         this.setState({
-            listItems: this.aListItems(),
+            listItems: SettingScreen.aListItems(),
         })
     }
 

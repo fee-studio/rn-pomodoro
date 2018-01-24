@@ -1,6 +1,8 @@
 import {Tomato} from './RealmDB'
 import RealmDBService from "./RealmDBService";
 import {TaskState, TomatoState, TomatoType} from "../utils/GlobalData";
+import moment from 'moment';
+
 
 export default class TomatoService extends RealmDBService {
     static create(tomatoModel) {
@@ -31,8 +33,7 @@ export default class TomatoService extends RealmDBService {
         let tomatoes = TomatoService.read();
         let didFinishTomatoes = tomatoes.filtered(`type = ${TomatoType.TomatoTypeWorking} AND state = ${TomatoState.TomatoStateFinished} AND deleted = false`);
         let totalTime = didFinishTomatoes.sum('duration');
-
-        return totalTime;
+        return (totalTime/60/60).toFixed(1)+'h';
     }
 
     static didFinishTodayCount() {

@@ -2,28 +2,41 @@
  *  功能：
  */
 
-import React from "react";
-import {Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight} from "react-native";
+import React from "react"
+import {
+    Text, View, StyleSheet, TextInput, Button, Switch, TouchableHighlight,
+    TouchableWithoutFeedback, Keyboard
+} from "react-native"
 import realm from '../../database/RealmDB'
-import {TaskState} from "../../utils/GlobalData";
-import DateTimePicker from 'react-native-modal-datetime-picker';
-import {connect} from "react-redux";
-import {COLOR} from "../../utils/Config";
-import TaskService from "../../database/TaskService";
-import TaskModel from "../../models/TaskModel";
+import {TaskState} from "../../utils/GlobalData"
+import DateTimePicker from 'react-native-modal-datetime-picker'
+import {connect} from "react-redux"
+import {COLOR} from "../../utils/Config"
+import TaskService from "../../database/TaskService"
+import TaskModel from "../../models/TaskModel"
+import {toCreateTask} from "../../navigators/actions"
+import Toast from "react-native-easy-toast"
 
 class CreateTaskScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation}) => {
-        const {params = {name: ""}} = navigation.state;
+        const {params = {name: ""}} = navigation.state
         return {
             title: params.name,
-            headerRight: <Button title="完成" onPress={() => params.handleSave()}/>
-        };
-    };
+            headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn}
+                                                   onPress={() => {
+                                                       params.handleSave && params.handleSave()
+                                                   }}>
+                <View>
+                    <Text style={{color: COLOR.blue, fontSize: 18, width: 50,}}>完成</Text>
+                </View>
+            </TouchableWithoutFeedback>
+            // headerRight: <Button title="完成" onPress={() => params.handleSave()}/>
+        }
+    }
 
     _confirmDatePicker = (date) => {
-        console.log('A date has been picked: ', date);
+        console.log('A date has been picked: ', date)
         this.setState((prevState) => ({
             taskModel: {
                 ...prevState.taskModel,
@@ -31,7 +44,7 @@ class CreateTaskScreen extends React.PureComponent {
             },
             isDateTimePickerVisible: false,
         }))
-    };
+    }
 
     _cancelDatePicker = (date) => {
         this.setState((prevState) => ({
@@ -41,24 +54,25 @@ class CreateTaskScreen extends React.PureComponent {
             },
             isDateTimePickerVisible: false,
         }))
-    };
+    }
 
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.isCreateTask = this.props.item === undefined;
+        this.isCreateTask = this.props.item === undefined
         this.state = {
             taskModel: this.isCreateTask ? new TaskModel() : {...this.props.item},
             isDateTimePickerVisible: false,
         }
+
     }
 
     componentWillMount() {
-        this.props.navigation.setParams({name: this.isCreateTask ? "添加任务" : "编辑任务"});
+        this.props.navigation.setParams({handleSave: this.saveTask})
+        this.props.navigation.setParams({name: this.isCreateTask ? "添加任务" : "编辑任务"})
     }
 
     componentDidMount() {
-        this.props.navigation.setParams({handleSave: this.saveTask});
     }
 
     render() {
@@ -164,8 +178,9 @@ class CreateTaskScreen extends React.PureComponent {
 
                 {this.c_deleteButton()}
 
+                <Toast ref="toast"/>
             </View>
-        );
+        )
     }
 
     c_remindTime() {
@@ -192,9 +207,7 @@ class CreateTaskScreen extends React.PureComponent {
             return null
         } else {
             return (
-                <TouchableHighlight style={styles.deleteButton}
-                                    onPress={this.deleteTask}
-                >
+                <TouchableHighlight style={styles.deleteButton} onPress={this.deleteTask}>
                     <Text style={styles.deleteButtonText}>删除任务</Text>
                 </TouchableHighlight>
             )
@@ -202,21 +215,26 @@ class CreateTaskScreen extends React.PureComponent {
     }
 
     saveTask = () => {
-        let aTask = this.state.taskModel;
+        let aTask = this.state.taskModel
+        if (aTask.taskName.trim().length <= 0) {
+            Keyboard.dismiss()
+            this.refs.toast.show('请输入任务名称!')
+            return
+        }
         if (this.isCreateTask) {
             TaskService.create(aTask)
         } else {
-            TaskService.update(aTask);
+            TaskService.update(aTask)
         }
 
-        this.props.navigation.goBack();
-    };
+        this.props.navigation.goBack()
+    }
 
     deleteTask = () => {
-        let aTask = this.state.taskModel;
-        TaskService.delete(aTask);
+        let aTask = this.state.taskModel
+        TaskService.delete(aTask)
 
-        this.props.navigation.goBack();
+        this.props.navigation.goBack()
     }
 
 }
@@ -224,10 +242,10 @@ class CreateTaskScreen extends React.PureComponent {
 const mapStateToProps = (state) => {
     return {
         item: state.reducerNavigator.item
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(CreateTaskScreen);
+export default connect(mapStateToProps)(CreateTaskScreen)
 
 
 const styles = StyleSheet.create({
@@ -320,4 +338,4 @@ const styles = StyleSheet.create({
     deleteButtonText: {
         color: '#fff',
     },
-});
+})

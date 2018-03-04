@@ -26,6 +26,16 @@ Push a new beta build to TestFlight
 fastlane ios beta_pgyer
 ```
 Push a new beta build to Pgyer
+### ios release
+```
+fastlane ios release
+```
+Push a new release build to AppStore
+### ios upload_release
+```
+fastlane ios upload_release
+```
+Upload a new release build to AppStore
 
 ----
 

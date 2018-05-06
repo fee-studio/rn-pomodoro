@@ -22,7 +22,7 @@ platform :ios do
   desc "Push a new beta build to Pgyer"
   lane :beta_pgyer do
     increment_build_number(xcodeproj: "PomodoroApp.xcodeproj")
-    build_app(workspace: "PomodoroApp.xcworkspace", scheme: "PomodoroApp", export_method: "ad-hoc")
+    build_app(workspace: "PomodoroApp.xcworkspace", scheme: "PomodoroApp", export_method: "ad-hoc", configuration: "Staging")
     pgyer(api_key: "a9762b679707e753653fdb670114ee7f", user_key: "3f9f122f04b86a92d71cc77afeeba110")
   end
 

@@ -623,7 +623,7 @@
 				CODEPUSH_KEY = "";
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 24;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -686,7 +686,7 @@
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -785,7 +785,7 @@
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 9LA84498JK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

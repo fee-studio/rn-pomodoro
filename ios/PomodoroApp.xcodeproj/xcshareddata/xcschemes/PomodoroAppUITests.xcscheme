@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52DEEEA2204A7B150001FBD3"
+               BlueprintIdentifier = "525A74E8204BC2EF00306CAD"
                BuildableName = "PomodoroAppUITests.xctest"
                BlueprintName = "PomodoroAppUITests"
                ReferencedContainer = "container:PomodoroApp.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52DEEEA2204A7B150001FBD3"
+               BlueprintIdentifier = "525A74E8204BC2EF00306CAD"
                BuildableName = "PomodoroAppUITests.xctest"
                BlueprintName = "PomodoroAppUITests"
                ReferencedContainer = "container:PomodoroApp.xcodeproj">

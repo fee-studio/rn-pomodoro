@@ -104,9 +104,9 @@ class PomodoroApp extends React.Component {
 
 // CodePush热更新
 let options = {
-    checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+    checkFrequency: codePush.CheckFrequency.ON_APP_START,
     updateDialog: true,
-    installMode: codePush.InstallMode.IMMEDIATE
+    installMode: codePush.InstallMode.ON_NEXT_RESTART
 };
 PomodoroApp = codePush(options)(PomodoroApp);
 

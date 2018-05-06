@@ -68,18 +68,16 @@ RCT_EXPORT_METHOD(trackException:(NSException*)exception){
 }
 //开启自动捕获异常
 RCT_EXPORT_METHOD(setAutoExceptionCaught:(bool)tag){
-    [[MTAConfig getInstance] setAutoExceptionCaught:tag];
+//    [[MTAConfig getInstance] setAutoExceptionCaught:tag];
 }
-
-
 RCT_EXPORT_METHOD(trackCustomEvent:(NSString*)event_id args:(NSArray*) array){
-    [MTA trackCustomEvent:event_id args:array];
+//    [MTA trackCustomEvent:event_id args:array];
 }
 RCT_EXPORT_METHOD(trackCustomEventBegin:(NSString*)event_id args:(NSArray*) array){
-    [MTA trackCustomEventBegin:event_id args:array];
+//    [MTA trackCustomEventBegin:event_id args:array];
 }
 RCT_EXPORT_METHOD(trackCustomEventEnd:(NSString*)event_id args:(NSArray*) array){
-    [MTA trackCustomEventEnd:event_id args:array];
+//    [MTA trackCustomEventEnd:event_id args:array];
 }
 
 

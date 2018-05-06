@@ -44,7 +44,7 @@ class CreateTaskScreen extends React.PureComponent {
             },
             isDateTimePickerVisible: false,
         }))
-    }
+    };
 
     _cancelDatePicker = (date) => {
         this.setState((prevState) => ({
@@ -253,18 +253,18 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     textInput: {
-        height: 80,
+        height: 150,
         fontSize: 20,
         backgroundColor: '#fff',
         padding: 10,
-        marginTop: 1,
+        marginTop: 0,
     },
     category: {
         backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 1,
+        marginTop: 0.5,
         alignItems: 'center',
         height: 44,
     },
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 1,
+        marginTop: 0.5,
         alignItems: 'center',
         height: 44,
     },

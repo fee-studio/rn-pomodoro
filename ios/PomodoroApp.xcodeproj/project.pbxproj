@@ -24,9 +24,7 @@
 		52D2BA6D1FB5AF190016B950 /* index.jsbundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */; };
 		52D2BA6E1FB5AF190016B950 /* index.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 52D2BA6C1FB5AF190016B950 /* index.jsbundle */; };
 		5BF2C0527F6EE050A16A4691 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2CF7A1A9645B71E3CC396 /* README.md */; };
-		5BF2C937981B1AC976F0E8C1 /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C3377A3FB60DECB4145F /* report.xml */; };
 		5BF2C9DFCA2C05BD87BE0215 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CF09B8A05AFD3281F6B1 /* Appfile */; };
-		5BF2CB8D78734FB20E31E3D4 /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C69B54871611C54D426A /* Snapfile */; };
 		5BF2CC6E9E58C1C55B691BA5 /* Pluginfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2CC8CAD79C23C1E88B72D /* Pluginfile */; };
 		5BF2CE3F4FD549B8F27FC693 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C1B8392E2A319151680D /* Fastfile */; };
 		5E8C85FFD50340F39A5BBEA8 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCFB847FD7334F93B5330515 /* MaterialCommunityIcons.ttf */; };
@@ -103,9 +101,6 @@
 		52D2BA6B1FB5AF190016B950 /* index.jsbundle.meta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle.meta; sourceTree = "<group>"; };
 		52D2BA6C1FB5AF190016B950 /* index.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.jsbundle; sourceTree = "<group>"; };
 		5BF2C1B8392E2A319151680D /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
-		5BF2C3377A3FB60DECB4145F /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
-		5BF2C69B54871611C54D426A /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
-		5BF2C8EA303E5825D2F549B7 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		5BF2CC8CAD79C23C1E88B72D /* Pluginfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pluginfile; sourceTree = "<group>"; };
 		5BF2CF09B8A05AFD3281F6B1 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		5BF2CF7A1A9645B71E3CC396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -235,42 +230,15 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		5BF2C41B0AA4417DBC03D9F9 /* metadata */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = metadata;
-			sourceTree = "<group>";
-		};
-		5BF2C5B52DF91A458DF58818 /* en-US */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "en-US";
-			sourceTree = "<group>";
-		};
 		5BF2C7E26BF8E4359A78A101 /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
 				5BF2CF09B8A05AFD3281F6B1 /* Appfile */,
 				5BF2C1B8392E2A319151680D /* Fastfile */,
 				5BF2CC8CAD79C23C1E88B72D /* Pluginfile */,
-				5BF2C3377A3FB60DECB4145F /* report.xml */,
-				5BF2C69B54871611C54D426A /* Snapfile */,
-				5BF2C8EA303E5825D2F549B7 /* SnapshotHelper.swift */,
 				5BF2CF7A1A9645B71E3CC396 /* README.md */,
-				5BF2C41B0AA4417DBC03D9F9 /* metadata */,
-				5BF2C8AB8C765F0CC03CDF05 /* screenshots */,
 			);
 			path = fastlane;
-			sourceTree = "<group>";
-		};
-		5BF2C8AB8C765F0CC03CDF05 /* screenshots */ = {
-			isa = PBXGroup;
-			children = (
-				5BF2C5B52DF91A458DF58818 /* en-US */,
-			);
-			path = screenshots;
 			sourceTree = "<group>";
 		};
 		83CBB9F61A601CBA00E9B192 = {
@@ -353,7 +321,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6D75F8356B6DD9C50AA46E97 /* [CP] Embed Pods Frameworks */,
 				F74E86FB5538F58FF8991AF6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -395,7 +362,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 9LA84498JK;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -478,8 +445,6 @@
 				5BF2C9DFCA2C05BD87BE0215 /* Appfile in Resources */,
 				5BF2CE3F4FD549B8F27FC693 /* Fastfile in Resources */,
 				5BF2CC6E9E58C1C55B691BA5 /* Pluginfile in Resources */,
-				5BF2C937981B1AC976F0E8C1 /* report.xml in Resources */,
-				5BF2CB8D78734FB20E31E3D4 /* Snapfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,21 +471,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		6D75F8356B6DD9C50AA46E97 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PomodoroApp/Pods-PomodoroApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		8E24D950920E98CC1F7CE809 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -561,7 +511,17 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -622,10 +582,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = "";
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 9LA84498JK;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendor",
@@ -671,8 +632,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = PomodoroApp;
-				PROVISIONING_PROFILE = "98008b05-d94f-4ae4-98e4-93cfac4d2be9";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_dev_20171122";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -684,10 +645,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = "Kxx1ZJ22xcWxIxu43pQqM5vPHCNBBy_xCzK-M";
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
-				DEVELOPMENT_TEAM = 9LA84498JK;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendor",
@@ -733,8 +695,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = PomodoroApp;
-				PROVISIONING_PROFILE = "efc0cef5-4ab0-4c50-8a20-5cdf88ad54b2";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_appstore_20171122";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -783,10 +745,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODEPUSH_KEY = MrIJKkjtmOVN6SHELml8WmwYui7kHJNlCftbz;
 				CODE_SIGN_ENTITLEMENTS = PomodoroApp/PomodoroApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
-				DEVELOPMENT_TEAM = 9LA84498JK;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vendor",
@@ -832,8 +795,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.buerguo.rn-pomodoro";
 				PRODUCT_NAME = PomodoroApp;
-				PROVISIONING_PROFILE = "617cf80b-bdfc-4e10-ad5d-6ee90bb36dec";
-				PROVISIONING_PROFILE_SPECIFIER = "rn-pomodoro_profile_adhoc_20171122";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Staging;

@@ -9,7 +9,7 @@
   "// appcenter-crashes": "^1.1.0",
   "// react-native-gesture-handler": "",
   "name": "PomodoroApp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",

@@ -90,7 +90,7 @@ class SettingScreen extends Component {
         }
     }
 
-    static aListItems() {
+    aListItems() {
         return [
             {
                 data: [
@@ -199,7 +199,7 @@ class SettingScreen extends Component {
                     GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]) * 60;
                 }
                 this.setState({
-                    listItems: [... SettingScreen.aListItems(),]
+                    listItems: [... this.aListItems(),]
                 })
             },
             onPickerCancel: data => {
@@ -226,7 +226,7 @@ class SettingScreen extends Component {
         }
 
         this.setState({
-            listItems: [... SettingScreen.aListItems(),]
+            listItems: [... this.aListItems(),]
         })
     }
 
@@ -253,7 +253,7 @@ class SettingScreen extends Component {
 
     componentDidMount() {
         this.setState({
-            listItems: SettingScreen.aListItems(),
+            listItems: this.aListItems(),
         })
     }
 

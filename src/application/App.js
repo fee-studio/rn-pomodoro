@@ -70,10 +70,10 @@ class PomodoroApp extends React.Component {
         if (this.state.appState.match(/inactive|background/)) {
             Utils.setupApplicationIconBadgeNumber();
         }
-    }
+    };
 
     // CodePush
-    codePushStatusDidChange(status) {
+    static codePushStatusDidChange(status) {
         switch (status) {
             case codePush.SyncStatus.CHECKING_FOR_UPDATE:
                 console.log("Checking for updates.");
@@ -93,11 +93,11 @@ class PomodoroApp extends React.Component {
         }
     }
 
-    codePushDownloadDidProgress(progress) {
+    static codePushDownloadDidProgress(progress) {
         console.log(progress.receivedBytes + " of " + progress.totalBytes + " received.");
     }
 
-    codePushOnBinaryVersionMismatch(update) {
+    static codePushOnBinaryVersionMismatch(update) {
         console.log("codePushOnBinaryVersionMismatch = " + JSON.stringify(update));
     }
 }

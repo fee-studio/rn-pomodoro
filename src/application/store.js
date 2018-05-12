@@ -8,7 +8,6 @@ import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 
 // import Perf from 'react-addons-perf'
-
 // const win = window;
 // win.Perf = Perf
 

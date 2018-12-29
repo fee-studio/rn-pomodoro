@@ -11,6 +11,7 @@ import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData"
 import {COLOR} from "../../utils/Config"
 import {toCreateTask} from "../../navigators/actions"
 import {connect} from "react-redux"
+import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-view';
 // import {Button} from 'antd-mobile';
 // import Button from 'antd-mobile/lib/button';
 
@@ -56,12 +57,10 @@ class TaskListScreen extends React.PureComponent {
     todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
     planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>
     didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}
-                                     taskScreenType={this.props.taskScreenType}/>
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>
 
     constructor(props) {
         super(props)
-
     }
 
     componentWillMount() {
@@ -80,9 +79,11 @@ class TaskListScreen extends React.PureComponent {
         this.setState({index})
     }
 
-    _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.secondary}}
-                                     labelStyle={{fontSize: 12, margin: 3}}
-        // indicatorStyle={{backgroundColor: COLOR.primary}}
+    _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.backgroundLighter}}
+                                     labelStyle={{fontSize: 12, margin: 3, color:COLOR.primary}}
+                                     // scrollEnabled={false}
+                                     // scrollEnabled={this.props.tabViewScrollable}
+        indicatorStyle={{backgroundColor: COLOR.primary}}
     />
 
     _renderScene = SceneMap({
@@ -95,6 +96,7 @@ class TaskListScreen extends React.PureComponent {
     render() {
         return (
             <View style={styles.container}>
+
                 <TabViewAnimated
                     style={styles.container}
                     navigationState={this.state}
@@ -103,6 +105,26 @@ class TaskListScreen extends React.PureComponent {
                     onIndexChange={this._handleIndexChange}
                     initialLayout={initialLayout}
                 />
+
+
+                {/*<ScrollableTabView*/}
+                {/*style={{marginTop: 20,}}*/}
+                {/*initialPage={1}*/}
+                {/*renderTabBar={() => <DefaultTabBar/>}*/}
+                {/*locked={!this.props.tabViewScrollable}*/}
+                {/*>*/}
+
+                {/*<TaskListView tabLabel='Tab #111' taskState={TaskState.TaskStateTodo}*/}
+                {/*taskScreenType={this.props.taskScreenType}/>*/}
+                {/*<TaskListView tabLabel='Tab #122' taskState={TaskState.TaskStatePlan}*/}
+                {/*taskScreenType={this.props.taskScreenType}/>*/}
+                {/*<TaskListView tabLabel='Tab #133' taskState={TaskState.TaskStateComplete}*/}
+                {/*taskScreenType={this.props.taskScreenType}/>*/}
+                {/*<TaskListView tabLabel='Tab #144' taskState={TaskState.TaskStateOverdue}*/}
+                {/*taskScreenType={this.props.taskScreenType}/>*/}
+
+                {/*</ScrollableTabView>*/}
+
             </View>
         )
     }
@@ -112,6 +134,7 @@ class TaskListScreen extends React.PureComponent {
 const mapStateToProps = (state) => {
     return {
         taskScreenType: state.reducerNavigator.taskScreenType || TaskScreenType.TaskScreenTypeList,
+        tabViewScrollable: state.reducerTask.scrolling
     }
 }
 

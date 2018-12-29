@@ -8,9 +8,11 @@ import {
 
 
 import navigatorReducer from '../navigators/reducer'
+import taskReducer from '../components/task/reducer'
 
 const appReducer = combineReducers({
     reducerNavigator: navigatorReducer,
+    reducerTask: taskReducer,
 
     // nav: navigatorReducer,
     // todos: todoReducer,

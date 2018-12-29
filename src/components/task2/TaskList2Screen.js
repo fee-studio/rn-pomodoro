@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Text, View, StyleSheet} from "react-native";
 import PropTypes from 'prop-types';
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 
-// TODO: replace all xxx
-
-class xxx extends Component {
+class TaskList2Screen extends Component {
 
     // ===== LIFECYCLE BEGIN =====
 
@@ -18,9 +17,7 @@ class xxx extends Component {
         title: ""
     };
 
-    state = {
-
-    };
+    state = {};
 
     constructor(props) {
         super(props);
@@ -68,7 +65,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(xxx)
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList2Screen)
 
 
 const styles = StyleSheet.create({

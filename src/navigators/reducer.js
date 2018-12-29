@@ -2,7 +2,6 @@
  *  功能：
  */
 
-import {combineReducers} from 'redux';
 import {NavigationActions} from 'react-navigation';
 import {RootStack, RootTabs, tabTask} from './AppNavigator';
 import {

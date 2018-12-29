@@ -11,19 +11,47 @@ import {connect} from "react-redux";
 import {COLOR} from "../../utils/Config";
 import TaskService from "../../database/TaskService";
 import moment from 'moment';
+import {SwipeListView} from 'react-native-swipe-list-view';
+import Swipeable from 'react-native-swipeable';
+import Swipeout from 'react-native-swipeout';
+import {actionItemScrolling} from "./actions";
 
 
 export class TaskListItem extends PureComponent {
+
+    swipeable = null;
+
+    handleUserBeganScrollingParentView() {
+        this.swipeable.recenter();
+    }
+
+    state = {
+        scrollEnabled: false,
+    }
 
     constructor(props) {
         super(props);
 
         moment.locale()
+
+        leftContent = <Text>Pull to activate</Text>;
+
+        rightButtons = [
+            <TouchableHighlight><Text>Button 11111</Text></TouchableHighlight>,
+            <TouchableHighlight><Text>Button 2</Text></TouchableHighlight>
+        ];
     }
 
     render() {
+        var swipeoutBtns = [
+            {
+                text: 'Button'
+            }
+        ]
+
         // const {navigate,goBack,state} = this.props.navigation;
         return (
+            // /*
             <TouchableHighlight onPress={this.props.onPress} onLongPress={this.props.onLongPress}>
                 <View style={styles.taskListItemContainer}>
                     <View style={styles.taskListItemTop}>
@@ -37,14 +65,40 @@ export class TaskListItem extends PureComponent {
                     <Text>{this.props.task.taskName}</Text>
                 </View>
             </TouchableHighlight>
+            // */
 
             // Swipeout component
+            // /*
+
+            // Swipeout比较卡
             /*
-            <Swipeout right={swipeoutBtns}>
-                <View>
-                    <Text>Swipe me left</Text>
+            <Swipeout autoClose={true}
+                      right={swipeoutBtns}
+                      scroll={scrollable => {
+                          this.props.a_scrolling(scrollable)
+                      }}
+                      sensitivity={100}
+            >
+                <View style={styles.taskListItemContainer}>
+                    <Text>Swipe me left111 {this.state.scrollEnabled}</Text>
                 </View>
             </Swipeout>
+            */
+
+            /*
+            <Swipeable style={styles.taskListItemContainer}
+                       onSwipeStart={()=>this.props.a_scrolling(true)}
+                       onSwipeRelease={() => this.props.a_scrolling(false)}
+                       leftContent={leftContent}
+                       rightButtons={rightButtons}>
+                <Text>My swipeable content</Text>
+            </Swipeable>
+            */
+
+            /*
+            <Swipeable onRef={ref => this.swipeable = ref} rightButtons={rightButtons}>
+                <Text>My swipeable content</Text>
+            </Swipeable>
             */
         );
     }
@@ -102,6 +156,9 @@ class TaskListView extends PureComponent {
                                                                   this.props.toTomatoScreenWithTask(item)
                                                               }
                                                           }}
+                                                          a_scrolling={(scrolling) => {
+                                                              this.props.a_scrolling(scrolling)
+                                                          }}
                                                           onLongPress={() => {
                                                               // this.props.toTomatoScreenWithTask(item);
                                                           }}
@@ -116,6 +173,25 @@ class TaskListView extends PureComponent {
                 {/*<SectionList sections={this.items2}*/}
                 {/*renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}*/}
                 {/*/>*/}
+
+                {/*<SwipeListView*/}
+                {/*useFlatList*/}
+                {/*data={this.state.taskItems}*/}
+                {/*renderItem={(data, rowMap) => (*/}
+                {/*<View style={styles.rowFront}>*/}
+                {/*<Text>I am {data.item} in a SwipeListView</Text>*/}
+                {/*</View>*/}
+                {/*)}*/}
+                {/*renderHiddenItem={(data, rowMap) => (*/}
+                {/*<View style={styles.rowBack}>*/}
+                {/*<Text>Left</Text>*/}
+                {/*<Text>Right</Text>*/}
+                {/*</View>*/}
+                {/*)}*/}
+                {/*leftOpenValue={75}*/}
+                {/*rightOpenValue={-75}*/}
+                {/*/>*/}
+
             </View>
         );
     }
@@ -186,7 +262,10 @@ class TaskListView extends PureComponent {
                         dayItems.push(task)
                     } else {
                         dayItems = [];
-                        dayGroup.push({data: dayItems, sectionTitle: moment(task.actionTime).format('YYYY-MM-DD dddd')});
+                        dayGroup.push({
+                            data: dayItems,
+                            sectionTitle: moment(task.actionTime).format('YYYY-MM-DD dddd')
+                        });
                         dayItems.push(task)
                     }
                 }
@@ -213,7 +292,8 @@ class TaskListView extends PureComponent {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         toCreateTaskScreen: (item) => dispatch(toCreateTask(item)),
-        toTomatoScreenWithTask: (taskItem) => dispatch(toTomatoScreenWithTask(taskItem))
+        toTomatoScreenWithTask: (taskItem) => dispatch(toTomatoScreenWithTask(taskItem)),
+        a_scrolling: (scrolling) => dispatch(actionItemScrolling(scrolling)),
     }
 };
 
@@ -282,13 +362,11 @@ const styles = StyleSheet.create({
     },
     taskListItemContainer: {
         flex: 1,
-        height: 44,
+        height: 50,
         flexDirection: 'column',
         justifyContent: 'center',
-        // alignItems: 'center',
         backgroundColor: '#fff',
         paddingLeft: 10,
-
     },
     taskListItemTop: {},
     taskListItemTomatoCount: {},

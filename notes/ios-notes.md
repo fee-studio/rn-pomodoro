@@ -10,7 +10,9 @@
 
 
 
-3.
-Q:
-
-A:
+- xxx has conflicting settings. xxx is automatically signed for development, but a conflicting code signing identity iPhone Distribution has been manually specified. Set the code signing identity value to "iPhone Developer" in the build settings editor, or switch to manual signing in the project editor.
+  Code signing is required for product type 'Application' in SDK 'iOS 10.2'
+  
+  [参考: Go to Your project -> Build Settings -> Code Signing Identity and **put everything to iOs developer.**](https://stackoverflow.com/questions/40824727/i-get-conflicting-provisioning-settings-error-when-i-try-to-archive-to-submit-an)
+  
+- 

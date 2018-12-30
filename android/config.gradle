@@ -1,0 +1,57 @@
+ext {
+    android = [
+            compileSdkVersion   : 27,
+            buildToolsVersion   : '27.0.3',
+            applicationId       : 'com.buerguo.pomodoroapp',
+            minSdkVersion       : 19,
+            targetSdkVersion    : 27,
+            versionCode         : 1,
+            versionName         : '1.1.0',
+            defaultPublishConfig: 'release',
+            publishNonDefault   : true
+    ]
+
+    dependencies = [
+            // for PomodoroApp
+
+            // for project app
+            "appcompat-v7"      : 'com.android.support:appcompat-v7:27.0.3',
+            "react-native"      : 'com.facebook.react:react-native:0.57.8',
+            "play-services-gcm" : 'com.google.android.gms:play-services-gcm:16.0.0',
+            "mta"               : 'com.qq.mta:mta:3.2.1-release',
+            "mid"               : 'com.tencent.mid:mid:3.73-release',
+            "visual"            : 'com.qq.visual:visual:1.0.8-release',
+
+            // for project react-native-push-notification
+            "ShortcutBadger"    : 'me.leolin:ShortcutBadger:1.1.19@aar',
+
+            // for realm
+            "nanohttpd"         : 'org.nanohttpd:nanohttpd:2.2.0',
+
+            // for react-native-code-push
+            "nimbus-jose-jwt"   : 'com.nimbusds:nimbus-jose-jwt:5.1',
+
+            // for
+            "support-design"    : 'com.android.support:design:+',
+            "support-v4"        : 'com.android.support:support-v4:25.3.1',
+            "roundedimageview"  : 'com.makeramen:roundedimageview:2.2.1',
+            "Android-PickerView": 'com.contrarywind:Android-PickerView:3.2.5',
+            "XTabLayout"        : 'com.androidkun:XTabLayout:1.1.1',
+            "status-bar-compat" : 'com.githang:status-bar-compat:0.3',
+            "recyclerview-v7"   : 'com.android.support:recyclerview-v7:23.2.0',
+            "crashreport"       : 'com.tencent.bugly:crashreport:latest.release',
+            "crashreport-native": 'com.tencent.bugly:nativecrashreport:latest.release',
+
+            // for test
+            "junit"             : 'junit:junit:4.12',
+
+            // for
+            "volley"            : 'com.android.volley:volley:1.0.0',
+            "okhttp"            : 'com.squareup.okhttp3:okhttp:3.2.0',
+            "gson"              : 'com.google.code.gson:gson:2.8.0',
+            "glide"             : 'com.github.bumptech.glide:glide:3.7.0',
+            "rxandroid"         : 'io.reactivex:rxandroid:1.2.1',
+            "rxjava"            : 'io.reactivex:rxjava:1.3.0'
+
+    ]
+}

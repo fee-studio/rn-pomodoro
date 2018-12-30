@@ -59,5 +59,7 @@ target 'PomodoroApp' do
 	pod 'QQ_MTA/InstallTracker'
 	
 	
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
 end
 

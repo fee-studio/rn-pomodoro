@@ -1,6 +1,13 @@
 # rn-pomodoro
 Pomodoro app powered by react-native.
 
+### Skills
+
+- yarn更新依赖包时，package.json同步更新版本信息
+    ```
+    yarn upgrade-interactive --latest
+    ```
+
 #### 项目技术栈
 
 - iOS/Android - Objective-C/Swift/Java/Kotlin

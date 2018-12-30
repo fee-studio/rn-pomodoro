@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		107547209B004F7C950C60AA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8A496BF7BE94800B3B47DE8 /* Octicons.ttf */; };
 		12F4EF2C11174691840D987D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC100F29D7D4ADC975526FA /* SimpleLineIcons.ttf */; };
@@ -354,7 +353,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 910;
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {

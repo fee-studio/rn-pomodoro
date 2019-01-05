@@ -1,4 +1,7 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
+
+# 不能用use_frameworks! realm.js库会报错，(#import "RCTBridge+Private.h")文件找不到。
+# use_frameworks!
 
 target 'PomodoroApp' do
 	
@@ -11,22 +14,22 @@ target 'PomodoroApp' do
 	# 'node_modules'目录一般位于根目录中
 	# 但是如果你的结构不同，那你就要根据实际路径修改下面的`:path`
 	pod 'React', :path => '../node_modules/react-native', :subspecs => [
-		'Core',
+            'Core',
 		'CxxBridge', 	# 如果RN版本 >= 0.45则加入此行
 		'DevSupport', 	# 如果RN版本 >= 0.43，则需要加入此行才能开启开发者菜单
-		'RCTText',
-		'RCTNetwork',
-		'RCTWebSocket', # 这个模块是用于调试功能的
-		'RCTActionSheet',
-		'RCTAnimation',
-		'RCTGeolocation',
-		'RCTImage',
-		'RCTLinkingIOS',
-		'RCTSettings',
-		'RCTVibration',
-		'BatchedBridge',
+            'RCTText',
+            'RCTNetwork',
+            'RCTWebSocket', # 这个模块是用于调试功能的
+            'RCTActionSheet',
+            'RCTAnimation',
+            'RCTGeolocation',
+            'RCTImage',
+            'RCTLinkingIOS',
+            'RCTSettings',
+            'RCTVibration',
+#		'BatchedBridge',
 		'RCTPushNotification',
-		'RCTBlob',
+            'RCTBlob',
 		'ART',
 	]
 	
@@ -35,7 +38,7 @@ target 'PomodoroApp' do
 	
 	# 如果RN版本 >= 0.45则加入下面三个第三方编译依赖
 	pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-	pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+	pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
 	pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 	
 #	pod 'appcenter', :path => '../node_modules/appcenter/ios'
@@ -45,17 +48,18 @@ target 'PomodoroApp' do
 	pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
 	pod 'Picker', :path => '../node_modules/react-native-picker'
 	pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-#	pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler/ios'
-
+	pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+    pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+    
 	pod 'WechatOpenSDK'
-	pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+	
 	
 	# https://github.com/tegdata/mta
-	pod 'QQ_MTA'
-	pod 'QQ_MTA/AutoTrack'
-	pod 'QQ_MTA/Hybrid'
-	pod 'QQ_MTA/Idfa'
-	pod 'QQ_MTA/InstallTracker'
+	# pod 'QQ_MTA'
+	# pod 'QQ_MTA/AutoTrack'
+	# pod 'QQ_MTA/Hybrid'
+	# pod 'QQ_MTA/Idfa'
+	# pod 'QQ_MTA/InstallTracker'
 	
 	
   pod 'RNSVG', :path => '../node_modules/react-native-svg'

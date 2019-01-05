@@ -8,14 +8,15 @@
  */
 
 #import "AppDelegate.h"
-#import <CodePush/CodePush.h>
-#import "MTA.h"
-#import "MTAConfig.h"
+//#import <CodePush/CodePush.h>
+//#import "MTA.h"
+//#import "MTAConfig.h"
 //#import <AppCenterReactNativeCrashes/AppCenterReactNativeCrashes.h>
 //#import <AppCenterReactNativeAnalytics/AppCenterReactNativeAnalytics.h>
 //#import <AppCenterReactNative/AppCenterReactNative.h>
 
-#import "SplashScreen.h"  // here
+//#import "SplashScreen.h"  // here
+#import <react-native-splash-screen/RNSplashScreen.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -32,19 +33,26 @@
   //    [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
   //    [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics
 
-    [MTA startWithAppkey:@"I99GVWC6RQ5Y"];
+//    [MTA startWithAppkey:@"I99GVWC6RQ5Y"];
   
-    NSURL *jsCodeLocation;
+  NSURL *jsCodeLocation;// = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
   
 #ifdef DEBUG
-    #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
-    #else
-        jsCodeLocation = [CodePush bundleURL];
-    #endif
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
 #else
-    jsCodeLocation = [CodePush bundleURLForResource:@"index"];
+  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+
+  
+//#ifdef DEBUG
+//    #ifdef DEBUG
+//        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:@"index"];
+//    #else
+//        jsCodeLocation = [CodePush bundleURL];
+//    #endif
+//#else
+//    jsCodeLocation = [CodePush bundleURLForResource:@"index"];
+//#endif
 
     RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                         moduleName:@"PomodoroApp"
@@ -58,18 +66,18 @@
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
   
-    [SplashScreen show];  // here
+    [RNSplashScreen show];  // here
     return YES;
 }
 
 // 开始打点 使用时长统计
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-  [MTA trackActiveBegin];
+//  [MTA trackActiveBegin];
 }
 
 // 结束打点
 - (void)applicationWillResignActive:(UIApplication *)application {
-  [MTA trackActiveEnd];
+//  [MTA trackActiveEnd];
 }
 
 #pragma mark - Push Notification

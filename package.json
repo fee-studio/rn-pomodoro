@@ -21,7 +21,7 @@
     "clean-build": "rm -rf .tmp android/build android/app/build ios/build",
     "ios-run-dev": "react-native run-ios",
     "ios-run-dev-device-xiaojia": "react-native run-ios --device \"xiaojia's iphone\"",
-    "ios-run-dev-device-jd-iphone8s": "react-native run-ios --device \"jd-iphone8s\"",
+    "ios-run-dev-device-iphonexr": "react-native run-ios --device \"万古流芳莽撞人\"",
     "ios-bundle": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/index.jsbundle --assets-dest ios/",
     "ios-log-tail": "react-native log-ios",
     "ios-list-simulators": "xcrun simctl list devices",

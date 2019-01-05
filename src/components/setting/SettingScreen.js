@@ -9,7 +9,6 @@ import {RealmDemo} from "../../database/RealmDemo";
 import Picker from 'react-native-picker';
 import {COLOR} from "../../utils/Config";
 import GlobalData, {TaskState} from "../../utils/GlobalData";
-import {toTuCaoWebView, toWebViewComponent} from "../../navigators/actions";
 import {connect} from "react-redux";
 import NotificationManager from "../../utils/NotificationManager";
 import TaskService from "../../database/TaskService";
@@ -234,7 +233,8 @@ class SettingScreen extends Component {
         if (item.key === 'key-evaluation') {
             // todo ...
         } else if (item.key === 'key-feedback') {
-            this.props.toTuCaoWebView("https://support.qq.com/products/17202")
+            // this.props.toTuCaoWebView("https://support.qq.com/products/17202")
+            this.props.navigation.navigate('TuCaoWebView',{url:"https://support.qq.com/products/17202"});
         }
     }
 
@@ -282,8 +282,8 @@ class SettingScreen extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toWebView: (url) => dispatch(toWebViewComponent(url)),
-        toTuCaoWebView: (url) => dispatch(toTuCaoWebView(url)),
+        // toWebView: (url) => dispatch(toWebViewComponent(url)),
+        // toTuCaoWebView: (url) => dispatch(toTuCaoWebView(url)),
     }
 };
 
@@ -293,6 +293,8 @@ export default connect(null, mapDispatchToProps)(SettingScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        // backgroundColor: '#eee',
+        ...Utils.getHeaderInset(),
     },
     listHeader: {
         backgroundColor: '#0000',
@@ -303,6 +305,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginBottom: -10,
         color:COLOR.textNormal,
+        fontWeight: 'bold',
     },
     itemContainer: {
         flexDirection: 'row',

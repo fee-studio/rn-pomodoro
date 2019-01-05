@@ -5,7 +5,7 @@
 
 import React from 'react'
 import {View, StyleSheet, Dimensions, Button, Text, TouchableHighlight, TouchableWithoutFeedback} from 'react-native'
-import {TabViewAnimated, TabBar, SceneMap} from 'react-native-tab-view'
+import {TabBar, SceneMap, TabView} from 'react-native-tab-view'
 import TaskListView from "./TaskListView"
 import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData"
 import {COLOR} from "../../utils/Config"
@@ -23,13 +23,13 @@ const initialLayout = {
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn} onPress={() => {
-            navigation.dispatch(toCreateTask())
-        }}>
-            <View>
-                <Text style={{color: COLOR.blue, fontSize: 18, width: 50,}}>添加</Text>
-            </View>
-        </TouchableWithoutFeedback>,
+        // headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn} onPress={() => {
+        //     navigation.dispatch(toCreateTask())
+        // }}>
+        //     <View>
+        //         <Text style={{color: COLOR.blue, fontSize: 18, width: 50,}}>添加</Text>
+        //     </View>
+        // </TouchableWithoutFeedback>,
 
         // headerRight: <Button title="添加"
         //                      color={COLOR.secondary}
@@ -52,15 +52,32 @@ class TaskListScreen extends React.PureComponent {
             {key: 'did', title: TaskStateTitle.TaskStateTitleComplete},
             {key: 'undone', title: TaskStateTitle.TaskStateTitleOverdue},
         ],
+        // type: this.props.navigation.state.params.type !== undefined ? this.props.navigation.state.params.type : TaskScreenType.TaskScreenTypeList
     }
 
-    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.taskScreenType}/>
-    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.taskScreenType}/>
-    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.taskScreenType}/>
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.taskScreenType}/>
+    todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo}/>
+    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} />
+    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} />
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} />
 
+    // todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.type}/>
+    // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.type}/>
+    // didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.type}/>
+    // undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.type}/>
+
+    // todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.props.navigation.state.params.type}/>
+    // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.props.navigation.state.params.type}/>
+    // didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} taskScreenType={this.props.navigation.state.params.type}/>
+    // undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} taskScreenType={this.props.navigation.state.params.type}/>
+    //
     constructor(props) {
         super(props)
+
+        // if (this.props.navigation.state.params.type !== undefined) {
+        //     // this.type = this.props.navigation.state.params.type;
+        // }
+
+        // alert(JSON.stringify(this.props.navigation.state.params))
     }
 
     componentWillMount() {
@@ -97,7 +114,7 @@ class TaskListScreen extends React.PureComponent {
         return (
             <View style={styles.container}>
 
-                <TabViewAnimated
+                <TabView
                     style={styles.container}
                     navigationState={this.state}
                     renderScene={this._renderScene}
@@ -133,7 +150,7 @@ class TaskListScreen extends React.PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        taskScreenType: state.reducerNavigator.taskScreenType || TaskScreenType.TaskScreenTypeList,
+        // taskScreenType: state.reducerNavigator.taskScreenType || TaskScreenType.TaskScreenTypeList,
         tabViewScrollable: state.reducerTask.scrolling
     }
 }

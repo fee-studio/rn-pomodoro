@@ -6,16 +6,40 @@ import React from 'react';
 import {AppRegistry, AppState} from 'react-native';
 import {Provider} from 'react-redux';
 import store from './store'
-import AppNavigator from '../navigators/AppNavigator'
 import Initialization from "../utils/Initialization";
-import codePush from 'react-native-code-push'
+// todo 暂时停用 import codePush from 'react-native-code-push'
 import SplashScreen from 'react-native-splash-screen'
 import Utils from "../utils/Utils"
+import AppContainer from "./AppContainer";
+
+
+function getActiveRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
+    }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getActiveRouteName(route);
+    }
+    return route.routeName;
+}
+
+const appHandleNavigationChange = (prevState, currentState) => {
+    const currentScreen = getActiveRouteName(currentState);
+    const prevScreen = getActiveRouteName(prevState);
+    console.log("navigation changed");
+    if (prevScreen !== currentScreen) {
+        // the line below uses the Google Analytics tracker
+        // change the tracker here to use other Mobile analytics SDK.
+        // tracker.trackScreenView(currentScreen);
+    }
+}
 
 class PomodoroApp extends React.Component {
 
     state = {
-        appState: AppState.currentState
+        // appState: AppState.currentState
     }
 
     constructor(props) {
@@ -23,19 +47,28 @@ class PomodoroApp extends React.Component {
 
         // 初始化数据
         new Initialization()
+
+        console.log("fengyiyi")
     }
 
     render() {
         return (
             <Provider store={store}>
-                <AppNavigator/>
+                {/*<AppNavigator/>*/}
+                <AppContainer
+                    // onNavigationStateChange={appHandleNavigationChange} // todo 学习这个怎么用
+                    uriPrefix="/app"
+                    // ref={nav => {
+                    //     this.navigator = nav;
+                    //                    }}
+                />
             </Provider>
         )
     }
 
     componentDidMount() {
         SplashScreen.hide();
-        AppState.addEventListener('change', this._handleAppStateChange);
+        // AppState.addEventListener('change', this._handleAppStateChange);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -55,7 +88,7 @@ class PomodoroApp extends React.Component {
     }
 
     componentWillUnmount() {
-        AppState.removeEventListener('change', this._handleAppStateChange);
+        // AppState.removeEventListener('change', this._handleAppStateChange);
     }
 
     _handleAppStateChange = (nextAppState) => {
@@ -72,6 +105,11 @@ class PomodoroApp extends React.Component {
         }
     };
 
+    static handleNavigationChange() {
+        console.log("handleNavigationChange called");
+    };
+
+    /* todo 暂时停用
     // CodePush
     static codePushStatusDidChange(status) {
         switch (status) {
@@ -100,8 +138,10 @@ class PomodoroApp extends React.Component {
     static codePushOnBinaryVersionMismatch(update) {
         console.log("codePushOnBinaryVersionMismatch = " + JSON.stringify(update));
     }
+    */
 }
 
+/* todo 暂时停用
 // CodePush热更新
 let options = {
     checkFrequency: codePush.CheckFrequency.ON_APP_START,
@@ -109,5 +149,6 @@ let options = {
     installMode: codePush.InstallMode.ON_NEXT_RESTART
 };
 PomodoroApp = codePush(options)(PomodoroApp);
+*/
 
 AppRegistry.registerComponent('PomodoroApp', () => PomodoroApp);

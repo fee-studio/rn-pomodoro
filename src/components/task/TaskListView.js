@@ -5,8 +5,7 @@
 import React, {PureComponent} from 'react';
 import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
 import realm from '../../database/RealmDB'
-import {TaskState} from "../../utils/GlobalData";
-import {toCreateTask, toTaskScreen, toTomatoScreenWithTask} from "../../navigators/actions";
+import {TaskScreenType, TaskState} from "../../utils/GlobalData";
 import {connect} from "react-redux";
 import {COLOR} from "../../utils/Config";
 import TaskService from "../../database/TaskService";
@@ -15,6 +14,7 @@ import {SwipeListView} from 'react-native-swipe-list-view';
 import Swipeable from 'react-native-swipeable';
 import Swipeout from 'react-native-swipeout';
 import {actionItemScrolling} from "./actions";
+import {withNavigation} from "react-navigation";
 
 
 export class TaskListItem extends PureComponent {
@@ -34,9 +34,9 @@ export class TaskListItem extends PureComponent {
 
         moment.locale()
 
-        leftContent = <Text>Pull to activate</Text>;
+        let leftContent = <Text>Pull to activate</Text>;
 
-        rightButtons = [
+        let rightButtons = [
             <TouchableHighlight><Text>Button 11111</Text></TouchableHighlight>,
             <TouchableHighlight><Text>Button 2</Text></TouchableHighlight>
         ];
@@ -150,10 +150,14 @@ class TaskListView extends PureComponent {
                     stickySectionHeadersEnabled={true}
                     renderItem={({item}) => <TaskListItem task={item}
                                                           onPress={() => {
-                                                              if (this.props.taskScreenType === 0) {
-                                                                  this.props.toCreateTaskScreen(item)
+                                                              if (this.props.navigation.state.params === undefined
+                                                                  || this.props.navigation.state.params.type === TaskScreenType.TaskScreenTypeList) {
+                                                                  // this.props.toCreateTaskScreen(item)
+                                                                  this.props.navigation.navigate('CreateTask', {item:item})
                                                               } else {
-                                                                  this.props.toTomatoScreenWithTask(item)
+                                                                  // this.props.toTomatoScreenWithTask(item)
+                                                                  this.props.navigation.navigate('TomatoScreen', {task_item: item})
+                                                                  // this.props.navigation.goBack();
                                                               }
                                                           }}
                                                           a_scrolling={(scrolling) => {
@@ -291,13 +295,15 @@ class TaskListView extends PureComponent {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toCreateTaskScreen: (item) => dispatch(toCreateTask(item)),
-        toTomatoScreenWithTask: (taskItem) => dispatch(toTomatoScreenWithTask(taskItem)),
+        // toCreateTaskScreen: (item) => dispatch(toCreateTask(item)),
+        // toTomatoScreenWithTask: (taskItem) => dispatch(toTomatoScreenWithTask(taskItem)),
         a_scrolling: (scrolling) => dispatch(actionItemScrolling(scrolling)),
     }
 };
 
-export default connect(null, mapDispatchToProps)(TaskListView)
+// withNavigation 是一个高阶组件，它可以将navigation这个 prop 传递到一个包装的组件。
+// 当你无法直接将navigation 这个 prop 传递给组件，或者不想在深度嵌套的子组件中传递它时，它将非常有用。
+export default withNavigation(connect(null, mapDispatchToProps)(TaskListView))
 
 // export class TaskListView4Todo extends TaskListView {
 //     componentDidMount() {

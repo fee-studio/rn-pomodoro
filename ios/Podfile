@@ -42,7 +42,6 @@ target 'PomodoroApp' do
 #	pod 'appcenter-analytics', :path => '../node_modules/appcenter-analytics/ios'
 #	pod 'appcenter-crashes', :path => '../node_modules/appcenter-crashes/ios'
 	
-	pod 'CodePush', :path => '../node_modules/react-native-code-push'
 	pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
 	pod 'Picker', :path => '../node_modules/react-native-picker'
 	pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'

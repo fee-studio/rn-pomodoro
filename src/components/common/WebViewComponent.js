@@ -4,6 +4,7 @@
 
 'use strict';
 import {connect} from "react-redux";
+import Utils from "../../utils/Utils";
 
 var React = require('react');
 var ReactNative = require('react-native');
@@ -59,14 +60,13 @@ class WebViewComponent extends React.Component {
 
     }
 
-
     render() {
         return (
             <View style={[styles.container]}>
                 <WebView
                     automaticallyAdjustContentInsets={false}
                     style={styles.webView}
-                    source={{uri: this.props.url}}
+                    source={{uri: this.props.navigation.state.params.url}}
                     javaScriptEnabled={true}
                     domStorageEnabled={true}
                     decelerationRate="normal"
@@ -83,7 +83,7 @@ class WebViewComponent extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        url: state.reducerNavigator.url
+        // url: state.reducerNavigator.url
     };
 };
 
@@ -94,6 +94,7 @@ export default connect(mapStateToProps)(WebViewComponent)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        ...Utils.getHeaderInset(),
     },
 
 });

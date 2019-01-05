@@ -59,9 +59,10 @@ class CreateTaskScreen extends React.PureComponent {
     constructor(props) {
         super(props)
 
-        this.isCreateTask = this.props.item === undefined
+        this.isCreateTask = this.props.navigation.state.params.item === undefined
+        // this.isCreateTask = this.props.item === undefined
         this.state = {
-            taskModel: this.isCreateTask ? new TaskModel() : {...this.props.item},
+            taskModel: this.isCreateTask ? new TaskModel() : {...this.props.navigation.state.params.item},
             isDateTimePickerVisible: false,
         }
 
@@ -241,7 +242,7 @@ class CreateTaskScreen extends React.PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        item: state.reducerNavigator.item
+        // item: state.reducerNavigator.item
     }
 }
 

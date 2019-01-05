@@ -11,6 +11,7 @@ import TomatoService from "../../database/TomatoService"
 import TaskService from "../../database/TaskService"
 import GlobalData from "../../utils/GlobalData"
 import {connect} from "react-redux"
+import Utils from "../../utils/Utils";
 
 
 class DailyTomatoCountListItem extends React.PureComponent {
@@ -49,7 +50,7 @@ class DailyTomatoCountListItem extends React.PureComponent {
 class DailyTomatoCountList extends React.PureComponent {
     state = {selected: {}, selectedValue: ''}
 
-    _keyExtractor = (item, index) => index
+    _keyExtractor = (item, index) => item.id
 
     _onPressItem = (item) => {
         this.setState((state) => {
@@ -95,7 +96,7 @@ class DailyTomatoCountList extends React.PureComponent {
                     //     {length: 30, offset: 30 * index, index}
                     // )}
                     // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
-                />
+                 />
             </View>
         )
     }
@@ -241,6 +242,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(StatisticsScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        ...Utils.getHeaderInset(),
     },
     moduleContainer: {
         marginTop: 10,

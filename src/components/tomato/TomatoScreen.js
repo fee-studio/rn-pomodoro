@@ -26,7 +26,6 @@ import {TaskScreenType, TomatoState, TomatoType} from "../../utils/GlobalData";
 import Initialization from "../../utils/Initialization";
 import TomatoModel from "../../models/TomatoModel";
 import {connect} from "react-redux";
-import {toTaskScreen, toTaskScreenSelectTask} from "../../navigators/actions";
 import {COLOR} from "../../utils/Config";
 import Circle from "react-native-progress/Circle";
 import {AnimatedCircularProgress} from "react-native-circular-progress";
@@ -143,6 +142,7 @@ class TomatoScreen extends Component {
 
         this.tomatoStatus = TomatoState.TomatoStateInit;
         this.tomatoType = TomatoType.TomatoTypeInit;
+        this.taskItem = null;
 
         this.state = {
             progress: 0,
@@ -165,7 +165,12 @@ class TomatoScreen extends Component {
 
     // VIP redux props changed, to modify state value, IN HERE!!!
     componentWillReceiveProps(nextProps) {
-        if (nextProps.taskItem !== undefined) {
+        // if (nextProps.taskItem !== undefined) {
+        //     this.actionPlay()
+        // }
+
+        if (nextProps.navigation.state.params.task_item !== undefined) {
+            this.taskItem = nextProps.navigation.state.params.task_item;
             this.actionPlay()
         }
     }
@@ -178,10 +183,10 @@ class TomatoScreen extends Component {
 
     render() {
         let type = this.tomatoType;
-        let state = this.tomatoStatus;
+        let status = this.tomatoStatus;
         if (this.state.tomato) {
             type = this.state.tomato.type;
-            state = this.state.tomato.state;
+            status = this.state.tomato.state;
         }
         let color = type === TomatoType.TomatoTypeInit ? COLOR.clear :
             type === TomatoType.TomatoTypeResting ? COLOR.secondary : COLOR.primary;
@@ -195,22 +200,22 @@ class TomatoScreen extends Component {
                         {moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Symbol'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Courier'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Didot'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Georgia'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Verdana'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', }}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}*/}
+                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>
@@ -226,13 +231,13 @@ class TomatoScreen extends Component {
                                 showsText={false}
                                 strokeCap="round"
                             >
-                                <ProgressChildView playStatus={state}/>
+                                <ProgressChildView playStatus={status}/>
                             </Progress.Circle>
                         </View>
                     </TouchableWithoutFeedback>
 
                     <Text
-                        style={styles.tomatoTask}>{this.props.taskItem ? this.props.taskItem.taskName : "番茄钟完成后，记得选择您的任务哦！"}</Text>
+                        style={styles.tomatoTask}>{this.taskItem ? this.taskItem.taskName : "番茄钟完成后，记得选择您的任务哦！"}</Text>
                 </View>
             </View>
         );
@@ -276,7 +281,8 @@ class TomatoScreen extends Component {
                         {
                             text: '选任务',
                             onPress: () => {
-                                this.props.toTaskScreenSelect()
+                                // this.props.toTaskScreenSelect()
+                                this.props.navigation.navigate('TaskListScreen4Select', {type: TaskScreenType.TaskScreenTypeSelect})
                             }
                         },
                     ],
@@ -302,7 +308,7 @@ class TomatoScreen extends Component {
         this.tomatoStatus = TomatoState.TomatoStateStart;
 
         // 数据
-        let tomato = new TomatoModel(this.tomatoStatus, this.tomatoType, this.props.taskItem);
+        let tomato = new TomatoModel(this.tomatoStatus, this.tomatoType, this.taskItem);
         this.setState({
             tomato: tomato,
         }, () => {
@@ -458,19 +464,19 @@ class TomatoScreen extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        taskItem: state.reducerNavigator.task,
+        // taskItem: state.reducerNavigator.task,
         workDuration: GlobalData.tomatoConfig.duration,
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toTaskScreen: () => {
-            dispatch(toTaskScreen())
-        },
-        toTaskScreenSelect: () => {
-            dispatch(toTaskScreenSelectTask())
-        },
+        // toTaskScreen: () => {
+        //     dispatch(toTaskScreen())
+        // },
+        // toTaskScreenSelect: () => {
+        //     dispatch(toTaskScreenSelectTask())
+        // },
     }
 };
 

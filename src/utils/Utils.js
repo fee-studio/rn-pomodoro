@@ -28,7 +28,6 @@ export default class Utils {
             + date.getDay()
     }
 
-
     static setupApplicationIconBadgeNumber() {
         let count = 0
         if (GlobalData.tomatoConfig.showTodoCount) {

@@ -5735,7 +5735,7 @@ react-deep-force-update@^1.0.0:
   resolved "http://registry.npm.taobao.org/react-deep-force-update/download/react-deep-force-update-1.1.2.tgz#3d2ae45c2c9040cbb1772be52f8ea1ade6ca2ee1"
   integrity sha1-PSrkXCyQQMuxdyvlL46hrebKLuE=
 
-react-devtools-core@^3.4.2, react-devtools-core@^3.4.3:
+react-devtools-core@^3.4.2:
   version "3.4.3"
   resolved "http://registry.npm.taobao.org/react-devtools-core/download/react-devtools-core-3.4.3.tgz#1a06b7dc546d41ecf8dc4fbabea2d79d339353cf"
   integrity sha1-Gga33FRtQez43E+6vqLXnTOTU88=
@@ -5743,16 +5743,24 @@ react-devtools-core@^3.4.2, react-devtools-core@^3.4.3:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
-react-devtools@^3.0.0:
-  version "3.4.3"
-  resolved "http://registry.npm.taobao.org/react-devtools/download/react-devtools-3.4.3.tgz#a4dfbe1e16873270ffc6d8d3e9bbdf6b0ca356d2"
-  integrity sha1-pN++HhaHMnD/xtjT6bvfawyjVtI=
+react-devtools-core@^3.5.1:
+  version "3.5.1"
+  resolved "http://registry.npm.taobao.org/react-devtools-core/download/react-devtools-core-3.5.1.tgz#819dc6891780b9132943e75598279126fafaebba"
+  integrity sha1-gZ3GiReAuRMpQ+dVmCeRJvr667o=
+  dependencies:
+    shell-quote "^1.6.1"
+    ws "^3.3.1"
+
+react-devtools@^3.5.1:
+  version "3.5.1"
+  resolved "http://registry.npm.taobao.org/react-devtools/download/react-devtools-3.5.1.tgz#23656fae208c3234fda7984e3f562a22e6361270"
+  integrity sha1-I2VvriCMMjT9p5hOP1YqIuY2EnA=
   dependencies:
     cross-spawn "^5.0.1"
     electron "^1.8.7"
     ip "^1.1.4"
     minimist "^1.2.0"
-    react-devtools-core "^3.4.3"
+    react-devtools-core "^3.5.1"
     update-notifier "^2.1.0"
 
 react-is@^16.3.2, react-is@^16.5.2, react-is@^16.6.3, react-is@^16.7.0:
@@ -5791,7 +5799,7 @@ react-native-easy-toast@^1.0.8:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-gesture-handler@^1.0.0, react-native-gesture-handler@^1.0.0-alpha.43:
+react-native-gesture-handler@^1.0.0:
   version "1.0.12"
   resolved "http://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.0.12.tgz#99a22f90212df299245357dbd3a9a01c788f310b"
   integrity sha1-maIvkCEt8pkkU1fb06mgHHiPMQs=

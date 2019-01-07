@@ -9,9 +9,10 @@ import {TabBar, SceneMap, TabView} from 'react-native-tab-view'
 import TaskListView from "./TaskListView"
 import {TaskScreenType, TaskState, TaskStateTitle} from "../../utils/GlobalData"
 import {COLOR} from "../../utils/Config"
-import {toCreateTask} from "../../navigators/actions"
 import {connect} from "react-redux"
 import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-view';
+import Icon from "react-native-vector-icons/SimpleLineIcons";
+import DIYIcon from "../../modules/iconfont/DIYIcon";
 // import {Button} from 'antd-mobile';
 // import Button from 'antd-mobile/lib/button';
 
@@ -56,9 +57,9 @@ class TaskListScreen extends React.PureComponent {
     }
 
     todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo}/>
-    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} />
-    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete} />
-    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue} />
+    planTask = () => <TaskListView taskState={TaskState.TaskStatePlan}/>
+    didTask = () => <TaskListView taskState={TaskState.TaskStateComplete}/>
+    undoneTask = () => <TaskListView taskState={TaskState.TaskStateOverdue}/>
 
     // todayTask = () => <TaskListView taskState={TaskState.TaskStateTodo} taskScreenType={this.type}/>
     // planTask = () => <TaskListView taskState={TaskState.TaskStatePlan} taskScreenType={this.type}/>
@@ -97,10 +98,10 @@ class TaskListScreen extends React.PureComponent {
     }
 
     _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.backgroundLighter}}
-                                     labelStyle={{fontSize: 12, margin: 3, color:COLOR.primary}}
-                                     // scrollEnabled={false}
-                                     // scrollEnabled={this.props.tabViewScrollable}
-        indicatorStyle={{backgroundColor: COLOR.primary}}
+                                     labelStyle={{fontSize: 12, margin: 3, color: COLOR.primary}}
+        // scrollEnabled={false}
+        // scrollEnabled={this.props.tabViewScrollable}
+                                     indicatorStyle={{backgroundColor: COLOR.primary}}
     />
 
     _renderScene = SceneMap({
@@ -109,6 +110,11 @@ class TaskListScreen extends React.PureComponent {
         did: this.didTask,
         undone: this.undoneTask,
     })
+
+
+    _onPress4CreateTask = () => {
+        this.props.navigation.navigate('CreateTask', {item:null})
+    }
 
     render() {
         return (
@@ -123,6 +129,16 @@ class TaskListScreen extends React.PureComponent {
                     initialLayout={initialLayout}
                 />
 
+
+                <TouchableHighlight
+                    style={styles.btn4CreateTask}
+                    onPress={this._onPress4CreateTask}>
+                    <View>
+                        {/*<Icon name="plus" size={60} color={COLOR.textLightNormal}/>*/}
+                        <DIYIcon name="add" size={40} color={COLOR.textLightNormal}/>
+                        {/*<DIYIcon name={'add'} size={'50'} color={COLOR.textLightNormal} />*/}
+                    </View>
+                </TouchableHighlight>
 
                 {/*<ScrollableTabView*/}
                 {/*style={{marginTop: 20,}}*/}
@@ -166,5 +182,16 @@ const styles = StyleSheet.create({
     headerRightBtn: {
         width: 60,
         alignItems: 'center',
+    },
+    btn4CreateTask: {
+        width: 60,
+        height: 60,
+        borderRadius:30,
+        position: "absolute", // 悬浮的效果
+        right: 20,
+        bottom: 20,
+        backgroundColor:  '#ff6347dd', // 半透明效果
+        justifyContent: "center",
+        alignItems: 'center',
     }
-})
+});

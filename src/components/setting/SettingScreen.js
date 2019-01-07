@@ -234,7 +234,8 @@ class SettingScreen extends Component {
             // todo ...
         } else if (item.key === 'key-feedback') {
             // this.props.toTuCaoWebView("https://support.qq.com/products/17202")
-            this.props.navigation.navigate('TuCaoWebView',{url:"https://support.qq.com/products/17202"});
+            this.props.navigation.push('TuCaoWebView',{url:"http://support.qq.com/product/51534"});
+            // this.props.navigation.navigate('TuCaoWebView',{url:"http://support.qq.com/product/51534"});
         }
     }
 

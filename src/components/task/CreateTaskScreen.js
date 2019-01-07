@@ -59,18 +59,23 @@ class CreateTaskScreen extends React.PureComponent {
     constructor(props) {
         super(props)
 
-        this.isCreateTask = this.props.navigation.state.params.item === undefined
-        // this.isCreateTask = this.props.item === undefined
+        if (this.props.navigation.state.params === undefined
+            || this.props.navigation.state.params.item === undefined
+            || this.props.navigation.state.params.item === null
+            || this.props.navigation.state.params.item === {}) {
+            this.isCreateTask = true;
+        }
+
         this.state = {
             taskModel: this.isCreateTask ? new TaskModel() : {...this.props.navigation.state.params.item},
             isDateTimePickerVisible: false,
         }
 
+        this.props.navigation.setParams({handleSave: this.saveTask})
+        this.props.navigation.setParams({name: this.isCreateTask ? "添加任务" : "编辑任务"})
     }
 
     componentWillMount() {
-        this.props.navigation.setParams({handleSave: this.saveTask})
-        this.props.navigation.setParams({name: this.isCreateTask ? "添加任务" : "编辑任务"})
     }
 
     componentDidMount() {

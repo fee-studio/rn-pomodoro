@@ -5813,6 +5813,11 @@ react-native-iphone-x-helper@^1.2.0:
   resolved "http://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
   integrity sha1-n4o3brALxxIRWr/0QgMYoAY/p5Y=
 
+react-native-linear-gradient@^2.5.3:
+  version "2.5.3"
+  resolved "http://registry.npm.taobao.org/react-native-linear-gradient/download/react-native-linear-gradient-2.5.3.tgz#d90cf19a13fcccfa8bb32025ac40a15ae1b49e99"
+  integrity sha1-2QzxmhP8zPqLsyAlrEChWuG0npk=
+
 react-native-modal-datetime-picker@^6.0.0:
   version "6.0.0"
   resolved "http://registry.npm.taobao.org/react-native-modal-datetime-picker/download/react-native-modal-datetime-picker-6.0.0.tgz#8018994524122ad48fd6bc66f26f623c75a49fb3"

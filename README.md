@@ -1,7 +1,17 @@
 # rn-pomodoro
 Pomodoro app powered by react-native.
 
-### Skills
+#### 注意事项
+
+- 阿里iconfont的使用for Android 请[参考这里](https://www.cnblogs.com/ImaY/p/9090311.html)
+- python版本的切换与管理请使用：`pyenv -h`
+    
+        
+
+#### 第三方库简介
+
+
+#### Skills
 
 - yarn更新依赖包时，package.json同步更新版本信息
     ```

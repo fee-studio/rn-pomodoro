@@ -17,13 +17,14 @@ import DIYIcon from "../../modules/iconfont/DIYIcon";
 // import Button from 'antd-mobile/lib/button';
 
 const initialLayout = {
-    height: 0,
+    height: 44,
     width: Dimensions.get('window').width,
 }
 
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
+        headerLeft:null, // 覆盖返回按钮, 返回按钮不显示了。
         // headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn} onPress={() => {
         //     navigation.dispatch(toCreateTask())
         // }}>
@@ -97,9 +98,13 @@ class TaskListScreen extends React.PureComponent {
         this.setState({index})
     }
 
-    _renderHeader = props => <TabBar {...props} style={{backgroundColor: COLOR.backgroundLighter}}
+    _renderTabBar = props => <TabBar {...props} style={styles.tabBar}
                                      labelStyle={{fontSize: 12, margin: 3, color: COLOR.primary}}
-        // scrollEnabled={false}
+                                     tabStyle={{backgroundColor: COLOR.backgroundLighter, }}
+                                     scrollEnabled={false}
+                                     // shadowOffset={0}
+                                     // shadowOpacity={0}
+                                     // shadowColor={COLOR.clear}
         // scrollEnabled={this.props.tabViewScrollable}
                                      indicatorStyle={{backgroundColor: COLOR.primary}}
     />
@@ -124,9 +129,10 @@ class TaskListScreen extends React.PureComponent {
                     style={styles.container}
                     navigationState={this.state}
                     renderScene={this._renderScene}
-                    renderHeader={this._renderHeader}
+                    renderTabBar={this._renderTabBar}
                     onIndexChange={this._handleIndexChange}
                     initialLayout={initialLayout}
+                    useNativeDriver
                 />
 
 
@@ -178,6 +184,17 @@ export default connect(mapStateToProps)(TaskListScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    tabBar: {
+        elevation:0,
+        backgroundColor: COLOR.backgroundLighter,
+        height:44,
+        shadowColor: 'white',
+        shadowOpacity: 0,
+        shadowRadius: 0,
+        shadowOffset: {
+            height: 0,
+        },
     },
     headerRightBtn: {
         width: 60,

@@ -23,17 +23,21 @@ export const COLOR = {
     theme: '#006633',
     favored: '#C71A22',
 
+    textLightNormal: '#FFFFFF',
+    textLightPrompt: '#EBEBEB',
     textPrompt: '#929292',
     textNormal: '#5E5E5E',
     textEmphasis: '#212121',
-    textLightPrompt: '#EBEBEB',
-    textLightNormal: '#FFFFFF',
 
-    backgroundDarker: '#D6D6D6',
-    backgroundNormal: '#EBEBEB',
     backgroundLighter: '#FFFFFF',
+    backgroundNormal: '#EBEBEB',
+    backgroundDarker: '#D6D6D6',
     backgroundDarkLighter: '#424242',
     backgroundDarkNormal: '#000000',
+
+
+    backgroundNormalAlpha: '#EBEBEBDD',
+
     backgroundNotice: '#FFFB00',
 
     linePrompt: '#EBEBEB',

@@ -3,7 +3,7 @@
  */
 
 import React, {PureComponent} from 'react';
-import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight} from "react-native";
+import {Button, SectionList, Text, View, StyleSheet, TouchableHighlight, TouchableNativeFeedback} from "react-native";
 import realm from '../../database/RealmDB'
 import {TaskScreenType, TaskState} from "../../utils/GlobalData";
 import {connect} from "react-redux";
@@ -15,6 +15,7 @@ import Swipeable from 'react-native-swipeable';
 import Swipeout from 'react-native-swipeout';
 import {actionItemScrolling} from "./actions";
 import {withNavigation} from "react-navigation";
+import LinearGradient from "react-native-linear-gradient";
 
 
 export class TaskListItem extends PureComponent {
@@ -52,7 +53,8 @@ export class TaskListItem extends PureComponent {
         // const {navigate,goBack,state} = this.props.navigation;
         return (
             // /*
-            <TouchableHighlight onPress={this.props.onPress} onLongPress={this.props.onLongPress}>
+            <TouchableNativeFeedback style={styles.itemContainer} onPress={this.props.onPress}
+                                     onLongPress={this.props.onLongPress}>
                 <View style={styles.taskListItemContainer}>
                     <View style={styles.taskListItemTop}>
                         <View style={styles.taskListItemTomatoCount}>
@@ -64,7 +66,7 @@ export class TaskListItem extends PureComponent {
                     </View>
                     <Text>{this.props.task.taskName}</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableNativeFeedback>
             // */
 
             // Swipeout component
@@ -115,7 +117,7 @@ export class TaskListItemHeader extends PureComponent {
         return (
             <View style={{
                 flex: 1,
-                backgroundColor: COLOR.backgroundNormal,
+                backgroundColor: COLOR.backgroundNormalAlpha,
                 paddingLeft: 10,
                 paddingTop: 3,
                 paddingBottom: 3,
@@ -145,33 +147,37 @@ class TaskListView extends PureComponent {
     render() {
         return (
             <View style={{flex: 1}}>
-                {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
-                <SectionList
-                    stickySectionHeadersEnabled={true}
-                    renderItem={({item}) => <TaskListItem task={item}
-                                                          onPress={() => {
-                                                              if (this.props.navigation.state.params === undefined
-                                                                  || this.props.navigation.state.params.type === TaskScreenType.TaskScreenTypeList) {
-                                                                  // this.props.toCreateTaskScreen(item)
-                                                                  this.props.navigation.navigate('CreateTask', {item:item})
-                                                              } else {
-                                                                  // this.props.toTomatoScreenWithTask(item)
-                                                                  this.props.navigation.navigate('TomatoScreen', {task_item: item})
-                                                                  // this.props.navigation.goBack();
-                                                              }
-                                                          }}
-                                                          a_scrolling={(scrolling) => {
-                                                              this.props.a_scrolling(scrolling)
-                                                          }}
-                                                          onLongPress={() => {
-                                                              // this.props.toTomatoScreenWithTask(item);
-                                                          }}
-                    />}
-                    renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
-                    sections={this.state.taskItems}
-                    ItemSeparatorComponent={() => <View style={{height: 0.5, backgroundColor: '#ccc'}}/>}
-                    keyExtractor={this._keyExtractor}
-                />
+                {/*渐变*/}
+                <LinearGradient colors={['#8D9AFC', '#498AC3']}>
+                    {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
+                    <SectionList
+                        stickySectionHeadersEnabled={true}
+                        renderItem={({item}) => <TaskListItem task={item}
+                                                              onPress={() => {
+                                                                  if (this.props.navigation.state.params === undefined
+                                                                      || this.props.navigation.state.params.type === TaskScreenType.TaskScreenTypeList) {
+                                                                      // this.props.toCreateTaskScreen(item)
+                                                                      this.props.navigation.navigate('CreateTask', {item: item})
+                                                                  } else {
+                                                                      // this.props.toTomatoScreenWithTask(item)
+                                                                      this.props.navigation.navigate('TomatoScreen', {task_item: item})
+                                                                      // this.props.navigation.goBack();
+                                                                  }
+                                                              }}
+                                                              a_scrolling={(scrolling) => {
+                                                                  this.props.a_scrolling(scrolling)
+                                                              }}
+                                                              onLongPress={() => {
+                                                                  // this.props.toTomatoScreenWithTask(item);
+                                                              }}
+                        />}
+                        renderSectionHeader={({section}) => <TaskListItemHeader title={section.sectionTitle}/>}
+                        sections={this.state.taskItems}
+                        // ItemSeparatorComponent={() => <View style={{height: 0.5, backgroundColor: '#ccc'}}/>}
+                        keyExtractor={this._keyExtractor}
+                    />
+
+                </LinearGradient>
 
                 {/* 如果你想要不同的组返回不同样式的子组件那就按照这个的结构返回不同的renderItem即可*/}
                 {/*<SectionList sections={this.items2}*/}
@@ -366,13 +372,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    itemContainer: {
+        backgroundColor: COLOR.clear,
+
+    },
     taskListItemContainer: {
         flex: 1,
-        height: 50,
+        height: 100,
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: '#fff',
-        paddingLeft: 10,
+        // backgroundColor: '#fff',
+        // paddingLeft: 10,
+        padding: 10,
+        backgroundColor: COLOR.backgroundLighter,
+        marginTop: 6,
+        marginBottom: 6,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 10,
     },
     taskListItemTop: {},
     taskListItemTomatoCount: {},

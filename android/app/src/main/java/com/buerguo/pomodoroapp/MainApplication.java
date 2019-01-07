@@ -5,6 +5,7 @@ import android.app.Application;
 import com.beefe.picker.PickerViewPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -58,6 +59,7 @@ public class MainApplication extends Application implements ReactApplication {
 //            new AppCenterReactNativePackage(MainApplication.this),
 //            new ReactNativeDocumentPicker(),
                     new MainReactPackage(),
+            new LinearGradientPackage(),
 //  todo 暂时停用                  new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
                     new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),

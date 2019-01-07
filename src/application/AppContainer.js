@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import TaskListScreen from "../components/task/TaskListScreen";
 import TuCaoWebView from "../components/setting/TuCaoWebView";
 import WebViewComponent from "../components/common/WebViewComponent";
+import DIYIcon from "../modules/iconfont/DIYIcon";
 
 export const tabTomato = createStackNavigator(
     {
@@ -75,7 +76,8 @@ export const RootTabs = createBottomTabNavigator(
                 tabBarLabel: '番茄钟',
                 header: null,
                 tabBarIcon: ({focused, tintColor}) => (
-                    <Icon name="clock" size={20} color={tintColor} /*style={{marginBottom: 25}}*//> // iPhone X
+                    <DIYIcon name="task-management" size={20} color={tintColor} /*style={{marginBottom: 25}}*//> // iPhone X
+                    // <Icon name="clock" size={20} color={tintColor} /*style={{marginBottom: 25}}*//> // iPhone X
                 ),
             },
         },
@@ -86,7 +88,8 @@ export const RootTabs = createBottomTabNavigator(
                 title: "",
                 tabBarLabel: '任务清单',
                 tabBarIcon: ({focused, tintColor}) => (
-                    <Icon name="list" style={{color: tintColor, fontSize: 20, /*marginBottom: 20*/}}/>
+                    <DIYIcon name="navlist" style={{color: tintColor, fontSize: 20, /*marginBottom: 20*/}}/>
+                    // <Icon name="list" style={{color: tintColor, fontSize: 20, /*marginBottom: 20*/}}/>
                 ),
             },
         },
@@ -97,7 +100,8 @@ export const RootTabs = createBottomTabNavigator(
                 title: "统计",
                 tabBarLabel: '统计',
                 tabBarIcon: ({focused, tintColor}) => (
-                    <Icon name="chart" size={20} color={tintColor} /*style={{margin: 10}}*//>
+                    <DIYIcon name="column1" size={20} color={tintColor} /*style={{margin: 10}}*//>
+                    // <Icon name="chart" size={20} color={tintColor} /*style={{margin: 10}}*//>
                 ),
             },
         },
@@ -107,7 +111,8 @@ export const RootTabs = createBottomTabNavigator(
             navigationOptions: {
                 title: "设置",
                 tabBarIcon: ({focused, tintColor}) => (
-                    <Icon name="settings" size={20} color={tintColor}/>
+                    <DIYIcon name="set" size={20} color={tintColor}/>
+                    // <Icon name="settings" size={20} color={tintColor}/>
                 ),
             },
         },

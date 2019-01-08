@@ -148,7 +148,7 @@ class TaskListView extends PureComponent {
         return (
             <View style={{flex: 1}}>
                 {/*渐变*/}
-                <LinearGradient colors={['#8D9AFC', '#498AC3']}>
+                <LinearGradient colors={['#8D9AFC', '#498AC3']} start={{x: 0, y: 0}} end={{x: 1, y: 0}} >
                     {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
                     <SectionList
                         stickySectionHeadersEnabled={true}
@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
     },
     taskListItemContainer: {
         flex: 1,
-        height: 100,
+        height: 80,
         flexDirection: 'column',
         justifyContent: 'center',
         // backgroundColor: '#fff',

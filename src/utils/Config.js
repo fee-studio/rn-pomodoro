@@ -35,6 +35,8 @@ export const COLOR = {
     backgroundDarkLighter: '#424242',
     backgroundDarkNormal: '#000000',
 
+    background4Background: '#eee',
+
 
     backgroundNormalAlpha: '#EBEBEBDD',
 

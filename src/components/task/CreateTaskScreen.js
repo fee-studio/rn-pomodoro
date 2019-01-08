@@ -14,8 +14,9 @@ import {connect} from "react-redux"
 import {COLOR} from "../../utils/Config"
 import TaskService from "../../database/TaskService"
 import TaskModel from "../../models/TaskModel"
-import {toCreateTask} from "../../navigators/actions"
 import Toast from "react-native-easy-toast"
+import Utils from "../../utils/Utils";
+import LinearGradient from "react-native-linear-gradient";
 
 class CreateTaskScreen extends React.PureComponent {
 
@@ -84,107 +85,110 @@ class CreateTaskScreen extends React.PureComponent {
     render() {
         return (
             <View style={styles.container}>
+                <View style={styles.contentContainer}>
+                    <TextInput style={styles.textInput}
+                               autoFocus={true}
+                               multiline={true}
+                               blurOnSubmit={true}
+                               placeholder={'您的任务名称'}
+                        // VIP https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
+                               onChangeText={(taskName) => this.setState((prevState) => ({
+                                   taskModel: {
+                                       ...prevState.taskModel,
+                                       taskName,
+                                   }
+                               }))}
+                               value={this.state.taskModel.taskName}
+                    />
 
-                <TextInput style={styles.textInput}
-                           autoFocus={true}
-                           multiline={true}
-                           blurOnSubmit={true}
-                           placeholder={'您的任务名称'}
-                    // VIP https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
-                           onChangeText={(taskName) => this.setState((prevState) => ({
-                               taskModel: {
-                                   ...prevState.taskModel,
-                                   taskName,
-                               }
-                           }))}
-                           value={this.state.taskModel.taskName}
-                />
-
-                <View style={styles.category}>
-                    <Text>任务类别</Text>
-                    <View style={styles.categoryButtonView}>
-                        <TouchableHighlight
-                            style={this.state.taskModel.status === TaskState.TaskStateTodo ? [styles.buttonSelected, styles.categoryButtonLeft] : [styles.buttonNormal, styles.categoryButtonLeft]}
-                            onPress={() => {
-                                this.setState((prevState) => ({
-                                    taskModel: {
-                                        ...prevState.taskModel,
-                                        status: TaskState.TaskStateTodo,
-                                    }
-                                }))
-                            }}>
-                            <Text
-                                style={this.state.taskModel.status === TaskState.TaskStateTodo ? styles.textSelected : styles.textNormal}>
-                                今日待办
-                            </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight
-                            style={this.state.taskModel.status === TaskState.TaskStatePlan ? [styles.buttonSelected, styles.categoryButtonLeft] : [styles.buttonNormal, styles.categoryButtonLeft]}
-                            onPress={() => {
-                                this.setState((prevState) => ({
-                                    taskModel: {
-                                        ...prevState.taskModel,
-                                        status: TaskState.TaskStatePlan,
-                                    }
-                                }))
-                            }}>
-                            <Text
-                                style={this.state.taskModel.status === TaskState.TaskStatePlan ? styles.textSelected : styles.textNormal}>
-                                未来计划
-                            </Text>
-                        </TouchableHighlight>
-                        {/*VIP 又一种写法*/}
-                        {!this.isCreateTask &&
-                        <TouchableHighlight
-                            style={this.state.taskModel.status === TaskState.TaskStateComplete ? [styles.buttonSelected] : [styles.buttonNormal]}
-                            onPress={() => {
-                                this.setState((prevState) => ({
-                                    taskModel: {
-                                        ...prevState.taskModel,
-                                        status: TaskState.TaskStateComplete
-                                    }
-                                }))
-                            }}>
-                            <Text
-                                style={this.state.taskModel.status === TaskState.TaskStateComplete ? styles.textSelected : styles.textNormal}>
-                                已完成
-                            </Text>
-                        </TouchableHighlight>
-                        }
+                    <View style={styles.category}>
+                        <Text>任务类别</Text>
+                        <View style={styles.categoryButtonView}>
+                            <TouchableHighlight
+                                style={this.state.taskModel.status === TaskState.TaskStateTodo ? [styles.buttonSelected, styles.categoryButtonLeft] : [styles.buttonNormal, styles.categoryButtonLeft]}
+                                onPress={() => {
+                                    this.setState((prevState) => ({
+                                        taskModel: {
+                                            ...prevState.taskModel,
+                                            status: TaskState.TaskStateTodo,
+                                        }
+                                    }))
+                                }}>
+                                <Text
+                                    style={this.state.taskModel.status === TaskState.TaskStateTodo ? styles.textSelected : styles.textNormal}>
+                                    今日待办
+                                </Text>
+                            </TouchableHighlight>
+                            <TouchableHighlight
+                                underlayColor={COLOR.backgroundNormal}
+                                style={this.state.taskModel.status === TaskState.TaskStatePlan ? [styles.buttonSelected, styles.categoryButtonLeft] : [styles.buttonNormal, styles.categoryButtonLeft]}
+                                onPress={() => {
+                                    this.setState((prevState) => ({
+                                        taskModel: {
+                                            ...prevState.taskModel,
+                                            status: TaskState.TaskStatePlan,
+                                        }
+                                    }))
+                                }}>
+                                <Text
+                                    style={this.state.taskModel.status === TaskState.TaskStatePlan ? styles.textSelected : styles.textNormal}>
+                                    未来计划
+                                </Text>
+                            </TouchableHighlight>
+                            {/*VIP 又一种写法*/}
+                            {!this.isCreateTask &&
+                            <TouchableHighlight
+                                style={this.state.taskModel.status === TaskState.TaskStateComplete ? [styles.buttonSelected] : [styles.buttonNormal]}
+                                onPress={() => {
+                                    this.setState((prevState) => ({
+                                        taskModel: {
+                                            ...prevState.taskModel,
+                                            status: TaskState.TaskStateComplete
+                                        }
+                                    }))
+                                }}>
+                                <Text
+                                    style={this.state.taskModel.status === TaskState.TaskStateComplete ? styles.textSelected : styles.textNormal}>
+                                    已完成
+                                </Text>
+                            </TouchableHighlight>
+                            }
+                        </View>
                     </View>
-                </View>
 
-                <View style={styles.remind}>
-                    <Text>提醒</Text>
-                    <View style={styles.remindRightView}>
+                    <View style={styles.remind}>
+                        <Text>提醒</Text>
+                        <View style={styles.remindRightView}>
 
-                        <Switch value={this.state.taskModel.isRemind} onValueChange={(value) => {
-                            this.setState((prevState) => ({
-                                taskModel: {
-                                    ...prevState.taskModel,
-                                    isRemind: value,
-                                },
-                                isDateTimePickerVisible: value,
-                            }))
-                        }}/>
+                            <Switch value={this.state.taskModel.isRemind} onValueChange={(value) => {
+                                this.setState((prevState) => ({
+                                    taskModel: {
+                                        ...prevState.taskModel,
+                                        isRemind: value,
+                                    },
+                                    isDateTimePickerVisible: value,
+                                }))
+                            }}/>
+                        </View>
                     </View>
+
+                    {this.c_remindTime()}
+
+                    <DateTimePicker
+                        mode={'datetime'}
+                        titleIOS={'选择您的提醒时间'}
+                        cancelTextIOS={'取消'}
+                        confirmTextIOS={'确定'}
+                        isVisible={this.state.isDateTimePickerVisible}
+                        onConfirm={this._confirmDatePicker}
+                        onCancel={this._cancelDatePicker}
+                    />
+
+                    {this.c_deleteButton()}
+
+                    <Toast ref="toast"/>
+
                 </View>
-
-                {this.c_remindTime()}
-
-                <DateTimePicker
-                    mode={'datetime'}
-                    titleIOS={'选择您的提醒时间'}
-                    cancelTextIOS={'取消'}
-                    confirmTextIOS={'确定'}
-                    isVisible={this.state.isDateTimePickerVisible}
-                    onConfirm={this._confirmDatePicker}
-                    onCancel={this._cancelDatePicker}
-                />
-
-                {this.c_deleteButton()}
-
-                <Toast ref="toast"/>
             </View>
         )
     }
@@ -223,7 +227,7 @@ class CreateTaskScreen extends React.PureComponent {
     saveTask = () => {
         let aTask = this.state.taskModel
         if (aTask.taskName.trim().length <= 0) {
-            Keyboard.dismiss()
+            Keyboard.dismiss() // 隐藏了键盘才能显示出下面的toast
             this.refs.toast.show('请输入任务名称!')
             return
         }
@@ -257,6 +261,12 @@ export default connect(mapStateToProps)(CreateTaskScreen)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        ...Utils.getHeaderInset(),
+        backgroundColor: COLOR.backgroundLighter,
+    },
+    contentContainer: {
+        flex: 1,
+        backgroundColor: COLOR.background4Background,
     },
     textInput: {
         height: 150,
@@ -264,13 +274,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         padding: 10,
         marginTop: 0,
+        textAlignVertical: 'top',
     },
     category: {
         backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 0.5,
+        marginTop: 5,
         alignItems: 'center',
         height: 44,
     },
@@ -315,7 +326,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginTop: 0.5,
+        marginTop: 5,
         alignItems: 'center',
         height: 44,
     },

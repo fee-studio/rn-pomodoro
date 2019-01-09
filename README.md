@@ -1,24 +1,27 @@
 # rn-pomodoro
-Pomodoro app powered by react-native.
+Pomodoro App powered by react-native.
 
-#### 注意事项
+### TODO LIST
+
+- [x] 信鸽推送4.x版本
+- [] 小米渠道集成
+- [] 华为、魅族、小米渠道集成测试
+
+
+### 注意事项
 
 - 阿里iconfont的使用for Android 请[参考这里](https://www.cnblogs.com/ImaY/p/9090311.html)
 - python版本的切换与管理请使用：`pyenv -h`
-    
-        
-
-#### 第三方库简介
 
 
-#### Skills
+### Skills
 
 - yarn更新依赖包时，package.json同步更新版本信息
     ```
     yarn upgrade-interactive --latest
     ```
 
-#### 项目技术栈
+### 项目技术栈
 
 - iOS/Android - Objective-C/Swift/Java/Kotlin
     - 基础
@@ -54,39 +57,47 @@ Pomodoro app powered by react-native.
     - [React Native - Text组件使用详解（样式、属性、方法）](http://www.hangge.com/blog/cache/detail_1486.html)
     - [React Native布局详细指南](http://blog.csdn.net/quanqinyang/article/details/52215641)
 
+### 开发增强
+
 - 开发素材
     - [图标优先从这里选](http://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=2706)
 
 
-- 使用的第三方库的链接
-    - [realm](https://github.com/realm/realm-js)
-    - [react-navigation](https://github.com/react-community/react-navigation)
-    - [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
-    - [react-native-storage](https://github.com/sunnylqm/react-native-storage)
-    - [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
-    - [react-native-image-progress](https://github.com/oblador/react-native-image-progress)
-    - [react-native-circular-progress](https://github.com/bgryszko/react-native-circular-progress)
-    - [react-native-progress](https://github.com/oblador/react-native-progress)
-    - [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
-    - [react-native-picker](https://github.com/beefe/react-native-picker)
-    - [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast)
-    - [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
-    - [react-native-push-notification](https://github.com/zo0r/react-native-push-notification)
-    - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
-    - [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
-    - [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
-    - [react-native-storage](https://github.com/sunnylqm/react-native-storage)
-    - [redux-thunk](https://github.com/gaearon/redux-thunk)
-    - [redux-logger](https://github.com/evgenyrodionov/redux-logger)
-    - [Ant Design Mobile of React](https://mobile.ant.design/index-cn)        
-    - [NativeBase](https://github.com/GeekyAnts/NativeBase)
-    
-    
+- 优秀的第三方库
+    - [x] [realm](https://github.com/realm/realm-js)
+        > 持久化方案，数据库
+    - [x] [react-navigation](https://github.com/react-community/react-navigation)
+        > 使用最多的导航栏，比官网的要好
+    - [x] [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)
+        > sqlite数据库
+    - [x] [react-native-storage](https://github.com/sunnylqm/react-native-storage)
+        > 这是一个本地持久存储的封装，可以同时支持 react-native(AsyncStorage)和浏览器(localStorage)。ES6 语法，promise 异步读取，使用 jest 进行了完整的单元测试。
+    - [x] [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)
+        > 启动屏
+    - [x] [react-native-image-progress](https://github.com/oblador/react-native-image-progress)
+    - [x] [react-native-circular-progress](https://github.com/bgryszko/react-native-circular-progress)
+    - [x] [react-native-progress](https://github.com/oblador/react-native-progress)
+    - [x] [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
+    - [x] [react-native-picker](https://github.com/beefe/react-native-picker)
+    - [x] [react-native-easy-toast](https://github.com/crazycodeboy/react-native-easy-toast)
+        > Toast组件
+    - [x] [react-native-device-info](https://github.com/rebeccahughes/react-native-device-info)
+        > 设备的信息
+    - [x] [react-native-push-notification](https://github.com/zo0r/react-native-push-notification)
+        > 推送
+    - [x] [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+        > 图标库 阿里iconfont的使用for Android 请[参考这里](https://www.cnblogs.com/ImaY/p/9090311.html)
+    - [x] [react-native-modal-datetime-picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
+    - [x] [react-native-tab-view](https://github.com/react-native-community/react-native-tab-view)
+    - [x] [redux-thunk](https://github.com/gaearon/redux-thunk)
+    - [x] [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+    - [ ] [Ant Design Mobile of React](https://mobile.ant.design/index-cn)
+    - [ ]  [NativeBase](https://github.com/GeekyAnts/NativeBase)
+        > 一个不错的UI组件库，以后可以试试看
 
-- iOS deploy tutorial
 
-   ***KEY POINT***
-   
+- iOS发布部署流程
+
    0. js打包```--bundle-output ios/index.jsbundle``` 这里千万不要写默认的```main.jsbundle```, iOS打包的时候打不进去.
    1. add index.jsbundle(/.meta) files -> option **Create groups**
    2. add assets folder -> option **Create folder references**
@@ -103,11 +114,19 @@ Pomodoro app powered by react-native.
         ```
    4. **edit scheme**, modify **Run** TAB's **Build Configuration** to **Release**
     
-- Android deploy tutorial
+- Android发布部署流程
 
-    ***KEY POINT***
-    
     1. Open Android project use Android Studio, Build->Generate Signed Apk, config sign~
     2. [打包APK](http://reactnative.cn/docs/0.50/signed-apk-android.html#content)
         
-        
+- [开发自己的react-native组件并发布到npm](https://juejin.im/entry/5b908229f265da0a92238a93)
+
+### iOS注意事项
+
+-
+
+### Android注意事项
+
+- 打渠道包的方式
+    1. [x]  [fastlane](https://github.com/fastlane/fastlane)
+    2. [] [walle](https://github.com/Meituan-Dianping/walle)

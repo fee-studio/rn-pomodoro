@@ -4,15 +4,11 @@
 
 package com.buerguo.pomodoroapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import com.facebook.react.ReactActivity;
-import com.tencent.stat.MtaSDkException;
-import com.tencent.stat.StatService;
 
 
 public class SplashActivity extends ReactActivity {

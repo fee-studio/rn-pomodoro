@@ -18,9 +18,7 @@ ext {
             "appcompat-v7"      : 'com.android.support:appcompat-v7:27.0.3',
             "react-native"      : 'com.facebook.react:react-native:0.57.8',
             "play-services-gcm" : 'com.google.android.gms:play-services-gcm:16.0.0',
-            "mta"               : 'com.qq.mta:mta:3.2.1-release',
-            "mid"               : 'com.tencent.mid:mid:3.73-release',
-            "visual"            : 'com.qq.visual:visual:1.0.8-release',
+
 
             // for project react-native-push-notification
             "ShortcutBadger"    : 'me.leolin:ShortcutBadger:1.1.19@aar',
@@ -41,6 +39,11 @@ ext {
             "recyclerview-v7"   : 'com.android.support:recyclerview-v7:23.2.0',
             "crashreport"       : 'com.tencent.bugly:crashreport:latest.release',
             "crashreport-native": 'com.tencent.bugly:nativecrashreport:latest.release',
+
+            "mta"               : 'com.qq.mta:mta:3.2.1-release',
+            "mid"               : 'com.tencent.mid:mid:3.73-release',
+            "visual"            : 'com.qq.visual:visual:1.0.8-release',
+
 
             // for test
             "junit"             : 'junit:junit:4.12',

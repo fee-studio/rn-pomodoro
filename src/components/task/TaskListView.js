@@ -119,9 +119,10 @@ export class TaskListItemHeader extends PureComponent {
                 flex: 1,
                 backgroundColor: COLOR.backgroundNormalAlpha,
                 paddingLeft: 10,
-                paddingTop: 3,
-                paddingBottom: 3,
-                paddingRight: 10
+                paddingTop: 1,
+                paddingBottom: 1,
+                paddingRight: 10,
+                height:20,
             }}>
                 <Text style={{fontSize: 12, color: COLOR.textNormal}}>{this.props.title}</Text>
             </View>

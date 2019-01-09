@@ -124,8 +124,10 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         manifestPlaceholders = [
-                MTA_APPKEY:"AU8WY33FSQ7T",
-                MTA_CHANNEL:"应用宝"
+                XG_ACCESS_ID : "2100324104",
+                XG_ACCESS_KEY : "AT1471LND9RH",
+                PACKAGE_NAME : "com.buerguo.pomodoroapp",
+                HW_APPID: "", // todo ...
         ]
     }
     splits {
@@ -209,12 +211,30 @@ dependencies {
     implementation rootProject.ext.dependencies["react-native"]
     // From node_modules
     implementation(rootProject.ext.dependencies["play-services-gcm"]) { force = true; }
+
+    // 【信鸽】
+    //信鸽厂商通道版本jar，包含厂商通道(此版本已经集成厂商通道，无需另外导入厂商依赖包)
+    implementation 'com.tencent.xinge:xinge:4.0.4-otherpush-release'
+    //jg包
+    implementation'com.tencent.jg:jg:1.1'
+    //wup包
+    implementation 'com.tencent.wup:wup:1.0.0.E-release'
+    //mid包，minSdkVersion 14
+    implementation 'com.tencent.mid:mid:4.0.7-Release'
+
+    // 弃用
     // mta 3.2 稳定版
-    implementation rootProject.ext.dependencies["mta"]
+//    implementation rootProject.ext.dependencies["mta"]
     // mid  jar包 必须添加
-    implementation rootProject.ext.dependencies["mid"]
+//    implementation rootProject.ext.dependencies["mid"]
     // 可视化埋点的相关jar包 （根据需要添加），可视化埋点的版本号，和必须和当前MTA的版本号必须匹配使用 需要在配置文件中增加配置，具体请参考 高级功能中可视化埋点的接入。
-    implementation rootProject.ext.dependencies["visual"]
+//    implementation rootProject.ext.dependencies["visual"]
+
+    // 【bugly】
+    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+
+
 }
 
 // Run this once to be able to run the application with BUCK

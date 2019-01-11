@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import {SectionList, Text, View, StyleSheet, Image, Switch, TouchableHighlight, NativeModules} from "react-native";
 import {RealmDemo} from "../../database/RealmDemo";
 import Picker from 'react-native-picker';
-import {COLOR} from "../../utils/Config";
+import {COLOR, DEBUG} from "../../utils/Config";
 import GlobalData, {TaskState} from "../../utils/GlobalData";
 import {connect} from "react-redux";
 import NotificationManager from "../../utils/NotificationManager";
@@ -102,13 +102,15 @@ class SettingScreen extends Component {
                     {
                         title: '番茄时长/专注时长',
                         key: 'key-work-during',
-                        content: `${(GlobalData.tomatoConfig.duration / 60).toFixed(0)}分钟`, //todo
+                        content: DEBUG ? `${(GlobalData.tomatoConfig.duration / 60).toFixed(0)}分钟${(GlobalData.tomatoConfig.duration % 60).toFixed(0)}秒`
+                            : `${(GlobalData.tomatoConfig.duration / 60).toFixed(0)}分钟`,
                         onOff: false
                     },
                     {
                         title: '休息时长',
                         key: 'key-rest-during',
-                        content: `${(GlobalData.tomatoConfig.shortRestDuration / 60).toFixed(0)}分钟`,
+                        content: DEBUG ? `${(GlobalData.tomatoConfig.shortRestDuration / 60).toFixed(0)}分钟${(GlobalData.tomatoConfig.shortRestDuration % 60).toFixed(0)}秒`
+                            : `${(GlobalData.tomatoConfig.shortRestDuration / 60).toFixed(0)}分钟`,
                         onOff: false
                     },
                 ],
@@ -198,7 +200,7 @@ class SettingScreen extends Component {
                     GlobalData.tomatoConfig.shortRestDuration = parseInt(data[0]) * 60;
                 }
                 this.setState({
-                    listItems: [... this.aListItems(),]
+                    listItems: [...this.aListItems(),]
                 })
             },
             onPickerCancel: data => {
@@ -225,7 +227,7 @@ class SettingScreen extends Component {
         }
 
         this.setState({
-            listItems: [... this.aListItems(),]
+            listItems: [...this.aListItems(),]
         })
     }
 
@@ -234,7 +236,7 @@ class SettingScreen extends Component {
             // todo ...
         } else if (item.key === 'key-feedback') {
             // this.props.toTuCaoWebView("https://support.qq.com/products/17202")
-            this.props.navigation.push('TuCaoWebView',{url:"http://support.qq.com/product/51534"});
+            this.props.navigation.push('TuCaoWebView', {url: "http://support.qq.com/product/51534"});
             // this.props.navigation.navigate('TuCaoWebView',{url:"http://support.qq.com/product/51534"});
         }
     }
@@ -305,7 +307,7 @@ const styles = StyleSheet.create({
     listHeaderTitle: {
         marginLeft: 10,
         marginBottom: -10,
-        color:COLOR.textNormal,
+        color: COLOR.textNormal,
         fontWeight: 'bold',
     },
     itemContainer: {

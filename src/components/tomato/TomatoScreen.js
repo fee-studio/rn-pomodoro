@@ -20,10 +20,8 @@ import {
     ART,
 } from "react-native";
 import * as Progress from 'react-native-progress';
-import CountdownCircle from '../../libs/CountDown'
 import {Tomato} from "../../database/RealmDB";
 import {TaskScreenType, TomatoState, TomatoType} from "../../utils/GlobalData";
-import Initialization from "../../utils/Initialization";
 import TomatoModel from "../../models/TomatoModel";
 import {connect} from "react-redux";
 import {COLOR} from "../../utils/Config";
@@ -281,7 +279,6 @@ class TomatoScreen extends Component {
                         {
                             text: '选任务',
                             onPress: () => {
-                                // this.props.toTaskScreenSelect()
                                 this.props.navigation.navigate('TaskListScreen4Select', {type: TaskScreenType.TaskScreenTypeSelect})
                             }
                         },
@@ -427,7 +424,7 @@ class TomatoScreen extends Component {
                         {
                             text: '新任务',
                             onPress: () => {
-                                this.props.toTaskScreenSelect();
+                                this.props.navigation.navigate('TaskListScreen4Select', {type: TaskScreenType.TaskScreenTypeSelect})
                             }
                         },
                     ],

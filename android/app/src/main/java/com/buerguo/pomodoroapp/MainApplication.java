@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.beefe.picker.PickerViewPackage;
+import com.buerguo.pomodoroapp.ShortcutBadge.ShortcutBadgePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -31,6 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.realm.react.RealmReactPackage;
+import me.jhen.react.BadgePackage;
 
 //import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
 //import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
@@ -70,6 +72,7 @@ public class MainApplication extends Application implements ReactApplication {
 //            new AppCenterReactNativePackage(MainApplication.this),
 //            new ReactNativeDocumentPicker(),
                     new MainReactPackage(),
+            new BadgePackage(),
                     new LinearGradientPackage(),
                     new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),
@@ -77,7 +80,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new SplashScreenReactPackage(),
                     new PickerViewPackage(),
                     new RNDeviceInfo(),
-                    new RNGestureHandlerPackage()
+                    new RNGestureHandlerPackage(),
+                    new ShortcutBadgePackage()
 //  todo 暂时停用                  new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
 
             );

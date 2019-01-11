@@ -19,9 +19,9 @@ ext {
             "react-native"      : 'com.facebook.react:react-native:0.57.8',
             "play-services-gcm" : 'com.google.android.gms:play-services-gcm:16.0.0',
 
-
             // for project react-native-push-notification
-            "ShortcutBadger"    : 'me.leolin:ShortcutBadger:1.1.19@aar',
+            "ShortcutBadger"    : 'me.leolin:ShortcutBadger:1.1.22@aar',
+            "utilcode"          : 'com.blankj:utilcode:1.22.10',
 
             // for realm
             "nanohttpd"         : 'org.nanohttpd:nanohttpd:2.2.0',

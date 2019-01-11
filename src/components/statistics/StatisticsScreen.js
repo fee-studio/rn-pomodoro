@@ -50,7 +50,7 @@ class DailyTomatoCountListItem extends React.PureComponent {
 class DailyTomatoCountList extends React.PureComponent {
     state = {selected: {}, selectedValue: ''}
 
-    _keyExtractor = (item, index) => item.id
+    _keyExtractor = (item, index) => item.id.toString()
 
     _onPressItem = (item) => {
         this.setState((state) => {

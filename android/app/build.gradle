@@ -181,6 +181,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-android-badge')
     compile project(':react-native-linear-gradient')
     compile project(':realm')
     compile project(':react-native-vector-icons')
@@ -197,21 +198,18 @@ dependencies {
     //    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
     //    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
     //    implementation project(':react-native-document-picker')
-    implementation project(':react-native-splash-screen')
     // 暂时停用 implementation project(':react-native-code-push')
-    implementation project(':react-native-push-notification')
-    implementation project(':realm')
-    implementation project(':react-native-vector-icons')
-    implementation project(':react-native-picker')
-    implementation project(':react-native-device-info')
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
     implementation rootProject.ext.dependencies["appcompat-v7"]
     // react native
     implementation rootProject.ext.dependencies["react-native"]
     // From node_modules
-    implementation(rootProject.ext.dependencies["play-services-gcm"]) { force = true; }
-
+    implementation (rootProject.ext.dependencies["play-services-gcm"]) { force = true; }
+    // for project react-native-push-notification
+    // good utils
+    implementation rootProject.ext.dependencies["utilcode"]
     // 【信鸽】
     //信鸽厂商通道版本jar，包含厂商通道(此版本已经集成厂商通道，无需另外导入厂商依赖包)
     implementation 'com.tencent.xinge:xinge:4.0.4-otherpush-release'
@@ -233,7 +231,6 @@ dependencies {
     // 【bugly】
     implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
     implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
-
 
 }
 

@@ -28,13 +28,11 @@ export default class Initialization {
         this.initSettingConfig();
 
         if (DEBUG) {
-            MockDataManager.initMockData4Task();
-            MockDataManager.initMockData4Tomato();
+            MockDataManager.initMockData();
         }
 
         // 启动服务
         RealmDBService.start();
-
     }
 
     // todo 只能是App首次启动是才执行

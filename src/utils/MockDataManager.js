@@ -3,6 +3,11 @@ import TomatoService from "../database/TomatoService";
 
 export default class MockDataManager {
 
+    static initMockData() {
+        this.initMockData4Tomato()
+        this.initMockData4Task()
+    }
+
     static initMockData4Task() {
         const today = new Date()
 

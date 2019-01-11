@@ -38,8 +38,12 @@ const appHandleNavigationChange = (prevState, currentState) => {
 
 class PomodoroApp extends React.Component {
 
+    /**
+     * AppState能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
+     * AppState通常在处理推送通知的时候用来决定内容和对应的行为。
+     */
     state = {
-        // appState: AppState.currentState
+        appState: AppState.currentState
     }
 
     constructor(props) {
@@ -47,8 +51,6 @@ class PomodoroApp extends React.Component {
 
         // 初始化数据
         new Initialization()
-
-        console.log("fengyiyi")
     }
 
     render() {
@@ -68,7 +70,7 @@ class PomodoroApp extends React.Component {
 
     componentDidMount() {
         SplashScreen.hide();
-        // AppState.addEventListener('change', this._handleAppStateChange);
+        AppState.addEventListener('change', this._handleAppStateChange);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -88,7 +90,7 @@ class PomodoroApp extends React.Component {
     }
 
     componentWillUnmount() {
-        // AppState.removeEventListener('change', this._handleAppStateChange);
+        AppState.removeEventListener('change', this._handleAppStateChange);
     }
 
     _handleAppStateChange = (nextAppState) => {
@@ -103,10 +105,6 @@ class PomodoroApp extends React.Component {
         if (this.state.appState.match(/inactive|background/)) {
             Utils.setupApplicationIconBadgeNumber();
         }
-    };
-
-    static handleNavigationChange() {
-        console.log("handleNavigationChange called");
     };
 
     /* todo 暂时停用

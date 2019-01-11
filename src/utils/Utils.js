@@ -3,6 +3,8 @@ import GlobalData from "./GlobalData"
 import TaskService from "../database/TaskService"
 import PushNotification from "react-native-push-notification"
 import {getStatusBarHeight, isIphoneX} from "react-native-iphone-x-helper";
+import { NativeModules } from 'react-native';
+
 import {
     Header,
 } from 'react-navigation';
@@ -33,7 +35,17 @@ export default class Utils {
         if (GlobalData.tomatoConfig.showTodoCount) {
             count = TaskService.read(TaskState.TaskStateTodo).length;
         }
-        PushNotification.setApplicationIconBadgeNumber(count);
+
+        if (Platform.OS === 'android') {
+            // android需要自己实现，使用原生的第三方库
+            let shortcutBadgeAndroid = NativeModules.ShortcutBadgeAndroid;
+            shortcutBadgeAndroid.setBadgeCount(count, (completionCallback) => {
+
+            });
+        } else {
+            PushNotification.setApplicationIconBadgeNumber(count); // only for iOS
+        }
+
     }
 
     static getHeaderInset() {

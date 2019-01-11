@@ -59,6 +59,10 @@ Pomodoro App powered by react-native.
 
 ### 开发增强
 
+- 参考资料
+    - [ReactNative 调用 Android 原生模块](https://juejin.im/entry/58f855585c497d0058e26080)
+
+
 - 开发素材
     - [图标优先从这里选](http://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=2706)
 

@@ -198,22 +198,22 @@ class TomatoScreen extends Component {
                         {moment(duration * 1000.0 * (1.0 - this.state.progress)).format("mm:ss")}
                     </Text>
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Symbol'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Courier'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Didot'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Georgia'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', fontFamily: 'Verdana'}}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
                     {/*<Text style={{fontSize: 35, color: COLOR.textNormal, fontWeight: 'bold', }}>*/}
-                        {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
+                    {/*{moment(duration * 1000.0 * (1.0 - this.status.progress)).format("mm:ss")}*/}
                     {/*</Text>*/}
 
                     <TouchableWithoutFeedback onPress={this.actionToggle}>
@@ -227,9 +227,8 @@ class TomatoScreen extends Component {
                                 size={200}
                                 thickness={10}
                                 showsText={false}
-                                strokeCap="round"
-                            >
-                                <ProgressChildView playStatus={status}/>
+                                strokeCap="round">
+                                <ProgressChildView playStatus={status} />
                             </Progress.Circle>
                         </View>
                     </TouchableWithoutFeedback>
@@ -499,13 +498,11 @@ const styles = StyleSheet.create({
     progressChildView: {
         position: 'absolute',
         left: 7, // 目前是个经验值
-        // top: 0,
         width: 200,
         height: 200,
         borderRadius: 200.0 / 2,
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor: "#0f0",
         backgroundColor: "transparent",
         flexDirection: 'row',
     },
@@ -513,7 +510,7 @@ const styles = StyleSheet.create({
         width: 10,
         height: 40,
         borderRadius: 3,
-        backgroundColor: COLOR.backgroundDarker,
+        backgroundColor: COLOR.backgroundNormal,
         marginRight: 10,
     },
     circleProgressView: {

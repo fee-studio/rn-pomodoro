@@ -1,15 +1,15 @@
 ext {
-    android = [
-            compileSdkVersion   : 27,
-            buildToolsVersion   : '27.0.3',
-            applicationId       : 'com.buerguo.pomodoroapp',
-            minSdkVersion       : 19,
-            targetSdkVersion    : 27,
-            versionCode         : 1,
-            versionName         : '1.1.0',
-            defaultPublishConfig: 'release',
-            publishNonDefault   : true
-    ]
+//    android = [
+//            compileSdkVersion   : 27,
+//            buildToolsVersion   : '27.0.3',
+//            applicationId       : 'com.buerguo.pomodoroapp',
+//            minSdkVersion       : 19,
+//            targetSdkVersion    : 27,
+//            versionCode         : 1,
+//            versionName         : '1.1.0',
+//            defaultPublishConfig: 'release',
+//            publishNonDefault   : true
+//    ]
 
     dependencies = [
             // for PomodoroApp

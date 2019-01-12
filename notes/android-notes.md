@@ -15,7 +15,7 @@ A: 请找到并开启悬浮窗权限。比如miui系统的设置在[此处](http
 java.lang.RuntimeException: Unable to load script from assets 'index.android.bundle'.
 Make sure your bundle is packaged correctly or you're running a packager server.
 ```
-A: react-native升级到0.50.x以上，原来的index.ios.js/index.android.js合并为index.js,后来打包的时候，想着为了统一，我把ios的bundle文件改为index.jsbundle，把android的bundle文件改为index.bundle。但是源码默认要找index.android.bundle，所以，相应的MainActivity.java中要重写相应的方法。
+A: react-native升级到0.50.x以上，原来的index.ios.js/index.android.js合并为index.js,后来打包的时候，想着为了统一，我把ios的bundle文件改为index.jsbundle，把android的bundle文件改为index.jsbundle。但是源码默认要找index.android.bundle，所以，相应的MainActivity.java中要重写相应的方法。
 
 5. （报错）[参考](https://github.com/facebook/react-native/issues/6875)
 ```$javascript

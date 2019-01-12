@@ -1,6 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from : "config.gradle"
 
+ext {
+    compileSdkVersion    = 27
+    buildToolsVersion    = '27.0.3'
+    applicationId        = 'com.buerguo.pomodoroapp'
+    minSdkVersion        = 19
+    targetSdkVersion     = 27
+    versionCode          = 20190112
+    versionName          = '1.1.0'
+    supportLibVersion    = '27.1.1'
+}
+
 buildscript {
     repositories {
         google()
@@ -12,6 +23,31 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.1.1'
     }
 }
+
+/**
+ * Execution failed for task ':react-native-gesture-handler:verifyReleaseResources'.
+ * > java.util.concurrent.ExecutionException: java.util.concurrent.ExecutionException: com.android.builder.internal.aapt.v2.Aapt2Exception: AAPT2 error: check logs for details
+ */
+//subprojects {
+//    project.configurations.all {
+//        resolutionStrategy.eachDependency { details ->
+//            if (details.requested.group == 'com.android.support'
+//                    && !details.requested.name.contains('multidex') ) {
+//                details.useVersion "27.0.3"
+//            }
+//        }
+//    }
+//    afterEvaluate {
+//        android {
+//            compileSdkVersion 27
+//            buildToolsVersion "27.0.3"
+//
+//            defaultConfig {
+//                targetSdkVersion 27
+//            }
+//        }
+//    }
+//}
 
 allprojects {
     repositories {

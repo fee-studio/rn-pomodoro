@@ -32,7 +32,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.realm.react.RealmReactPackage;
-import me.jhen.react.BadgePackage;
 
 //import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage;
 //import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
@@ -42,12 +41,9 @@ public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
-        @Override
-        protected String getJSBundleFile() {
-//  todo 暂时停用   return CodePush.getJSBundleFile();
-            return "index.bundle";
-        }
-
+        /**
+         * VIP code-push下才需要复写getJSBundleFile()方法，不支持code-push的话不需要复写这个方法。
+         */
 
         // todo code-push下的这个有问题
         // 2. Override the getJSBundleFile method in order to let
@@ -56,7 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
 //        @Override
 //        protected String getJSBundleFile() {
 ////            return CodePush.getJSBundleFile();
-//            return "index.bundle";
+//            return "index.jsbundle";
 //        }
 
         @Override
@@ -72,7 +68,6 @@ public class MainApplication extends Application implements ReactApplication {
 //            new AppCenterReactNativePackage(MainApplication.this),
 //            new ReactNativeDocumentPicker(),
                     new MainReactPackage(),
-            new BadgePackage(),
                     new LinearGradientPackage(),
                     new ReactNativePushNotificationPackage(),
                     new RealmReactPackage(),
@@ -95,7 +90,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected String getBundleAssetName() {
-            return "index.bundle";
+            return "index.jsbundle";
         }
     };
 

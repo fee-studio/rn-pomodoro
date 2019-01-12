@@ -73,7 +73,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-        bundleAssetName: "index.bundle",
+        bundleAssetName: "index.jsbundle",
         entryFile      : "index.js",
         bundleInDebug  : false,
         bundleInRelease: true,
@@ -110,15 +110,15 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.android["applicationId"]
-        minSdkVersion rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode rootProject.ext.android["versionCode"]
-        versionName rootProject.ext.android["versionName"]             // 版本号
+        applicationId       rootProject.ext.applicationId
+        minSdkVersion       rootProject.ext.minSdkVersion
+        targetSdkVersion    rootProject.ext.targetSdkVersion
+        versionCode         rootProject.ext.versionCode
+        versionName         rootProject.ext.versionName  // 版本号
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -178,10 +178,34 @@ android {
             }
         }
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
+//subprojects {
+//    project.configurations.all {
+//        resolutionStrategy.eachDependency { details ->
+//            if (details.requested.group == 'com.android.support'
+//                    && !details.requested.name.contains('multidex') ) {
+//                details.useVersion rootProject.ext.buildToolsVersion
+//            }
+//        }
+//    }
+//    afterEvaluate {
+//        android {
+//            compileSdkVersion rootProject.ext.compileSdkVersion
+//            buildToolsVersion rootProject.ext.buildToolsVersion
+//
+//            defaultConfig {
+//                targetSdkVersion rootProject.ext.targetSdkVersion
+//            }
+//        }
+//    }
+//}
+
 dependencies {
-    compile project(':react-native-android-badge')
     compile project(':react-native-linear-gradient')
     compile project(':realm')
     compile project(':react-native-vector-icons')
@@ -202,12 +226,14 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
-    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion"
+//    implementation rootProject.ext.dependencies["appcompat-v7"]
     // react native
     implementation rootProject.ext.dependencies["react-native"]
     // From node_modules
     implementation (rootProject.ext.dependencies["play-services-gcm"]) { force = true; }
-    // for project react-native-push-notification
+
+    implementation rootProject.ext.dependencies["ShortcutBadger"]
     // good utils
     implementation rootProject.ext.dependencies["utilcode"]
     // 【信鸽】

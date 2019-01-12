@@ -27,8 +27,9 @@ export default class Initialization {
 
         this.initSettingConfig();
 
+        // todo 注意这里，每次数据会被重置的
         if (DEBUG) {
-            MockDataManager.initMockData();
+            // MockDataManager.initMockData();
         }
 
         // 启动服务

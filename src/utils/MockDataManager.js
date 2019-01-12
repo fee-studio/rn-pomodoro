@@ -395,7 +395,7 @@ export default class MockDataManager {
                 startTime: new Date(),
                 endTime: new Date(),
                 isInterrupt: false,
-                state: 4,
+                state: 1,
                 type: 1,
                 duration: 300,
                 // curTask: {}

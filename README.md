@@ -20,6 +20,11 @@ Pomodoro App powered by react-native.
     ```
     yarn upgrade-interactive --latest
     ```
+- android拉取模拟器`/data/data`数据的命令，比如realm数据库文件，不过只能拉取模拟器的，不能拉取真机的，真机的需要root
+    ```
+    fengyiyi@fengyiyi-macbookpro:~$ adb pull /data/data/com.buerguo.pomodoroapp/files/default.realm
+    ```
+
 
 ### 项目技术栈
 
@@ -134,3 +139,9 @@ Pomodoro App powered by react-native.
 - 打渠道包的方式
     1. [x]  [fastlane](https://github.com/fastlane/fastlane)
     2. [] [walle](https://github.com/Meituan-Dianping/walle)
+
+### 常见问题
+
+- 如果android studio一直提示`Indexing paused due to batch updated`，解决方法：
+    1. AndroidStudio - File - Invalidated caches/Restart...
+    2. 如果1方法不行，就删了项目，重新打开一次。

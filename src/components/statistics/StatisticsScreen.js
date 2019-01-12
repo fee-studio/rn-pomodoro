@@ -3,15 +3,15 @@
  *  功能：
  */
 
-import React, {Component, PureComponent} from 'react'
-import {Text, View, StyleSheet, FlatList, TouchableHighlight, TouchableWithoutFeedback, ScrollView} from "react-native"
+import React, {PureComponent} from 'react'
+import {FlatList, ScrollView, StyleSheet, Text, TouchableWithoutFeedback, View} from "react-native"
 import {COLOR} from "../../utils/Config"
-import {Tomato} from "../../database/RealmDB"
 import TomatoService from "../../database/TomatoService"
 import TaskService from "../../database/TaskService"
 import GlobalData from "../../utils/GlobalData"
 import {connect} from "react-redux"
 import Utils from "../../utils/Utils";
+import {actionRefreshData, actionRefreshData2, actionRefreshData3} from "./actions";
 
 
 class DailyTomatoCountListItem extends React.PureComponent {
@@ -76,7 +76,7 @@ class DailyTomatoCountList extends React.PureComponent {
 
     render() {
         return (
-            <View style={{height: 30+200}}>
+            <View style={{height: 30 + 200}}>
                 <Text style={{
                     textAlign: 'center',
                     fontSize: 30,
@@ -96,7 +96,7 @@ class DailyTomatoCountList extends React.PureComponent {
                     //     {length: 30, offset: 30 * index, index}
                     // )}
                     // ItemSeparatorComponent={({highlighted}) => ( <View style={[style.separator, highlighted && {marginLeft: 0}]} /> )}
-                 />
+                />
             </View>
         )
     }
@@ -176,23 +176,36 @@ class StatisticsScreen extends PureComponent {
                                           data={this.props.everydayStatisticsData.items}/>
                 </View>
                 {/*<View style={[styles.moduleContainer, {height:250}]}>*/}
-                    {/*<Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>*/}
-                    {/*<DailyTomatoCountList style={{backgroundColor: '#0f0'}}*/}
-                                          {/*data={this.props.everydayStatisticsData.items}/>*/}
+                {/*<Text style={styles.moduleTitle}>{this.props.everydayStatisticsData.title}</Text>*/}
+                {/*<DailyTomatoCountList style={{backgroundColor: '#0f0'}}*/}
+                {/*data={this.props.everydayStatisticsData.items}/>*/}
                 {/*</View>*/}
             </ScrollView>
         )
     }
 
     componentDidMount() {
+        this._componentFocused();
 
+        /**
+         * VIP 使用react-navigation的生命周期来实现类似于iOS的willAppear/didAppear的生命周期的方法。
+         */
+        this._sub = this.props.navigation.addListener('didFocus', this._componentFocused);
+    }
+
+    componentWillUnmount() {
+        this._sub.remove();
+    }
+
+    _componentFocused = () => {
+        this.props.refreshData();
     }
 
 }
 
 const mapStateToProps = (state, ownProps) => {
     // todo 写这里会刷新好多次, 完了优化
-    let props = {
+    return {
         totalStatisticsData: {
             title: '累计完成统计',
             time: {
@@ -228,12 +241,14 @@ const mapStateToProps = (state, ownProps) => {
             items: TomatoService.arrInMonthDidFinishCount(),
         }
     }
-
-    return props
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {}
+    return {
+        refreshData:() => {
+            dispatch(actionRefreshData)
+        }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StatisticsScreen)

@@ -21,9 +21,9 @@ export const TaskState = {
 export const TaskStateTitle = {
     TaskStateTitleUnknown: '未知的',       // 未知的
     TaskStateTitleTodo: '今日待办',          // 今日待办
-    TaskStateTitlePlan: '任务计划',          // 任务计划
-    TaskStateTitleComplete: '完成的',      // 完成的
-    TaskStateTitleOverdue: '过期的'        // 过期的
+    TaskStateTitlePlan: '未来计划',          // 任务计划
+    TaskStateTitleComplete: '已完成',      // 完成的
+    TaskStateTitleOverdue: '未完成'        // 过期的
 }
 
 export const TomatoState = {

@@ -149,7 +149,7 @@ class TaskListView extends PureComponent {
         return (
             <View style={{flex: 1}}>
                 {/*渐变*/}
-                <LinearGradient colors={['#8D9AFC', '#498AC3']} start={{x: 0, y: 0}} end={{x: 1, y: 0}} >
+                {/*<LinearGradient colors={['#8D9AFC', '#498AC3']} start={{x: 0, y: 0}} end={{x: 1, y: 0}} >*/}
                     {/*如果你每个组都复用一个子组件那就按照这个的结构*/}
                     <SectionList
                         stickySectionHeadersEnabled={true}
@@ -178,7 +178,7 @@ class TaskListView extends PureComponent {
                         keyExtractor={this._keyExtractor}
                     />
 
-                </LinearGradient>
+                {/*</LinearGradient>*/}
 
                 {/* 如果你想要不同的组返回不同样式的子组件那就按照这个的结构返回不同的renderItem即可*/}
                 {/*<SectionList sections={this.items2}*/}

@@ -13,6 +13,7 @@ import {connect} from "react-redux"
 import ScrollableTabView, {DefaultTabBar,} from 'react-native-scrollable-tab-view';
 import Icon from "react-native-vector-icons/SimpleLineIcons";
 import DIYIcon from "../../modules/iconfont/DIYIcon";
+import LinearGradient from "react-native-linear-gradient";
 // import {Button} from 'antd-mobile';
 // import Button from 'antd-mobile/lib/button';
 
@@ -24,7 +25,7 @@ const initialLayout = {
 class TaskListScreen extends React.PureComponent {
 
     static navigationOptions = ({navigation, screenProps}) => ({
-        headerLeft:null, // 覆盖返回按钮, 返回按钮不显示了。
+        headerLeft: null, // 覆盖返回按钮, 返回按钮不显示了。
         // headerRight: <TouchableWithoutFeedback style={styles.headerRightBtn} onPress={() => {
         //     navigation.dispatch(toCreateTask())
         // }}>
@@ -100,11 +101,11 @@ class TaskListScreen extends React.PureComponent {
 
     _renderTabBar = props => <TabBar {...props} style={styles.tabBar}
                                      labelStyle={{fontSize: 12, margin: 3, color: COLOR.primary}}
-                                     tabStyle={{backgroundColor: COLOR.backgroundLighter, }}
+                                     tabStyle={{backgroundColor: COLOR.backgroundLighter,}}
                                      scrollEnabled={false}
-                                     // shadowOffset={0}
-                                     // shadowOpacity={0}
-                                     // shadowColor={COLOR.clear}
+        // shadowOffset={0}
+        // shadowOpacity={0}
+        // shadowColor={COLOR.clear}
         // scrollEnabled={this.props.tabViewScrollable}
                                      indicatorStyle={{backgroundColor: COLOR.primary}}
     />
@@ -118,52 +119,54 @@ class TaskListScreen extends React.PureComponent {
 
 
     _onPress4CreateTask = () => {
-        this.props.navigation.navigate('CreateTask', {item:null})
+        this.props.navigation.navigate('CreateTask', {item: null})
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <LinearGradient colors={['#8D9AFC', '#498AC3']}
+                                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                                style={{flex: 1}}>
+                    <TabView
+                        style={styles.container}
+                        navigationState={this.state}
+                        renderScene={this._renderScene}
+                        renderTabBar={this._renderTabBar}
+                        onIndexChange={this._handleIndexChange}
+                        initialLayout={initialLayout}
+                        useNativeDriver
+                    />
 
-                <TabView
-                    style={styles.container}
-                    navigationState={this.state}
-                    renderScene={this._renderScene}
-                    renderTabBar={this._renderTabBar}
-                    onIndexChange={this._handleIndexChange}
-                    initialLayout={initialLayout}
-                    useNativeDriver
-                />
 
+                    <TouchableHighlight
+                        style={styles.btn4CreateTask}
+                        onPress={this._onPress4CreateTask}>
+                        <View>
+                            {/*<Icon name="plus" size={60} color={COLOR.textLightNormal}/>*/}
+                            <DIYIcon name="add" size={40} color={COLOR.textLightNormal}/>
+                            {/*<DIYIcon name={'add'} size={'50'} color={COLOR.textLightNormal} />*/}
+                        </View>
+                    </TouchableHighlight>
 
-                <TouchableHighlight
-                    style={styles.btn4CreateTask}
-                    onPress={this._onPress4CreateTask}>
-                    <View>
-                        {/*<Icon name="plus" size={60} color={COLOR.textLightNormal}/>*/}
-                        <DIYIcon name="add" size={40} color={COLOR.textLightNormal}/>
-                        {/*<DIYIcon name={'add'} size={'50'} color={COLOR.textLightNormal} />*/}
-                    </View>
-                </TouchableHighlight>
+                    {/*<ScrollableTabView*/}
+                    {/*style={{marginTop: 20,}}*/}
+                    {/*initialPage={1}*/}
+                    {/*renderTabBar={() => <DefaultTabBar/>}*/}
+                    {/*locked={!this.props.tabViewScrollable}*/}
+                    {/*>*/}
 
-                {/*<ScrollableTabView*/}
-                {/*style={{marginTop: 20,}}*/}
-                {/*initialPage={1}*/}
-                {/*renderTabBar={() => <DefaultTabBar/>}*/}
-                {/*locked={!this.props.tabViewScrollable}*/}
-                {/*>*/}
+                    {/*<TaskListView tabLabel='Tab #111' taskState={TaskState.TaskStateTodo}*/}
+                    {/*taskScreenType={this.props.taskScreenType}/>*/}
+                    {/*<TaskListView tabLabel='Tab #122' taskState={TaskState.TaskStatePlan}*/}
+                    {/*taskScreenType={this.props.taskScreenType}/>*/}
+                    {/*<TaskListView tabLabel='Tab #133' taskState={TaskState.TaskStateComplete}*/}
+                    {/*taskScreenType={this.props.taskScreenType}/>*/}
+                    {/*<TaskListView tabLabel='Tab #144' taskState={TaskState.TaskStateOverdue}*/}
+                    {/*taskScreenType={this.props.taskScreenType}/>*/}
 
-                {/*<TaskListView tabLabel='Tab #111' taskState={TaskState.TaskStateTodo}*/}
-                {/*taskScreenType={this.props.taskScreenType}/>*/}
-                {/*<TaskListView tabLabel='Tab #122' taskState={TaskState.TaskStatePlan}*/}
-                {/*taskScreenType={this.props.taskScreenType}/>*/}
-                {/*<TaskListView tabLabel='Tab #133' taskState={TaskState.TaskStateComplete}*/}
-                {/*taskScreenType={this.props.taskScreenType}/>*/}
-                {/*<TaskListView tabLabel='Tab #144' taskState={TaskState.TaskStateOverdue}*/}
-                {/*taskScreenType={this.props.taskScreenType}/>*/}
-
-                {/*</ScrollableTabView>*/}
-
+                    {/*</ScrollableTabView>*/}
+                </LinearGradient>
             </View>
         )
     }
@@ -186,9 +189,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     tabBar: {
-        elevation:0,
+        elevation: 0,
         backgroundColor: COLOR.backgroundLighter,
-        height:44,
+        height: 44,
         shadowColor: 'white',
         shadowOpacity: 0,
         shadowRadius: 0,
@@ -203,11 +206,11 @@ const styles = StyleSheet.create({
     btn4CreateTask: {
         width: 60,
         height: 60,
-        borderRadius:30,
+        borderRadius: 30,
         position: "absolute", // 悬浮的效果
         right: 20,
         bottom: 20,
-        backgroundColor:  '#ff6347dd', // 半透明效果
+        backgroundColor: '#ff6347dd', // 半透明效果
         justifyContent: "center",
         alignItems: 'center',
     }

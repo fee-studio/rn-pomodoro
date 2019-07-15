@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {
     createAppContainer,
     createBottomTabNavigator,
-    createStackNavigator, getActiveChildNavigationOptions,
+    createStackNavigator,
+    getActiveChildNavigationOptions,
     HeaderStyleInterpolator,
 } from 'react-navigation'
 

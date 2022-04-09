@@ -43,7 +43,7 @@
   "dependencies": {
     "art": "^0.10.1",
     "babel-plugin-import": "^1.6.2",
-    "moment": "^2.23.0",
+    "moment": "^2.29.2",
     "prop-types": "latest",
     "react": "16.6.3",
     "react-native": "0.57.8",
